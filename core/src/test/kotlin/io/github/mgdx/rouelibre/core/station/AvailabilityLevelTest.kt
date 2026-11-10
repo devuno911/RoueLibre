@@ -1,0 +1,114 @@
+package io.github.mgdx.rouelibre.core.station
+
+import io.github.mgdx.rouelibre.core.geo.Coordinates
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+/** Tests of the availability scale and of what the indicator shows. */
+class AvailabilityLevelTest {
+
+    private fun station(capacity: Int? = 20) = Station(
+        id = "1",
+        name = "Rue Nationale",
+        position = Coordinates(50.633, 3.053),
+        capacity = capacity,
+        postalCode = "59000",
+    )
+
+    private fun availability(
+        bikes: Int,
+        docks: Int,
+        installed: Boolean = true,
+        renting: Boolean = true,
+        returning: Boolean = true,
+    ) = StationAvailability(
+        stationId = "1",
+        bikesAvailable = bikes,
+        docksAvailable = docks,
+        isInstalled = installed,
+        isRenting = renting,
+        isReturning = returning,
+        reportedAt = null,
+    )
+
+    @Test
+    fun `the scale follows the announced thresholds`() {
+        assertEquals(AvailabilityLevel.None, availabilityLevelOf(0))
+        assertEquals(AvailabilityLevel.Low, availabilityLevelOf(1))
+        assertEquals(AvailabilityLevel.Low, availabilityLevelOf(2))
+        assertEquals(AvailabilityLevel.Medium, availabilityLevelOf(3))
+        assertEquals(AvailabilityLevel.Medium, availabilityLevelOf(5))
+        assertEquals(AvailabilityLevel.Good, availabilityLevelOf(6))
+        assertEquals(AvailabilityLevel.Good, availabilityLevelOf(40))
+    }
+
+    @Test
+    fun `a negative count is treated as an absence`() {
+        assertEquals(AvailabilityLevel.None, availabilityLevelOf(-3))
+    }
+
+    @Test
+    fun `bike mode counts bikes, dock mode counts docks`() {
+        val entry = StationWithAvailability(station(), availability(bikes = 7, docks = 13))
+
+        assertEquals(7, entry.displayFor(AvailabilityMode.Bikes).count)
+        assertEquals(13, entry.displayFor(AvailabilityMode.Docks).count)
+    }
+
+    @Test
+    fun `the arc relates the count to the published capacity`() {
+        val entry = StationWithAvailability(
+            station(capacity = 20),
+            availability(bikes = 5, docks = 15),
+        )
+
+        assertEquals(0.25f, entry.displayFor(AvailabilityMode.Bikes).filledFraction!!, 1e-4f)
+    }
+
+    @Test
+    fun `without a published capacity the arc falls back on the observed sum`() {
+        val entry = StationWithAvailability(
+            station(capacity = null),
+            availability(bikes = 3, docks = 9),
+        )
+
+        assertEquals(0.25f, entry.displayFor(AvailabilityMode.Bikes).filledFraction!!, 1e-4f)
+    }
+
+    @Test
+    fun `a station that no longer rents is out of service for bikes only`() {
+        // It still provides a real service: returning a bike to it.
+        val entry = StationWithAvailability(
+            station(),
+            availability(bikes = 4, docks = 8, renting = false),
+        )
+
+        assertTrue(entry.displayFor(AvailabilityMode.Bikes).isOutOfService)
+        assertTrue(!entry.displayFor(AvailabilityMode.Docks).isOutOfService)
+        assertEquals(8, entry.displayFor(AvailabilityMode.Docks).count)
+    }
+
+    @Test
+    fun `a station not deployed is out of service on both sides`() {
+        val entry = StationWithAvailability(
+            station(),
+            availability(bikes = 4, docks = 8, installed = false),
+        )
+
+        assertTrue(entry.displayFor(AvailabilityMode.Bikes).isOutOfService)
+        assertTrue(entry.displayFor(AvailabilityMode.Docks).isOutOfService)
+    }
+
+    @Test
+    fun `a station without a state shows neither figure nor level`() {
+        val entry = StationWithAvailability(station(), availability = null)
+
+        val display = entry.displayFor(AvailabilityMode.Bikes)
+        assertNull(display.count)
+        assertNull(display.level)
+        assertNull(display.filledFraction)
+        assertTrue(!display.isOutOfService)
+    }
+}

@@ -1,0 +1,797 @@
+{
+  "language": "en",
+  "cases": [
+    {
+      "input": "Abbey Rd",
+      "normalized": "abbey road",
+      "type": null,
+      "name": "abbey road"
+    },
+    {
+      "input": "Baker Street",
+      "normalized": "baker street",
+      "type": null,
+      "name": "baker street"
+    },
+    {
+      "input": "St James's Park",
+      "normalized": "saint james south park",
+      "type": null,
+      "name": "saint james south park"
+    },
+    {
+      "input": "Queen's Crescent",
+      "normalized": "queen south crescent",
+      "type": null,
+      "name": "queen south crescent"
+    },
+    {
+      "input": "Kensington High St",
+      "normalized": "kensington high st",
+      "type": null,
+      "name": "kensington high st"
+    },
+    {
+      "input": "Dr Martin Luther King Jr Blvd",
+      "normalized": "doctor martin luther king jr boulevard",
+      "type": null,
+      "name": "doctor martin luther king jr boulevard"
+    },
+    {
+      "input": "N Michigan Ave",
+      "normalized": "north michigan avenue",
+      "type": null,
+      "name": "north michigan avenue"
+    },
+    {
+      "input": "The Mall",
+      "normalized": "the mall",
+      "type": null,
+      "name": "the mall"
+    },
+    {
+      "input": "Hyde Park Corner",
+      "normalized": "hyde park corner",
+      "type": null,
+      "name": "hyde park corner"
+    },
+    {
+      "input": "Cherry Ln",
+      "normalized": "cherry lane",
+      "type": null,
+      "name": "cherry lane"
+    },
+    {
+      "input": "Mt Pleasant Ter",
+      "normalized": "mount pleasant terrace",
+      "type": null,
+      "name": "mount pleasant terrace"
+    },
+    {
+      "input": "Fifth Avenue",
+      "normalized": "fifth avenue",
+      "type": null,
+      "name": "fifth avenue"
+    },
+    {
+      "input": "Adanac",
+      "normalized": "adanac",
+      "type": null,
+      "name": "adanac"
+    },
+    {
+      "input": "Rue de la Calcite",
+      "normalized": "rue de la calcite",
+      "type": null,
+      "name": "rue de la calcite"
+    },
+    {
+      "input": "Rue du Bataillon",
+      "normalized": "rue du bataillon",
+      "type": null,
+      "name": "rue du bataillon"
+    },
+    {
+      "input": "Rue Pierre-Paul-Bertin",
+      "normalized": "rue pierre paul bertin",
+      "type": null,
+      "name": "rue pierre paul bertin"
+    },
+    {
+      "input": "Rue Mathieu-Da-Costa",
+      "normalized": "rue mathieu da costa",
+      "type": null,
+      "name": "rue mathieu da costa"
+    },
+    {
+      "input": "Rue des Cajuns",
+      "normalized": "rue des cajuns",
+      "type": null,
+      "name": "rue des cajuns"
+    },
+    {
+      "input": "Rue Chapman",
+      "normalized": "rue chapman",
+      "type": null,
+      "name": "rue chapman"
+    },
+    {
+      "input": "Rue des Granges",
+      "normalized": "rue des granges",
+      "type": null,
+      "name": "rue des granges"
+    },
+    {
+      "input": "Rue Jandomien",
+      "normalized": "rue jandomien",
+      "type": null,
+      "name": "rue jandomien"
+    },
+    {
+      "input": "Rue Saint-Michel",
+      "normalized": "rue saint michel",
+      "type": null,
+      "name": "rue saint michel"
+    },
+    {
+      "input": "Rue Ernest-Lacasse",
+      "normalized": "rue ernest lacasse",
+      "type": null,
+      "name": "rue ernest lacasse"
+    },
+    {
+      "input": "Rue Paul-Poirier",
+      "normalized": "rue paul poirier",
+      "type": null,
+      "name": "rue paul poirier"
+    },
+    {
+      "input": "Rue de la Cantatrice",
+      "normalized": "rue de la cantatrice",
+      "type": null,
+      "name": "rue de la cantatrice"
+    },
+    {
+      "input": "Chemin des Îles",
+      "normalized": "chemin des iles",
+      "type": null,
+      "name": "chemin des iles"
+    },
+    {
+      "input": "Rue Albertine",
+      "normalized": "rue albertine",
+      "type": null,
+      "name": "rue albertine"
+    },
+    {
+      "input": "Rue Boutin",
+      "normalized": "rue boutin",
+      "type": null,
+      "name": "rue boutin"
+    },
+    {
+      "input": "Rue de Dorval",
+      "normalized": "rue de dorval",
+      "type": null,
+      "name": "rue de dorval"
+    },
+    {
+      "input": "Rue de la Flore",
+      "normalized": "rue de la flore",
+      "type": null,
+      "name": "rue de la flore"
+    },
+    {
+      "input": "Rue De Ségur",
+      "normalized": "rue de segur",
+      "type": null,
+      "name": "rue de segur"
+    },
+    {
+      "input": "Rue des Épinettes",
+      "normalized": "rue des epinettes",
+      "type": null,
+      "name": "rue des epinettes"
+    },
+    {
+      "input": "Rue des Pensées",
+      "normalized": "rue des pensees",
+      "type": null,
+      "name": "rue des pensees"
+    },
+    {
+      "input": "Rue Després",
+      "normalized": "rue despres",
+      "type": null,
+      "name": "rue despres"
+    },
+    {
+      "input": "Rue du Fondeur;Rue de l'Armurier",
+      "normalized": "rue du fondeur rue de l armurier",
+      "type": null,
+      "name": "rue du fondeur rue de l armurier"
+    },
+    {
+      "input": "Rue du Sirocco",
+      "normalized": "rue du sirocco",
+      "type": null,
+      "name": "rue du sirocco"
+    },
+    {
+      "input": "Rue Francois-Thomas",
+      "normalized": "rue francois thomas",
+      "type": null,
+      "name": "rue francois thomas"
+    },
+    {
+      "input": "Rue Jean-Paul-Mousseau",
+      "normalized": "rue jean paul mousseau",
+      "type": null,
+      "name": "rue jean paul mousseau"
+    },
+    {
+      "input": "Rue Louis-Nolin",
+      "normalized": "rue louis nolin",
+      "type": null,
+      "name": "rue louis nolin"
+    },
+    {
+      "input": "Rue Octave-Crémazie",
+      "normalized": "rue octave cremazie",
+      "type": null,
+      "name": "rue octave cremazie"
+    },
+    {
+      "input": "Rue Robert-Rumilly",
+      "normalized": "rue robert rumilly",
+      "type": null,
+      "name": "rue robert rumilly"
+    },
+    {
+      "input": "Rue Saint-Omer",
+      "normalized": "rue saint omer",
+      "type": null,
+      "name": "rue saint omer"
+    },
+    {
+      "input": "Rue Weyman",
+      "normalized": "rue weyman",
+      "type": null,
+      "name": "rue weyman"
+    },
+    {
+      "input": "Boulevard de s Chuttes",
+      "normalized": "boulevard de south chuttes",
+      "type": "boulevard",
+      "name": "de south chuttes"
+    },
+    {
+      "input": "Théâtre de la Dame Blanche",
+      "normalized": "theatre de la dame blanche",
+      "type": null,
+      "name": "theatre de la dame blanche"
+    },
+    {
+      "input": "Bibliothèque de l'Assemblée Nationale",
+      "normalized": "bibliotheque de l assemblee nationale",
+      "type": null,
+      "name": "bibliotheque de l assemblee nationale"
+    },
+    {
+      "input": "Rue des Allonges",
+      "normalized": "rue des allonges",
+      "type": null,
+      "name": "rue des allonges"
+    },
+    {
+      "input": "118e Rue",
+      "normalized": "118e rue",
+      "type": null,
+      "name": "118e rue"
+    },
+    {
+      "input": "4e Rue",
+      "normalized": "4e rue",
+      "type": null,
+      "name": "4e rue"
+    },
+    {
+      "input": "75e Rue Est",
+      "normalized": "75e rue est",
+      "type": null,
+      "name": "75e rue est"
+    },
+    {
+      "input": "Avenue Banville",
+      "normalized": "avenue banville",
+      "type": "avenue",
+      "name": "banville"
+    },
+    {
+      "input": "Avenue Courvoisier",
+      "normalized": "avenue courvoisier",
+      "type": "avenue",
+      "name": "courvoisier"
+    },
+    {
+      "input": "Avenue de la Capricieuse",
+      "normalized": "avenue de la capricieuse",
+      "type": "avenue",
+      "name": "de la capricieuse"
+    },
+    {
+      "input": "Avenue de Troyes",
+      "normalized": "avenue de troyes",
+      "type": "avenue",
+      "name": "de troyes"
+    },
+    {
+      "input": "Avenue des Martyrs",
+      "normalized": "avenue des martyrs",
+      "type": "avenue",
+      "name": "des martyrs"
+    },
+    {
+      "input": "Avenue du Costebelle",
+      "normalized": "avenue du costebelle",
+      "type": "avenue",
+      "name": "du costebelle"
+    },
+    {
+      "input": "Avenue Émile-Henriot",
+      "normalized": "avenue emile henriot",
+      "type": "avenue",
+      "name": "emile henriot"
+    },
+    {
+      "input": "Avenue Jacqueline",
+      "normalized": "avenue jacqueline",
+      "type": "avenue",
+      "name": "jacqueline"
+    },
+    {
+      "input": "Avenue Madeleine-De Verchères",
+      "normalized": "avenue madeleine de vercheres",
+      "type": "avenue",
+      "name": "madeleine de vercheres"
+    },
+    {
+      "input": "Avenue Plante",
+      "normalized": "avenue plante",
+      "type": "avenue",
+      "name": "plante"
+    },
+    {
+      "input": "Avenue Simon-Bolivar",
+      "normalized": "avenue simon bolivar",
+      "type": "avenue",
+      "name": "simon bolivar"
+    },
+    {
+      "input": "Boulevard de l'Entente",
+      "normalized": "boulevard de l entente",
+      "type": "boulevard",
+      "name": "de l entente"
+    },
+    {
+      "input": "Boulevard Saint-Jacques",
+      "normalized": "boulevard saint jacques",
+      "type": "boulevard",
+      "name": "saint jacques"
+    },
+    {
+      "input": "Ch Ste-Foy",
+      "normalized": "ch ste foy",
+      "type": null,
+      "name": "ch ste foy"
+    },
+    {
+      "input": "Grande Allée Ouest",
+      "normalized": "grande allee ouest",
+      "type": null,
+      "name": "grande allee ouest"
+    },
+    {
+      "input": "Place Georges-V Est",
+      "normalized": "place georges v est",
+      "type": "place",
+      "name": "georges v est"
+    },
+    {
+      "input": "Rue Alexander",
+      "normalized": "rue alexander",
+      "type": null,
+      "name": "rue alexander"
+    },
+    {
+      "input": "Rue Apollon",
+      "normalized": "rue apollon",
+      "type": null,
+      "name": "rue apollon"
+    },
+    {
+      "input": "Rue Bastin",
+      "normalized": "rue bastin",
+      "type": null,
+      "name": "rue bastin"
+    },
+    {
+      "input": "Rue Bibaud",
+      "normalized": "rue bibaud",
+      "type": null,
+      "name": "rue bibaud"
+    },
+    {
+      "input": "Rue Bourguignon",
+      "normalized": "rue bourguignon",
+      "type": null,
+      "name": "rue bourguignon"
+    },
+    {
+      "input": "Rue Catherine-Nau",
+      "normalized": "rue catherine nau",
+      "type": null,
+      "name": "rue catherine nau"
+    },
+    {
+      "input": "Rue Chevrillon",
+      "normalized": "rue chevrillon",
+      "type": null,
+      "name": "rue chevrillon"
+    },
+    {
+      "input": "Rue Cozet",
+      "normalized": "rue cozet",
+      "type": null,
+      "name": "rue cozet"
+    },
+    {
+      "input": "Rue d'Youville",
+      "normalized": "rue d youville",
+      "type": null,
+      "name": "rue d youville"
+    },
+    {
+      "input": "Rue de Bridgewater",
+      "normalized": "rue de bridgewater",
+      "type": null,
+      "name": "rue de bridgewater"
+    },
+    {
+      "input": "Rue De Constance",
+      "normalized": "rue de constance",
+      "type": null,
+      "name": "rue de constance"
+    },
+    {
+      "input": "Rue de l'Abbé-Ruelland",
+      "normalized": "rue de l abbe ruelland",
+      "type": null,
+      "name": "rue de l abbe ruelland"
+    },
+    {
+      "input": "Rue de l'Avrillet",
+      "normalized": "rue de l avrillet",
+      "type": null,
+      "name": "rue de l avrillet"
+    },
+    {
+      "input": "Rue de la Belle-Maison",
+      "normalized": "rue de la belle maison",
+      "type": null,
+      "name": "rue de la belle maison"
+    },
+    {
+      "input": "Rue de la Dignité",
+      "normalized": "rue de la dignite",
+      "type": null,
+      "name": "rue de la dignite"
+    },
+    {
+      "input": "Rue de la Montagne-des-Roches",
+      "normalized": "rue de la montagne des roches",
+      "type": null,
+      "name": "rue de la montagne des roches"
+    },
+    {
+      "input": "Rue De la Salle",
+      "normalized": "rue de la salle",
+      "type": null,
+      "name": "rue de la salle"
+    },
+    {
+      "input": "Rue De Louvières",
+      "normalized": "rue de louvieres",
+      "type": null,
+      "name": "rue de louvieres"
+    },
+    {
+      "input": "Rue de Normandel",
+      "normalized": "rue de normandel",
+      "type": null,
+      "name": "rue de normandel"
+    },
+    {
+      "input": "Rue de Terrebonne",
+      "normalized": "rue de terrebonne",
+      "type": null,
+      "name": "rue de terrebonne"
+    },
+    {
+      "input": "Rue des Acadiens",
+      "normalized": "rue des acadiens",
+      "type": null,
+      "name": "rue des acadiens"
+    },
+    {
+      "input": "Rue des Bois-Francs",
+      "normalized": "rue des bois francs",
+      "type": null,
+      "name": "rue des bois francs"
+    },
+    {
+      "input": "Rue des Commissaires Ouest",
+      "normalized": "rue des commissaires ouest",
+      "type": null,
+      "name": "rue des commissaires ouest"
+    },
+    {
+      "input": "Rue des Gaulis",
+      "normalized": "rue des gaulis",
+      "type": null,
+      "name": "rue des gaulis"
+    },
+    {
+      "input": "Rue des Lunaires",
+      "normalized": "rue des lunaires",
+      "type": null,
+      "name": "rue des lunaires"
+    },
+    {
+      "input": "Rue des Outilleurs",
+      "normalized": "rue des outilleurs",
+      "type": null,
+      "name": "rue des outilleurs"
+    },
+    {
+      "input": "Rue des Renards",
+      "normalized": "rue des renards",
+      "type": null,
+      "name": "rue des renards"
+    },
+    {
+      "input": "Rue des Trente-Arpents",
+      "normalized": "rue des trente arpents",
+      "type": null,
+      "name": "rue des trente arpents"
+    },
+    {
+      "input": "Rue Dosquet",
+      "normalized": "rue dosquet",
+      "type": null,
+      "name": "rue dosquet"
+    },
+    {
+      "input": "Rue du Canard-Huppé",
+      "normalized": "rue du canard huppe",
+      "type": null,
+      "name": "rue du canard huppe"
+    },
+    {
+      "input": "Rue du Curé-Drolet",
+      "normalized": "rue du cure drolet",
+      "type": null,
+      "name": "rue du cure drolet"
+    },
+    {
+      "input": "Rue du Griffon",
+      "normalized": "rue du griffon",
+      "type": null,
+      "name": "rue du griffon"
+    },
+    {
+      "input": "Rue du Mont-Saint-Denis",
+      "normalized": "rue du mont saint denis",
+      "type": null,
+      "name": "rue du mont saint denis"
+    },
+    {
+      "input": "Rue du Périgord",
+      "normalized": "rue du perigord",
+      "type": null,
+      "name": "rue du perigord"
+    },
+    {
+      "input": "Rue du Soleil",
+      "normalized": "rue du soleil",
+      "type": null,
+      "name": "rue du soleil"
+    },
+    {
+      "input": "Rue Durocher",
+      "normalized": "rue durocher",
+      "type": null,
+      "name": "rue durocher"
+    },
+    {
+      "input": "Rue Eugène-Robitaille",
+      "normalized": "rue eugene robitaille",
+      "type": null,
+      "name": "rue eugene robitaille"
+    },
+    {
+      "input": "Rue François-Drouin",
+      "normalized": "rue francois drouin",
+      "type": null,
+      "name": "rue francois drouin"
+    },
+    {
+      "input": "Rue Geneviève-Harnois",
+      "normalized": "rue genevieve harnois",
+      "type": null,
+      "name": "rue genevieve harnois"
+    },
+    {
+      "input": "Rue Guillaume-Le Breton",
+      "normalized": "rue guillaume le breton",
+      "type": null,
+      "name": "rue guillaume le breton"
+    },
+    {
+      "input": "Rue Isidore-Thibaudeau",
+      "normalized": "rue isidore thibaudeau",
+      "type": null,
+      "name": "rue isidore thibaudeau"
+    },
+    {
+      "input": "Rue Jean-Lelarge",
+      "normalized": "rue jean lelarge",
+      "type": null,
+      "name": "rue jean lelarge"
+    },
+    {
+      "input": "Rue Juchereau-Duchesnay",
+      "normalized": "rue juchereau duchesnay",
+      "type": null,
+      "name": "rue juchereau duchesnay"
+    },
+    {
+      "input": "Rue Laperrière",
+      "normalized": "rue laperriere",
+      "type": null,
+      "name": "rue laperriere"
+    },
+    {
+      "input": "Rue Léandre-Garneau",
+      "normalized": "rue leandre garneau",
+      "type": null,
+      "name": "rue leandre garneau"
+    },
+    {
+      "input": "Rue Louis-Falardeau",
+      "normalized": "rue louis falardeau",
+      "type": null,
+      "name": "rue louis falardeau"
+    },
+    {
+      "input": "Rue Marie D'Abancourt",
+      "normalized": "rue marie d abancourt",
+      "type": null,
+      "name": "rue marie d abancourt"
+    },
+    {
+      "input": "Rue Mélanie",
+      "normalized": "rue melanie",
+      "type": null,
+      "name": "rue melanie"
+    },
+    {
+      "input": "Rue Morgan",
+      "normalized": "rue morgan",
+      "type": null,
+      "name": "rue morgan"
+    },
+    {
+      "input": "Rue Pageau",
+      "normalized": "rue pageau",
+      "type": null,
+      "name": "rue pageau"
+    },
+    {
+      "input": "Rue Philippe-Pasquier",
+      "normalized": "rue philippe pasquier",
+      "type": null,
+      "name": "rue philippe pasquier"
+    },
+    {
+      "input": "Rue Prieur",
+      "normalized": "rue prieur",
+      "type": null,
+      "name": "rue prieur"
+    },
+    {
+      "input": "Rue Richard-Turner",
+      "normalized": "rue richard turner",
+      "type": null,
+      "name": "rue richard turner"
+    },
+    {
+      "input": "Rue Saint-Albert",
+      "normalized": "rue saint albert",
+      "type": null,
+      "name": "rue saint albert"
+    },
+    {
+      "input": "Rue Saint-Maurice",
+      "normalized": "rue saint maurice",
+      "type": null,
+      "name": "rue saint maurice"
+    },
+    {
+      "input": "Rue Savio",
+      "normalized": "rue savio",
+      "type": null,
+      "name": "rue savio"
+    },
+    {
+      "input": "Rue Thibault",
+      "normalized": "rue thibault",
+      "type": null,
+      "name": "rue thibault"
+    },
+    {
+      "input": "Rue Villeray",
+      "normalized": "rue villeray",
+      "type": null,
+      "name": "rue villeray"
+    },
+    {
+      "input": "23e Avenue",
+      "normalized": "23e avenue",
+      "type": null,
+      "name": "23e avenue"
+    },
+    {
+      "input": "Rue du Sourcin",
+      "normalized": "rue du sourcin",
+      "type": null,
+      "name": "rue du sourcin"
+    },
+    {
+      "input": "Rue Gratien-Gélinas",
+      "normalized": "rue gratien gelinas",
+      "type": null,
+      "name": "rue gratien gelinas"
+    },
+    {
+      "input": "1re Rue",
+      "normalized": "1re rue",
+      "type": null,
+      "name": "1re rue"
+    },
+    {
+      "input": "Rue de Saint-Jean-Chrysostome",
+      "normalized": "rue de saint jean chrysostome",
+      "type": null,
+      "name": "rue de saint jean chrysostome"
+    },
+    {
+      "input": "Hermine",
+      "normalized": "hermine",
+      "type": null,
+      "name": "hermine"
+    },
+    {
+      "input": "Rue Dolbec",
+      "normalized": "rue dolbec",
+      "type": null,
+      "name": "rue dolbec"
+    },
+    {
+      "input": "Rue de Vilieu",
+      "normalized": "rue de vilieu",
+      "type": null,
+      "name": "rue de vilieu"
+    }
+  ]
+}

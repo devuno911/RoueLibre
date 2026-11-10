@@ -1,0 +1,773 @@
+{
+  "language": "sl",
+  "cases": [
+    {
+      "input": "Slovenska cesta",
+      "normalized": "slovenska cesta",
+      "type": null,
+      "name": "slovenska cesta"
+    },
+    {
+      "input": "Trubarjeva ulica",
+      "normalized": "trubarjeva ulica",
+      "type": null,
+      "name": "trubarjeva ulica"
+    },
+    {
+      "input": "Trg republike",
+      "normalized": "trg republike",
+      "type": "trg",
+      "name": "republike"
+    },
+    {
+      "input": "Prešernov trg",
+      "normalized": "presernov trg",
+      "type": null,
+      "name": "presernov trg"
+    },
+    {
+      "input": "Dunajska c.",
+      "normalized": "dunajska c",
+      "type": null,
+      "name": "dunajska c"
+    },
+    {
+      "input": "Poljanski nasip",
+      "normalized": "poljanski nasip",
+      "type": null,
+      "name": "poljanski nasip"
+    },
+    {
+      "input": "Tržaška cesta",
+      "normalized": "trzaska cesta",
+      "type": null,
+      "name": "trzaska cesta"
+    },
+    {
+      "input": "Pot na Fužine",
+      "normalized": "pot na fuzine",
+      "type": "pot",
+      "name": "na fuzine"
+    },
+    {
+      "input": "Galleria Giorgio Bombi",
+      "normalized": "galleria giorgio bombi",
+      "type": null,
+      "name": "galleria giorgio bombi"
+    },
+    {
+      "input": "Ponte Otto Agosto",
+      "normalized": "ponte otto agosto",
+      "type": null,
+      "name": "ponte otto agosto"
+    },
+    {
+      "input": "Via Francesco Marani",
+      "normalized": "via francesco marani",
+      "type": null,
+      "name": "via francesco marani"
+    },
+    {
+      "input": "angolare",
+      "normalized": "angolare",
+      "type": null,
+      "name": "angolare"
+    },
+    {
+      "input": "ipsilon",
+      "normalized": "ipsilon",
+      "type": null,
+      "name": "ipsilon"
+    },
+    {
+      "input": "Viadotto Quarto Stormo Caccia",
+      "normalized": "viadotto quarto stormo caccia",
+      "type": null,
+      "name": "viadotto quarto stormo caccia"
+    },
+    {
+      "input": "Borgo Castello",
+      "normalized": "borgo castello",
+      "type": null,
+      "name": "borgo castello"
+    },
+    {
+      "input": "Galleria Cassa di Risparmio",
+      "normalized": "galleria cassa di risparmio",
+      "type": null,
+      "name": "galleria cassa di risparmio"
+    },
+    {
+      "input": "Località Bella Veduta",
+      "normalized": "localita bella veduta",
+      "type": null,
+      "name": "localita bella veduta"
+    },
+    {
+      "input": "Località Castel San Mauro",
+      "normalized": "localita castel san mauro",
+      "type": null,
+      "name": "localita castel san mauro"
+    },
+    {
+      "input": "Località Groppai",
+      "normalized": "localita groppai",
+      "type": null,
+      "name": "localita groppai"
+    },
+    {
+      "input": "Località Piuma",
+      "normalized": "localita piuma",
+      "type": null,
+      "name": "localita piuma"
+    },
+    {
+      "input": "Località Villa Vasi",
+      "normalized": "localita villa vasi",
+      "type": null,
+      "name": "localita villa vasi"
+    },
+    {
+      "input": "Piazza Cesare Battisti",
+      "normalized": "piazza cesare battisti",
+      "type": null,
+      "name": "piazza cesare battisti"
+    },
+    {
+      "input": "Piazza Fiume",
+      "normalized": "piazza fiume",
+      "type": null,
+      "name": "piazza fiume"
+    },
+    {
+      "input": "Piazza San Rocco",
+      "normalized": "piazza san rocco",
+      "type": null,
+      "name": "piazza san rocco"
+    },
+    {
+      "input": "Piazzale Luigi Einaudi",
+      "normalized": "piazzale luigi einaudi",
+      "type": null,
+      "name": "piazzale luigi einaudi"
+    },
+    {
+      "input": "Riva Piazzutta",
+      "normalized": "riva piazzutta",
+      "type": null,
+      "name": "riva piazzutta"
+    },
+    {
+      "input": "Via Alessandro Manzoni",
+      "normalized": "via alessandro manzoni",
+      "type": null,
+      "name": "via alessandro manzoni"
+    },
+    {
+      "input": "Via Angiolina",
+      "normalized": "via angiolina",
+      "type": null,
+      "name": "via angiolina"
+    },
+    {
+      "input": "Via Antonio Cantore",
+      "normalized": "via antonio cantore",
+      "type": null,
+      "name": "via antonio cantore"
+    },
+    {
+      "input": "Via Antonio Rotta",
+      "normalized": "via antonio rotta",
+      "type": null,
+      "name": "via antonio rotta"
+    },
+    {
+      "input": "Via Aquileia",
+      "normalized": "via aquileia",
+      "type": null,
+      "name": "via aquileia"
+    },
+    {
+      "input": "Via Augusto Sverzutti",
+      "normalized": "via augusto sverzutti",
+      "type": null,
+      "name": "via augusto sverzutti"
+    },
+    {
+      "input": "Via Benedetto Croce",
+      "normalized": "via benedetto croce",
+      "type": null,
+      "name": "via benedetto croce"
+    },
+    {
+      "input": "Via Brigata Cuneo",
+      "normalized": "via brigata cuneo",
+      "type": null,
+      "name": "via brigata cuneo"
+    },
+    {
+      "input": "Via Caduti di An Nasiriyah",
+      "normalized": "via caduti di an nasiriyah",
+      "type": null,
+      "name": "via caduti di an nasiriyah"
+    },
+    {
+      "input": "Via Carlo Goldoni",
+      "normalized": "via carlo goldoni",
+      "type": null,
+      "name": "via carlo goldoni"
+    },
+    {
+      "input": "Via Carnia",
+      "normalized": "via carnia",
+      "type": null,
+      "name": "via carnia"
+    },
+    {
+      "input": "Via Cesare Cantù",
+      "normalized": "via cesare cantu",
+      "type": null,
+      "name": "via cesare cantu"
+    },
+    {
+      "input": "Via degli Arcadi",
+      "normalized": "via degli arcadi",
+      "type": null,
+      "name": "via degli arcadi"
+    },
+    {
+      "input": "Via dei Campi",
+      "normalized": "via dei campi",
+      "type": null,
+      "name": "via dei campi"
+    },
+    {
+      "input": "Via dei Gelsi",
+      "normalized": "via dei gelsi",
+      "type": null,
+      "name": "via dei gelsi"
+    },
+    {
+      "input": "Via dei Torriani",
+      "normalized": "via dei torriani",
+      "type": null,
+      "name": "via dei torriani"
+    },
+    {
+      "input": "Via del Colle",
+      "normalized": "via del colle",
+      "type": null,
+      "name": "via del colle"
+    },
+    {
+      "input": "Via del Pasubio",
+      "normalized": "via del pasubio",
+      "type": null,
+      "name": "via del pasubio"
+    },
+    {
+      "input": "Via del Rafut",
+      "normalized": "via del rafut",
+      "type": null,
+      "name": "via del rafut"
+    },
+    {
+      "input": "Via dell'Angolo",
+      "normalized": "via dell angolo",
+      "type": null,
+      "name": "via dell angolo"
+    },
+    {
+      "input": "Via della Barca",
+      "normalized": "via della barca",
+      "type": null,
+      "name": "via della barca"
+    },
+    {
+      "input": "Via della Colonia",
+      "normalized": "via della colonia",
+      "type": null,
+      "name": "via della colonia"
+    },
+    {
+      "input": "Via delle Grappate",
+      "normalized": "via delle grappate",
+      "type": null,
+      "name": "via delle grappate"
+    },
+    {
+      "input": "Via don Bosco",
+      "normalized": "via don bosco",
+      "type": null,
+      "name": "via don bosco"
+    },
+    {
+      "input": "Via Enrico Rocca",
+      "normalized": "via enrico rocca",
+      "type": null,
+      "name": "via enrico rocca"
+    },
+    {
+      "input": "Via Forte del Bosco",
+      "normalized": "via forte del bosco",
+      "type": null,
+      "name": "via forte del bosco"
+    },
+    {
+      "input": "Via Fratelli Colinelli",
+      "normalized": "via fratelli colinelli",
+      "type": null,
+      "name": "via fratelli colinelli"
+    },
+    {
+      "input": "Via Gaetano Donizetti",
+      "normalized": "via gaetano donizetti",
+      "type": null,
+      "name": "via gaetano donizetti"
+    },
+    {
+      "input": "Via Generale Cadorna",
+      "normalized": "via generale cadorna",
+      "type": null,
+      "name": "via generale cadorna"
+    },
+    {
+      "input": "Via Generale Scodnik",
+      "normalized": "via generale scodnik",
+      "type": null,
+      "name": "via generale scodnik"
+    },
+    {
+      "input": "Via Gian Battista Formica",
+      "normalized": "via gian battista formica",
+      "type": null,
+      "name": "via gian battista formica"
+    },
+    {
+      "input": "Via Gian Lorenzo Cipriani",
+      "normalized": "via gian lorenzo cipriani",
+      "type": null,
+      "name": "via gian lorenzo cipriani"
+    },
+    {
+      "input": "Via Giovanni Boccaccio",
+      "normalized": "via giovanni boccaccio",
+      "type": null,
+      "name": "via giovanni boccaccio"
+    },
+    {
+      "input": "Via Giovanni Maria Marussig",
+      "normalized": "via giovanni maria marussig",
+      "type": null,
+      "name": "via giovanni maria marussig"
+    },
+    {
+      "input": "Via Giovanni Rismondo",
+      "normalized": "via giovanni rismondo",
+      "type": null,
+      "name": "via giovanni rismondo"
+    },
+    {
+      "input": "Via Giuseppe Mazzini",
+      "normalized": "via giuseppe mazzini",
+      "type": null,
+      "name": "via giuseppe mazzini"
+    },
+    {
+      "input": "Via Goffredo Mameli",
+      "normalized": "via goffredo mameli",
+      "type": null,
+      "name": "via goffredo mameli"
+    },
+    {
+      "input": "Via Henrik Tuma",
+      "normalized": "via henrik tuma",
+      "type": null,
+      "name": "via henrik tuma"
+    },
+    {
+      "input": "Via Livenza",
+      "normalized": "via livenza",
+      "type": null,
+      "name": "via livenza"
+    },
+    {
+      "input": "Via Malta",
+      "normalized": "via malta",
+      "type": null,
+      "name": "via malta"
+    },
+    {
+      "input": "Via Michelangelo Buonarroti",
+      "normalized": "via michelangelo buonarroti",
+      "type": null,
+      "name": "via michelangelo buonarroti"
+    },
+    {
+      "input": "Via Monte Canin",
+      "normalized": "via monte canin",
+      "type": null,
+      "name": "via monte canin"
+    },
+    {
+      "input": "Via Monte Nero",
+      "normalized": "via monte nero",
+      "type": null,
+      "name": "via monte nero"
+    },
+    {
+      "input": "Via Natisone",
+      "normalized": "via natisone",
+      "type": null,
+      "name": "via natisone"
+    },
+    {
+      "input": "Via Palladio",
+      "normalized": "via palladio",
+      "type": null,
+      "name": "via palladio"
+    },
+    {
+      "input": "Via Pier Andrea Mattioli",
+      "normalized": "via pier andrea mattioli",
+      "type": null,
+      "name": "via pier andrea mattioli"
+    },
+    {
+      "input": "Via Pietro Mascagni",
+      "normalized": "via pietro mascagni",
+      "type": null,
+      "name": "via pietro mascagni"
+    },
+    {
+      "input": "Via Pompeo Giustiniani",
+      "normalized": "via pompeo giustiniani",
+      "type": null,
+      "name": "via pompeo giustiniani"
+    },
+    {
+      "input": "Via Reggimento Piemonte Reale",
+      "normalized": "via reggimento piemonte reale",
+      "type": null,
+      "name": "via reggimento piemonte reale"
+    },
+    {
+      "input": "Via Romeo Battistig",
+      "normalized": "via romeo battistig",
+      "type": null,
+      "name": "via romeo battistig"
+    },
+    {
+      "input": "Via Santa Chiara",
+      "normalized": "via santa chiara",
+      "type": null,
+      "name": "via santa chiara"
+    },
+    {
+      "input": "Via Silvio Pellico",
+      "normalized": "via silvio pellico",
+      "type": null,
+      "name": "via silvio pellico"
+    },
+    {
+      "input": "Via Teobaldo Ciconi",
+      "normalized": "via teobaldo ciconi",
+      "type": null,
+      "name": "via teobaldo ciconi"
+    },
+    {
+      "input": "Via Toscolano",
+      "normalized": "via toscolano",
+      "type": null,
+      "name": "via toscolano"
+    },
+    {
+      "input": "Via Vicenza",
+      "normalized": "via vicenza",
+      "type": null,
+      "name": "via vicenza"
+    },
+    {
+      "input": "Via Vittorio Veneto",
+      "normalized": "via vittorio veneto",
+      "type": null,
+      "name": "via vittorio veneto"
+    },
+    {
+      "input": "Viale Fatebenefratelli",
+      "normalized": "viale fatebenefratelli",
+      "type": null,
+      "name": "viale fatebenefratelli"
+    },
+    {
+      "input": "Viale Venti Settembre",
+      "normalized": "viale venti settembre",
+      "type": null,
+      "name": "viale venti settembre"
+    },
+    {
+      "input": "Vicolo del Molino",
+      "normalized": "vicolo del molino",
+      "type": null,
+      "name": "vicolo del molino"
+    },
+    {
+      "input": "Grgar",
+      "normalized": "grgar",
+      "type": null,
+      "name": "grgar"
+    },
+    {
+      "input": "Hum",
+      "normalized": "hum",
+      "type": null,
+      "name": "hum"
+    },
+    {
+      "input": "Vallone delle acque",
+      "normalized": "vallone delle acque",
+      "type": null,
+      "name": "vallone delle acque"
+    },
+    {
+      "input": "Via Ferruccio Bernardis",
+      "normalized": "via ferruccio bernardis",
+      "type": null,
+      "name": "via ferruccio bernardis"
+    },
+    {
+      "input": "Bevkov trg",
+      "normalized": "bevkov trg",
+      "type": null,
+      "name": "bevkov trg"
+    },
+    {
+      "input": "Cesta 15. septembra",
+      "normalized": "cesta 15 septembra",
+      "type": "cesta",
+      "name": "15 septembra"
+    },
+    {
+      "input": "Erjavčeva ulica",
+      "normalized": "erjavceva ulica",
+      "type": null,
+      "name": "erjavceva ulica"
+    },
+    {
+      "input": "Industrijska cesta",
+      "normalized": "industrijska cesta",
+      "type": null,
+      "name": "industrijska cesta"
+    },
+    {
+      "input": "Kolodvorska pot",
+      "normalized": "kolodvorska pot",
+      "type": null,
+      "name": "kolodvorska pot"
+    },
+    {
+      "input": "Ledine",
+      "normalized": "ledine",
+      "type": null,
+      "name": "ledine"
+    },
+    {
+      "input": "Med trtami",
+      "normalized": "med trtami",
+      "type": null,
+      "name": "med trtami"
+    },
+    {
+      "input": "Pavšičevo naselje",
+      "normalized": "pavsicevo naselje",
+      "type": null,
+      "name": "pavsicevo naselje"
+    },
+    {
+      "input": "Podrob",
+      "normalized": "podrob",
+      "type": null,
+      "name": "podrob"
+    },
+    {
+      "input": "Prvomajska ulica",
+      "normalized": "prvomajska ulica",
+      "type": null,
+      "name": "prvomajska ulica"
+    },
+    {
+      "input": "Šempeterska cesta",
+      "normalized": "sempeterska cesta",
+      "type": null,
+      "name": "sempeterska cesta"
+    },
+    {
+      "input": "Streliška pot",
+      "normalized": "streliska pot",
+      "type": null,
+      "name": "streliska pot"
+    },
+    {
+      "input": "Ulica 25. maja",
+      "normalized": "ulica 25 maja",
+      "type": "ulica",
+      "name": "25 maja"
+    },
+    {
+      "input": "Ulica dr. Karla Lavriča",
+      "normalized": "ulica dr karla lavrica",
+      "type": "ulica",
+      "name": "dr karla lavrica"
+    },
+    {
+      "input": "Ulica Marija Kogoja",
+      "normalized": "ulica marija kogoja",
+      "type": "ulica",
+      "name": "marija kogoja"
+    },
+    {
+      "input": "Ulica Sergeja Mašere",
+      "normalized": "ulica sergeja masere",
+      "type": "ulica",
+      "name": "sergeja masere"
+    },
+    {
+      "input": "Valenčičeva ulica",
+      "normalized": "valenciceva ulica",
+      "type": null,
+      "name": "valenciceva ulica"
+    },
+    {
+      "input": "Vipavska cesta",
+      "normalized": "vipavska cesta",
+      "type": null,
+      "name": "vipavska cesta"
+    },
+    {
+      "input": "Železničarska pot",
+      "normalized": "zeleznicarska pot",
+      "type": null,
+      "name": "zeleznicarska pot"
+    },
+    {
+      "input": "Biblioteca della Camera di commercio, industria, artigianato e agricoltura - CCIAA",
+      "normalized": "biblioteca della camera di commercio industria artigianato e agricoltura cciaa",
+      "type": null,
+      "name": "biblioteca della camera di commercio industria artigianato e agricoltura cciaa"
+    },
+    {
+      "input": "Biblioteca / Knjižnica SLORI",
+      "normalized": "biblioteca knjiznica slori",
+      "type": null,
+      "name": "biblioteca knjiznica slori"
+    },
+    {
+      "input": "Biblioteca pubblica del Seminario teologico centrale",
+      "normalized": "biblioteca pubblica del seminario teologico centrale",
+      "type": null,
+      "name": "biblioteca pubblica del seminario teologico centrale"
+    },
+    {
+      "input": "Biblioteca del Monastero di Sant'Orsola",
+      "normalized": "biblioteca del monastero di sant orsola",
+      "type": null,
+      "name": "biblioteca del monastero di sant orsola"
+    },
+    {
+      "input": "Stražni stolp - Muzej",
+      "normalized": "strazni stolp muzej",
+      "type": null,
+      "name": "strazni stolp muzej"
+    },
+    {
+      "input": "Museo Provinciale",
+      "normalized": "museo provinciale",
+      "type": null,
+      "name": "museo provinciale"
+    },
+    {
+      "input": "Biblioteca Statale Isontina",
+      "normalized": "biblioteca statale isontina",
+      "type": null,
+      "name": "biblioteca statale isontina"
+    },
+    {
+      "input": "Gorizia Centrale",
+      "normalized": "gorizia centrale",
+      "type": null,
+      "name": "gorizia centrale"
+    },
+    {
+      "input": "Museo della Grande Guerra",
+      "normalized": "museo della grande guerra",
+      "type": null,
+      "name": "museo della grande guerra"
+    },
+    {
+      "input": "Museo della moda",
+      "normalized": "museo della moda",
+      "type": null,
+      "name": "museo della moda"
+    },
+    {
+      "input": "Solkan",
+      "normalized": "solkan",
+      "type": null,
+      "name": "solkan"
+    },
+    {
+      "input": "Skrtova pot",
+      "normalized": "skrtova pot",
+      "type": null,
+      "name": "skrtova pot"
+    },
+    {
+      "input": "Panovec predor",
+      "normalized": "panovec predor",
+      "type": null,
+      "name": "panovec predor"
+    },
+    {
+      "input": "Piazzale Karl Von Czoernig",
+      "normalized": "piazzale karl von czoernig",
+      "type": null,
+      "name": "piazzale karl von czoernig"
+    },
+    {
+      "input": "Vallone delle acque",
+      "normalized": "vallone delle acque",
+      "type": null,
+      "name": "vallone delle acque"
+    },
+    {
+      "input": "Bratuževa ulica",
+      "normalized": "bratuzeva ulica",
+      "type": null,
+      "name": "bratuzeva ulica"
+    },
+    {
+      "input": "Goriška ulica",
+      "normalized": "goriska ulica",
+      "type": null,
+      "name": "goriska ulica"
+    },
+    {
+      "input": "Na Pristavi",
+      "normalized": "na pristavi",
+      "type": null,
+      "name": "na pristavi"
+    },
+    {
+      "input": "Tehnični pregledi",
+      "normalized": "tehnicni pregledi",
+      "type": null,
+      "name": "tehnicni pregledi"
+    },
+    {
+      "input": "Ulica Franca Kramarja",
+      "normalized": "ulica franca kramarja",
+      "type": "ulica",
+      "name": "franca kramarja"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    A station the journey passes through, on the detail screen (SPEC §7.4.1).
+
+    The marker is the map's own — the filled disc bearing a bike — so the row
+    and the point drawn on the previous screen are recognised as the same
+    thing.
+
+    The role is named above the station rather than left to be inferred: the
+    two rows are alike, and only the label says which one lends the bike and
+    which one takes it back.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/space_s"
+    android:paddingBottom="@dimen/space_s">
+
+    <ImageView
+        android:id="@+id/marker"
+        android:layout_width="@dimen/journey_place_marker"
+        android:layout_height="@dimen/journey_place_marker"
+        android:importantForAccessibility="no"
+        android:src="@drawable/marker_journey_station"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/role" />
+
+    <!-- The four lines of this row name a thing — a role, a station, a street,
+         what stood there — rather than run on, so all four refuse the
+         justification and the hyphenation the theme gives every text view, as
+         the station rows of item_station.xml do. -->
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/role"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_m"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/marker"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Departure station" />
+
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Body"
+        app:layout_constraintEnd_toEndOf="@id/role"
+        app:layout_constraintStart_toStartOf="@id/role"
+        app:layout_constraintTop_toBottomOf="@id/role"
+        tools:text="Gare Lille Flandres" />
+
+    <!-- The street the station stands in, read off the offline index. Absent
+         when the index knows nothing near enough: naming the wrong street
+         would be worse than naming none. -->
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/role"
+        app:layout_constraintStart_toStartOf="@id/role"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:text="12 Rue Nationale · 59800 Lille"
+        tools:visibility="visible" />
+
+    <!-- What the station held when the journey was worked out. SPEC §6 asks
+         that it always be shown: it is what lets the user judge the risk they
+         are taking on a station with a single bike left. -->
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/availability"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        android:textColor="@color/ink"
+        app:layout_constraintEnd_toEndOf="@id/role"
+        app:layout_constraintStart_toStartOf="@id/role"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        tools:text="8 bikes available · 40 docks" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

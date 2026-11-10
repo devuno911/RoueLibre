@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The city screen (SPEC §15): which conurbation the application serves.
+
+    The locate button comes before the list: it is the short path, and the list
+    stays there for whoever refuses the permission or is planning a trip.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/city_title"
+        app:titleTextAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+    <TextView
+        android:id="@+id/city_intro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginEnd="@dimen/space_l"
+        android:text="@string/city_intro"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/locate_me"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_m"
+        android:text="@string/city_locate_me"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_intro" />
+
+    <!--
+        Filters the catalogue by name. The list runs to dozens of conurbations:
+        scrolling to one's own stopped being a way of finding it.
+    -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_field"
+        style="@style/Widget.RoueLibre.SearchField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_marginEnd="@dimen/space_l"
+        android:hint="@string/city_search_hint"
+        app:endIconContentDescription="@string/city_search_clear"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/locate_me">
+
+        <!-- `flagNoExtractUi`: in landscape the keyboard otherwise takes the
+             whole screen for a copy of this field, and the results that
+             follow every keystroke stay hidden until it is folded away. -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch|flagNoExtractUi"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--
+        Narrows the catalogue to one country, once it spans several. A menu
+        rather than a row of choices: it takes one field's height however many
+        countries the catalogue comes to span.
+    -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/country_filter"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginEnd="@dimen/space_l"
+        android:hint="@string/city_country_filter"
+        android:textColorHint="@color/ink_soft"
+        android:visibility="gone"
+        app:boxBackgroundColor="@color/surface"
+        app:boxStrokeColor="@color/field_stroke"
+        app:boxStrokeWidth="@dimen/stroke"
+        app:endIconTint="@color/ink_soft"
+        app:hintTextColor="@color/signal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_field"
+        tools:visibility="visible">
+
+        <!-- Its state is the fragment's to keep: restored on its own, the
+             field would narrow its menu to the one country it was showing. -->
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/country_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:saveEnabled="false"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cities"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_m"
+        android:background="?attr/colorSurface"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/country_filter"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_city" />
+
+    <!-- An empty screen: an invitation to act, not a statement (SPEC §7). -->
+    <LinearLayout
+        android:id="@+id/empty_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_xxl"
+        android:layout_marginEnd="@dimen/space_xxl"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/cities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cities"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/empty_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/city_no_match_title"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+        <TextView
+            android:id="@+id/empty_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            tools:text="Nothing matches “reykjavik”." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/empty_action"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/touch_target_min"
+            android:layout_marginTop="@dimen/space_l"
+            android:text="@string/action_clear_search" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

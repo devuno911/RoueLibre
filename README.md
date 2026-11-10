@@ -1,0 +1,273 @@
+<p align="center">
+  <img src="fastlane/metadata/android/en-US/images/icon.png" alt="" width="128">
+</p>
+
+<h1 align="center">Roue Libre</h1>
+
+<p align="center">
+  Bike sharing: offline map and journeys, with no tracker.
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="Licence: GPLv3" src="https://img.shields.io/badge/licence-GPLv3-0F6E56?style=flat-square"></a>
+  <img alt="Android 8.0 and later" src="https://img.shields.io/badge/Android-8.0%2B-0F6E56?style=flat-square">
+  <a href="docs/networks.md"><img alt="362 networks in 39 countries" src="https://img.shields.io/badge/networks-362%20in%2039%20countries-0F6E56?style=flat-square"></a>
+  <img alt="No tracker" src="https://img.shields.io/badge/trackers-none-0F6E56?style=flat-square">
+  <img alt="APK: 8.1 MB" src="https://img.shields.io/badge/APK-8.1%20MB-0F6E56?style=flat-square">
+  <a href="https://liberapay.com/mgdx"><img alt="Donate on Liberapay" src="https://img.shields.io/badge/donate-Liberapay-0F6E56?style=flat-square&logo=liberapay&logoColor=white"></a>
+</p>
+
+<p align="center">
+    <a href="https://play.google.com/store/apps/details?id=io.github.mgdx.rouelibre"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="100"></a>
+  <a href="https://f-droid.org/packages/io.github.mgdx.rouelibre/"><img alt="Get it on F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="100"></a>
+</p>
+
+## Description
+
+**Roue Libre** is an Android application that shows the bike-share stations of
+hundreds of cities across several countries, and computes the best journey to
+make with those bikes — door to door, **walk → bike → walk**. It is designed to
+be simple, efficient and privacy-friendly.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/journey-shape-dark.svg">
+    <img src="docs/images/journey-shape-light.svg" alt="Walk, bike, walk: an outlined circle at either end for the two doors, a filled disc at each of the two stations, dashes for the walks and an unbroken line for the ride." width="420">
+  </picture>
+</p>
+
+It is free software under the GPLv3, it uses no Google service, and everything
+but the live availability of the bikes runs on your phone.
+
+## Screenshots
+
+<p align="center">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="23%" alt="The map around the Eiffel Tower: the Seine, the Champ de Mars and the Trocadéro gardens, the cycle ways drawn apart from the streets as dashed green lines, and Vélib' stations as green discs each carrying the number of bikes it holds; above them, the time of the last update.">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="23%" alt="A station's sheet, “Octave Gréard – Tour Eiffel”: eighteen bikes and fifteen free docks, split into eleven mechanical and seven electric, thirty-three docks in all, with buttons to start or end a journey there or open it in a navigation app.">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="23%" alt="A journey from 14 Avenue des Champs-Élysées to Avenue Gustave Eiffel drawn on the map: fifteen minutes in all, four walking to the departure station, nine riding along the Seine on an unbroken line, two walking to the door, 2.9 kilometres and seventy metres of climb.">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="23%" alt="The same journey in detail: each walk and the ride with its distance, time and climb, the departure and arrival stations with their bikes and docks, and under them the elevation profile of the ride.">
+</p>
+
+## Features
+
+- 🚲 **362 bike-share networks in 39 countries**, 71,420 stations, from Vélib'
+  to Auch's ten, by way of New York, Montréal, Prague, Barcelona, Dubai, Buenos
+  Aires and Pristina. No city is a default: the application proposes the one
+  matching your position, measured on where its stations actually are, and you
+  choose. The full list is in [`docs/networks.md`](docs/networks.md), and
+  [which networks can be served](#which-networks) is set by the data they
+  publish.
+
+- 🗺️ **A map that shows what a cyclist needs:**
+  - cycle ways, drawn apart from the streets;
+  - public buildings and landmarks, to find your way by sight;
+  - what the city lends, drawn on the bike itself: plain where the network
+    lends only mechanical bikes, a bolt where it lends only electric ones, a
+    bolt and a cog where it lends both;
+  - and in that last case, a station saying how many of its bikes are
+    mechanical and how many are electric, and a filter to count only the kind
+    you are after.
+
+- 🧭 **The best journey, not the nearest station:**
+  - the departure and arrival stations are chosen from the live availability —
+    bikes to take at one end, free docks to return to at the other;
+  - and where the city lends both, you can even pick the bike you prefer:
+    mechanical or electric, and only the stations that really hold one are
+    considered;
+  - the route follows the cycle ways;
+  - the climb is counted and named, because a bike-share bike is heavy.
+
+- 🪶 **Light and frugal.** 8.1 MB of APK, no background service, Android 8 and
+  later.
+
+- 🔒 **Private, and local.** Everything happens on the device:
+  - the map, streets and routing data are downloaded **once** — 10.9 MB for a
+    median city — from the releases of
+    [`RoueLibre-data`](https://github.com/mgdx/RoueLibre-data), a repository of
+    this project, and that is it. What comes down is **static files and nothing
+    else**: a tile archive, a routing graph, an address index. No executable, no
+    plug-in, nothing the application runs as code;
+  - **that download is yours to start.** Choosing a city reads the published
+    manifest to learn what exists and what it weighs; not one byte of a dataset
+    moves until you press the button that announces the size, and none of it
+    ever moves in the background. The catalogue of cities is fetched the same
+    way, when the list of cities is opened and never otherwise. Any of the three
+    sets can also be installed **from a file of your own**, produced by the
+    scripts in [`tools/`](tools/README.md) — see
+    [`docs/offline-data.md`](docs/offline-data.md);
+  - the journey is computed on the phone;
+  - searching a street or a station never leaves it — it is the most telling
+    data the application handles, since it says where you are going;
+  - once your city is installed, **the only request that goes out is the
+    network's public station feed**, read straight from the operator's own
+    server, with no Roue Libre server in between
+    ([how](docs/architecture.md#where-the-availability-comes-from)) — which also
+    means the operator sees your address and the hour you asked, the price of
+    having nobody in the middle
+    ([why we say so](docs/architecture.md#what-the-operator-sees));
+  - no telemetry, no tracker, no identifier, no history.
+
+## Which networks
+
+Roue Libre serves **only the networks that publish a GBFS feed**, and only a
+feed that is **public and needs no key**. A city is not missing from the list
+because nobody added it: it is missing because its network publishes no such
+feed, or publishes one the application cannot use.
+
+**GBFS**, the [General Bikeshare Feed Specification](https://gbfs.org), is the
+open standard bike-share networks use to publish their data: a handful of JSON
+files on the operator's server saying where the stations are, how many bikes
+and free docks each one holds right now, and what kinds of bike the network
+lends. It is maintained by [MobilityData](https://mobilitydata.org), which also
+keeps the public [catalogue of the feeds](https://github.com/MobilityData/gbfs/blob/master/systems.csv),
+the main one Roue Libre reads its networks from.
+
+A network also has to fit what the application promises: docked stations,
+bicycles rather than scooters or cars, at least ten stations. The rules, and
+every network set aside with the reason why, are in
+[`docs/networks.md`](docs/networks.md).
+
+Why public and without a key: the application talks to each operator's server
+directly, with no Roue Libre server in between, so a key would have to ship
+inside the APK for anyone to read, and a private agreement would put a third
+party between you and your bike. If your city is not served, the people to ask
+are its network and its transport authority: once they publish an open GBFS
+feed, it can be added.
+
+## Installing
+
+From [Google Play](https://play.google.com/store/apps/details?id=io.github.mgdx.rouelibre), for those who prefer the usual store. Google Play signs the application with its own key, so an installation from there cannot replace one from F-Droid or from the releases page, or the other way round, without removing the application first.
+
+From [F-Droid](https://f-droid.org/packages/io.github.mgdx.rouelibre/), which
+rebuilds the application from this source and updates it along with the rest of
+the store. It checks that its rebuild is identical to the APK published here,
+then serves that very APK, signed by this project rather than by F-Droid: the
+releases page and F-Droid are one installation, and an update passes from
+either to either without removing the application
+([why](docs/release.md#f-droid)).
+
+Or from the [releases page](https://github.com/mgdx/RoueLibre/releases/latest):
+one APK per architecture — `arm64-v8a` for any phone of the last ten years —
+plus a universal one that runs on all of them.
+
+<p align="center">
+    <a href="https://play.google.com/store/apps/details?id=io.github.mgdx.rouelibre"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="100"></a>
+  <a href="https://f-droid.org/packages/io.github.mgdx.rouelibre/"><img alt="Get it on F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="100"></a>
+</p>
+
+## Building from source
+
+You need a **JDK 17 or later** and the **Android SDK** (compileSdk 37). No key,
+no account and no third-party service is required.
+
+**1. Clone with the submodule.** The routing engine is one; cloning without it
+gives a build that fails.
+
+```bash
+git clone --recurse-submodules https://github.com/mgdx/RoueLibre.git
+cd RoueLibre
+# on an already cloned repository:
+git submodule update --init
+```
+
+**2. Build, test, install.**
+
+```bash
+./gradlew assembleDebug     # build
+./gradlew test              # unit tests, on the JVM, no emulator needed
+./gradlew lint ktlintCheck  # static analysis, no warning tolerated
+adb install -r app/build/outputs/apk/debug/app-universal-debug.apk
+```
+
+**3. Give it a city.** The map, routing and address data are not in the APK.
+Generating them takes one command per city:
+
+```bash
+tools/generate_all.sh --city config/cities/lille.json
+```
+
+It needs `osmium-tool`, `tippecanoe` and Python 3. The whole procedure, the
+sizes obtained and the way to add a network are in
+[`docs/offline-data.md`](docs/offline-data.md).
+
+The release APK weighs **8.09 MB on arm64-v8a** and 7.55 MB on armeabi-v7a,
+map, routing, address search and journeys included, against a ceiling of 12 MB
+per architecture.
+
+## Dependencies
+
+A dozen, no more, and each one is argued in
+[`docs/dependencies.md`](docs/dependencies.md): what it does, and why it rather
+than another. There is no analytics, crash-reporting or advertising library
+under any pretext.
+
+## Contributing
+
+Contributions are welcome — see **[CONTRIBUTING.md](CONTRIBUTING.md)**, and open
+an issue before a large change.
+
+- 🌍 **Translate.** The most useful contribution if you do not write code.
+  Thirty languages are translated, each with its glossary in
+  [`docs/glossary/`](docs/glossary/); keeping one current as the English file
+  grows is worth as much as starting a thirty-first.
+- 🏙️ **Add a network** that publishes a public GBFS feed
+  ([which ones can be served](#which-networks)), or teach the address search
+  the abbreviations of your language — one JSON file each, no code. See
+  [`docs/offline-data.md`](docs/offline-data.md).
+- 🐛 **Report a bug** with the device, the Android version and the way to
+  reproduce it. The application sends no log anywhere; if you attach one, read
+  it through first. A security flaw goes to [`SECURITY.md`](SECURITY.md)
+  rather than to a public issue.
+- 💻 **Write code.** `./gradlew test lint ktlintCheck` must pass without a single
+  warning, business logic goes into `:core` with no Android import, and not a
+  single string is hard-coded.
+
+Read [`SPEC.md`](SPEC.md) first: it is the project's source of truth, and it
+argues the decisions that look arbitrary.
+
+To go further: the [architecture](docs/architecture.md), the
+[offline data](docs/offline-data.md), the
+[dependencies](docs/dependencies.md), the
+[list of networks](docs/networks.md),
+[opening a place from another application](docs/sharing-links.md), how a
+[release is published and signed](docs/release.md), and the
+[CHANGELOG](CHANGELOG.md).
+
+And if none of that is for you: a ⭐ on the repository is what makes Roue Libre
+visible to the next person looking for a bike-share application that spies on
+nobody.
+
+And to support the work itself, you can make a donation on
+[Liberapay](https://liberapay.com/mgdx).
+
+<p align="center">
+  <a href="https://liberapay.com/mgdx"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+</p>
+
+## What "Roue Libre" means
+
+*Roue libre* is French for **freewheel**: the ratchet that lets a bicycle carry
+on rolling while the pedals stand still. To ride *en roue libre* is to coast —
+to be carried by what you have already put in, without pushing.
+
+The phrase is doing three things at once, and all three are the project:
+
+- **the freewheel** itself, the part that makes a bike a bike;
+- ***libre-service***, French for self-service — a bike-share bike is a *vélo en
+  libre-service*, which is what this application is about;
+- ***logiciel libre***, free software. Not free of charge: free as in free to
+  use, study, change and pass on. This one is under the GPL.
+
+One word, and it says: a bicycle, shared, and free.
+
+## Licence
+
+[GPLv3](LICENSE). The embedded fonts keep their own,
+the [SIL Open Font License](app/src/main/assets/licences/).
+
+The map, the routes and the house numbers come from
+[OpenStreetMap](https://www.openstreetmap.org/copyright) and, in France, from
+the [Base Adresse Nationale](https://adresse.data.gouv.fr/), both ODbL; the
+availability comes from each network's own GBFS feed. The complete list of
+sources and their licences is in
+[`docs/offline-data.md`](docs/offline-data.md#data-sources-and-attributions).

@@ -1,0 +1,34 @@
+A Roue Libre mostra num mapa as estações de bicicletas partilhadas e calcula o melhor percurso porta a porta: a pé, de bicicleta, a pé.
+
+Tudo acontece no telefone: o mapa, a pesquisa de endereços e o cálculo de percursos não precisam de ligação nenhuma. Só a disponibilidade das bicicletas em tempo real passa pela rede, lida diretamente no servidor do operador.
+
+<b>O melhor percurso, não a estação mais próxima</b>
+
+• As estações de partida e de chegada são escolhidas em conjunto, com base na disponibilidade em direto: bicicletas para retirar de um lado, lugares livres para a devolver do outro.
+• Uma estação quase vazia pesa menos, porque pode esvaziar-se enquanto caminha.
+• Onde a rede disponibiliza bicicletas mecânicas e elétricas, escolhe a que prefere, e só contam as estações que têm mesmo uma.
+• O percurso segue as ciclovias e tem em conta o desnível.
+
+<b>Um mapa feito para a bicicleta</b>
+
+As ciclovias desenhadas à parte das ruas, os edifícios públicos e os pontos de referência para se orientar à vista, e em cada estação o que a rede disponibiliza: bicicletas mecânicas, elétricas ou ambas.
+
+<b>Nenhum rastreio</b>
+
+• Nenhum serviço da Google: nem Play Services, nem Firebase, nem Maps SDK.
+• Sem telemetria, sem rastreadores, sem identificador, sem conta.
+• Sem histórico: nem posições, nem destinos. O que pesquisa não sai do telefone.
+
+<b>As cidades servidas</b>
+
+Mais de 350 redes em quase 40 países, do Vélib’ em Paris ao Citi Bike em Nova Iorque, passando por Montreal, Praga, Barcelona, Dubai e Buenos Aires. Nenhuma cidade é imposta: a aplicação propõe-lhe a sua a partir da sua posição, e pode guardar várias.
+
+A Roue Libre só serve as redes que publicam as suas estações no formato GBFS, o padrão aberto das bicicletas partilhadas, num fluxo público e sem chave. Se a sua cidade não aparece, é porque a rede dessa cidade não publica um fluxo assim: é à rede ou à autoridade de transportes que o tem de pedir.
+
+<b>Convém saber antes de instalar</b>
+
+O mapa, o grafo de percursos e o índice de endereços não estão dentro da aplicação: são transferidos uma única vez, quando o decidir, e o seu peso é indicado antes (uma dezena de megabytes para uma cidade média, mais para uma capital). São ficheiros de dados e nada mais, que também pode produzir por si com os scripts do repositório.
+
+A Roue Libre é uma aplicação independente, sem qualquer vínculo com as redes que serve nem com os seus operadores.
+
+Software livre sob a licença GNU GPL v3.

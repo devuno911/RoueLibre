@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Settings (SPEC §7.6).
+
+    Written by hand rather than with androidx.preference: that library brings
+    its own visual grammar, which the project's tokens would then have to fight,
+    for a dozen settings that fit on one screen.
+
+    Laid out in sections, in the order SPEC §7.6 fixes: city, display, journey,
+    offline data — then the way to "about", which belongs to no section and
+    closes the screen. Placing a new setting is meant to be one thing: adding
+    its views under the right title, without touching a line above or below.
+
+    A section with nothing in it is not written here at all: a title followed by
+    nothing promises a setting the screen does not have, and SPEC §14 wants no
+    view built against a feature that has not arrived. "Journey" was that case
+    until the walking pace arrived and brought its title with it, exactly as
+    that rule intends.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/settings_title"
+        app:titleTextAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+    <!-- The id is what keeps the scroll position. Android saves a view's state
+         only when it has one, and this screen is long enough that losing it is
+         felt: without the id, coming back from "About" or from the offline data
+         put the reader back at the top of the settings, every time. -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/settings_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <!-- No top padding: the first section title carries the air above it
+             itself, like every other one. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/space_l"
+            android:paddingEnd="@dimen/space_l"
+            android:paddingBottom="@dimen/space_xxl">
+
+            <!-- The city frames everything else — the network served, the data
+                 installed, the journeys computed — so it comes first. -->
+            <io.github.mgdx.rouelibre.ui.settings.SettingsSectionTitle
+                style="@style/Widget.RoueLibre.SettingsSection"
+                android:text="@string/settings_section_city" />
+
+            <!-- The row carries the network in service, as the language row
+                 below carries the language: the section title already says
+                 what the row settles, so writing "change city" on it spent the
+                 one line of this section saying what pressing it does instead
+                 of answering the question it is there for. Its text and its
+                 spoken label are both written by the code — what they say is
+                 the city chosen, which no resource knows. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/open_city"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:gravity="start|center_vertical"
+                android:minHeight="@dimen/touch_target_min" />
+
+            <!-- Under the network, and about it alone: whether its full
+                 stations take bikes back (SPEC §4.1, fourth case). Shown for
+                 every network served — the feed's reading misses networks
+                 whose riders know better — and settled three ways, laid out
+                 like the theme below: left to the feed, always, never. The
+                 line under it says what the choice gives on this network. -->
+            <TextView
+                android:id="@+id/bikes_past_capacity_title"
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_l"
+                android:text="@string/settings_bikes_past_capacity"
+                android:visibility="gone" />
+
+            <!-- Its buttons keep no state of their own: the answer belongs to
+                 the city in service, and the fragment fills it in. Restored
+                 by the view on coming back from the city screen, the previous
+                 city's answer was checked again under the new one — and
+                 written down for it, Frelo inheriting AMBici's "never". -->
+            <io.github.mgdx.rouelibre.ui.ToggleRow
+                android:id="@+id/bikes_past_capacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:visibility="gone"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bikes_past_capacity_automatic"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:saveEnabled="false"
+                    android:text="@string/settings_bikes_past_capacity_automatic" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bikes_past_capacity_always"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:saveEnabled="false"
+                    android:text="@string/settings_bikes_past_capacity_always" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bikes_past_capacity_never"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:saveEnabled="false"
+                    android:text="@string/settings_bikes_past_capacity_never" />
+            </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+            <TextView
+                android:id="@+id/bikes_past_capacity_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+                android:visibility="gone" />
+
+            <!-- Display: what the interface looks like and what it writes in.
+                 Neither touches the data nor the journeys (SPEC §14). It comes
+                 before the journey section because what one settles on arriving
+                 is what one is looking at, while a journey has not been asked
+                 for yet. -->
+            <io.github.mgdx.rouelibre.ui.settings.SettingsSectionTitle
+                style="@style/Widget.RoueLibre.SettingsSection"
+                android:text="@string/settings_section_display" />
+
+            <!--
+                The language the interface speaks (SPEC §7.6, §9). It opens the
+                display section because it decides how everything under it is
+                read, the labels of the other settings included.
+
+                A row that opens a list, and not a row of buttons like the theme
+                and the units under it: the choices here are the translations
+                that actually exist, they grow every time somebody finishes one,
+                and each is written in its own language — "Français", "العربية" —
+                which no three-across row of buttons would hold. The row carries
+                the language in service, so the screen answers the question
+                without being pressed.
+            -->
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_m"
+                android:text="@string/settings_language_title" />
+
+            <!-- Its text and its spoken label are both written by the code:
+                 what they say is the language chosen, which no resource
+                 knows. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/language"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:gravity="start|center_vertical"
+                android:minHeight="@dimen/touch_target_min" />
+
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_l"
+                android:text="@string/settings_theme_title" />
+
+            <io.github.mgdx.rouelibre.ui.ToggleRow
+                android:id="@+id/theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/theme_system"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_theme_system" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/theme_light"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_theme_light" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/theme_dark"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_theme_dark" />
+            </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+            <!--
+                Units (SPEC §7.6, §9). Four states — the region's own, and the
+                three systems that can override it — laid out in a row like the
+                theme above. The labels show the units rather than the
+                countries: what one gets is what is written, and no system
+                belongs to a nation.
+            -->
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_l"
+                android:text="@string/settings_units_title" />
+
+            <io.github.mgdx.rouelibre.ui.ToggleRow
+                android:id="@+id/units"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:contentDescription="@string/settings_units_description"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/units_system"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:contentDescription="@string/settings_units_system_description"
+                    android:text="@string/settings_units_system" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/units_metric"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:contentDescription="@string/settings_units_metric_description"
+                    android:text="@string/settings_units_metric" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/units_us"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:contentDescription="@string/settings_units_us_description"
+                    android:text="@string/settings_units_us" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/units_uk"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:contentDescription="@string/settings_units_uk_description"
+                    android:text="@string/settings_units_uk" />
+            </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+            <!--
+                The screen the application opens on (SPEC §7.0, §7.6). Two
+                choices in a row, like the theme and the units above. The map
+                is the default and the first of the two: it is what §7.0 opens
+                on, and what somebody who never comes here goes on seeing.
+            -->
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_l"
+                android:text="@string/settings_opening_title" />
+
+            <io.github.mgdx.rouelibre.ui.ToggleRow
+                android:id="@+id/opening_screen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:contentDescription="@string/settings_opening_description"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/opening_screen_map"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_opening_map" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/opening_screen_list"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_opening_list" />
+            </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+            <!--
+                Which stations the map draws at all (SPEC §7.1), the sequel to
+                the map's own toggle saying what a marker counts.
+
+                They are set here and nowhere else, and the map shows no trace
+                of them: no pill, no count, no lit control. That is a decision
+                and the compromise it carries is named in SPEC §7.1 — a filter
+                outlives the session with nothing on screen to recall it, so
+                these lines are the only explanation a user has for a
+                neighbourhood short of its stations. They therefore say in full
+                what they take away, and what they never take.
+            -->
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_l"
+                android:text="@string/settings_map_filters_title" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/hide_out_of_service_stations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/settings_map_filters_hide_out_of_service"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+
+            <!-- One switch for both modes, worded to hold in either: the
+                 Bikes / Free docks button is a state of the map screen, which
+                 this screen knows nothing about. The line under it says what
+                 "nothing" is read against. -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/hide_empty_stations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/settings_map_filters_hide_empty"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+
+            <!-- Worded for bikes alone in a network whose free docks are not
+                 worth showing (SPEC §7.1): the map has no free docks to count
+                 there. -->
+            <TextView
+                android:id="@+id/hide_empty_stations_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/settings_map_filters_hide_empty_hint"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <!-- The rule that makes both filters honest, and now the only place
+                 it is written: what the feed is silent about is not what it
+                 says is absent. -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:text="@string/settings_map_filters_keeps_unknown"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <!--
+                The bikes the network reports outside its stations (SPEC §4.1,
+                §7.1), closing the display section. Off by default: it draws
+                markers whose meaning the application cannot vouch for, and it
+                reads a feed twenty times the weight of the station feed.
+
+                The row carries no per-network state. A network publishing no
+                such feed shows nothing — no marker, no sentence here, no
+                disabled row — and the setting simply has no effect there:
+                saying otherwise would have this screen read a feed to describe
+                a city, and the map already says it by drawing nothing.
+            -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/show_street_bikes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_l"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/settings_street_bikes"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+
+            <!-- The two sentences under it: the only thing said about the
+                 right to take such a bike — the network's rules decide it, and
+                 GBFS does not carry them — and the price of the feed, which is
+                 what justifies the switch being off by default. -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/settings_street_bikes_description"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <!-- Journey: what qualifies a journey before it is asked for
+                 (SPEC §7.6). Unlike the display section above, what stands here
+                 reaches the algorithm of §6 and changes which stations it
+                 chooses — that is what it is for. -->
+            <io.github.mgdx.rouelibre.ui.settings.SettingsSectionTitle
+                style="@style/Widget.RoueLibre.SettingsSection"
+                android:text="@string/settings_section_journey" />
+
+            <!--
+                What the rider's own bike is (SPEC §7.3, §7.6). Two states, on
+                the pattern of the pace under it, and the mechanical bike is
+                where the row sits until the rider says otherwise. It heads the
+                section because it says who the cyclist is before the pace says
+                how they walk.
+
+                It is NOT the kind of bike asked of the network, which lives on
+                the journey screen, exists only where the network lends both
+                kinds, and narrows the stations the algorithm may choose. This
+                one is a fact about the rider: their bike belongs to no fleet, it
+                is the same in every city, so it is offered everywhere and asks
+                nothing of `FleetDescription.isMixed`. Declared as a pedal-assist
+                bike it changes what is drawn, what is said and — since
+                17 August 2026 — the ride itself, traced with a profile of its
+                own; the mechanical bike gives the ride of before, to the track
+                and to the minute. The line under the buttons says as much.
+            -->
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_m"
+                android:text="@string/settings_own_bike_kind_title" />
+
+            <io.github.mgdx.rouelibre.ui.ToggleRow
+                android:id="@+id/own_bike_kind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:contentDescription="@string/settings_own_bike_kind_description"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/own_bike_kind_mechanical"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_own_bike_kind_mechanical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/own_bike_kind_electric"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_own_bike_kind_electric" />
+            </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/settings_own_bike_kind_hint"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <!--
+                The walking pace (SPEC §6, §7.6). Three named levels in a row,
+                like the theme above: no slider and no speed typed in by hand.
+                The buttons name a pace in words and never a figure in km/h —
+                one knows one walks slowly, and a speed shown here would be read
+                as a promise about the minutes announced.
+            -->
+            <TextView
+                style="@style/Widget.RoueLibre.SettingsLabel"
+                android:layout_marginTop="@dimen/space_l"
+                android:text="@string/settings_walking_pace_title" />
+
+            <io.github.mgdx.rouelibre.ui.ToggleRow
+                android:id="@+id/walking_pace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:contentDescription="@string/settings_walking_pace_description"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/walking_pace_slow"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_walking_pace_slow" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/walking_pace_normal"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_walking_pace_normal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/walking_pace_brisk"
+                    style="@style/Widget.RoueLibre.Toggle.Choice"
+                    android:text="@string/settings_walking_pace_brisk" />
+            </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+            <!-- My places (SPEC §7.6), between the journey section above and
+                 the offline data below. These are points the user names, and
+                 they qualify the journeys they will ask for exactly as the
+                 journey section over them does — a home is where a journey
+                 starts from. They are not downloaded data either: nothing here
+                 comes off a server or occupies a dataset, so the section under
+                 them, which is about what was fetched and what it costs, is not
+                 where they belong. -->
+            <io.github.mgdx.rouelibre.ui.settings.SettingsSectionTitle
+                style="@style/Widget.RoueLibre.SettingsSection"
+                android:text="@string/settings_section_places" />
+
+            <!-- The row names the place and not the action, as the city row
+                 above does: the section says what it settles, so writing
+                 "change home" on it would spend the line saying what pressing
+                 it does. Where nothing is named there is nothing to name, and
+                 the row invites instead. Its text and its spoken label are both
+                 written by the code — what they say is an address, which no
+                 resource knows. The button beside it forgets the place, and
+                 exists only where there is something to forget. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/place_home"
+                    style="@style/Widget.RoueLibre.Toggle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="@dimen/touch_target_min" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/forget_place_home"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:layout_marginStart="@dimen/space_s"
+                    app:icon="@drawable/ic_forget"
+                    app:iconTint="@color/ink" />
+            </LinearLayout>
+
+            <!-- Said under a place the city in service does not cover. The
+                 place is never erased for it (SPEC §7.3): coming back to its
+                 own city has to find it again. -->
+            <TextView
+                android:id="@+id/place_home_outside"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/settings_place_outside_city"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/place_work"
+                    style="@style/Widget.RoueLibre.Toggle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="@dimen/touch_target_min" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/forget_place_work"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:layout_marginStart="@dimen/space_s"
+                    app:icon="@drawable/ic_forget"
+                    app:iconTint="@color/ink" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/place_work_outside"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/settings_place_outside_city"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <!-- How the named places show on the map (SPEC §7.1): a marker
+                 each, and a button each that brings the map onto it. Two
+                 switches rather than one, a marker and a control over the
+                 stations being two different costs. Shown only once a place
+                 is named: before that, both would settle nothing. -->
+            <LinearLayout
+                android:id="@+id/places_on_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/show_places_on_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_m"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:text="@string/settings_places_markers"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/place_buttons_on_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_s"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:text="@string/settings_places_buttons"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+            </LinearLayout>
+
+            <!-- Offline data: what the application occupies, and how to
+                 reclaim it (SPEC §4.4). -->
+            <io.github.mgdx.rouelibre.ui.settings.SettingsSectionTitle
+                style="@style/Widget.RoueLibre.SettingsSection"
+                android:text="@string/settings_section_data" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/open_storage"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:gravity="start|center_vertical"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/storage_open"
+                app:icon="@drawable/ic_storage" />
+
+            <!--
+                What connection a dataset may travel on (SPEC §4.4). Under the
+                way to the storage screen, because what it settles is what
+                happens there: a city weighs from a few megabytes to more than a
+                gigabyte.
+
+                It names the billing and not the Wi-Fi, which is what Android
+                actually decides on and the truer word besides: a phone's shared
+                connection is Wi-Fi and is a mobile plan. The line under it says
+                so in ordinary words, since the accurate one is not the common
+                one.
+            -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/download_unmetered_only"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/download_unmetered_only"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/download_unmetered_only_description"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <!-- The donation and "about" head no section of their own: they
+                 settle nothing and change nothing, each opens a page, and a
+                 title above them would only repeat the words written on them.
+                 What says they belong to no section is the air above them, one
+                 rung wider than the gap a section title takes: read on the
+                 phone, at the section's own gap they passed for more
+                 offline-data settings. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/open_donate"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xxl"
+                android:gravity="start|center_vertical"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/donate_open" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/open_about"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:gravity="start|center_vertical"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/about_open" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "9 de Julio",
+      "normalized": "9 de julio",
+      "type": null,
+      "name": "9 de julio"
+    },
+    {
+      "input": "Avenida Benavídez",
+      "normalized": "avenida benavidez",
+      "type": "avenida",
+      "name": "benavidez"
+    },
+    {
+      "input": "B. Florida",
+      "normalized": "b florida",
+      "type": null,
+      "name": "b florida"
+    },
+    {
+      "input": "Calle 2",
+      "normalized": "calle 2",
+      "type": "calle",
+      "name": "2"
+    },
+    {
+      "input": "Calle del Ginkgo Biloba",
+      "normalized": "calle del ginkgo biloba",
+      "type": "calle",
+      "name": "del ginkgo biloba"
+    },
+    {
+      "input": "Córdoba",
+      "normalized": "cordoba",
+      "type": null,
+      "name": "cordoba"
+    },
+    {
+      "input": "Deán Funes",
+      "normalized": "dean funes",
+      "type": null,
+      "name": "dean funes"
+    },
+    {
+      "input": "Del Viraró",
+      "normalized": "del viraro",
+      "type": null,
+      "name": "del viraro"
+    },
+    {
+      "input": "Espejo",
+      "normalized": "espejo",
+      "type": null,
+      "name": "espejo"
+    },
+    {
+      "input": "General Conesa",
+      "normalized": "general conesa",
+      "type": null,
+      "name": "general conesa"
+    },
+    {
+      "input": "Italia",
+      "normalized": "italia",
+      "type": null,
+      "name": "italia"
+    },
+    {
+      "input": "Las Heras",
+      "normalized": "las heras",
+      "type": null,
+      "name": "las heras"
+    },
+    {
+      "input": "Moreno",
+      "normalized": "moreno",
+      "type": null,
+      "name": "moreno"
+    },
+    {
+      "input": "Ramos Mejía",
+      "normalized": "ramos mejia",
+      "type": null,
+      "name": "ramos mejia"
+    },
+    {
+      "input": "San Martín",
+      "normalized": "san martin",
+      "type": null,
+      "name": "san martin"
+    },
+    {
+      "input": "Tirso de Molina",
+      "normalized": "tirso de molina",
+      "type": null,
+      "name": "tirso de molina"
+    },
+    {
+      "input": "Ángel Benedetto",
+      "normalized": "angel benedetto",
+      "type": null,
+      "name": "angel benedetto"
+    },
+    {
+      "input": "Blas Pascal",
+      "normalized": "blas pascal",
+      "type": null,
+      "name": "blas pascal"
+    },
+    {
+      "input": "Comandante Calzadillas",
+      "normalized": "comandante calzadillas",
+      "type": null,
+      "name": "comandante calzadillas"
+    },
+    {
+      "input": "Estados Unidos",
+      "normalized": "estados unidos",
+      "type": null,
+      "name": "estados unidos"
+    },
+    {
+      "input": "General Savio",
+      "normalized": "general savio",
+      "type": null,
+      "name": "general savio"
+    },
+    {
+      "input": "José de San Martín",
+      "normalized": "jose de san martin",
+      "type": null,
+      "name": "jose de san martin"
+    },
+    {
+      "input": "Luis Sullivan",
+      "normalized": "luis sullivan",
+      "type": null,
+      "name": "luis sullivan"
+    },
+    {
+      "input": "Quirno Costa",
+      "normalized": "quirno costa",
+      "type": null,
+      "name": "quirno costa"
+    },
+    {
+      "input": "Sadi Carnot",
+      "normalized": "sadi carnot",
+      "type": null,
+      "name": "sadi carnot"
+    },
+    {
+      "input": "Agua Bendita",
+      "normalized": "agua bendita",
+      "type": null,
+      "name": "agua bendita"
+    },
+    {
+      "input": "Belgrano",
+      "normalized": "belgrano",
+      "type": null,
+      "name": "belgrano"
+    },
+    {
+      "input": "Canadá",
+      "normalized": "canada",
+      "type": null,
+      "name": "canada"
+    },
+    {
+      "input": "Cotenaster",
+      "normalized": "cotenaster",
+      "type": null,
+      "name": "cotenaster"
+    },
+    {
+      "input": "El Pensamiento",
+      "normalized": "el pensamiento",
+      "type": null,
+      "name": "el pensamiento"
+    },
+    {
+      "input": "Francesita",
+      "normalized": "francesita",
+      "type": null,
+      "name": "francesita"
+    },
+    {
+      "input": "Italia",
+      "normalized": "italia",
+      "type": null,
+      "name": "italia"
+    },
+    {
+      "input": "Las Achiras",
+      "normalized": "las achiras",
+      "type": null,
+      "name": "las achiras"
+    },
+    {
+      "input": "Las Violetas",
+      "normalized": "las violetas",
+      "type": null,
+      "name": "las violetas"
+    },
+    {
+      "input": "Maestra Alfonsina Juana Burga",
+      "normalized": "maestra alfonsina juana burga",
+      "type": null,
+      "name": "maestra alfonsina juana burga"
+    },
+    {
+      "input": "Palermo",
+      "normalized": "palermo",
+      "type": null,
+      "name": "palermo"
+    },
+    {
+      "input": "Posadas",
+      "normalized": "posadas",
+      "type": null,
+      "name": "posadas"
+    },
+    {
+      "input": "Santiago de Chile",
+      "normalized": "santiago de chile",
+      "type": null,
+      "name": "santiago de chile"
+    },
+    {
+      "input": "Ventanita Florida",
+      "normalized": "ventanita florida",
+      "type": null,
+      "name": "ventanita florida"
+    },
+    {
+      "input": "Alberdi",
+      "normalized": "alberdi",
+      "type": null,
+      "name": "alberdi"
+    },
+    {
+      "input": "Belisario Roldán",
+      "normalized": "belisario roldan",
+      "type": null,
+      "name": "belisario roldan"
+    },
+    {
+      "input": "Boulevard Oeste",
+      "normalized": "boulevard oeste",
+      "type": "boulevard",
+      "name": "oeste"
+    },
+    {
+      "input": "Chiclana",
+      "normalized": "chiclana",
+      "type": null,
+      "name": "chiclana"
+    },
+    {
+      "input": "Estanislao del Campo",
+      "normalized": "estanislao del campo",
+      "type": null,
+      "name": "estanislao del campo"
+    },
+    {
+      "input": "Islas Orcadas",
+      "normalized": "islas orcadas",
+      "type": null,
+      "name": "islas orcadas"
+    },
+    {
+      "input": "Las Águilas",
+      "normalized": "las aguilas",
+      "type": null,
+      "name": "las aguilas"
+    },
+    {
+      "input": "Lima",
+      "normalized": "lima",
+      "type": null,
+      "name": "lima"
+    },
+    {
+      "input": "Los Federales",
+      "normalized": "los federales",
+      "type": null,
+      "name": "los federales"
+    },
+    {
+      "input": "Los Teros",
+      "normalized": "los teros",
+      "type": null,
+      "name": "los teros"
+    },
+    {
+      "input": "Olazábal",
+      "normalized": "olazabal",
+      "type": null,
+      "name": "olazabal"
+    },
+    {
+      "input": "Remedios de Escalada de San Martín",
+      "normalized": "remedios de escalada de san martin",
+      "type": null,
+      "name": "remedios de escalada de san martin"
+    },
+    {
+      "input": "Salvador María del Carril",
+      "normalized": "salvador maria del carril",
+      "type": null,
+      "name": "salvador maria del carril"
+    },
+    {
+      "input": "Tucumán",
+      "normalized": "tucuman",
+      "type": null,
+      "name": "tucuman"
+    },
+    {
+      "input": "Arequipa",
+      "normalized": "arequipa",
+      "type": null,
+      "name": "arequipa"
+    },
+    {
+      "input": "Brasil",
+      "normalized": "brasil",
+      "type": null,
+      "name": "brasil"
+    },
+    {
+      "input": "Ignacio Corsini",
+      "normalized": "ignacio corsini",
+      "type": null,
+      "name": "ignacio corsini"
+    },
+    {
+      "input": "Los Ceibos",
+      "normalized": "los ceibos",
+      "type": null,
+      "name": "los ceibos"
+    },
+    {
+      "input": "Naranjos",
+      "normalized": "naranjos",
+      "type": null,
+      "name": "naranjos"
+    },
+    {
+      "input": "Santa Fe",
+      "normalized": "santa fe",
+      "type": null,
+      "name": "santa fe"
+    },
+    {
+      "input": "Alejandro Volta",
+      "normalized": "alejandro volta",
+      "type": null,
+      "name": "alejandro volta"
+    },
+    {
+      "input": "Asunción",
+      "normalized": "asuncion",
+      "type": null,
+      "name": "asuncion"
+    },
+    {
+      "input": "Castelar",
+      "normalized": "castelar",
+      "type": null,
+      "name": "castelar"
+    },
+    {
+      "input": "De Las Lobelias",
+      "normalized": "de las lobelias",
+      "type": null,
+      "name": "de las lobelias"
+    },
+    {
+      "input": "De Los Pensamientos",
+      "normalized": "de los pensamientos",
+      "type": null,
+      "name": "de los pensamientos"
+    },
+    {
+      "input": "Freire",
+      "normalized": "freire",
+      "type": null,
+      "name": "freire"
+    },
+    {
+      "input": "Juana Azurduy",
+      "normalized": "juana azurduy",
+      "type": null,
+      "name": "juana azurduy"
+    },
+    {
+      "input": "Pasaje Las Tunas",
+      "normalized": "pasaje las tunas",
+      "type": "pasaje",
+      "name": "las tunas"
+    },
+    {
+      "input": "Soldados de Malvinas",
+      "normalized": "soldados de malvinas",
+      "type": null,
+      "name": "soldados de malvinas"
+    },
+    {
+      "input": "Ascochinga",
+      "normalized": "ascochinga",
+      "type": null,
+      "name": "ascochinga"
+    },
+    {
+      "input": "Avenida de los Colegios",
+      "normalized": "avenida de los colegios",
+      "type": "avenida",
+      "name": "de los colegios"
+    },
+    {
+      "input": "Boulevard Chico",
+      "normalized": "boulevard chico",
+      "type": "boulevard",
+      "name": "chico"
+    },
+    {
+      "input": "Calle de la Angostura",
+      "normalized": "calle de la angostura",
+      "type": "calle",
+      "name": "de la angostura"
+    },
+    {
+      "input": "Calle de la Vicuña",
+      "normalized": "calle de la vicuna",
+      "type": "calle",
+      "name": "de la vicuna"
+    },
+    {
+      "input": "Calle de los Juncos",
+      "normalized": "calle de los juncos",
+      "type": "calle",
+      "name": "de los juncos"
+    },
+    {
+      "input": "Calle del Pecarí",
+      "normalized": "calle del pecari",
+      "type": "calle",
+      "name": "del pecari"
+    },
+    {
+      "input": "Cambá",
+      "normalized": "camba",
+      "type": null,
+      "name": "camba"
+    },
+    {
+      "input": "De Las Azucenas",
+      "normalized": "de las azucenas",
+      "type": null,
+      "name": "de las azucenas"
+    },
+    {
+      "input": "De Los Rosales",
+      "normalized": "de los rosales",
+      "type": null,
+      "name": "de los rosales"
+    },
+    {
+      "input": "El Faro",
+      "normalized": "el faro",
+      "type": null,
+      "name": "el faro"
+    },
+    {
+      "input": "José Cebey",
+      "normalized": "jose cebey",
+      "type": null,
+      "name": "jose cebey"
+    },
+    {
+      "input": "La Reconquista",
+      "normalized": "la reconquista",
+      "type": null,
+      "name": "la reconquista"
+    },
+    {
+      "input": "Majeste",
+      "normalized": "majeste",
+      "type": null,
+      "name": "majeste"
+    },
+    {
+      "input": "Puelo",
+      "normalized": "puelo",
+      "type": null,
+      "name": "puelo"
+    },
+    {
+      "input": "UCES - TIGRE",
+      "normalized": "uces tigre",
+      "type": null,
+      "name": "uces tigre"
+    },
+    {
+      "input": "colegio 35 SOFI",
+      "normalized": "colegio 35 sofi",
+      "type": null,
+      "name": "colegio 35 sofi"
+    },
+    {
+      "input": "Bossuet",
+      "normalized": "bossuet",
+      "type": null,
+      "name": "bossuet"
+    },
+    {
+      "input": "Cornelio Saavedra",
+      "normalized": "cornelio saavedra",
+      "type": null,
+      "name": "cornelio saavedra"
+    },
+    {
+      "input": "Figueroa Alcorta",
+      "normalized": "figueroa alcorta",
+      "type": null,
+      "name": "figueroa alcorta"
+    },
+    {
+      "input": "Héctor Basaldúa",
+      "normalized": "hector basaldua",
+      "type": null,
+      "name": "hector basaldua"
+    },
+    {
+      "input": "Juan de Garay",
+      "normalized": "juan de garay",
+      "type": null,
+      "name": "juan de garay"
+    },
+    {
+      "input": "Monteagudo",
+      "normalized": "monteagudo",
+      "type": null,
+      "name": "monteagudo"
+    },
+    {
+      "input": "Ricardo Güiraldes",
+      "normalized": "ricardo guiraldes",
+      "type": null,
+      "name": "ricardo guiraldes"
+    },
+    {
+      "input": "Silva",
+      "normalized": "silva",
+      "type": null,
+      "name": "silva"
+    },
+    {
+      "input": "Andalucía",
+      "normalized": "andalucia",
+      "type": null,
+      "name": "andalucia"
+    },
+    {
+      "input": "Camino de los Remeros",
+      "normalized": "camino de los remeros",
+      "type": "camino",
+      "name": "de los remeros"
+    },
+    {
+      "input": "Colibrí",
+      "normalized": "colibri",
+      "type": null,
+      "name": "colibri"
+    },
+    {
+      "input": "Estanislao del Campo",
+      "normalized": "estanislao del campo",
+      "type": null,
+      "name": "estanislao del campo"
+    },
+    {
+      "input": "Ingeniero White",
+      "normalized": "ingeniero white",
+      "type": null,
+      "name": "ingeniero white"
+    },
+    {
+      "input": "La Paz",
+      "normalized": "la paz",
+      "type": null,
+      "name": "la paz"
+    },
+    {
+      "input": "Marcos Paz",
+      "normalized": "marcos paz",
+      "type": null,
+      "name": "marcos paz"
+    },
+    {
+      "input": "Pasaje 1",
+      "normalized": "pasaje 1",
+      "type": "pasaje",
+      "name": "1"
+    },
+    {
+      "input": "Rosales",
+      "normalized": "rosales",
+      "type": null,
+      "name": "rosales"
+    },
+    {
+      "input": "Wagner",
+      "normalized": "wagner",
+      "type": null,
+      "name": "wagner"
+    },
+    {
+      "input": "02 - Aguaribay",
+      "normalized": "02 aguaribay",
+      "type": null,
+      "name": "02 aguaribay"
+    },
+    {
+      "input": "10 - Chal Chal",
+      "normalized": "10 chal chal",
+      "type": null,
+      "name": "10 chal chal"
+    },
+    {
+      "input": "18 - Molle",
+      "normalized": "18 molle",
+      "type": null,
+      "name": "18 molle"
+    },
+    {
+      "input": "26 - Chañar",
+      "normalized": "26 chanar",
+      "type": null,
+      "name": "26 chanar"
+    },
+    {
+      "input": "Alfonsina Storni",
+      "normalized": "alfonsina storni",
+      "type": null,
+      "name": "alfonsina storni"
+    },
+    {
+      "input": "Azul",
+      "normalized": "azul",
+      "type": null,
+      "name": "azul"
+    },
+    {
+      "input": "Bragado",
+      "normalized": "bragado",
+      "type": null,
+      "name": "bragado"
+    },
+    {
+      "input": "Castiglioni",
+      "normalized": "castiglioni",
+      "type": null,
+      "name": "castiglioni"
+    },
+    {
+      "input": "Encarnación Ezcurra",
+      "normalized": "encarnacion ezcurra",
+      "type": null,
+      "name": "encarnacion ezcurra"
+    },
+    {
+      "input": "Felipe II",
+      "normalized": "felipe ii",
+      "type": null,
+      "name": "felipe ii"
+    },
+    {
+      "input": "Guaminí",
+      "normalized": "guamini",
+      "type": null,
+      "name": "guamini"
+    },
+    {
+      "input": "José María Paz",
+      "normalized": "jose maria paz",
+      "type": null,
+      "name": "jose maria paz"
+    },
+    {
+      "input": "Las Tijeretas",
+      "normalized": "las tijeretas",
+      "type": null,
+      "name": "las tijeretas"
+    },
+    {
+      "input": "Los Cardenales",
+      "normalized": "los cardenales",
+      "type": null,
+      "name": "los cardenales"
+    },
+    {
+      "input": "Los Liquidambar",
+      "normalized": "los liquidambar",
+      "type": null,
+      "name": "los liquidambar"
+    },
+    {
+      "input": "Magdalena",
+      "normalized": "magdalena",
+      "type": null,
+      "name": "magdalena"
+    },
+    {
+      "input": "Miguel Ángel Buonarroti",
+      "normalized": "miguel angel buonarroti",
+      "type": null,
+      "name": "miguel angel buonarroti"
+    }
+  ]
+}

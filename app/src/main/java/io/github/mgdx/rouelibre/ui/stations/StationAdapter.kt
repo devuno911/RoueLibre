@@ -1,0 +1,244 @@
+package io.github.mgdx.rouelibre.ui.stations
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import io.github.mgdx.rouelibre.R
+import io.github.mgdx.rouelibre.core.geo.BoundingBox
+import io.github.mgdx.rouelibre.core.geo.Coordinates
+import io.github.mgdx.rouelibre.core.geo.distanceInMetresTo
+import io.github.mgdx.rouelibre.core.station.AvailabilityMode
+import io.github.mgdx.rouelibre.core.station.BikeKindFilter
+import io.github.mgdx.rouelibre.core.station.StationWithAvailability
+import io.github.mgdx.rouelibre.core.station.displayFor
+import io.github.mgdx.rouelibre.core.station.isBeyondCoveredArea
+import io.github.mgdx.rouelibre.databinding.ItemStationBinding
+import io.github.mgdx.rouelibre.ui.UNLIMITED_FIGURE
+import io.github.mgdx.rouelibre.ui.UNLIMITED_PLURAL_QUANTITY
+import io.github.mgdx.rouelibre.ui.formatDistance
+import io.github.mgdx.rouelibre.ui.inServedDigits
+
+/**
+ * Shows the stations as a list.
+ *
+ * The mode — bikes or docks — is part of a row's visual identity: changing mode
+ * redraws everything, which `ListAdapter` would not guess since the stations
+ * themselves have not changed.
+ */
+class StationAdapter(private val onOpen: (StationWithAvailability) -> Unit) :
+    ListAdapter<StationWithAvailability, StationAdapter.StationViewHolder>(DIFF) {
+
+    /** What the indicator counts: the bikes, or the docks. */
+    var mode: AvailabilityMode = AvailabilityMode.Bikes
+        set(value) {
+            if (field == value) return
+            field = value
+            notifyItemRangeChanged(0, itemCount)
+        }
+
+    /**
+     * The kind of bike the indicator counts, or `null` for all of them
+     * (SPEC §7.1) — the filter the map and the list share.
+     */
+    var bikeKind: BikeKindFilter? = null
+        set(value) {
+            if (field == value) return
+            field = value
+            notifyItemRangeChanged(0, itemCount)
+        }
+
+    /**
+     * Whether the network's free docks are worth showing (SPEC §7.1).
+     *
+     * Where they are not, the rows lose the second column — the free docks
+     * beside the bikes — and their spoken sentence loses the words for them.
+     */
+    var freeDocksShown: Boolean = true
+        set(value) {
+            if (field == value) return
+            field = value
+            notifyItemRangeChanged(0, itemCount)
+        }
+
+    /**
+     * Where distances are measured from, or `null` to show none.
+     *
+     * Set when the list is ordered by proximity: an order that is not
+     * alphabetical must say what it rests on, otherwise it reads as a defect.
+     */
+    var origin: Coordinates? = null
+        set(value) {
+            if (field == value) return
+            field = value
+            notifyItemRangeChanged(0, itemCount)
+        }
+
+    /**
+     * The area the installed data covers, or `null` while it is unknown.
+     *
+     * A row whose station falls outside it says so: it is shown, because it is
+     * a real station of the network with real bikes at it, but it must not be
+     * presented as one this city's map and graph can serve
+     * (see [isBeyondCoveredArea]).
+     */
+    var coveredArea: BoundingBox? = null
+        set(value) {
+            if (field == value) return
+            field = value
+            notifyItemRangeChanged(0, itemCount)
+        }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StationViewHolder {
+        val binding = ItemStationBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false,
+        )
+        return StationViewHolder(binding, onOpen)
+    }
+
+    override fun onBindViewHolder(holder: StationViewHolder, position: Int) {
+        holder.bind(getItem(position), mode, origin, coveredArea, freeDocksShown, bikeKind)
+    }
+
+    /** One station row. */
+    class StationViewHolder(
+        private val binding: ItemStationBinding,
+        private val onOpen: (StationWithAvailability) -> Unit,
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        /**
+         * Fills the row.
+         *
+         * @param entry the station and its last known state.
+         * @param mode what the indicator is to count.
+         * @param origin where to measure the distance from, or `null`.
+         * @param coveredArea the area the installed data covers, or `null`.
+         * @param freeDocksShown whether the network's free docks are worth
+         *   showing at all.
+         * @param bikeKind the kind of bike counted, or `null` for all of them.
+         */
+        fun bind(
+            entry: StationWithAvailability,
+            mode: AvailabilityMode,
+            origin: Coordinates?,
+            coveredArea: BoundingBox?,
+            freeDocksShown: Boolean,
+            bikeKind: BikeKindFilter? = null,
+        ) {
+            val context = binding.root.context
+            val resources = context.resources
+            val display = entry.displayFor(mode, bikeKind)
+
+            binding.indicator.display = display
+            binding.name.text = entry.station.name
+
+            // Where the station is: its distance when we know where the user
+            // stands, its postcode otherwise. Never both — the line has room
+            // for two facts, and a postcode says nothing to somebody fifty
+            // metres away.
+            val whereabouts = origin
+                ?.let { context.formatDistance(entry.station.position.distanceInMetresTo(it)) }
+                // A postcode is a label made of figures: its digits are moved
+                // to the numeration served — the count of docks beside it on
+                // this very line is already written in them — and never run
+                // through a number format, which would group "59260" into
+                // "59 260" (SPEC §9).
+                ?: context.inServedDigits(entry.station.postalCode.orEmpty())
+            val detail = entry.station.capacity
+                ?.let {
+                    // A network that publishes neither postcode nor position
+                    // leaves nothing before the separator, and the row opened
+                    // on one — "· 22 docking points". The capacity then stands
+                    // on its own, in the wording the station's own sheet uses.
+                    if (whereabouts.isBlank()) {
+                        resources.getQuantityString(R.plurals.docks_total, it, it)
+                    } else {
+                        resources.getQuantityString(
+                            R.plurals.station_detail_with_capacity,
+                            it,
+                            whereabouts,
+                            it,
+                        )
+                    }
+                }
+                ?: whereabouts
+            // Said on the row rather than only on the sheet: this is where the
+            // station is picked out of the list, and a station 290 km beyond
+            // the map must not read as an ordinary one until it is opened.
+            val beyond = context.getString(R.string.station_beyond_area_short)
+            binding.detail.text = when {
+                !entry.station.isBeyondCoveredArea(coveredArea) -> detail
+                detail.isBlank() -> beyond
+                else -> context.getString(R.string.address_detail, detail, beyond)
+            }
+            binding.detail.isGone = binding.detail.text.isNullOrBlank()
+
+            // No second column where the network's free docks are not worth
+            // showing: it would be a ∞ on most rows (SPEC §7.1), and the
+            // list then counts bikes alone. The row gives the name its width.
+            binding.counterpartBlock.isGone = !freeDocksShown
+
+            // The counterpart count: docks when the indicator shows bikes, and
+            // the other way round. Free docks that limit nothing are written
+            // with the sign the discs use, never as the nought a feed may
+            // carry for them (SPEC §4.1) — at a station that takes bikes back.
+            // One refusing returns shows the count it published, nought where
+            // it published none, as it always has.
+            val docksUnlimited = mode == AvailabilityMode.Bikes &&
+                entry.availability?.acceptsAnyBike == true
+            val counterpart = entry.availability?.let {
+                when (mode) {
+                    AvailabilityMode.Bikes -> it.docksAvailable ?: 0
+                    AvailabilityMode.Docks -> it.bikesAvailable
+                }
+            }
+            binding.counterpart.text = when {
+                docksUnlimited -> UNLIMITED_FIGURE
+                counterpart != null -> context.inServedDigits(counterpart)
+                else -> context.getString(R.string.counterpart_none)
+            }
+            // The label agrees with the figure beside it, and carries no number
+            // of its own: the count is passed as a quantity, not as an
+            // argument. An unknown count reads as the plural, the form the pair
+            // is named with when nothing settles it.
+            binding.counterpartLabel.text = resources.getQuantityString(
+                when (mode) {
+                    AvailabilityMode.Bikes -> R.plurals.counterpart_docks
+                    AvailabilityMode.Docks -> R.plurals.counterpart_bikes
+                },
+                if (docksUnlimited) UNLIMITED_PLURAL_QUANTITY else counterpart ?: 0,
+            )
+
+            // A screen reader must hear the same thing an eye sees: the name,
+            // then both counts, never a colour (SPEC §7). The sentence is built
+            // outside this class because the station's sheet draws the same two
+            // figures and owes the same words (see [spokenAvailability]).
+            binding.root.contentDescription =
+                context.spokenAvailability(
+                    entry,
+                    isOutOfService = display.isOutOfService,
+                    freeDocksShown = freeDocksShown,
+                    bikeKind = bikeKind.takeIf { mode == AvailabilityMode.Bikes },
+                )
+            binding.root.setOnClickListener { onOpen(entry) }
+        }
+    }
+
+    private companion object {
+        val DIFF = object : DiffUtil.ItemCallback<StationWithAvailability>() {
+            override fun areItemsTheSame(
+                oldItem: StationWithAvailability,
+                newItem: StationWithAvailability,
+            ): Boolean = oldItem.station.id == newItem.station.id
+
+            override fun areContentsTheSame(
+                oldItem: StationWithAvailability,
+                newItem: StationWithAvailability,
+            ): Boolean = oldItem == newItem
+        }
+    }
+}

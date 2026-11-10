@@ -1,0 +1,773 @@
+{
+  "language": "ar",
+  "cases": [
+    {
+      "input": "شارع الملك فيصل",
+      "normalized": "شارع الملك فيصل",
+      "type": "شارع",
+      "name": "الملك فيصل"
+    },
+    {
+      "input": "شارع الشيخ زايد",
+      "normalized": "شارع الشيخ زايد",
+      "type": "شارع",
+      "name": "الشيخ زايد"
+    },
+    {
+      "input": "طريق الملك عبدالعزيز",
+      "normalized": "طريق الملك عبدالعزيز",
+      "type": "طريق",
+      "name": "الملك عبدالعزيز"
+    },
+    {
+      "input": "ميدان التحرير",
+      "normalized": "ميدان التحرير",
+      "type": "ميدان",
+      "name": "التحرير"
+    },
+    {
+      "input": "جادة الأمير محمد",
+      "normalized": "جاده الامير محمد",
+      "type": null,
+      "name": "جاده الامير محمد"
+    },
+    {
+      "input": "كورنيش الدوحة",
+      "normalized": "كورنيش الدوحه",
+      "type": "كورنيش",
+      "name": "الدوحه"
+    },
+    {
+      "input": "نهج الحبيب بورقيبة",
+      "normalized": "نهج الحبيب بورقيبه",
+      "type": "نهج",
+      "name": "الحبيب بورقيبه"
+    },
+    {
+      "input": "زنقة الأطلس",
+      "normalized": "زنقه الاطلس",
+      "type": null,
+      "name": "زنقه الاطلس"
+    },
+    {
+      "input": "سيكا 14b",
+      "normalized": "سيكا 14b",
+      "type": null,
+      "name": "سيكا 14b"
+    },
+    {
+      "input": "Media One Tower",
+      "normalized": "media one tower",
+      "type": null,
+      "name": "media one tower"
+    },
+    {
+      "input": "First Al Khail Street",
+      "normalized": "first al khail street",
+      "type": null,
+      "name": "first al khail street"
+    },
+    {
+      "input": "27b Street",
+      "normalized": "27b street",
+      "type": null,
+      "name": "27b street"
+    },
+    {
+      "input": "The National Gallery",
+      "normalized": "the national gallery",
+      "type": null,
+      "name": "the national gallery"
+    },
+    {
+      "input": "الاتحاد",
+      "normalized": "الاتحاد",
+      "type": null,
+      "name": "الاتحاد"
+    },
+    {
+      "input": "Theatre by QE2",
+      "normalized": "theatre by qe2",
+      "type": null,
+      "name": "theatre by qe2"
+    },
+    {
+      "input": "Hair & Beauty Academy",
+      "normalized": "hair beauty academy",
+      "type": null,
+      "name": "hair beauty academy"
+    },
+    {
+      "input": "S120",
+      "normalized": "s120",
+      "type": null,
+      "name": "s120"
+    },
+    {
+      "input": "شارع 6",
+      "normalized": "شارع 6",
+      "type": "شارع",
+      "name": "6"
+    },
+    {
+      "input": "شارع 31",
+      "normalized": "شارع 31",
+      "type": "شارع",
+      "name": "31"
+    },
+    {
+      "input": "Street 31",
+      "normalized": "street 31",
+      "type": null,
+      "name": "street 31"
+    },
+    {
+      "input": "شارع 14ا",
+      "normalized": "شارع 14ا",
+      "type": "شارع",
+      "name": "14ا"
+    },
+    {
+      "input": "27a شارع",
+      "normalized": "27a شارع",
+      "type": null,
+      "name": "27a شارع"
+    },
+    {
+      "input": "13 Street",
+      "normalized": "13 street",
+      "type": null,
+      "name": "13 street"
+    },
+    {
+      "input": "D12 Street",
+      "normalized": "d12 street",
+      "type": null,
+      "name": "d12 street"
+    },
+    {
+      "input": "JVT District 5",
+      "normalized": "jvt district 5",
+      "type": null,
+      "name": "jvt district 5"
+    },
+    {
+      "input": "شارع البرشاء 2",
+      "normalized": "شارع البرشاء 2",
+      "type": "شارع",
+      "name": "البرشاء 2"
+    },
+    {
+      "input": "7 Street",
+      "normalized": "7 street",
+      "type": null,
+      "name": "7 street"
+    },
+    {
+      "input": "B15 شارع",
+      "normalized": "b15 شارع",
+      "type": null,
+      "name": "b15 شارع"
+    },
+    {
+      "input": "شارع السهل",
+      "normalized": "شارع السهل",
+      "type": "شارع",
+      "name": "السهل"
+    },
+    {
+      "input": "شارع 21",
+      "normalized": "شارع 21",
+      "type": "شارع",
+      "name": "21"
+    },
+    {
+      "input": "ممر الأوركيد",
+      "normalized": "ممر الاوركيد",
+      "type": null,
+      "name": "ممر الاوركيد"
+    },
+    {
+      "input": "شارع نوفيليا 4",
+      "normalized": "شارع نوفيليا 4",
+      "type": "شارع",
+      "name": "نوفيليا 4"
+    },
+    {
+      "input": "2b شارع",
+      "normalized": "2b شارع",
+      "type": null,
+      "name": "2b شارع"
+    },
+    {
+      "input": "Al Khan Street",
+      "normalized": "al khan street",
+      "type": null,
+      "name": "al khan street"
+    },
+    {
+      "input": "شارع 1",
+      "normalized": "شارع 1",
+      "type": "شارع",
+      "name": "1"
+    },
+    {
+      "input": "182 Street",
+      "normalized": "182 street",
+      "type": null,
+      "name": "182 street"
+    },
+    {
+      "input": "شارع 158",
+      "normalized": "شارع 158",
+      "type": "شارع",
+      "name": "158"
+    },
+    {
+      "input": "شارع فيستا",
+      "normalized": "شارع فيستا",
+      "type": "شارع",
+      "name": "فيستا"
+    },
+    {
+      "input": "35a شارع",
+      "normalized": "35a شارع",
+      "type": null,
+      "name": "35a شارع"
+    },
+    {
+      "input": "64c شارع",
+      "normalized": "64c شارع",
+      "type": null,
+      "name": "64c شارع"
+    },
+    {
+      "input": "3b شارع",
+      "normalized": "3b شارع",
+      "type": null,
+      "name": "3b شارع"
+    },
+    {
+      "input": "91b شارع",
+      "normalized": "91b شارع",
+      "type": null,
+      "name": "91b شارع"
+    },
+    {
+      "input": "13b شارع",
+      "normalized": "13b شارع",
+      "type": null,
+      "name": "13b شارع"
+    },
+    {
+      "input": "شارع الطراد",
+      "normalized": "شارع الطراد",
+      "type": "شارع",
+      "name": "الطراد"
+    },
+    {
+      "input": "Al Shahoof Street",
+      "normalized": "al shahoof street",
+      "type": null,
+      "name": "al shahoof street"
+    },
+    {
+      "input": "شارع الستمي",
+      "normalized": "شارع الستمي",
+      "type": "شارع",
+      "name": "الستمي"
+    },
+    {
+      "input": "شارع 5",
+      "normalized": "شارع 5",
+      "type": "شارع",
+      "name": "5"
+    },
+    {
+      "input": "28b شارع",
+      "normalized": "28b شارع",
+      "type": null,
+      "name": "28b شارع"
+    },
+    {
+      "input": "1a Street",
+      "normalized": "1a street",
+      "type": null,
+      "name": "1a street"
+    },
+    {
+      "input": "10b Street",
+      "normalized": "10b street",
+      "type": null,
+      "name": "10b street"
+    },
+    {
+      "input": "11a شارع",
+      "normalized": "11a شارع",
+      "type": null,
+      "name": "11a شارع"
+    },
+    {
+      "input": "Centro Courtyard 5",
+      "normalized": "centro courtyard 5",
+      "type": null,
+      "name": "centro courtyard 5"
+    },
+    {
+      "input": "34a شارع",
+      "normalized": "34a شارع",
+      "type": null,
+      "name": "34a شارع"
+    },
+    {
+      "input": "طريق الدوحة",
+      "normalized": "طريق الدوحه",
+      "type": "طريق",
+      "name": "الدوحه"
+    },
+    {
+      "input": "شارع 7",
+      "normalized": "شارع 7",
+      "type": "شارع",
+      "name": "7"
+    },
+    {
+      "input": "44a شارع",
+      "normalized": "44a شارع",
+      "type": null,
+      "name": "44a شارع"
+    },
+    {
+      "input": "Kunooz 2 Street",
+      "normalized": "kunooz 2 street",
+      "type": null,
+      "name": "kunooz 2 street"
+    },
+    {
+      "input": "شارع 6ب",
+      "normalized": "شارع 6ب",
+      "type": "شارع",
+      "name": "6ب"
+    },
+    {
+      "input": "34d شارع",
+      "normalized": "34d شارع",
+      "type": null,
+      "name": "34d شارع"
+    },
+    {
+      "input": "شارع 26",
+      "normalized": "شارع 26",
+      "type": "شارع",
+      "name": "26"
+    },
+    {
+      "input": "شارع 43",
+      "normalized": "شارع 43",
+      "type": "شارع",
+      "name": "43"
+    },
+    {
+      "input": "شارع 2",
+      "normalized": "شارع 2",
+      "type": "شارع",
+      "name": "2"
+    },
+    {
+      "input": "15b Street",
+      "normalized": "15b street",
+      "type": null,
+      "name": "15b street"
+    },
+    {
+      "input": "29a شارع",
+      "normalized": "29a شارع",
+      "type": null,
+      "name": "29a شارع"
+    },
+    {
+      "input": "8d شارع",
+      "normalized": "8d شارع",
+      "type": null,
+      "name": "8d شارع"
+    },
+    {
+      "input": "25b شارع",
+      "normalized": "25b شارع",
+      "type": null,
+      "name": "25b شارع"
+    },
+    {
+      "input": "شارع الشيخ زايد بن حمدان آل نهيان",
+      "normalized": "شارع الشيخ زايد بن حمدان ال نهيان",
+      "type": "شارع",
+      "name": "الشيخ زايد بن حمدان ال نهيان"
+    },
+    {
+      "input": "شارع 122",
+      "normalized": "شارع 122",
+      "type": "شارع",
+      "name": "122"
+    },
+    {
+      "input": "شارع 92",
+      "normalized": "شارع 92",
+      "type": "شارع",
+      "name": "92"
+    },
+    {
+      "input": "شارع 127",
+      "normalized": "شارع 127",
+      "type": "شارع",
+      "name": "127"
+    },
+    {
+      "input": "28b شارع",
+      "normalized": "28b شارع",
+      "type": null,
+      "name": "28b شارع"
+    },
+    {
+      "input": "شارع 12د",
+      "normalized": "شارع 12د",
+      "type": "شارع",
+      "name": "12د"
+    },
+    {
+      "input": "39b شارع",
+      "normalized": "39b شارع",
+      "type": null,
+      "name": "39b شارع"
+    },
+    {
+      "input": "شارع 29",
+      "normalized": "شارع 29",
+      "type": "شارع",
+      "name": "29"
+    },
+    {
+      "input": "16a سيكا",
+      "normalized": "16a سيكا",
+      "type": null,
+      "name": "16a سيكا"
+    },
+    {
+      "input": "شارع 2",
+      "normalized": "شارع 2",
+      "type": "شارع",
+      "name": "2"
+    },
+    {
+      "input": "35 Street",
+      "normalized": "35 street",
+      "type": null,
+      "name": "35 street"
+    },
+    {
+      "input": "91a شارع",
+      "normalized": "91a شارع",
+      "type": null,
+      "name": "91a شارع"
+    },
+    {
+      "input": "33c شارع",
+      "normalized": "33c شارع",
+      "type": null,
+      "name": "33c شارع"
+    },
+    {
+      "input": "18b شارع",
+      "normalized": "18b شارع",
+      "type": null,
+      "name": "18b شارع"
+    },
+    {
+      "input": "63c شارع",
+      "normalized": "63c شارع",
+      "type": null,
+      "name": "63c شارع"
+    },
+    {
+      "input": "59a Street",
+      "normalized": "59a street",
+      "type": null,
+      "name": "59a street"
+    },
+    {
+      "input": "36b شارع",
+      "normalized": "36b شارع",
+      "type": null,
+      "name": "36b شارع"
+    },
+    {
+      "input": "F10 شارع",
+      "normalized": "f10 شارع",
+      "type": null,
+      "name": "f10 شارع"
+    },
+    {
+      "input": "شارع 15أ",
+      "normalized": "شارع 15ا",
+      "type": "شارع",
+      "name": "15ا"
+    },
+    {
+      "input": "شارع 2",
+      "normalized": "شارع 2",
+      "type": "شارع",
+      "name": "2"
+    },
+    {
+      "input": "شارع بندول",
+      "normalized": "شارع بندول",
+      "type": "شارع",
+      "name": "بندول"
+    },
+    {
+      "input": "شارع البيتا",
+      "normalized": "شارع البيتا",
+      "type": "شارع",
+      "name": "البيتا"
+    },
+    {
+      "input": "شارع الطياري",
+      "normalized": "شارع الطياري",
+      "type": "شارع",
+      "name": "الطياري"
+    },
+    {
+      "input": "شارع برج خليفة",
+      "normalized": "شارع برج خليفه",
+      "type": "شارع",
+      "name": "برج خليفه"
+    },
+    {
+      "input": "E7 شارع",
+      "normalized": "e7 شارع",
+      "type": null,
+      "name": "e7 شارع"
+    },
+    {
+      "input": "شارع السهول",
+      "normalized": "شارع السهول",
+      "type": "شارع",
+      "name": "السهول"
+    },
+    {
+      "input": "شارع 77",
+      "normalized": "شارع 77",
+      "type": "شارع",
+      "name": "77"
+    },
+    {
+      "input": "شارع 2أ",
+      "normalized": "شارع 2ا",
+      "type": "شارع",
+      "name": "2ا"
+    },
+    {
+      "input": "69a شارع",
+      "normalized": "69a شارع",
+      "type": null,
+      "name": "69a شارع"
+    },
+    {
+      "input": "43a شارع",
+      "normalized": "43a شارع",
+      "type": null,
+      "name": "43a شارع"
+    },
+    {
+      "input": "شارع الكوفر",
+      "normalized": "شارع الكوفر",
+      "type": "شارع",
+      "name": "الكوفر"
+    },
+    {
+      "input": "12d Street",
+      "normalized": "12d street",
+      "type": null,
+      "name": "12d street"
+    },
+    {
+      "input": "4B Street",
+      "normalized": "4b street",
+      "type": null,
+      "name": "4b street"
+    },
+    {
+      "input": "Al rigga Deira Dubai, United Arab Emirates.",
+      "normalized": "al rigga deira dubai united arab emirates",
+      "type": null,
+      "name": "al rigga deira dubai united arab emirates"
+    },
+    {
+      "input": "J Street",
+      "normalized": "j street",
+      "type": null,
+      "name": "j street"
+    },
+    {
+      "input": "Street 92",
+      "normalized": "street 92",
+      "type": null,
+      "name": "street 92"
+    },
+    {
+      "input": "طريق مراسي",
+      "normalized": "طريق مراسي",
+      "type": "طريق",
+      "name": "مراسي"
+    },
+    {
+      "input": "Design District",
+      "normalized": "design district",
+      "type": null,
+      "name": "design district"
+    },
+    {
+      "input": "Street 3",
+      "normalized": "street 3",
+      "type": null,
+      "name": "street 3"
+    },
+    {
+      "input": "شارع 15",
+      "normalized": "شارع 15",
+      "type": "شارع",
+      "name": "15"
+    },
+    {
+      "input": "طريق الخشخاش الغربي",
+      "normalized": "طريق الخشخاش الغربي",
+      "type": "طريق",
+      "name": "الخشخاش الغربي"
+    },
+    {
+      "input": "شارع 39",
+      "normalized": "شارع 39",
+      "type": "شارع",
+      "name": "39"
+    },
+    {
+      "input": "11a شارع",
+      "normalized": "11a شارع",
+      "type": null,
+      "name": "11a شارع"
+    },
+    {
+      "input": "8b شارع",
+      "normalized": "8b شارع",
+      "type": null,
+      "name": "8b شارع"
+    },
+    {
+      "input": "شارع 4",
+      "normalized": "شارع 4",
+      "type": "شارع",
+      "name": "4"
+    },
+    {
+      "input": "شارع 5",
+      "normalized": "شارع 5",
+      "type": "شارع",
+      "name": "5"
+    },
+    {
+      "input": "شارع 39",
+      "normalized": "شارع 39",
+      "type": "شارع",
+      "name": "39"
+    },
+    {
+      "input": "18b شارع",
+      "normalized": "18b شارع",
+      "type": null,
+      "name": "18b شارع"
+    },
+    {
+      "input": "69a شارع",
+      "normalized": "69a شارع",
+      "type": null,
+      "name": "69a شارع"
+    },
+    {
+      "input": "Bluewaters Wharf Link",
+      "normalized": "bluewaters wharf link",
+      "type": null,
+      "name": "bluewaters wharf link"
+    },
+    {
+      "input": "شارع 57",
+      "normalized": "شارع 57",
+      "type": "شارع",
+      "name": "57"
+    },
+    {
+      "input": "شارع 12",
+      "normalized": "شارع 12",
+      "type": "شارع",
+      "name": "12"
+    },
+    {
+      "input": "شارع نجد",
+      "normalized": "شارع نجد",
+      "type": "شارع",
+      "name": "نجد"
+    },
+    {
+      "input": "32a شارع",
+      "normalized": "32a شارع",
+      "type": null,
+      "name": "32a شارع"
+    },
+    {
+      "input": "17a Street",
+      "normalized": "17a street",
+      "type": null,
+      "name": "17a street"
+    },
+    {
+      "input": "53b شارع",
+      "normalized": "53b شارع",
+      "type": null,
+      "name": "53b شارع"
+    },
+    {
+      "input": "38 Street",
+      "normalized": "38 street",
+      "type": null,
+      "name": "38 street"
+    },
+    {
+      "input": "56 Street",
+      "normalized": "56 street",
+      "type": null,
+      "name": "56 street"
+    },
+    {
+      "input": "28d شارع",
+      "normalized": "28d شارع",
+      "type": null,
+      "name": "28d شارع"
+    },
+    {
+      "input": "22b شارع",
+      "normalized": "22b شارع",
+      "type": null,
+      "name": "22b شارع"
+    },
+    {
+      "input": "9c شارع",
+      "normalized": "9c شارع",
+      "type": null,
+      "name": "9c شارع"
+    },
+    {
+      "input": "3b Street",
+      "normalized": "3b street",
+      "type": null,
+      "name": "3b street"
+    }
+  ]
+}

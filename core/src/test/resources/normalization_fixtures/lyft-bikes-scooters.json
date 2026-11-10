@@ -1,0 +1,797 @@
+{
+  "language": "en",
+  "cases": [
+    {
+      "input": "Abbey Rd",
+      "normalized": "abbey road",
+      "type": null,
+      "name": "abbey road"
+    },
+    {
+      "input": "Baker Street",
+      "normalized": "baker street",
+      "type": null,
+      "name": "baker street"
+    },
+    {
+      "input": "St James's Park",
+      "normalized": "saint james south park",
+      "type": null,
+      "name": "saint james south park"
+    },
+    {
+      "input": "Queen's Crescent",
+      "normalized": "queen south crescent",
+      "type": null,
+      "name": "queen south crescent"
+    },
+    {
+      "input": "Kensington High St",
+      "normalized": "kensington high st",
+      "type": null,
+      "name": "kensington high st"
+    },
+    {
+      "input": "Dr Martin Luther King Jr Blvd",
+      "normalized": "doctor martin luther king jr boulevard",
+      "type": null,
+      "name": "doctor martin luther king jr boulevard"
+    },
+    {
+      "input": "N Michigan Ave",
+      "normalized": "north michigan avenue",
+      "type": null,
+      "name": "north michigan avenue"
+    },
+    {
+      "input": "The Mall",
+      "normalized": "the mall",
+      "type": null,
+      "name": "the mall"
+    },
+    {
+      "input": "Hyde Park Corner",
+      "normalized": "hyde park corner",
+      "type": null,
+      "name": "hyde park corner"
+    },
+    {
+      "input": "Cherry Ln",
+      "normalized": "cherry lane",
+      "type": null,
+      "name": "cherry lane"
+    },
+    {
+      "input": "Mt Pleasant Ter",
+      "normalized": "mount pleasant terrace",
+      "type": null,
+      "name": "mount pleasant terrace"
+    },
+    {
+      "input": "Fifth Avenue",
+      "normalized": "fifth avenue",
+      "type": null,
+      "name": "fifth avenue"
+    },
+    {
+      "input": "Allison Street",
+      "normalized": "allison street",
+      "type": null,
+      "name": "allison street"
+    },
+    {
+      "input": "North I-70 Service Road",
+      "normalized": "north i 70 service road",
+      "type": null,
+      "name": "north i 70 service road"
+    },
+    {
+      "input": "Sheridan Boulevard",
+      "normalized": "sheridan boulevard",
+      "type": null,
+      "name": "sheridan boulevard"
+    },
+    {
+      "input": "West 55th Avenue",
+      "normalized": "west 55th avenue",
+      "type": null,
+      "name": "west 55th avenue"
+    },
+    {
+      "input": "Bates Parkway East",
+      "normalized": "bates parkway east",
+      "type": null,
+      "name": "bates parkway east"
+    },
+    {
+      "input": "Martindale Drive",
+      "normalized": "martindale drive",
+      "type": null,
+      "name": "martindale drive"
+    },
+    {
+      "input": "South Clarkson Circle",
+      "normalized": "south clarkson circle",
+      "type": null,
+      "name": "south clarkson circle"
+    },
+    {
+      "input": "South Galapago Court",
+      "normalized": "south galapago court",
+      "type": null,
+      "name": "south galapago court"
+    },
+    {
+      "input": "South Ingalls Street",
+      "normalized": "south ingalls street",
+      "type": null,
+      "name": "south ingalls street"
+    },
+    {
+      "input": "South Lipan Street",
+      "normalized": "south lipan street",
+      "type": null,
+      "name": "south lipan street"
+    },
+    {
+      "input": "South Platte River Drive East",
+      "normalized": "south platte river drive east",
+      "type": null,
+      "name": "south platte river drive east"
+    },
+    {
+      "input": "West Adriatic Place",
+      "normalized": "west adriatic place",
+      "type": null,
+      "name": "west adriatic place"
+    },
+    {
+      "input": "West Cornell Drive",
+      "normalized": "west cornell drive",
+      "type": null,
+      "name": "west cornell drive"
+    },
+    {
+      "input": "West Harvard Gulch Trail",
+      "normalized": "west harvard gulch trail",
+      "type": null,
+      "name": "west harvard gulch trail"
+    },
+    {
+      "input": "Monaco Street",
+      "normalized": "monaco street",
+      "type": null,
+      "name": "monaco street"
+    },
+    {
+      "input": "19th Street",
+      "normalized": "19th street",
+      "type": null,
+      "name": "19th street"
+    },
+    {
+      "input": "36th Street",
+      "normalized": "36th street",
+      "type": null,
+      "name": "36th street"
+    },
+    {
+      "input": "Ames Way",
+      "normalized": "ames way",
+      "type": null,
+      "name": "ames way"
+    },
+    {
+      "input": "Bryant Way",
+      "normalized": "bryant way",
+      "type": null,
+      "name": "bryant way"
+    },
+    {
+      "input": "Chopper Circle",
+      "normalized": "chopper circle",
+      "type": null,
+      "name": "chopper circle"
+    },
+    {
+      "input": "Cook Street",
+      "normalized": "cook street",
+      "type": null,
+      "name": "cook street"
+    },
+    {
+      "input": "Dexter Street",
+      "normalized": "dexter street",
+      "type": null,
+      "name": "dexter street"
+    },
+    {
+      "input": "East 22nd Street",
+      "normalized": "east 22nd street",
+      "type": null,
+      "name": "east 22nd street"
+    },
+    {
+      "input": "East 3rd Avenue",
+      "normalized": "east 3rd avenue",
+      "type": null,
+      "name": "east 3rd avenue"
+    },
+    {
+      "input": "East 49th Drive",
+      "normalized": "east 49th drive",
+      "type": null,
+      "name": "east 49th drive"
+    },
+    {
+      "input": "East 8th Place",
+      "normalized": "east 8th place",
+      "type": null,
+      "name": "east 8th place"
+    },
+    {
+      "input": "East Beekman Place",
+      "normalized": "east beekman place",
+      "type": null,
+      "name": "east beekman place"
+    },
+    {
+      "input": "East Dakota Avenue",
+      "normalized": "east dakota avenue",
+      "type": null,
+      "name": "east dakota avenue"
+    },
+    {
+      "input": "East Greenwood Place",
+      "normalized": "east greenwood place",
+      "type": null,
+      "name": "east greenwood place"
+    },
+    {
+      "input": "East Maple Avenue",
+      "normalized": "east maple avenue",
+      "type": null,
+      "name": "east maple avenue"
+    },
+    {
+      "input": "East Pacific Place",
+      "normalized": "east pacific place",
+      "type": null,
+      "name": "east pacific place"
+    },
+    {
+      "input": "East Wesley Place",
+      "normalized": "east wesley place",
+      "type": null,
+      "name": "east wesley place"
+    },
+    {
+      "input": "Fenton Street",
+      "normalized": "fenton street",
+      "type": null,
+      "name": "fenton street"
+    },
+    {
+      "input": "Globeville Road",
+      "normalized": "globeville road",
+      "type": null,
+      "name": "globeville road"
+    },
+    {
+      "input": "Humboldt Street",
+      "normalized": "humboldt street",
+      "type": null,
+      "name": "humboldt street"
+    },
+    {
+      "input": "King Way",
+      "normalized": "king way",
+      "type": null,
+      "name": "king way"
+    },
+    {
+      "input": "Locust Street",
+      "normalized": "locust street",
+      "type": null,
+      "name": "locust street"
+    },
+    {
+      "input": "Milwaukee Circle",
+      "normalized": "milwaukee circle",
+      "type": null,
+      "name": "milwaukee circle"
+    },
+    {
+      "input": "North Circle Drive",
+      "normalized": "north circle drive",
+      "type": null,
+      "name": "north circle drive"
+    },
+    {
+      "input": "North Eliot Street",
+      "normalized": "north eliot street",
+      "type": null,
+      "name": "north eliot street"
+    },
+    {
+      "input": "North Grape Street",
+      "normalized": "north grape street",
+      "type": null,
+      "name": "north grape street"
+    },
+    {
+      "input": "North Kearney Street",
+      "normalized": "north kearney street",
+      "type": null,
+      "name": "north kearney street"
+    },
+    {
+      "input": "North National Western Drive",
+      "normalized": "north national western drive",
+      "type": null,
+      "name": "north national western drive"
+    },
+    {
+      "input": "North Saint Paul Court",
+      "normalized": "north saint paul court",
+      "type": null,
+      "name": "north saint paul court"
+    },
+    {
+      "input": "North Vasquez Boulevard Frontage West",
+      "normalized": "north vasquez boulevard frontage west",
+      "type": null,
+      "name": "north vasquez boulevard frontage west"
+    },
+    {
+      "input": "Ogden Street",
+      "normalized": "ogden street",
+      "type": null,
+      "name": "ogden street"
+    },
+    {
+      "input": "Polo Club Road",
+      "normalized": "polo club road",
+      "type": null,
+      "name": "polo club road"
+    },
+    {
+      "input": "Rio Grande Boulevard",
+      "normalized": "rio grande boulevard",
+      "type": null,
+      "name": "rio grande boulevard"
+    },
+    {
+      "input": "South Ames Way",
+      "normalized": "south ames way",
+      "type": null,
+      "name": "south ames way"
+    },
+    {
+      "input": "South Cherry Way",
+      "normalized": "south cherry way",
+      "type": null,
+      "name": "south cherry way"
+    },
+    {
+      "input": "South Dallas Court",
+      "normalized": "south dallas court",
+      "type": null,
+      "name": "south dallas court"
+    },
+    {
+      "input": "South Elizabeth Street",
+      "normalized": "south elizabeth street",
+      "type": null,
+      "name": "south elizabeth street"
+    },
+    {
+      "input": "South Flamingo",
+      "normalized": "south flamingo",
+      "type": null,
+      "name": "south flamingo"
+    },
+    {
+      "input": "South Gregg Court",
+      "normalized": "south gregg court",
+      "type": null,
+      "name": "south gregg court"
+    },
+    {
+      "input": "South Huron Street",
+      "normalized": "south huron street",
+      "type": null,
+      "name": "south huron street"
+    },
+    {
+      "input": "South Julian Way",
+      "normalized": "south julian way",
+      "type": null,
+      "name": "south julian way"
+    },
+    {
+      "input": "South Linley Court",
+      "normalized": "south linley court",
+      "type": null,
+      "name": "south linley court"
+    },
+    {
+      "input": "South Miami Court",
+      "normalized": "south miami court",
+      "type": null,
+      "name": "south miami court"
+    },
+    {
+      "input": "South Olive Street",
+      "normalized": "south olive street",
+      "type": null,
+      "name": "south olive street"
+    },
+    {
+      "input": "South Platte River Drive Building 12",
+      "normalized": "south platte river drive building 12",
+      "type": null,
+      "name": "south platte river drive building 12"
+    },
+    {
+      "input": "South Santa Fe Drive Rear",
+      "normalized": "south santa fe drive rear",
+      "type": null,
+      "name": "south santa fe drive rear"
+    },
+    {
+      "input": "South Utica Street",
+      "normalized": "south utica street",
+      "type": null,
+      "name": "south utica street"
+    },
+    {
+      "input": "South Xavier Street",
+      "normalized": "south xavier street",
+      "type": null,
+      "name": "south xavier street"
+    },
+    {
+      "input": "Stuart Court",
+      "normalized": "stuart court",
+      "type": null,
+      "name": "stuart court"
+    },
+    {
+      "input": "Welton Street",
+      "normalized": "welton street",
+      "type": null,
+      "name": "welton street"
+    },
+    {
+      "input": "West 23rd Avenue",
+      "normalized": "west 23rd avenue",
+      "type": null,
+      "name": "west 23rd avenue"
+    },
+    {
+      "input": "West 38th Avenue",
+      "normalized": "west 38th avenue",
+      "type": null,
+      "name": "west 38th avenue"
+    },
+    {
+      "input": "West 52nd Avenue",
+      "normalized": "west 52nd avenue",
+      "type": null,
+      "name": "west 52nd avenue"
+    },
+    {
+      "input": "West Amherst Avenue",
+      "normalized": "west amherst avenue",
+      "type": null,
+      "name": "west amherst avenue"
+    },
+    {
+      "input": "West Byers Place",
+      "normalized": "west byers place",
+      "type": null,
+      "name": "west byers place"
+    },
+    {
+      "input": "West Dixie Place",
+      "normalized": "west dixie place",
+      "type": null,
+      "name": "west dixie place"
+    },
+    {
+      "input": "West Gunnison Drive",
+      "normalized": "west gunnison drive",
+      "type": null,
+      "name": "west gunnison drive"
+    },
+    {
+      "input": "West Jewell Avenue",
+      "normalized": "west jewell avenue",
+      "type": null,
+      "name": "west jewell avenue"
+    },
+    {
+      "input": "West Regis Boulevard",
+      "normalized": "west regis boulevard",
+      "type": null,
+      "name": "west regis boulevard"
+    },
+    {
+      "input": "Williams Street",
+      "normalized": "williams street",
+      "type": null,
+      "name": "williams street"
+    },
+    {
+      "input": "Depew Street",
+      "normalized": "depew street",
+      "type": null,
+      "name": "depew street"
+    },
+    {
+      "input": "Lakewood Gulch Trail",
+      "normalized": "lakewood gulch trail",
+      "type": null,
+      "name": "lakewood gulch trail"
+    },
+    {
+      "input": "Sloan's Lake Trail",
+      "normalized": "sloan south lake trail",
+      "type": null,
+      "name": "sloan south lake trail"
+    },
+    {
+      "input": "West 24th Avenue",
+      "normalized": "west 24th avenue",
+      "type": null,
+      "name": "west 24th avenue"
+    },
+    {
+      "input": "West Short Place",
+      "normalized": "west short place",
+      "type": null,
+      "name": "west short place"
+    },
+    {
+      "input": "Parkway Drive",
+      "normalized": "parkway drive",
+      "type": null,
+      "name": "parkway drive"
+    },
+    {
+      "input": "South High Street",
+      "normalized": "south high street",
+      "type": null,
+      "name": "south high street"
+    },
+    {
+      "input": "South Wyandot Street",
+      "normalized": "south wyandot street",
+      "type": null,
+      "name": "south wyandot street"
+    },
+    {
+      "input": "Cherry Creek Trail Connector",
+      "normalized": "cherry creek trail connector",
+      "type": null,
+      "name": "cherry creek trail connector"
+    },
+    {
+      "input": "East Archer Drive",
+      "normalized": "east archer drive",
+      "type": null,
+      "name": "east archer drive"
+    },
+    {
+      "input": "Fillmore Plaza",
+      "normalized": "fillmore plaza",
+      "type": null,
+      "name": "fillmore plaza"
+    },
+    {
+      "input": "North Dexter Street",
+      "normalized": "north dexter street",
+      "type": null,
+      "name": "north dexter street"
+    },
+    {
+      "input": "North University Boulevard",
+      "normalized": "north university boulevard",
+      "type": null,
+      "name": "north university boulevard"
+    },
+    {
+      "input": "South Oneida Court",
+      "normalized": "south oneida court",
+      "type": null,
+      "name": "south oneida court"
+    },
+    {
+      "input": "East Iliff Avenue",
+      "normalized": "east iliff avenue",
+      "type": null,
+      "name": "east iliff avenue"
+    },
+    {
+      "input": "Lane 2",
+      "normalized": "lane 2",
+      "type": null,
+      "name": "lane 2"
+    },
+    {
+      "input": "South Magnolia Street",
+      "normalized": "south magnolia street",
+      "type": null,
+      "name": "south magnolia street"
+    },
+    {
+      "input": "Lakeside Lane",
+      "normalized": "lakeside lane",
+      "type": null,
+      "name": "lakeside lane"
+    },
+    {
+      "input": "West 54th Avenue South",
+      "normalized": "west 54th avenue south",
+      "type": null,
+      "name": "west 54th avenue south"
+    },
+    {
+      "input": "Belmar Pk Loop",
+      "normalized": "belmar pk loop",
+      "type": null,
+      "name": "belmar pk loop"
+    },
+    {
+      "input": "Hawthorn Lane",
+      "normalized": "hawthorn lane",
+      "type": null,
+      "name": "hawthorn lane"
+    },
+    {
+      "input": "Pierce Street",
+      "normalized": "pierce street",
+      "type": null,
+      "name": "pierce street"
+    },
+    {
+      "input": "South Fenton Drive",
+      "normalized": "south fenton drive",
+      "type": null,
+      "name": "south fenton drive"
+    },
+    {
+      "input": "South Marshall Circle",
+      "normalized": "south marshall circle",
+      "type": null,
+      "name": "south marshall circle"
+    },
+    {
+      "input": "South Saulsbury Street",
+      "normalized": "south saulsbury street",
+      "type": null,
+      "name": "south saulsbury street"
+    },
+    {
+      "input": "South Yarrow Court",
+      "normalized": "south yarrow court",
+      "type": null,
+      "name": "south yarrow court"
+    },
+    {
+      "input": "West 10th Avenue",
+      "normalized": "west 10th avenue",
+      "type": null,
+      "name": "west 10th avenue"
+    },
+    {
+      "input": "West 6th Avenue",
+      "normalized": "west 6th avenue",
+      "type": null,
+      "name": "west 6th avenue"
+    },
+    {
+      "input": "West Arkansas Place",
+      "normalized": "west arkansas place",
+      "type": null,
+      "name": "west arkansas place"
+    },
+    {
+      "input": "West Colorado Place",
+      "normalized": "west colorado place",
+      "type": null,
+      "name": "west colorado place"
+    },
+    {
+      "input": "West Jewell Drive",
+      "normalized": "west jewell drive",
+      "type": null,
+      "name": "west jewell drive"
+    },
+    {
+      "input": "West Oregon Drive",
+      "normalized": "west oregon drive",
+      "type": null,
+      "name": "west oregon drive"
+    },
+    {
+      "input": "Zephyr Street",
+      "normalized": "zephyr street",
+      "type": null,
+      "name": "zephyr street"
+    },
+    {
+      "input": "West 39th Place",
+      "normalized": "west 39th place",
+      "type": null,
+      "name": "west 39th place"
+    },
+    {
+      "input": "City Hall Annex Number 1",
+      "normalized": "city hall annex number 1",
+      "type": null,
+      "name": "city hall annex number 1"
+    },
+    {
+      "input": "38th & Blake",
+      "normalized": "38th blake",
+      "type": null,
+      "name": "38th blake"
+    },
+    {
+      "input": "Denver Tool Library",
+      "normalized": "denver tool library",
+      "type": null,
+      "name": "denver tool library"
+    },
+    {
+      "input": "20th & Welton",
+      "normalized": "20th welton",
+      "type": null,
+      "name": "20th welton"
+    },
+    {
+      "input": "Louisiana & Pearl",
+      "normalized": "louisiana pearl",
+      "type": null,
+      "name": "louisiana pearl"
+    },
+    {
+      "input": "Bear Mountain",
+      "normalized": "bear mountain",
+      "type": null,
+      "name": "bear mountain"
+    },
+    {
+      "input": "Gate 8",
+      "normalized": "gate 8",
+      "type": null,
+      "name": "gate 8"
+    },
+    {
+      "input": "Coors Field Gate A",
+      "normalized": "coors field gate a",
+      "type": null,
+      "name": "coors field gate a"
+    },
+    {
+      "input": "Marshall Street",
+      "normalized": "marshall street",
+      "type": null,
+      "name": "marshall street"
+    },
+    {
+      "input": "Webster Street",
+      "normalized": "webster street",
+      "type": null,
+      "name": "webster street"
+    },
+    {
+      "input": "West 34th Avenue",
+      "normalized": "west 34th avenue",
+      "type": null,
+      "name": "west 34th avenue"
+    }
+  ]
+}

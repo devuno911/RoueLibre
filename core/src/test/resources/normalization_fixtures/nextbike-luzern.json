@@ -1,0 +1,797 @@
+{
+  "language": "de",
+  "cases": [
+    {
+      "input": "Bahnhofstraße",
+      "normalized": "bahnhofstrasse",
+      "type": null,
+      "name": "bahnhofstrasse"
+    },
+    {
+      "input": "Bahnhofstrasse",
+      "normalized": "bahnhofstrasse",
+      "type": null,
+      "name": "bahnhofstrasse"
+    },
+    {
+      "input": "Marienplatz",
+      "normalized": "marienplatz",
+      "type": null,
+      "name": "marienplatz"
+    },
+    {
+      "input": "Unter den Linden",
+      "normalized": "unter den linden",
+      "type": null,
+      "name": "unter den linden"
+    },
+    {
+      "input": "Kurfürstendamm",
+      "normalized": "kurfurstendamm",
+      "type": null,
+      "name": "kurfurstendamm"
+    },
+    {
+      "input": "Große Freiheit",
+      "normalized": "grosse freiheit",
+      "type": null,
+      "name": "grosse freiheit"
+    },
+    {
+      "input": "St.-Pauli-Landungsbrücken",
+      "normalized": "sankt pauli landungsbrucken",
+      "type": null,
+      "name": "sankt pauli landungsbrucken"
+    },
+    {
+      "input": "Am Hauptbahnhof",
+      "normalized": "am hauptbahnhof",
+      "type": null,
+      "name": "am hauptbahnhof"
+    },
+    {
+      "input": "Prinzregentenstraße",
+      "normalized": "prinzregentenstrasse",
+      "type": null,
+      "name": "prinzregentenstrasse"
+    },
+    {
+      "input": "Karl-Marx-Allee",
+      "normalized": "karl marx allee",
+      "type": null,
+      "name": "karl marx allee"
+    },
+    {
+      "input": "Schloßplatz",
+      "normalized": "schlossplatz",
+      "type": null,
+      "name": "schlossplatz"
+    },
+    {
+      "input": "Gr. Bleichen",
+      "normalized": "gross bleichen",
+      "type": null,
+      "name": "gross bleichen"
+    },
+    {
+      "input": "Prügelweg",
+      "normalized": "prugelweg",
+      "type": null,
+      "name": "prugelweg"
+    },
+    {
+      "input": "Pelzmühle",
+      "normalized": "pelzmuhle",
+      "type": null,
+      "name": "pelzmuhle"
+    },
+    {
+      "input": "Grueben",
+      "normalized": "grueben",
+      "type": null,
+      "name": "grueben"
+    },
+    {
+      "input": "Belmitéstrasse",
+      "normalized": "belmitestrasse",
+      "type": null,
+      "name": "belmitestrasse"
+    },
+    {
+      "input": "Museggrain",
+      "normalized": "museggrain",
+      "type": null,
+      "name": "museggrain"
+    },
+    {
+      "input": "Schulhausweg",
+      "normalized": "schulhausweg",
+      "type": null,
+      "name": "schulhausweg"
+    },
+    {
+      "input": "Huebweid",
+      "normalized": "huebweid",
+      "type": null,
+      "name": "huebweid"
+    },
+    {
+      "input": "Gibelflüh",
+      "normalized": "gibelfluh",
+      "type": null,
+      "name": "gibelfluh"
+    },
+    {
+      "input": "Klewenalp",
+      "normalized": "klewenalp",
+      "type": null,
+      "name": "klewenalp"
+    },
+    {
+      "input": "Merkur",
+      "normalized": "merkur",
+      "type": null,
+      "name": "merkur"
+    },
+    {
+      "input": "Obermattli",
+      "normalized": "obermattli",
+      "type": null,
+      "name": "obermattli"
+    },
+    {
+      "input": "Sunneberg",
+      "normalized": "sunneberg",
+      "type": null,
+      "name": "sunneberg"
+    },
+    {
+      "input": "Städelihof",
+      "normalized": "stadelihof",
+      "type": null,
+      "name": "stadelihof"
+    },
+    {
+      "input": "Turnplatzweg",
+      "normalized": "turnplatzweg",
+      "type": null,
+      "name": "turnplatzweg"
+    },
+    {
+      "input": "Bühlerweg",
+      "normalized": "buhlerweg",
+      "type": null,
+      "name": "buhlerweg"
+    },
+    {
+      "input": "Albisstrasse",
+      "normalized": "albisstrasse",
+      "type": null,
+      "name": "albisstrasse"
+    },
+    {
+      "input": "Professorenweg",
+      "normalized": "professorenweg",
+      "type": null,
+      "name": "professorenweg"
+    },
+    {
+      "input": "Ebnet",
+      "normalized": "ebnet",
+      "type": null,
+      "name": "ebnet"
+    },
+    {
+      "input": "Hirselen",
+      "normalized": "hirselen",
+      "type": null,
+      "name": "hirselen"
+    },
+    {
+      "input": "Mattliweg",
+      "normalized": "mattliweg",
+      "type": null,
+      "name": "mattliweg"
+    },
+    {
+      "input": "Zentralstrasse",
+      "normalized": "zentralstrasse",
+      "type": null,
+      "name": "zentralstrasse"
+    },
+    {
+      "input": "Hundgellen",
+      "normalized": "hundgellen",
+      "type": null,
+      "name": "hundgellen"
+    },
+    {
+      "input": "Mühlematt",
+      "normalized": "muhlematt",
+      "type": null,
+      "name": "muhlematt"
+    },
+    {
+      "input": "Spitalhofstrasse",
+      "normalized": "spitalhofstrasse",
+      "type": null,
+      "name": "spitalhofstrasse"
+    },
+    {
+      "input": "Chneubos",
+      "normalized": "chneubos",
+      "type": null,
+      "name": "chneubos"
+    },
+    {
+      "input": "Trübsee",
+      "normalized": "trubsee",
+      "type": null,
+      "name": "trubsee"
+    },
+    {
+      "input": "Scheidhaldenstrasse",
+      "normalized": "scheidhaldenstrasse",
+      "type": null,
+      "name": "scheidhaldenstrasse"
+    },
+    {
+      "input": "Rankweg",
+      "normalized": "rankweg",
+      "type": null,
+      "name": "rankweg"
+    },
+    {
+      "input": "Kegelhofen",
+      "normalized": "kegelhofen",
+      "type": null,
+      "name": "kegelhofen"
+    },
+    {
+      "input": "Küttig",
+      "normalized": "kuttig",
+      "type": null,
+      "name": "kuttig"
+    },
+    {
+      "input": "Obermatt",
+      "normalized": "obermatt",
+      "type": null,
+      "name": "obermatt"
+    },
+    {
+      "input": "Früebüel",
+      "normalized": "fruebuel",
+      "type": null,
+      "name": "fruebuel"
+    },
+    {
+      "input": "Sellen",
+      "normalized": "sellen",
+      "type": null,
+      "name": "sellen"
+    },
+    {
+      "input": "Wissehrlistrasse",
+      "normalized": "wissehrlistrasse",
+      "type": null,
+      "name": "wissehrlistrasse"
+    },
+    {
+      "input": "Mörlialp",
+      "normalized": "morlialp",
+      "type": null,
+      "name": "morlialp"
+    },
+    {
+      "input": "Föhrenweg",
+      "normalized": "fohrenweg",
+      "type": null,
+      "name": "fohrenweg"
+    },
+    {
+      "input": "Reinerz",
+      "normalized": "reinerz",
+      "type": null,
+      "name": "reinerz"
+    },
+    {
+      "input": "Leidenberg",
+      "normalized": "leidenberg",
+      "type": null,
+      "name": "leidenberg"
+    },
+    {
+      "input": "Schwesternweg",
+      "normalized": "schwesternweg",
+      "type": null,
+      "name": "schwesternweg"
+    },
+    {
+      "input": "Rifferswilerstrasse",
+      "normalized": "rifferswilerstrasse",
+      "type": null,
+      "name": "rifferswilerstrasse"
+    },
+    {
+      "input": "Mühlestrasse",
+      "normalized": "muhlestrasse",
+      "type": null,
+      "name": "muhlestrasse"
+    },
+    {
+      "input": "Aegerten",
+      "normalized": "aegerten",
+      "type": null,
+      "name": "aegerten"
+    },
+    {
+      "input": "Rebacherrain",
+      "normalized": "rebacherrain",
+      "type": null,
+      "name": "rebacherrain"
+    },
+    {
+      "input": "Grüt",
+      "normalized": "grut",
+      "type": null,
+      "name": "grut"
+    },
+    {
+      "input": "Kirchfeld",
+      "normalized": "kirchfeld",
+      "type": null,
+      "name": "kirchfeld"
+    },
+    {
+      "input": "Fildernweg",
+      "normalized": "fildernweg",
+      "type": null,
+      "name": "fildernweg"
+    },
+    {
+      "input": "Gotthardstrasse",
+      "normalized": "gotthardstrasse",
+      "type": null,
+      "name": "gotthardstrasse"
+    },
+    {
+      "input": "Hauptstrasse",
+      "normalized": "hauptstrasse",
+      "type": null,
+      "name": "hauptstrasse"
+    },
+    {
+      "input": "Vorder Wang",
+      "normalized": "vorder wang",
+      "type": null,
+      "name": "vorder wang"
+    },
+    {
+      "input": "Kreuzmattweg",
+      "normalized": "kreuzmattweg",
+      "type": null,
+      "name": "kreuzmattweg"
+    },
+    {
+      "input": "Unterbächen",
+      "normalized": "unterbachen",
+      "type": null,
+      "name": "unterbachen"
+    },
+    {
+      "input": "Bäsler",
+      "normalized": "basler",
+      "type": null,
+      "name": "basler"
+    },
+    {
+      "input": "Gred",
+      "normalized": "gred",
+      "type": null,
+      "name": "gred"
+    },
+    {
+      "input": "Sienen",
+      "normalized": "sienen",
+      "type": null,
+      "name": "sienen"
+    },
+    {
+      "input": "Krähbüel",
+      "normalized": "krahbuel",
+      "type": null,
+      "name": "krahbuel"
+    },
+    {
+      "input": "Oberdorf",
+      "normalized": "oberdorf",
+      "type": null,
+      "name": "oberdorf"
+    },
+    {
+      "input": "Allenwindenring",
+      "normalized": "allenwindenring",
+      "type": null,
+      "name": "allenwindenring"
+    },
+    {
+      "input": "Gibraltarrain",
+      "normalized": "gibraltarrain",
+      "type": null,
+      "name": "gibraltarrain"
+    },
+    {
+      "input": "Metzgerrainle",
+      "normalized": "metzgerrainle",
+      "type": null,
+      "name": "metzgerrainle"
+    },
+    {
+      "input": "Schlossstrasse",
+      "normalized": "schlossstrasse",
+      "type": null,
+      "name": "schlossstrasse"
+    },
+    {
+      "input": "Zihlmattweg",
+      "normalized": "zihlmattweg",
+      "type": null,
+      "name": "zihlmattweg"
+    },
+    {
+      "input": "Matten",
+      "normalized": "matten",
+      "type": null,
+      "name": "matten"
+    },
+    {
+      "input": "Klösterliallmend",
+      "normalized": "klosterliallmend",
+      "type": null,
+      "name": "klosterliallmend"
+    },
+    {
+      "input": "Mittel-Robmatt",
+      "normalized": "mittel robmatt",
+      "type": null,
+      "name": "mittel robmatt"
+    },
+    {
+      "input": "Kirchstrasse",
+      "normalized": "kirchstrasse",
+      "type": null,
+      "name": "kirchstrasse"
+    },
+    {
+      "input": "Kronenrain",
+      "normalized": "kronenrain",
+      "type": null,
+      "name": "kronenrain"
+    },
+    {
+      "input": "Gewerbestrasse",
+      "normalized": "gewerbestrasse",
+      "type": null,
+      "name": "gewerbestrasse"
+    },
+    {
+      "input": "Im Chienis",
+      "normalized": "im chienis",
+      "type": null,
+      "name": "im chienis"
+    },
+    {
+      "input": "Im Grünen",
+      "normalized": "im grunen",
+      "type": null,
+      "name": "im grunen"
+    },
+    {
+      "input": "Rütiweid",
+      "normalized": "rutiweid",
+      "type": null,
+      "name": "rutiweid"
+    },
+    {
+      "input": "Kohlholz",
+      "normalized": "kohlholz",
+      "type": null,
+      "name": "kohlholz"
+    },
+    {
+      "input": "Hofmattstrasse",
+      "normalized": "hofmattstrasse",
+      "type": null,
+      "name": "hofmattstrasse"
+    },
+    {
+      "input": "Untermattstrasse",
+      "normalized": "untermattstrasse",
+      "type": null,
+      "name": "untermattstrasse"
+    },
+    {
+      "input": "Langwasenstrasse",
+      "normalized": "langwasenstrasse",
+      "type": null,
+      "name": "langwasenstrasse"
+    },
+    {
+      "input": "Hofmatt",
+      "normalized": "hofmatt",
+      "type": null,
+      "name": "hofmatt"
+    },
+    {
+      "input": "Bergstation Schwandibahn",
+      "normalized": "bergstation schwandibahn",
+      "type": null,
+      "name": "bergstation schwandibahn"
+    },
+    {
+      "input": "KKLB",
+      "normalized": "kklb",
+      "type": null,
+      "name": "kklb"
+    },
+    {
+      "input": "Institut für Musikpädagogik",
+      "normalized": "institut fur musikpadagogik",
+      "type": null,
+      "name": "institut fur musikpadagogik"
+    },
+    {
+      "input": "Flüelen",
+      "normalized": "fluelen",
+      "type": null,
+      "name": "fluelen"
+    },
+    {
+      "input": "Talstation Skilift Mörliegg",
+      "normalized": "talstation skilift morliegg",
+      "type": null,
+      "name": "talstation skilift morliegg"
+    },
+    {
+      "input": "Chänelmatt",
+      "normalized": "chanelmatt",
+      "type": null,
+      "name": "chanelmatt"
+    },
+    {
+      "input": "Under Rotmoos",
+      "normalized": "under rotmoos",
+      "type": null,
+      "name": "under rotmoos"
+    },
+    {
+      "input": "Rösslimatte",
+      "normalized": "rosslimatte",
+      "type": null,
+      "name": "rosslimatte"
+    },
+    {
+      "input": "Gormundstrasse",
+      "normalized": "gormundstrasse",
+      "type": null,
+      "name": "gormundstrasse"
+    },
+    {
+      "input": "Wiesstrasse",
+      "normalized": "wiesstrasse",
+      "type": null,
+      "name": "wiesstrasse"
+    },
+    {
+      "input": "Biberegg",
+      "normalized": "biberegg",
+      "type": null,
+      "name": "biberegg"
+    },
+    {
+      "input": "Lerchenfeld",
+      "normalized": "lerchenfeld",
+      "type": null,
+      "name": "lerchenfeld"
+    },
+    {
+      "input": "Strick",
+      "normalized": "strick",
+      "type": null,
+      "name": "strick"
+    },
+    {
+      "input": "Widi",
+      "normalized": "widi",
+      "type": null,
+      "name": "widi"
+    },
+    {
+      "input": "Stutzring",
+      "normalized": "stutzring",
+      "type": null,
+      "name": "stutzring"
+    },
+    {
+      "input": "Töpferweg",
+      "normalized": "topferweg",
+      "type": null,
+      "name": "topferweg"
+    },
+    {
+      "input": "Moos",
+      "normalized": "moos",
+      "type": null,
+      "name": "moos"
+    },
+    {
+      "input": "Oberdorf",
+      "normalized": "oberdorf",
+      "type": null,
+      "name": "oberdorf"
+    },
+    {
+      "input": "Im Tannenboden",
+      "normalized": "im tannenboden",
+      "type": null,
+      "name": "im tannenboden"
+    },
+    {
+      "input": "Sonnmattacker",
+      "normalized": "sonnmattacker",
+      "type": null,
+      "name": "sonnmattacker"
+    },
+    {
+      "input": "Grüt",
+      "normalized": "grut",
+      "type": null,
+      "name": "grut"
+    },
+    {
+      "input": "Hirschistrasse",
+      "normalized": "hirschistrasse",
+      "type": null,
+      "name": "hirschistrasse"
+    },
+    {
+      "input": "Fur",
+      "normalized": "fur",
+      "type": null,
+      "name": "fur"
+    },
+    {
+      "input": "Trutigen",
+      "normalized": "trutigen",
+      "type": null,
+      "name": "trutigen"
+    },
+    {
+      "input": "Schächbel",
+      "normalized": "schachbel",
+      "type": null,
+      "name": "schachbel"
+    },
+    {
+      "input": "Birkenhof",
+      "normalized": "birkenhof",
+      "type": null,
+      "name": "birkenhof"
+    },
+    {
+      "input": "Oberhueb",
+      "normalized": "oberhueb",
+      "type": null,
+      "name": "oberhueb"
+    },
+    {
+      "input": "Gruebried",
+      "normalized": "gruebried",
+      "type": null,
+      "name": "gruebried"
+    },
+    {
+      "input": "Hausmatt",
+      "normalized": "hausmatt",
+      "type": null,
+      "name": "hausmatt"
+    },
+    {
+      "input": "Hinterhöfenstrasse",
+      "normalized": "hinterhofenstrasse",
+      "type": null,
+      "name": "hinterhofenstrasse"
+    },
+    {
+      "input": "Oberfeld",
+      "normalized": "oberfeld",
+      "type": null,
+      "name": "oberfeld"
+    },
+    {
+      "input": "Münsterstrasse",
+      "normalized": "munsterstrasse",
+      "type": null,
+      "name": "munsterstrasse"
+    },
+    {
+      "input": "Mühlegasse",
+      "normalized": "muhlegasse",
+      "type": null,
+      "name": "muhlegasse"
+    },
+    {
+      "input": "Oberdorfstrasse",
+      "normalized": "oberdorfstrasse",
+      "type": null,
+      "name": "oberdorfstrasse"
+    },
+    {
+      "input": "Mülischwändi",
+      "normalized": "mulischwandi",
+      "type": null,
+      "name": "mulischwandi"
+    },
+    {
+      "input": "Kurparkweg",
+      "normalized": "kurparkweg",
+      "type": null,
+      "name": "kurparkweg"
+    },
+    {
+      "input": "Grüentalstrasse",
+      "normalized": "gruentalstrasse",
+      "type": null,
+      "name": "gruentalstrasse"
+    },
+    {
+      "input": "Töbeliweg",
+      "normalized": "tobeliweg",
+      "type": null,
+      "name": "tobeliweg"
+    },
+    {
+      "input": "Utigli",
+      "normalized": "utigli",
+      "type": null,
+      "name": "utigli"
+    },
+    {
+      "input": "Tellistrasse",
+      "normalized": "tellistrasse",
+      "type": null,
+      "name": "tellistrasse"
+    },
+    {
+      "input": "Unter Schwändli",
+      "normalized": "unter schwandli",
+      "type": null,
+      "name": "unter schwandli"
+    },
+    {
+      "input": "Im Ostergau",
+      "normalized": "im ostergau",
+      "type": null,
+      "name": "im ostergau"
+    },
+    {
+      "input": "Wilihöferstrasse",
+      "normalized": "wilihoferstrasse",
+      "type": null,
+      "name": "wilihoferstrasse"
+    },
+    {
+      "input": "Aernihof",
+      "normalized": "aernihof",
+      "type": null,
+      "name": "aernihof"
+    },
+    {
+      "input": "Wideweidli",
+      "normalized": "wideweidli",
+      "type": null,
+      "name": "wideweidli"
+    }
+  ]
+}

@@ -1,0 +1,773 @@
+{
+  "language": "da",
+  "cases": [
+    {
+      "input": "Nørrebrogade",
+      "normalized": "norrebrogade",
+      "type": null,
+      "name": "norrebrogade"
+    },
+    {
+      "input": "Rådhuspladsen",
+      "normalized": "raadhuspladsen",
+      "type": null,
+      "name": "raadhuspladsen"
+    },
+    {
+      "input": "Vesterbrogade",
+      "normalized": "vesterbrogade",
+      "type": null,
+      "name": "vesterbrogade"
+    },
+    {
+      "input": "Amagerbrogade",
+      "normalized": "amagerbrogade",
+      "type": null,
+      "name": "amagerbrogade"
+    },
+    {
+      "input": "Store Kongensgade",
+      "normalized": "store kongensgade",
+      "type": null,
+      "name": "store kongensgade"
+    },
+    {
+      "input": "H.C. Andersens Boulevard",
+      "normalized": "h c andersens boulevard",
+      "type": null,
+      "name": "h c andersens boulevard"
+    },
+    {
+      "input": "Islands Brygge",
+      "normalized": "islands brygge",
+      "type": null,
+      "name": "islands brygge"
+    },
+    {
+      "input": "Sankt Peders Stræde",
+      "normalized": "sankt peders straede",
+      "type": null,
+      "name": "sankt peders straede"
+    },
+    {
+      "input": "Kystbanevej",
+      "normalized": "kystbanevej",
+      "type": null,
+      "name": "kystbanevej"
+    },
+    {
+      "input": "Højbakkestræde",
+      "normalized": "hojbakkestraede",
+      "type": null,
+      "name": "hojbakkestraede"
+    },
+    {
+      "input": "Snebærhaven",
+      "normalized": "snebaerhaven",
+      "type": null,
+      "name": "snebaerhaven"
+    },
+    {
+      "input": "Damgårdshave",
+      "normalized": "damgaardshave",
+      "type": null,
+      "name": "damgaardshave"
+    },
+    {
+      "input": "Kongevejen",
+      "normalized": "kongevejen",
+      "type": null,
+      "name": "kongevejen"
+    },
+    {
+      "input": "Skelvej",
+      "normalized": "skelvej",
+      "type": null,
+      "name": "skelvej"
+    },
+    {
+      "input": "Sti Voldgaden",
+      "normalized": "sti voldgaden",
+      "type": null,
+      "name": "sti voldgaden"
+    },
+    {
+      "input": "Mosekæret",
+      "normalized": "mosekaeret",
+      "type": null,
+      "name": "mosekaeret"
+    },
+    {
+      "input": "Borupvang",
+      "normalized": "borupvang",
+      "type": null,
+      "name": "borupvang"
+    },
+    {
+      "input": "Klanparken",
+      "normalized": "klanparken",
+      "type": null,
+      "name": "klanparken"
+    },
+    {
+      "input": "Schwenckestræde",
+      "normalized": "schwenckestraede",
+      "type": null,
+      "name": "schwenckestraede"
+    },
+    {
+      "input": "Anemonestien",
+      "normalized": "anemonestien",
+      "type": null,
+      "name": "anemonestien"
+    },
+    {
+      "input": "Hovedgaden",
+      "normalized": "hovedgaden",
+      "type": null,
+      "name": "hovedgaden"
+    },
+    {
+      "input": "Sjælsøstien",
+      "normalized": "sjaelsostien",
+      "type": null,
+      "name": "sjaelsostien"
+    },
+    {
+      "input": "Forskerruten",
+      "normalized": "forskerruten",
+      "type": null,
+      "name": "forskerruten"
+    },
+    {
+      "input": "Toftagerstien",
+      "normalized": "toftagerstien",
+      "type": null,
+      "name": "toftagerstien"
+    },
+    {
+      "input": "Jægerdammen",
+      "normalized": "jaegerdammen",
+      "type": null,
+      "name": "jaegerdammen"
+    },
+    {
+      "input": "Sognevej",
+      "normalized": "sognevej",
+      "type": null,
+      "name": "sognevej"
+    },
+    {
+      "input": "Dybekær",
+      "normalized": "dybekaer",
+      "type": null,
+      "name": "dybekaer"
+    },
+    {
+      "input": "Lystrupvej",
+      "normalized": "lystrupvej",
+      "type": null,
+      "name": "lystrupvej"
+    },
+    {
+      "input": "Kuskenes Gade",
+      "normalized": "kuskenes gade",
+      "type": null,
+      "name": "kuskenes gade"
+    },
+    {
+      "input": "Lykkevej",
+      "normalized": "lykkevej",
+      "type": null,
+      "name": "lykkevej"
+    },
+    {
+      "input": "Agthsvej",
+      "normalized": "agthsvej",
+      "type": null,
+      "name": "agthsvej"
+    },
+    {
+      "input": "Kragevej",
+      "normalized": "kragevej",
+      "type": null,
+      "name": "kragevej"
+    },
+    {
+      "input": "Traktorgårdsvej",
+      "normalized": "traktorgaardsvej",
+      "type": null,
+      "name": "traktorgaardsvej"
+    },
+    {
+      "input": "Skovridervej",
+      "normalized": "skovridervej",
+      "type": null,
+      "name": "skovridervej"
+    },
+    {
+      "input": "Hvilebækvænge",
+      "normalized": "hvilebaekvaenge",
+      "type": null,
+      "name": "hvilebaekvaenge"
+    },
+    {
+      "input": "Stationsvej",
+      "normalized": "stationsvej",
+      "type": null,
+      "name": "stationsvej"
+    },
+    {
+      "input": "Ingemannsvej",
+      "normalized": "ingemannsvej",
+      "type": null,
+      "name": "ingemannsvej"
+    },
+    {
+      "input": "Dirch Passers Allé",
+      "normalized": "dirch passers alle",
+      "type": null,
+      "name": "dirch passers alle"
+    },
+    {
+      "input": "Nandrupsvej",
+      "normalized": "nandrupsvej",
+      "type": null,
+      "name": "nandrupsvej"
+    },
+    {
+      "input": "Nyvangsstien",
+      "normalized": "nyvangsstien",
+      "type": null,
+      "name": "nyvangsstien"
+    },
+    {
+      "input": "Liljevej",
+      "normalized": "liljevej",
+      "type": null,
+      "name": "liljevej"
+    },
+    {
+      "input": "Ved Ermelunden",
+      "normalized": "ved ermelunden",
+      "type": null,
+      "name": "ved ermelunden"
+    },
+    {
+      "input": "Enighedsvej",
+      "normalized": "enighedsvej",
+      "type": null,
+      "name": "enighedsvej"
+    },
+    {
+      "input": "Lilliendalsvej",
+      "normalized": "lilliendalsvej",
+      "type": null,
+      "name": "lilliendalsvej"
+    },
+    {
+      "input": "Tøffelmagerstien",
+      "normalized": "toffelmagerstien",
+      "type": null,
+      "name": "toffelmagerstien"
+    },
+    {
+      "input": "Knoldager",
+      "normalized": "knoldager",
+      "type": null,
+      "name": "knoldager"
+    },
+    {
+      "input": "Agavevej",
+      "normalized": "agavevej",
+      "type": null,
+      "name": "agavevej"
+    },
+    {
+      "input": "Kildegårds Have",
+      "normalized": "kildegaards have",
+      "type": null,
+      "name": "kildegaards have"
+    },
+    {
+      "input": "Valeursvej",
+      "normalized": "valeursvej",
+      "type": null,
+      "name": "valeursvej"
+    },
+    {
+      "input": "Hf. Islegaard",
+      "normalized": "hf islegaard",
+      "type": null,
+      "name": "hf islegaard"
+    },
+    {
+      "input": "Ring 4",
+      "normalized": "ring 4",
+      "type": null,
+      "name": "ring 4"
+    },
+    {
+      "input": "Prinsens Vænge",
+      "normalized": "prinsens vaenge",
+      "type": null,
+      "name": "prinsens vaenge"
+    },
+    {
+      "input": "Kulsviervej",
+      "normalized": "kulsviervej",
+      "type": null,
+      "name": "kulsviervej"
+    },
+    {
+      "input": "Hillerødvejen",
+      "normalized": "hillerodvejen",
+      "type": null,
+      "name": "hillerodvejen"
+    },
+    {
+      "input": "Krogholmen",
+      "normalized": "krogholmen",
+      "type": null,
+      "name": "krogholmen"
+    },
+    {
+      "input": "Vængestien",
+      "normalized": "vaengestien",
+      "type": null,
+      "name": "vaengestien"
+    },
+    {
+      "input": "Folehavevej",
+      "normalized": "folehavevej",
+      "type": null,
+      "name": "folehavevej"
+    },
+    {
+      "input": "Langeltevej",
+      "normalized": "langeltevej",
+      "type": null,
+      "name": "langeltevej"
+    },
+    {
+      "input": "Stampevænget",
+      "normalized": "stampevaenget",
+      "type": null,
+      "name": "stampevaenget"
+    },
+    {
+      "input": "Lillevangsparken",
+      "normalized": "lillevangsparken",
+      "type": null,
+      "name": "lillevangsparken"
+    },
+    {
+      "input": "Fægtesalsvej",
+      "normalized": "faegtesalsvej",
+      "type": null,
+      "name": "faegtesalsvej"
+    },
+    {
+      "input": "Korshøjvej",
+      "normalized": "korshojvej",
+      "type": null,
+      "name": "korshojvej"
+    },
+    {
+      "input": "Smøgen",
+      "normalized": "smogen",
+      "type": null,
+      "name": "smogen"
+    },
+    {
+      "input": "Rosenstien",
+      "normalized": "rosenstien",
+      "type": null,
+      "name": "rosenstien"
+    },
+    {
+      "input": "Pilemarksvej",
+      "normalized": "pilemarksvej",
+      "type": null,
+      "name": "pilemarksvej"
+    },
+    {
+      "input": "Arnborgvej",
+      "normalized": "arnborgvej",
+      "type": null,
+      "name": "arnborgvej"
+    },
+    {
+      "input": "Foldbyvej",
+      "normalized": "foldbyvej",
+      "type": null,
+      "name": "foldbyvej"
+    },
+    {
+      "input": "Jydeskær",
+      "normalized": "jydeskaer",
+      "type": null,
+      "name": "jydeskaer"
+    },
+    {
+      "input": "Nyvang Alle",
+      "normalized": "nyvang alle",
+      "type": null,
+      "name": "nyvang alle"
+    },
+    {
+      "input": "Suezvej",
+      "normalized": "suezvej",
+      "type": null,
+      "name": "suezvej"
+    },
+    {
+      "input": "Letbenvej",
+      "normalized": "letbenvej",
+      "type": null,
+      "name": "letbenvej"
+    },
+    {
+      "input": "August Bournonvilles Passage",
+      "normalized": "august bournonvilles passage",
+      "type": null,
+      "name": "august bournonvilles passage"
+    },
+    {
+      "input": "Jorcks Passage",
+      "normalized": "jorcks passage",
+      "type": null,
+      "name": "jorcks passage"
+    },
+    {
+      "input": "Prins Jørgens Gård",
+      "normalized": "prins jorgens gaard",
+      "type": null,
+      "name": "prins jorgens gaard"
+    },
+    {
+      "input": "Bjergvænget",
+      "normalized": "bjergvaenget",
+      "type": null,
+      "name": "bjergvaenget"
+    },
+    {
+      "input": "Mandelvej",
+      "normalized": "mandelvej",
+      "type": null,
+      "name": "mandelvej"
+    },
+    {
+      "input": "Valnøddevej",
+      "normalized": "valnoddevej",
+      "type": null,
+      "name": "valnoddevej"
+    },
+    {
+      "input": "Lille Fredensgade",
+      "normalized": "lille fredensgade",
+      "type": null,
+      "name": "lille fredensgade"
+    },
+    {
+      "input": "Amerika Plads",
+      "normalized": "amerika plads",
+      "type": null,
+      "name": "amerika plads"
+    },
+    {
+      "input": "Indiavej",
+      "normalized": "indiavej",
+      "type": null,
+      "name": "indiavej"
+    },
+    {
+      "input": "Præstøgade",
+      "normalized": "praestogade",
+      "type": null,
+      "name": "praestogade"
+    },
+    {
+      "input": "Viborggade",
+      "normalized": "viborggade",
+      "type": null,
+      "name": "viborggade"
+    },
+    {
+      "input": "Ørredvej",
+      "normalized": "orredvej",
+      "type": null,
+      "name": "orredvej"
+    },
+    {
+      "input": "Belgiensgade",
+      "normalized": "belgiensgade",
+      "type": null,
+      "name": "belgiensgade"
+    },
+    {
+      "input": "Gammelgang",
+      "normalized": "gammelgang",
+      "type": null,
+      "name": "gammelgang"
+    },
+    {
+      "input": "Kaj Munks Vej",
+      "normalized": "kaj munks vej",
+      "type": "kaj",
+      "name": "munks vej"
+    },
+    {
+      "input": "Metrovej",
+      "normalized": "metrovej",
+      "type": null,
+      "name": "metrovej"
+    },
+    {
+      "input": "Rubikonvej",
+      "normalized": "rubikonvej",
+      "type": null,
+      "name": "rubikonvej"
+    },
+    {
+      "input": "Ulvefodvej",
+      "normalized": "ulvefodvej",
+      "type": null,
+      "name": "ulvefodvej"
+    },
+    {
+      "input": "Frederiksstadsgade",
+      "normalized": "frederiksstadsgade",
+      "type": null,
+      "name": "frederiksstadsgade"
+    },
+    {
+      "input": "Stoltenbergsgade",
+      "normalized": "stoltenbergsgade",
+      "type": null,
+      "name": "stoltenbergsgade"
+    },
+    {
+      "input": "Mølledammen",
+      "normalized": "molledammen",
+      "type": null,
+      "name": "molledammen"
+    },
+    {
+      "input": "Bygningstorvet",
+      "normalized": "bygningstorvet",
+      "type": null,
+      "name": "bygningstorvet"
+    },
+    {
+      "input": "Hollandsvej",
+      "normalized": "hollandsvej",
+      "type": null,
+      "name": "hollandsvej"
+    },
+    {
+      "input": "Nøjsomhedsvej",
+      "normalized": "nojsomhedsvej",
+      "type": null,
+      "name": "nojsomhedsvej"
+    },
+    {
+      "input": "Vejporten",
+      "normalized": "vejporten",
+      "type": null,
+      "name": "vejporten"
+    },
+    {
+      "input": "Ulborgvej",
+      "normalized": "ulborgvej",
+      "type": null,
+      "name": "ulborgvej"
+    },
+    {
+      "input": "Klinken",
+      "normalized": "klinken",
+      "type": null,
+      "name": "klinken"
+    },
+    {
+      "input": "Århusgade",
+      "normalized": "aarhusgade",
+      "type": null,
+      "name": "aarhusgade"
+    },
+    {
+      "input": "Høvlvej",
+      "normalized": "hovlvej",
+      "type": null,
+      "name": "hovlvej"
+    },
+    {
+      "input": "Anemone Teatret",
+      "normalized": "anemone teatret",
+      "type": null,
+      "name": "anemone teatret"
+    },
+    {
+      "input": "Kongernes Samling Amalienborg",
+      "normalized": "kongernes samling amalienborg",
+      "type": null,
+      "name": "kongernes samling amalienborg"
+    },
+    {
+      "input": "Rådhuspladsen",
+      "normalized": "raadhuspladsen",
+      "type": null,
+      "name": "raadhuspladsen"
+    },
+    {
+      "input": "Brøndby Strand Station",
+      "normalized": "brondby strand station",
+      "type": null,
+      "name": "brondby strand station"
+    },
+    {
+      "input": "Landspergers vej",
+      "normalized": "landspergers vej",
+      "type": null,
+      "name": "landspergers vej"
+    },
+    {
+      "input": "Else Sørensens Vej",
+      "normalized": "else sorensens vej",
+      "type": null,
+      "name": "else sorensens vej"
+    },
+    {
+      "input": "Moseholmene",
+      "normalized": "moseholmene",
+      "type": null,
+      "name": "moseholmene"
+    },
+    {
+      "input": "Vedersøvej",
+      "normalized": "vedersovej",
+      "type": null,
+      "name": "vedersovej"
+    },
+    {
+      "input": "Rungstedhave",
+      "normalized": "rungstedhave",
+      "type": null,
+      "name": "rungstedhave"
+    },
+    {
+      "input": "Blokhaven",
+      "normalized": "blokhaven",
+      "type": null,
+      "name": "blokhaven"
+    },
+    {
+      "input": "Salbyvej",
+      "normalized": "salbyvej",
+      "type": null,
+      "name": "salbyvej"
+    },
+    {
+      "input": "Augustvej",
+      "normalized": "augustvej",
+      "type": null,
+      "name": "augustvej"
+    },
+    {
+      "input": "Klintemarken",
+      "normalized": "klintemarken",
+      "type": null,
+      "name": "klintemarken"
+    },
+    {
+      "input": "Tinghøjvej",
+      "normalized": "tinghojvej",
+      "type": null,
+      "name": "tinghojvej"
+    },
+    {
+      "input": "Indgang 3",
+      "normalized": "indgang 3",
+      "type": null,
+      "name": "indgang 3"
+    },
+    {
+      "input": "Gærdesangervej",
+      "normalized": "gaerdesangervej",
+      "type": null,
+      "name": "gaerdesangervej"
+    },
+    {
+      "input": "Jens Egebergvej",
+      "normalized": "jens egebergvej",
+      "type": null,
+      "name": "jens egebergvej"
+    },
+    {
+      "input": "Elmekrogen",
+      "normalized": "elmekrogen",
+      "type": null,
+      "name": "elmekrogen"
+    },
+    {
+      "input": "Ny Vestergårdsvej",
+      "normalized": "ny vestergaardsvej",
+      "type": null,
+      "name": "ny vestergaardsvej"
+    },
+    {
+      "input": "Walgerholm",
+      "normalized": "walgerholm",
+      "type": null,
+      "name": "walgerholm"
+    },
+    {
+      "input": "Hjalmar Bergstrøms Vej",
+      "normalized": "hjalmar bergstroms vej",
+      "type": null,
+      "name": "hjalmar bergstroms vej"
+    },
+    {
+      "input": "Sakskøbingvej",
+      "normalized": "sakskobingvej",
+      "type": null,
+      "name": "sakskobingvej"
+    },
+    {
+      "input": "Gjeddesdalvej",
+      "normalized": "gjeddesdalvej",
+      "type": null,
+      "name": "gjeddesdalvej"
+    },
+    {
+      "input": "Jydekrogen",
+      "normalized": "jydekrogen",
+      "type": null,
+      "name": "jydekrogen"
+    },
+    {
+      "input": "Gyvelvej",
+      "normalized": "gyvelvej",
+      "type": null,
+      "name": "gyvelvej"
+    },
+    {
+      "input": "Thorsmindevej",
+      "normalized": "thorsmindevej",
+      "type": null,
+      "name": "thorsmindevej"
+    },
+    {
+      "input": "Kæmpehøjvej",
+      "normalized": "kaempehojvej",
+      "type": null,
+      "name": "kaempehojvej"
+    },
+    {
+      "input": "Ipsens Plads",
+      "normalized": "ipsens plads",
+      "type": null,
+      "name": "ipsens plads"
+    }
+  ]
+}

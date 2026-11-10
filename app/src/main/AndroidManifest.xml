@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        The permissions requested, and no others (SPEC §10).
+        INTERNET serves the GBFS feed alone and, on an explicit action, the
+        download of the offline datasets.
+        The location permissions are requested by the map alone, once per
+        session, and refusing them blocks no screen.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--
+        MapLibre's own manifest asks for ACCESS_WIFI_STATE, and we take it back
+        out. SPEC §10 lists the permissions this application requests, and that
+        one is not among them: no code here reads the Wi-Fi state, while the
+        F-Droid page shows the merged list, where a permission we cannot
+        account for reads as a claim of its own. Whether the network is
+        reachable is answered by ACCESS_NETWORK_STATE, which stays.
+    -->
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        tools:node="remove" />
+    <!--
+        Location: requested when the map opens, once per session, and on a
+        press of "locate me" — those two moments and no other, no screen that
+        never shows a position asking for one (SPEC §7.1, §10). A refusal is
+        never repeated: "locate me" is what remains to change one's mind, and
+        no screen is blocked meanwhile — the user then designates their points
+        by hand.
+        On the very first launch the map is already in place under the welcome
+        sequence, so the system dialog arrives over its first page; SPEC §10
+        weighs that case and accepts it.
+        The position comes from the system provider, never from Google's fused
+        location services, and does not leave the device.
+        The application does NOT declare location as required: it must install
+        on a device without GPS.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+
+    <!--
+        Which applications this one can see: those that open a place
+        (SPEC §7.2, §7.4), and no others.
+
+        From Android 11 on, an application sees nothing of what is installed
+        unless it declares what it is looking for. Without this, handing a
+        station or a leg of a journey over could not tell "no navigation
+        application on this device" from "one is there and it answers" — and
+        this application answers `geo:` itself, so it would only ever have
+        found itself.
+
+        This is a filter, not a permission: it grants sight of the
+        applications answering this very intent, nothing wider, and no list of
+        what is installed ever leaves the device (SPEC §2, C3).
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="geo" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".RoueLibreApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        tools:targetApi="tiramisu"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RoueLibre"
+        tools:ignore="UnusedTranslation"><!--
+            UnusedTranslation is silenced here and nowhere else, and only for
+            what it means on this attribute: lint reads every `values-<lang>/`
+            folder as a language that ought to be declared in the locale config,
+            and names the twenty-eight started files whose strings still hold
+            the English text. Declaring them is exactly what SPEC §9 refuses —
+            the system's language picker would offer "Deutsch" and hand back
+            English. They stay in the APK and stay served to a device set to
+            them, which is what those files are for; what they are not is a
+            choice to offer. `UnusedAttribute` below is the same shape of
+            answer: the attribute does nothing before Android 13, which is
+            precisely why the library's own storage covers the releases beneath.
+        -->
+
+        <!--
+            android:enableOnBackInvokedCallback above hands the back gesture to
+            Android's own dispatcher, which is what draws the destination while
+            the finger is still on the edge: the screen being returned to, and
+            the launcher itself on the last one back. Without it the gesture
+            arrives all at once, having said nothing of where it led until it
+            has led there.
+
+            What it buys starts at Android 13, where the framework leaves
+            the flag false whatever the target is, so the attribute is the
+            only way in. The documentation has it that from Android 15 a
+            target of SDK 35 or later is opted in already, which would leave
+            this with nothing to say there — but that is not what the devices
+            say. On a Fairphone 3 running Android 15 (SDK 35) against this
+            very target, the log carried "OnBackInvokedCallback is not enabled
+            for the application" at every launch until the attribute was
+            declared, and carried it no more afterwards, the back stack's
+            animation callbacks turning up in its place. So it is declared
+            rather than inferred: a default that holds on one build and not on
+            the next is not a thing a manifest should be resting on. Below
+            Android 13 there is no such dispatcher at all and it does nothing,
+            which is the same shape of answer as the locale config below, and
+            covered by the same tools:targetApi.
+
+            Turning it on is safe here because nothing in this application
+            intercepts the back gesture: not one onBackPressed, not one
+            OnBackPressedCallback, not one key listener. Every way back is a
+            popBackStack over the fragment back stack (see ui/BackStack.kt),
+            and those are driven by the OnBackPressedDispatcher, which is
+            precisely what this flag routes the system's callback into. The
+            bottom sheets answer for themselves, each dialog holding a
+            dispatcher of its own.
+        -->
+
+        <!--
+            android:localeConfig above names the languages the interface can be
+            asked to speak, so that Android's own per-application language
+            settings offer them too, from Android 13 on (SPEC §7.6, §9). The
+            same choice, offered a second time by the system and writing the
+            same stored value: it is not a second setting.
+        -->
+
+        <!--
+            Not a service, and never started: AppCompat reads this declaration
+            for the single flag inside it, which opts the application into
+            having its chosen language stored by the library itself. That is why
+            it is declared disabled — nothing must be able to bind it.
+
+            What it buys is Android 12 and below, which have no per-application
+            language of their own: there AppCompat keeps the choice in a file of
+            its own and reads it back before the first view of a cold start.
+            From Android 13 on the framework holds it, and this same declaration
+            is what lets AppCompat carry a choice made under the old scheme over
+            to the new one when a device is updated.
+
+            Without it, the language would be forgotten the moment the
+            application was closed on every device below Android 13 — which the
+            minSdk 26 of SPEC §3 still serves.
+        -->
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
+
+        <!--
+            The theme named here is the one Android draws the window with
+            before the activity exists: the opening's green (SPEC §7.0).
+            MainActivity puts the interface's own theme back as its first act.
+
+            `launchMode` holds the application to the single activity SPEC §3
+            describes — one instance, and a place arriving from elsewhere
+            (SPEC §7.8) handed to the instance already living rather than
+            starting a second one beside it. Under the default `standard` mode
+            every incoming link built one more MainActivity in the same task,
+            each carrying a map of its own, and the newcomer covered the screen
+            with the opening's green for good: that green is taken down by the
+            handover from Android's splash screen, which is shown to a task
+            being launched and not to an activity started into one already on
+            show. What the user was left looking at was a dead application.
+
+            `singleTask` and not `singleTop`, which only reuses the instance
+            when it already sits at the top of the task the intent is aimed
+            at — and a sending application that starts this one inside its own
+            task aims elsewhere. The intent then reaches `onNewIntent`, which
+            is where MainActivity reads it.
+
+            `taskAffinity` is emptied, and that empties nothing else: the
+            attribute names the task an activity belongs to, and left unwritten
+            it is the package name — a name any application may declare as its
+            own. One that does, with `allowTaskReparenting`, has its activities
+            moved into this task and shown in its place on the way back to it.
+            Android 11 narrowed that, and minSdk 26 still serves the four
+            releases it did not. What is at stake here is measured, this
+            application asking for neither identifier nor payment; what a
+            counterfeit screen would be shown is somebody's home address
+            (SPEC §7.6). An affinity of its own is worth nothing to an
+            application holding one activity and never naming a task, so it is
+            given up rather than left to be claimed. `singleTask` above still
+            holds and still does what it says: a task with no affinity is a
+            task all the same, and an incoming link still joins the instance
+            already living rather than building a second one.
+        -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@style/Theme.RoueLibre.Intro"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+                Opening a place from another application (SPEC §7.8).
+                The application appears in Android's chooser and can be kept
+                there as the default — but it never declares itself as the
+                handler: that choice belongs to the user.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="geo" />
+            </intent-filter>
+
+            <!-- Still emitted by many applications. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="google.navigation" />
+            </intent-filter>
+
+            <!--
+                Web map links. They are NOT verified automatically — the
+                domains do not belong to the project — so since Android 12 they
+                only reach the application if the user allows it in the system
+                settings. The procedure is explained in the "about" screen and
+                in the README, failing which the behaviour would look like a
+                defect.
+            -->
+            <intent-filter android:autoVerify="false">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- One attribute per tag: Android combines them with one
+                     another, and mixing them would accept addresses one did
+                     not think one was declaring. -->
+                <data android:scheme="https" />
+                <data android:host="www.openstreetmap.org" />
+                <data android:host="openstreetmap.org" />
+                <data android:host="maps.google.com" />
+            </intent-filter>
+
+            <!--
+                Google Maps' current host, and a filter of its own because
+                Android crosses the attributes of a single filter with one
+                another: the path below, declared above, would have been
+                required of the OpenStreetMap links too, which carry none.
+
+                `maps.google.com` is the historical spelling; what Google Maps
+                shares today reads `www.google.com/maps/@…`, which the parser
+                has always known how to read (SPEC §7.8). The path is what
+                keeps the application out of Android's chooser for every other
+                address on that host — a search, a mail, a video.
+            -->
+            <intent-filter android:autoVerify="false">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" />
+                <data android:host="www.google.com" />
+                <!-- "/maps" itself and what hangs under it, rather than a
+                     single prefix that would also take in a path merely
+                     beginning with those five letters. -->
+                <data android:path="/maps" />
+                <data android:pathPrefix="/maps/" />
+            </intent-filter>
+
+            <!--
+                Text sharing: the commonest case in practice, an address
+                received over a messaging application. The text is parsed on
+                the device, and resolved by the local address index.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

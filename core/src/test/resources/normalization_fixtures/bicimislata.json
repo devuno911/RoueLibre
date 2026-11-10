@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "Passeig de l'Albereda",
+      "normalized": "passeig de l albereda",
+      "type": null,
+      "name": "passeig de l albereda"
+    },
+    {
+      "input": "Carrer de Mislata",
+      "normalized": "carrer de mislata",
+      "type": null,
+      "name": "carrer de mislata"
+    },
+    {
+      "input": "Carrer José Lerma Martínez",
+      "normalized": "carrer jose lerma martinez",
+      "type": null,
+      "name": "carrer jose lerma martinez"
+    },
+    {
+      "input": "Carrer de Colom",
+      "normalized": "carrer de colom",
+      "type": null,
+      "name": "carrer de colom"
+    },
+    {
+      "input": "Carrer del Doctor Lanuza",
+      "normalized": "carrer del doctor lanuza",
+      "type": null,
+      "name": "carrer del doctor lanuza"
+    },
+    {
+      "input": "Plaça del Carme",
+      "normalized": "placa del carme",
+      "type": null,
+      "name": "placa del carme"
+    },
+    {
+      "input": "Carrer de Juan Ramón Jiménez",
+      "normalized": "carrer de juan ramon jimenez",
+      "type": null,
+      "name": "carrer de juan ramon jimenez"
+    },
+    {
+      "input": "Carrer Mare Ràfols",
+      "normalized": "carrer mare rafols",
+      "type": null,
+      "name": "carrer mare rafols"
+    },
+    {
+      "input": "C/ del Dr. Manuel Candela",
+      "normalized": "calle del doctor manuel candela",
+      "type": "calle",
+      "name": "del doctor manuel candela"
+    },
+    {
+      "input": "Carrer de Montserrat Caballé",
+      "normalized": "carrer de montserrat caballe",
+      "type": null,
+      "name": "carrer de montserrat caballe"
+    },
+    {
+      "input": "Plaça del Cedre",
+      "normalized": "placa del cedre",
+      "type": null,
+      "name": "placa del cedre"
+    },
+    {
+      "input": "Carrer del Mestre Serrano",
+      "normalized": "carrer del mestre serrano",
+      "type": null,
+      "name": "carrer del mestre serrano"
+    },
+    {
+      "input": "Carrer de les Moreres",
+      "normalized": "carrer de les moreres",
+      "type": null,
+      "name": "carrer de les moreres"
+    },
+    {
+      "input": "Avinguda del Camí Nou",
+      "normalized": "avinguda del cami nou",
+      "type": null,
+      "name": "avinguda del cami nou"
+    },
+    {
+      "input": "Carrer del Doctor Vicente Navarro Soler",
+      "normalized": "carrer del doctor vicente navarro soler",
+      "type": null,
+      "name": "carrer del doctor vicente navarro soler"
+    },
+    {
+      "input": "Carrer d'Agullent",
+      "normalized": "carrer d agullent",
+      "type": null,
+      "name": "carrer d agullent"
+    },
+    {
+      "input": "Carrer de la Florista",
+      "normalized": "carrer de la florista",
+      "type": null,
+      "name": "carrer de la florista"
+    },
+    {
+      "input": "Carrer del Xocainet",
+      "normalized": "carrer del xocainet",
+      "type": null,
+      "name": "carrer del xocainet"
+    },
+    {
+      "input": "Carrer de Massalavés",
+      "normalized": "carrer de massalaves",
+      "type": null,
+      "name": "carrer de massalaves"
+    },
+    {
+      "input": "Carrer de Salvador Almenar",
+      "normalized": "carrer de salvador almenar",
+      "type": null,
+      "name": "carrer de salvador almenar"
+    },
+    {
+      "input": "Carrer d'Alginet",
+      "normalized": "carrer d alginet",
+      "type": null,
+      "name": "carrer d alginet"
+    },
+    {
+      "input": "Carrer de Mitjagalta",
+      "normalized": "carrer de mitjagalta",
+      "type": null,
+      "name": "carrer de mitjagalta"
+    },
+    {
+      "input": "Avenida de Ausias March",
+      "normalized": "avenida de ausias march",
+      "type": "avenida",
+      "name": "de ausias march"
+    },
+    {
+      "input": "Camí Borbotó a Godella",
+      "normalized": "cami borboto a godella",
+      "type": null,
+      "name": "cami borboto a godella"
+    },
+    {
+      "input": "Carrer de la Santíssima Trinitat",
+      "normalized": "carrer de la santissima trinitat",
+      "type": null,
+      "name": "carrer de la santissima trinitat"
+    },
+    {
+      "input": "Carrer del Mestre Granados",
+      "normalized": "carrer del mestre granados",
+      "type": null,
+      "name": "carrer del mestre granados"
+    },
+    {
+      "input": "Calle Santos Justo y Pastor",
+      "normalized": "calle santos justo y pastor",
+      "type": "calle",
+      "name": "santos justo y pastor"
+    },
+    {
+      "input": "Carrer del 3 d'Abril de 1979",
+      "normalized": "carrer del 3 d abril de 1979",
+      "type": null,
+      "name": "carrer del 3 d abril de 1979"
+    },
+    {
+      "input": "Camí del Cementeri",
+      "normalized": "cami del cementeri",
+      "type": null,
+      "name": "cami del cementeri"
+    },
+    {
+      "input": "Carrer de les Alzines",
+      "normalized": "carrer de les alzines",
+      "type": null,
+      "name": "carrer de les alzines"
+    },
+    {
+      "input": "Carrer de la Llanterna",
+      "normalized": "carrer de la llanterna",
+      "type": null,
+      "name": "carrer de la llanterna"
+    },
+    {
+      "input": "Carrer de l'Escola del Temple",
+      "normalized": "carrer de l escola del temple",
+      "type": null,
+      "name": "carrer de l escola del temple"
+    },
+    {
+      "input": "Carrer de Misser Tarazona",
+      "normalized": "carrer de misser tarazona",
+      "type": null,
+      "name": "carrer de misser tarazona"
+    },
+    {
+      "input": "Carrer del Historiador Beuter",
+      "normalized": "carrer del historiador beuter",
+      "type": null,
+      "name": "carrer del historiador beuter"
+    },
+    {
+      "input": "Carrer Samaniego",
+      "normalized": "carrer samaniego",
+      "type": null,
+      "name": "carrer samaniego"
+    },
+    {
+      "input": "Carrer de Benicàssim",
+      "normalized": "carrer de benicassim",
+      "type": null,
+      "name": "carrer de benicassim"
+    },
+    {
+      "input": "Entrada a la Casa del Sereno",
+      "normalized": "entrada a la casa del sereno",
+      "type": null,
+      "name": "entrada a la casa del sereno"
+    },
+    {
+      "input": "Passatge de les Residències Luz",
+      "normalized": "passatge de les residencies luz",
+      "type": null,
+      "name": "passatge de les residencies luz"
+    },
+    {
+      "input": "Entrada del Molí dels Canyars",
+      "normalized": "entrada del moli dels canyars",
+      "type": null,
+      "name": "entrada del moli dels canyars"
+    },
+    {
+      "input": "Carrer de Francesc de Llano",
+      "normalized": "carrer de francesc de llano",
+      "type": null,
+      "name": "carrer de francesc de llano"
+    },
+    {
+      "input": "Carrer del Nord",
+      "normalized": "carrer del nord",
+      "type": null,
+      "name": "carrer del nord"
+    },
+    {
+      "input": "Circumval·lació de València",
+      "normalized": "circumval·lacio de valencia",
+      "type": null,
+      "name": "circumval·lacio de valencia"
+    },
+    {
+      "input": "Carrer de l'Enginyer Manuel Cánovas",
+      "normalized": "carrer de l enginyer manuel canovas",
+      "type": null,
+      "name": "carrer de l enginyer manuel canovas"
+    },
+    {
+      "input": "Carrer del Riu Eresma",
+      "normalized": "carrer del riu eresma",
+      "type": null,
+      "name": "carrer del riu eresma"
+    },
+    {
+      "input": "Carrer de l'Estepa",
+      "normalized": "carrer de l estepa",
+      "type": null,
+      "name": "carrer de l estepa"
+    },
+    {
+      "input": "Carrer d'Antella",
+      "normalized": "carrer d antella",
+      "type": null,
+      "name": "carrer d antella"
+    },
+    {
+      "input": "Carrer de Rafael el Gallo",
+      "normalized": "carrer de rafael el gallo",
+      "type": null,
+      "name": "carrer de rafael el gallo"
+    },
+    {
+      "input": "Calle de Marchalenes",
+      "normalized": "calle de marchalenes",
+      "type": "calle",
+      "name": "de marchalenes"
+    },
+    {
+      "input": "Carrer de Marie Curie (científica)",
+      "normalized": "carrer de marie curie cientifica",
+      "type": null,
+      "name": "carrer de marie curie cientifica"
+    },
+    {
+      "input": "Carrer del Torpediner",
+      "normalized": "carrer del torpediner",
+      "type": null,
+      "name": "carrer del torpediner"
+    },
+    {
+      "input": "Plaça de Dorotea i Margarida Joanes (Pintores)",
+      "normalized": "placa de dorotea i margarida joanes pintores",
+      "type": null,
+      "name": "placa de dorotea i margarida joanes pintores"
+    },
+    {
+      "input": "Carrer de l’Aviació",
+      "normalized": "carrer de l aviacio",
+      "type": null,
+      "name": "carrer de l aviacio"
+    },
+    {
+      "input": "Carrer del Centre",
+      "normalized": "carrer del centre",
+      "type": null,
+      "name": "carrer del centre"
+    },
+    {
+      "input": "Avinguda Antic Regne de València",
+      "normalized": "avinguda antic regne de valencia",
+      "type": null,
+      "name": "avinguda antic regne de valencia"
+    },
+    {
+      "input": "Carrer de l'Estació",
+      "normalized": "carrer de l estacio",
+      "type": null,
+      "name": "carrer de l estacio"
+    },
+    {
+      "input": "Carrer de Vicent Salvatierra",
+      "normalized": "carrer de vicent salvatierra",
+      "type": null,
+      "name": "carrer de vicent salvatierra"
+    },
+    {
+      "input": "Passeig del Pou del Quint",
+      "normalized": "passeig del pou del quint",
+      "type": null,
+      "name": "passeig del pou del quint"
+    },
+    {
+      "input": "Alfauir",
+      "normalized": "alfauir",
+      "type": null,
+      "name": "alfauir"
+    },
+    {
+      "input": "Els guardians del pont",
+      "normalized": "els guardians del pont",
+      "type": null,
+      "name": "els guardians del pont"
+    },
+    {
+      "input": "Tortugas marinas",
+      "normalized": "tortugas marinas",
+      "type": null,
+      "name": "tortugas marinas"
+    },
+    {
+      "input": "Biblioteca Municipal Grau-Port",
+      "normalized": "biblioteca municipal grau port",
+      "type": null,
+      "name": "biblioteca municipal grau port"
+    },
+    {
+      "input": "Mislata",
+      "normalized": "mislata",
+      "type": null,
+      "name": "mislata"
+    },
+    {
+      "input": "Carrer de Gabriel Miró",
+      "normalized": "carrer de gabriel miro",
+      "type": null,
+      "name": "carrer de gabriel miro"
+    },
+    {
+      "input": "Carrer del Nou d'Octubre",
+      "normalized": "carrer del nou d octubre",
+      "type": null,
+      "name": "carrer del nou d octubre"
+    },
+    {
+      "input": "Carrer Reis Catolics",
+      "normalized": "carrer reis catolics",
+      "type": null,
+      "name": "carrer reis catolics"
+    },
+    {
+      "input": "Avinguda Pérez Galdós",
+      "normalized": "avinguda perez galdos",
+      "type": null,
+      "name": "avinguda perez galdos"
+    },
+    {
+      "input": "Carrer de Benimar",
+      "normalized": "carrer de benimar",
+      "type": null,
+      "name": "carrer de benimar"
+    },
+    {
+      "input": "Carrer de les Mèlies",
+      "normalized": "carrer de les melies",
+      "type": null,
+      "name": "carrer de les melies"
+    },
+    {
+      "input": "Carrer del Mediterrani",
+      "normalized": "carrer del mediterrani",
+      "type": null,
+      "name": "carrer del mediterrani"
+    },
+    {
+      "input": "Carrer Ortiga",
+      "normalized": "carrer ortiga",
+      "type": null,
+      "name": "carrer ortiga"
+    },
+    {
+      "input": "Calle de Carcagente",
+      "normalized": "calle de carcagente",
+      "type": "calle",
+      "name": "de carcagente"
+    },
+    {
+      "input": "Carrer de Manuel Simó",
+      "normalized": "carrer de manuel simo",
+      "type": null,
+      "name": "carrer de manuel simo"
+    },
+    {
+      "input": "Carrer Fontanars dels Alforins",
+      "normalized": "carrer fontanars dels alforins",
+      "type": null,
+      "name": "carrer fontanars dels alforins"
+    },
+    {
+      "input": "Carrer Corts Valencianes",
+      "normalized": "carrer corts valencianes",
+      "type": null,
+      "name": "carrer corts valencianes"
+    },
+    {
+      "input": "Carrer de la Séquia de Mestalla",
+      "normalized": "carrer de la sequia de mestalla",
+      "type": null,
+      "name": "carrer de la sequia de mestalla"
+    },
+    {
+      "input": "Carrer del Cronista Silvino Beneyto Tasso",
+      "normalized": "carrer del cronista silvino beneyto tasso",
+      "type": null,
+      "name": "carrer del cronista silvino beneyto tasso"
+    },
+    {
+      "input": "Carril Bici Picanya - Barranc de Xiva",
+      "normalized": "carril bici picanya barranc de xiva",
+      "type": null,
+      "name": "carril bici picanya barranc de xiva"
+    },
+    {
+      "input": "Entrada del Rullo",
+      "normalized": "entrada del rullo",
+      "type": null,
+      "name": "entrada del rullo"
+    },
+    {
+      "input": "Carrer de Francesc Baldomà",
+      "normalized": "carrer de francesc baldoma",
+      "type": null,
+      "name": "carrer de francesc baldoma"
+    },
+    {
+      "input": "Carrer de Montanejos",
+      "normalized": "carrer de montanejos",
+      "type": null,
+      "name": "carrer de montanejos"
+    },
+    {
+      "input": "Carrer del Poeta César Simón",
+      "normalized": "carrer del poeta cesar simon",
+      "type": null,
+      "name": "carrer del poeta cesar simon"
+    },
+    {
+      "input": "Avinguda de la Il·lustració",
+      "normalized": "avinguda de la il·lustracio",
+      "type": null,
+      "name": "avinguda de la il·lustracio"
+    },
+    {
+      "input": "Avinguda de Blasco Ibáñez",
+      "normalized": "avinguda de blasco ibanez",
+      "type": null,
+      "name": "avinguda de blasco ibanez"
+    },
+    {
+      "input": "Carrer de José Mestre",
+      "normalized": "carrer de jose mestre",
+      "type": null,
+      "name": "carrer de jose mestre"
+    },
+    {
+      "input": "Carrer del Padre Jesús Fernández",
+      "normalized": "carrer del padre jesus fernandez",
+      "type": null,
+      "name": "carrer del padre jesus fernandez"
+    },
+    {
+      "input": "Carrer Riu Túria",
+      "normalized": "carrer riu turia",
+      "type": null,
+      "name": "carrer riu turia"
+    },
+    {
+      "input": "Carrer d'Alberto García Esteve",
+      "normalized": "carrer d alberto garcia esteve",
+      "type": null,
+      "name": "carrer d alberto garcia esteve"
+    },
+    {
+      "input": "Carrer del Riu Tormes",
+      "normalized": "carrer del riu tormes",
+      "type": null,
+      "name": "carrer del riu tormes"
+    },
+    {
+      "input": "Plaça d'Antoni Cortis",
+      "normalized": "placa d antoni cortis",
+      "type": null,
+      "name": "placa d antoni cortis"
+    },
+    {
+      "input": "Carrer del Comte de Lumiares",
+      "normalized": "carrer del comte de lumiares",
+      "type": null,
+      "name": "carrer del comte de lumiares"
+    },
+    {
+      "input": "Camí de la Germandat",
+      "normalized": "cami de la germandat",
+      "type": null,
+      "name": "cami de la germandat"
+    },
+    {
+      "input": "Carrer de Xàtiva",
+      "normalized": "carrer de xativa",
+      "type": null,
+      "name": "carrer de xativa"
+    },
+    {
+      "input": "Carrer del Doctor Ricardo Aparici",
+      "normalized": "carrer del doctor ricardo aparici",
+      "type": null,
+      "name": "carrer del doctor ricardo aparici"
+    },
+    {
+      "input": "Carrer del Barranc",
+      "normalized": "carrer del barranc",
+      "type": null,
+      "name": "carrer del barranc"
+    },
+    {
+      "input": "Carrer de Miguel Servet",
+      "normalized": "carrer de miguel servet",
+      "type": null,
+      "name": "carrer de miguel servet"
+    },
+    {
+      "input": "Carrer de Guillem Jàfer",
+      "normalized": "carrer de guillem jafer",
+      "type": null,
+      "name": "carrer de guillem jafer"
+    },
+    {
+      "input": "Avinguda de la Pianista Martínez Carrasco",
+      "normalized": "avinguda de la pianista martinez carrasco",
+      "type": null,
+      "name": "avinguda de la pianista martinez carrasco"
+    },
+    {
+      "input": "Calle de Roger de Lauria",
+      "normalized": "calle de roger de lauria",
+      "type": "calle",
+      "name": "de roger de lauria"
+    },
+    {
+      "input": "Camino viejo de Liria",
+      "normalized": "camino viejo de liria",
+      "type": "camino",
+      "name": "viejo de liria"
+    },
+    {
+      "input": "Carrer d'Emilio Baró",
+      "normalized": "carrer d emilio baro",
+      "type": null,
+      "name": "carrer d emilio baro"
+    },
+    {
+      "input": "Carrer de Calatrava",
+      "normalized": "carrer de calatrava",
+      "type": null,
+      "name": "carrer de calatrava"
+    },
+    {
+      "input": "Carrer de Francesc Martínez",
+      "normalized": "carrer de francesc martinez",
+      "type": null,
+      "name": "carrer de francesc martinez"
+    },
+    {
+      "input": "Carrer de l'Abadia de Sant Martí",
+      "normalized": "carrer de l abadia de sant marti",
+      "type": null,
+      "name": "carrer de l abadia de sant marti"
+    },
+    {
+      "input": "Carrer de la Barcelonina",
+      "normalized": "carrer de la barcelonina",
+      "type": null,
+      "name": "carrer de la barcelonina"
+    },
+    {
+      "input": "Carrer de la Reina Na Maria",
+      "normalized": "carrer de la reina na maria",
+      "type": null,
+      "name": "carrer de la reina na maria"
+    },
+    {
+      "input": "Carrer de Maria Ros",
+      "normalized": "carrer de maria ros",
+      "type": null,
+      "name": "carrer de maria ros"
+    },
+    {
+      "input": "Carrer de Pius IX",
+      "normalized": "carrer de pius ix",
+      "type": null,
+      "name": "carrer de pius ix"
+    },
+    {
+      "input": "Carrer de Sant Francesc de Paula",
+      "normalized": "carrer de sant francesc de paula",
+      "type": null,
+      "name": "carrer de sant francesc de paula"
+    },
+    {
+      "input": "Carrer de Vilanova de Castelló",
+      "normalized": "carrer de vilanova de castello",
+      "type": null,
+      "name": "carrer de vilanova de castello"
+    },
+    {
+      "input": "Carrer del Doctor Ferrann",
+      "normalized": "carrer del doctor ferrann",
+      "type": null,
+      "name": "carrer del doctor ferrann"
+    },
+    {
+      "input": "Carrer del Mestre Palau",
+      "normalized": "carrer del mestre palau",
+      "type": null,
+      "name": "carrer del mestre palau"
+    },
+    {
+      "input": "Carrer del Pintor Salvador Abril",
+      "normalized": "carrer del pintor salvador abril",
+      "type": null,
+      "name": "carrer del pintor salvador abril"
+    },
+    {
+      "input": "Carrer del Vinalopó",
+      "normalized": "carrer del vinalopo",
+      "type": null,
+      "name": "carrer del vinalopo"
+    },
+    {
+      "input": "Carrer Vell de la Palla",
+      "normalized": "carrer vell de la palla",
+      "type": null,
+      "name": "carrer vell de la palla"
+    },
+    {
+      "input": "Plaça de l'Actor Enrique Rambal",
+      "normalized": "placa de l actor enrique rambal",
+      "type": null,
+      "name": "placa de l actor enrique rambal"
+    },
+    {
+      "input": "Plaça del Parc de Montolivet",
+      "normalized": "placa del parc de montolivet",
+      "type": null,
+      "name": "placa del parc de montolivet"
+    },
+    {
+      "input": "Carrer de Joan Soriano i Esteve",
+      "normalized": "carrer de joan soriano i esteve",
+      "type": null,
+      "name": "carrer de joan soriano i esteve"
+    },
+    {
+      "input": "Avenida de Torrente",
+      "normalized": "avenida de torrente",
+      "type": "avenida",
+      "name": "de torrente"
+    },
+    {
+      "input": "Carrer de Joan XXIII",
+      "normalized": "carrer de joan xxiii",
+      "type": null,
+      "name": "carrer de joan xxiii"
+    },
+    {
+      "input": "Carrer de Sant Miquel",
+      "normalized": "carrer de sant miquel",
+      "type": null,
+      "name": "carrer de sant miquel"
+    }
+  ]
+}

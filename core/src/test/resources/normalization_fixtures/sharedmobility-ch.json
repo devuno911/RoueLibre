@@ -1,0 +1,797 @@
+{
+  "language": "de",
+  "cases": [
+    {
+      "input": "Bahnhofstraße",
+      "normalized": "bahnhofstrasse",
+      "type": null,
+      "name": "bahnhofstrasse"
+    },
+    {
+      "input": "Bahnhofstrasse",
+      "normalized": "bahnhofstrasse",
+      "type": null,
+      "name": "bahnhofstrasse"
+    },
+    {
+      "input": "Marienplatz",
+      "normalized": "marienplatz",
+      "type": null,
+      "name": "marienplatz"
+    },
+    {
+      "input": "Unter den Linden",
+      "normalized": "unter den linden",
+      "type": null,
+      "name": "unter den linden"
+    },
+    {
+      "input": "Kurfürstendamm",
+      "normalized": "kurfurstendamm",
+      "type": null,
+      "name": "kurfurstendamm"
+    },
+    {
+      "input": "Große Freiheit",
+      "normalized": "grosse freiheit",
+      "type": null,
+      "name": "grosse freiheit"
+    },
+    {
+      "input": "St.-Pauli-Landungsbrücken",
+      "normalized": "sankt pauli landungsbrucken",
+      "type": null,
+      "name": "sankt pauli landungsbrucken"
+    },
+    {
+      "input": "Am Hauptbahnhof",
+      "normalized": "am hauptbahnhof",
+      "type": null,
+      "name": "am hauptbahnhof"
+    },
+    {
+      "input": "Prinzregentenstraße",
+      "normalized": "prinzregentenstrasse",
+      "type": null,
+      "name": "prinzregentenstrasse"
+    },
+    {
+      "input": "Karl-Marx-Allee",
+      "normalized": "karl marx allee",
+      "type": null,
+      "name": "karl marx allee"
+    },
+    {
+      "input": "Schloßplatz",
+      "normalized": "schlossplatz",
+      "type": null,
+      "name": "schlossplatz"
+    },
+    {
+      "input": "Gr. Bleichen",
+      "normalized": "gross bleichen",
+      "type": null,
+      "name": "gross bleichen"
+    },
+    {
+      "input": "Heidwiesen",
+      "normalized": "heidwiesen",
+      "type": null,
+      "name": "heidwiesen"
+    },
+    {
+      "input": "Blitzgbachweg",
+      "normalized": "blitzgbachweg",
+      "type": null,
+      "name": "blitzgbachweg"
+    },
+    {
+      "input": "Scharten",
+      "normalized": "scharten",
+      "type": null,
+      "name": "scharten"
+    },
+    {
+      "input": "Kirchgasse",
+      "normalized": "kirchgasse",
+      "type": null,
+      "name": "kirchgasse"
+    },
+    {
+      "input": "Pfahlbautenweg",
+      "normalized": "pfahlbautenweg",
+      "type": null,
+      "name": "pfahlbautenweg"
+    },
+    {
+      "input": "Rue d'Arras",
+      "normalized": "rue d arras",
+      "type": null,
+      "name": "rue d arras"
+    },
+    {
+      "input": "Rheinstrasse",
+      "normalized": "rheinstrasse",
+      "type": null,
+      "name": "rheinstrasse"
+    },
+    {
+      "input": "Fichtenweg",
+      "normalized": "fichtenweg",
+      "type": null,
+      "name": "fichtenweg"
+    },
+    {
+      "input": "Lehmatt",
+      "normalized": "lehmatt",
+      "type": null,
+      "name": "lehmatt"
+    },
+    {
+      "input": "Ahornweg",
+      "normalized": "ahornweg",
+      "type": null,
+      "name": "ahornweg"
+    },
+    {
+      "input": "Bangertli",
+      "normalized": "bangertli",
+      "type": null,
+      "name": "bangertli"
+    },
+    {
+      "input": "Leimgrubenweg",
+      "normalized": "leimgrubenweg",
+      "type": null,
+      "name": "leimgrubenweg"
+    },
+    {
+      "input": "Forêt des Chênes",
+      "normalized": "foret des chenes",
+      "type": null,
+      "name": "foret des chenes"
+    },
+    {
+      "input": "Via Quattro Novembre",
+      "normalized": "via quattro novembre",
+      "type": null,
+      "name": "via quattro novembre"
+    },
+    {
+      "input": "Weierwisenweg",
+      "normalized": "weierwisenweg",
+      "type": null,
+      "name": "weierwisenweg"
+    },
+    {
+      "input": "Buechechäppeliweg",
+      "normalized": "buechechappeliweg",
+      "type": null,
+      "name": "buechechappeliweg"
+    },
+    {
+      "input": "Mut",
+      "normalized": "mut",
+      "type": null,
+      "name": "mut"
+    },
+    {
+      "input": "Strada Provinciale dello Stelvio",
+      "normalized": "strada provinciale dello stelvio",
+      "type": null,
+      "name": "strada provinciale dello stelvio"
+    },
+    {
+      "input": "Via Riale",
+      "normalized": "via riale",
+      "type": null,
+      "name": "via riale"
+    },
+    {
+      "input": "Lago Lod",
+      "normalized": "lago lod",
+      "type": null,
+      "name": "lago lod"
+    },
+    {
+      "input": "Chemin de la Ruchotte",
+      "normalized": "chemin de la ruchotte",
+      "type": null,
+      "name": "chemin de la ruchotte"
+    },
+    {
+      "input": "Bürlis Ermatin",
+      "normalized": "burlis ermatin",
+      "type": null,
+      "name": "burlis ermatin"
+    },
+    {
+      "input": "Strécia di Campèr",
+      "normalized": "strecia di camper",
+      "type": null,
+      "name": "strecia di camper"
+    },
+    {
+      "input": "En Monnin",
+      "normalized": "en monnin",
+      "type": null,
+      "name": "en monnin"
+    },
+    {
+      "input": "Monaco",
+      "normalized": "monaco",
+      "type": null,
+      "name": "monaco"
+    },
+    {
+      "input": "Oberalpstrasse",
+      "normalized": "oberalpstrasse",
+      "type": null,
+      "name": "oberalpstrasse"
+    },
+    {
+      "input": "Mühlehaldenstrasse",
+      "normalized": "muhlehaldenstrasse",
+      "type": null,
+      "name": "muhlehaldenstrasse"
+    },
+    {
+      "input": "Winzerweg",
+      "normalized": "winzerweg",
+      "type": null,
+      "name": "winzerweg"
+    },
+    {
+      "input": "N° 23 & 25",
+      "normalized": "n 23 25",
+      "type": null,
+      "name": "n 23 25"
+    },
+    {
+      "input": "Luegetenstrasse",
+      "normalized": "luegetenstrasse",
+      "type": null,
+      "name": "luegetenstrasse"
+    },
+    {
+      "input": "Stellweg",
+      "normalized": "stellweg",
+      "type": null,
+      "name": "stellweg"
+    },
+    {
+      "input": "Route de Nonfoux",
+      "normalized": "route de nonfoux",
+      "type": null,
+      "name": "route de nonfoux"
+    },
+    {
+      "input": "Rain",
+      "normalized": "rain",
+      "type": null,
+      "name": "rain"
+    },
+    {
+      "input": "Oberschwändi",
+      "normalized": "oberschwandi",
+      "type": null,
+      "name": "oberschwandi"
+    },
+    {
+      "input": "Forsthof",
+      "normalized": "forsthof",
+      "type": null,
+      "name": "forsthof"
+    },
+    {
+      "input": "Chemin du Rafour",
+      "normalized": "chemin du rafour",
+      "type": null,
+      "name": "chemin du rafour"
+    },
+    {
+      "input": "Via Costa Magra",
+      "normalized": "via costa magra",
+      "type": null,
+      "name": "via costa magra"
+    },
+    {
+      "input": "Vicolo Monte Grappa",
+      "normalized": "vicolo monte grappa",
+      "type": null,
+      "name": "vicolo monte grappa"
+    },
+    {
+      "input": "Route de la Ria",
+      "normalized": "route de la ria",
+      "type": null,
+      "name": "route de la ria"
+    },
+    {
+      "input": "Schluss",
+      "normalized": "schluss",
+      "type": null,
+      "name": "schluss"
+    },
+    {
+      "input": "Im Weiheracker",
+      "normalized": "im weiheracker",
+      "type": null,
+      "name": "im weiheracker"
+    },
+    {
+      "input": "Landmannsrain",
+      "normalized": "landmannsrain",
+      "type": null,
+      "name": "landmannsrain"
+    },
+    {
+      "input": "Friedhofweg",
+      "normalized": "friedhofweg",
+      "type": null,
+      "name": "friedhofweg"
+    },
+    {
+      "input": "Mülimatt",
+      "normalized": "mulimatt",
+      "type": null,
+      "name": "mulimatt"
+    },
+    {
+      "input": "Haleweg",
+      "normalized": "haleweg",
+      "type": null,
+      "name": "haleweg"
+    },
+    {
+      "input": "Lehenstraße",
+      "normalized": "lehenstrasse",
+      "type": null,
+      "name": "lehenstrasse"
+    },
+    {
+      "input": "Irisweg",
+      "normalized": "irisweg",
+      "type": null,
+      "name": "irisweg"
+    },
+    {
+      "input": "Bärlouena",
+      "normalized": "barlouena",
+      "type": null,
+      "name": "barlouena"
+    },
+    {
+      "input": "Dreien",
+      "normalized": "dreien",
+      "type": null,
+      "name": "dreien"
+    },
+    {
+      "input": "Langholzweg",
+      "normalized": "langholzweg",
+      "type": null,
+      "name": "langholzweg"
+    },
+    {
+      "input": "Maria-Ellenrieder-Straße",
+      "normalized": "maria ellenrieder strasse",
+      "type": null,
+      "name": "maria ellenrieder strasse"
+    },
+    {
+      "input": "Rue des Méandres",
+      "normalized": "rue des meandres",
+      "type": null,
+      "name": "rue des meandres"
+    },
+    {
+      "input": "Les Prés de la Suze",
+      "normalized": "les pres de la suze",
+      "type": null,
+      "name": "les pres de la suze"
+    },
+    {
+      "input": "Impasse du Breuille",
+      "normalized": "impasse du breuille",
+      "type": null,
+      "name": "impasse du breuille"
+    },
+    {
+      "input": "Kaisterstrasse",
+      "normalized": "kaisterstrasse",
+      "type": null,
+      "name": "kaisterstrasse"
+    },
+    {
+      "input": "Chemin de la Placette",
+      "normalized": "chemin de la placette",
+      "type": null,
+      "name": "chemin de la placette"
+    },
+    {
+      "input": "Ancien Chemin Coulevon",
+      "normalized": "ancien chemin coulevon",
+      "type": null,
+      "name": "ancien chemin coulevon"
+    },
+    {
+      "input": "Chemin des Senteurs",
+      "normalized": "chemin des senteurs",
+      "type": null,
+      "name": "chemin des senteurs"
+    },
+    {
+      "input": "La Creusaz",
+      "normalized": "la creusaz",
+      "type": null,
+      "name": "la creusaz"
+    },
+    {
+      "input": "Impasse du Ponant",
+      "normalized": "impasse du ponant",
+      "type": null,
+      "name": "impasse du ponant"
+    },
+    {
+      "input": "Vicolo del Porticaccio",
+      "normalized": "vicolo del porticaccio",
+      "type": null,
+      "name": "vicolo del porticaccio"
+    },
+    {
+      "input": "ra Stráda dar Tramín",
+      "normalized": "ra strada dar tramin",
+      "type": null,
+      "name": "ra strada dar tramin"
+    },
+    {
+      "input": "Unter der Egg",
+      "normalized": "unter der egg",
+      "type": null,
+      "name": "unter der egg"
+    },
+    {
+      "input": "Esele-Weg",
+      "normalized": "esele weg",
+      "type": null,
+      "name": "esele weg"
+    },
+    {
+      "input": "Europapromenade",
+      "normalized": "europapromenade",
+      "type": null,
+      "name": "europapromenade"
+    },
+    {
+      "input": "Birkenweg",
+      "normalized": "birkenweg",
+      "type": null,
+      "name": "birkenweg"
+    },
+    {
+      "input": "Chemin de la Côte",
+      "normalized": "chemin de la cote",
+      "type": null,
+      "name": "chemin de la cote"
+    },
+    {
+      "input": "Chez Grandjean",
+      "normalized": "chez grandjean",
+      "type": null,
+      "name": "chez grandjean"
+    },
+    {
+      "input": "Via Giovanni Gavazzeni",
+      "normalized": "via giovanni gavazzeni",
+      "type": null,
+      "name": "via giovanni gavazzeni"
+    },
+    {
+      "input": "Boulevard des Nations",
+      "normalized": "boulevard des nations",
+      "type": null,
+      "name": "boulevard des nations"
+    },
+    {
+      "input": "Höhenwartweg 9, 11, 13",
+      "normalized": "hohenwartweg 9 11 13",
+      "type": null,
+      "name": "hohenwartweg 9 11 13"
+    },
+    {
+      "input": "Josefstrasse",
+      "normalized": "josefstrasse",
+      "type": null,
+      "name": "josefstrasse"
+    },
+    {
+      "input": "Strandbadweg",
+      "normalized": "strandbadweg",
+      "type": null,
+      "name": "strandbadweg"
+    },
+    {
+      "input": "Hagenackerstrasse",
+      "normalized": "hagenackerstrasse",
+      "type": null,
+      "name": "hagenackerstrasse"
+    },
+    {
+      "input": "Äschlouwena",
+      "normalized": "aschlouwena",
+      "type": null,
+      "name": "aschlouwena"
+    },
+    {
+      "input": "Biblisweg",
+      "normalized": "biblisweg",
+      "type": null,
+      "name": "biblisweg"
+    },
+    {
+      "input": "Gaishof",
+      "normalized": "gaishof",
+      "type": null,
+      "name": "gaishof"
+    },
+    {
+      "input": "Cigogne blanche",
+      "normalized": "cigogne blanche",
+      "type": null,
+      "name": "cigogne blanche"
+    },
+    {
+      "input": "Moudon",
+      "normalized": "moudon",
+      "type": null,
+      "name": "moudon"
+    },
+    {
+      "input": "Porte de Bougy",
+      "normalized": "porte de bougy",
+      "type": null,
+      "name": "porte de bougy"
+    },
+    {
+      "input": "Théâtre de l'unité",
+      "normalized": "theatre de l unite",
+      "type": null,
+      "name": "theatre de l unite"
+    },
+    {
+      "input": "Via Borno Lozio",
+      "normalized": "via borno lozio",
+      "type": null,
+      "name": "via borno lozio"
+    },
+    {
+      "input": "Rue des Sorbiers",
+      "normalized": "rue des sorbiers",
+      "type": null,
+      "name": "rue des sorbiers"
+    },
+    {
+      "input": "Althausweg",
+      "normalized": "althausweg",
+      "type": null,
+      "name": "althausweg"
+    },
+    {
+      "input": "Route de la Pala",
+      "normalized": "route de la pala",
+      "type": null,
+      "name": "route de la pala"
+    },
+    {
+      "input": "Chemin Cécile Biéler-Butticaz",
+      "normalized": "chemin cecile bieler butticaz",
+      "type": null,
+      "name": "chemin cecile bieler butticaz"
+    },
+    {
+      "input": "Weinsteinstrasse",
+      "normalized": "weinsteinstrasse",
+      "type": null,
+      "name": "weinsteinstrasse"
+    },
+    {
+      "input": "Erlenweg",
+      "normalized": "erlenweg",
+      "type": null,
+      "name": "erlenweg"
+    },
+    {
+      "input": "Niedergasse",
+      "normalized": "niedergasse",
+      "type": null,
+      "name": "niedergasse"
+    },
+    {
+      "input": "Inselistrasse",
+      "normalized": "inselistrasse",
+      "type": null,
+      "name": "inselistrasse"
+    },
+    {
+      "input": "Chemin de Montaucivey",
+      "normalized": "chemin de montaucivey",
+      "type": null,
+      "name": "chemin de montaucivey"
+    },
+    {
+      "input": "Brändlischwand",
+      "normalized": "brandlischwand",
+      "type": null,
+      "name": "brandlischwand"
+    },
+    {
+      "input": "Impasse Barteudet",
+      "normalized": "impasse barteudet",
+      "type": null,
+      "name": "impasse barteudet"
+    },
+    {
+      "input": "Via Manzoni",
+      "normalized": "via manzoni",
+      "type": null,
+      "name": "via manzoni"
+    },
+    {
+      "input": "Rue Ch.-Emmanuel de Rivaz",
+      "normalized": "rue ch emmanuel de rivaz",
+      "type": null,
+      "name": "rue ch emmanuel de rivaz"
+    },
+    {
+      "input": "Oberdorfstrass",
+      "normalized": "oberdorfstrass",
+      "type": null,
+      "name": "oberdorfstrass"
+    },
+    {
+      "input": "Schlattwegli",
+      "normalized": "schlattwegli",
+      "type": null,
+      "name": "schlattwegli"
+    },
+    {
+      "input": "Bim Junkerhus",
+      "normalized": "bim junkerhus",
+      "type": null,
+      "name": "bim junkerhus"
+    },
+    {
+      "input": "Stiegen",
+      "normalized": "stiegen",
+      "type": null,
+      "name": "stiegen"
+    },
+    {
+      "input": "Hofackerstrasse",
+      "normalized": "hofackerstrasse",
+      "type": null,
+      "name": "hofackerstrasse"
+    },
+    {
+      "input": "Via Cà Bordoni",
+      "normalized": "via ca bordoni",
+      "type": null,
+      "name": "via ca bordoni"
+    },
+    {
+      "input": "Trommgässi",
+      "normalized": "trommgassi",
+      "type": null,
+      "name": "trommgassi"
+    },
+    {
+      "input": "Im Säckle",
+      "normalized": "im sackle",
+      "type": null,
+      "name": "im sackle"
+    },
+    {
+      "input": "Mörigenweg",
+      "normalized": "morigenweg",
+      "type": null,
+      "name": "morigenweg"
+    },
+    {
+      "input": "Auf der Mauer",
+      "normalized": "auf der mauer",
+      "type": null,
+      "name": "auf der mauer"
+    },
+    {
+      "input": "Via Dottori",
+      "normalized": "via dottori",
+      "type": null,
+      "name": "via dottori"
+    },
+    {
+      "input": "Unterfeld",
+      "normalized": "unterfeld",
+      "type": null,
+      "name": "unterfeld"
+    },
+    {
+      "input": "Ebnaterstrasse",
+      "normalized": "ebnaterstrasse",
+      "type": null,
+      "name": "ebnaterstrasse"
+    },
+    {
+      "input": "Panoramaweg",
+      "normalized": "panoramaweg",
+      "type": null,
+      "name": "panoramaweg"
+    },
+    {
+      "input": "Via Gippa",
+      "normalized": "via gippa",
+      "type": null,
+      "name": "via gippa"
+    },
+    {
+      "input": "Chemin des Nicolets",
+      "normalized": "chemin des nicolets",
+      "type": null,
+      "name": "chemin des nicolets"
+    },
+    {
+      "input": "Ancien Chemin de la Pusaz",
+      "normalized": "ancien chemin de la pusaz",
+      "type": null,
+      "name": "ancien chemin de la pusaz"
+    },
+    {
+      "input": "Chriesbaum, Räbacher (Flurnamen)",
+      "normalized": "chriesbaum rabacher flurnamen",
+      "type": null,
+      "name": "chriesbaum rabacher flurnamen"
+    },
+    {
+      "input": "Franz-Haas-Straße",
+      "normalized": "franz haas strasse",
+      "type": null,
+      "name": "franz haas strasse"
+    },
+    {
+      "input": "Batluzi",
+      "normalized": "batluzi",
+      "type": null,
+      "name": "batluzi"
+    },
+    {
+      "input": "Oberhaus",
+      "normalized": "oberhaus",
+      "type": null,
+      "name": "oberhaus"
+    },
+    {
+      "input": "Rösslikreisel",
+      "normalized": "rosslikreisel",
+      "type": null,
+      "name": "rosslikreisel"
+    },
+    {
+      "input": "Altmüli",
+      "normalized": "altmuli",
+      "type": null,
+      "name": "altmuli"
+    },
+    {
+      "input": "Avenue des Iris",
+      "normalized": "avenue des iris",
+      "type": null,
+      "name": "avenue des iris"
+    },
+    {
+      "input": "Horbachstrasse",
+      "normalized": "horbachstrasse",
+      "type": null,
+      "name": "horbachstrasse"
+    }
+  ]
+}

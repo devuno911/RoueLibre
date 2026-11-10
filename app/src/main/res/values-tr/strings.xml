@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Turkish translation.
+
+    English, in `values/`, is the source language (SPEC §9); this file is a
+    translation of it and is kept complete. The rules are the ones that hold
+    everywhere: positional placeholders, <plurals> for anything that agrees in
+    number, and the `name` attributes left untouched.
+
+    The typography is Turkish: quotation marks are “ … ”, and the apostrophe is
+    ’ (U+2019) and never the straight quote, which is why nothing here is
+    escaped. Turkish writes an apostrophe before a suffix added to a proper
+    name — Roue Libre’yi, Android’in — and that is the only place one appears.
+    No space stands before `?`, `!`, `:` or `;`.
+
+    **The dotted and the dotless i are two different letters, and the capital
+    of `i` is `İ`, not `I`.** Every capitalised word in this file was checked
+    against that: İstasyonlar, İptal, İçe aktar, İndir, İndirme, İşletmeci.
+    No word here begins with `ı`, so no bare `I` opens one either. It matters
+    beyond the file as well: the list rows set their labels in capitals
+    (`TextAppearance.RoueLibre.Label`), and an upper-casing done in the wrong
+    locale turns `bisiklet` into `BISIKLET` rather than `BİSİKLET`.
+
+    Turkish is agglutinative and its cases are suffixes, so an ending glued
+    onto a `%1$s` would be wrong the moment the vowels of the station name
+    changed. Not one line here does it. What carries the weight instead is
+    Turkish's bare noun-noun compound, where only the head takes the ending —
+    `%1$s kapsama alanının dışında`, `%1$s yakınında`, `%1$s için
+    veriler` — and, where even that would not do, a label with a colon
+    (`İndir: %1$s`, `Sil: %1$s`).
+
+    A noun after a numeral stays singular in Turkish — 3 bisiklet, never
+    3 bisikletler — so the `one` and `other` items of every plural read word
+    for word alike. Both are written all the same: they are the two categories
+    CLDR gives Turkish, and Android resolves them both.
+
+    See docs/glossary/tr.md for the words this file holds to, and
+    CONTRIBUTING.md to submit a translation.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <!-- Main screen: the station list. -->
+    <string name="stations_title">İstasyonlar</string>
+
+    <!-- The number of bikes available to borrow at a station. A noun after a
+         numeral stays singular in Turkish, so both items read alike. -->
+    <plurals name="bikes_available">
+        <item quantity="one">%1$d bisiklet</item>
+        <item quantity="other">%1$d bisiklet</item>
+    </plurals>
+
+    <!-- The number of free docks to return a bike to. -->
+    <plurals name="docks_available">
+        <item quantity="one">%1$d boş yuva</item>
+        <item quantity="other">%1$d boş yuva</item>
+    </plurals>
+    <string name="docks_available_unlimited">Boş yuva: sınırsız</string>
+
+    <string name="station_content_description">%1$s, %2$s, %3$s</string>
+    <string name="station_content_description_bikes_only">%1$s, %2$s</string>
+    <string name="station_out_of_service">Hizmet dışı</string>
+    <string name="station_out_of_service_since">%1$s · son bildirim %2$s</string>
+    <string name="station_availability_unknown">Durum bilinmiyor</string>
+
+    <string name="station_unnamed">Adsız istasyon</string>
+
+    <string name="station_beyond_area_short">harita dışında</string>
+    <string name="station_beyond_area">Bu istasyon, yüklü verilerin kapsadığı alanın dışında kalıyor. Bisikletleri anlık olarak sayılır ama ona ulaşan bir harita ya da rota yok.</string>
+
+    <string name="search_stations_hint">İstasyon ara</string>
+    <string name="search_stations_clear">Aramayı temizle</string>
+    <string name="stations_no_match_title">İstasyon bulunamadı</string>
+    <string name="stations_no_match_message">“%1$s” ile eşleşen bir şey yok. Yazımı kontrol et ya da aramayı temizle.</string>
+    <string name="action_clear_search">Aramayı temizle</string>
+
+    <string name="mode_bikes">Bisikletler</string>
+    <string name="mode_docks">Boş yuvalar</string>
+
+    <string name="map_bikes_all_kinds">Tüm bisikletler</string>
+    <string name="map_bikes_mechanical">Klasik</string>
+    <string name="map_bikes_electric">Elektrikli</string>
+    <string name="map_bikes_all_kinds_description">Bütün bisikletler sayılıyor. Yalnızca klasik olanları saymak için dokun.</string>
+    <string name="map_bikes_mechanical_description">Klasik bisikletler sayılıyor. Yalnızca elektrikli olanları saymak için dokun.</string>
+    <string name="map_bikes_electric_description">Elektrikli bisikletler sayılıyor. Hepsini saymak için dokun.</string>
+
+    <!-- Labels set beside, or under, a count. They hold no figure and must
+         hold none: the number is already written next to them. On a list row
+         they are stacked under the figure and set in capitals, so each has to
+         read as a word of its own — which is what these two do. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="one">bisiklet</item>
+        <item quantity="other">bisiklet</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="one">boş yuva</item>
+        <item quantity="other">boş yuva</item>
+    </plurals>
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list. %1$s is a
+         distance or a postcode, %2$d the number of docking points — the
+         capacity figure, which is `park yeri` here and never `boş yuva`. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="one">%1$s · %2$d park yeri</item>
+        <item quantity="other">%1$s · %2$d park yeri</item>
+    </plurals>
+
+    <string name="station_bikes_split">%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="one">%1$d klasik</item>
+        <item quantity="other">%1$d klasik</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="one">%1$d elektrikli</item>
+        <item quantity="other">%1$d elektrikli</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">%%%1$d</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">Pil %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">Yaklaşık %1$s menzil kaldı</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">Pil %1$s ile %2$s arası</string>
+    <string name="station_bikes_range_spread">Yaklaşık %1$s ile %2$s arası menzil kaldı</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">Bu istasyondaki bisikletlerin ayrıntıları</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">Ağ bu listeyi kendi akışında, yukarıdaki sayıdan ayrı olarak yayımlıyor ve burada ikisi birbirini tutmuyor. Roue Libre birini seçmek yerine ikisini de yayımlandığı gibi gösteriyor.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">Rezerve</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="one">%1$d bisiklet hizmet dışı</item>
+        <item quantity="other">%1$d bisiklet hizmet dışı</item>
+    </plurals>
+
+    <string name="freshness_just_now">az önce</string>
+    <plurals name="freshness_seconds">
+        <item quantity="one">%1$d saniye önce</item>
+        <item quantity="other">%1$d saniye önce</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="one">%1$d dakika önce</item>
+        <item quantity="other">%1$d dakika önce</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="one">%1$d saat önce</item>
+        <item quantity="other">%1$d saat önce</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="one">%1$d gün önce</item>
+        <item quantity="other">%1$d gün önce</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="one">%1$d ay önce</item>
+        <item quantity="other">%1$d ay önce</item>
+    </plurals>
+    <string name="freshness_stale">Donmuş veri · %1$s</string>
+    <string name="freshness_fresh">%1$s güncellendi</string>
+    <string name="freshness_never">Hiç güncellenmedi</string>
+    <string name="freshness_loading">İstasyonlar yükleniyor…</string>
+
+    <string name="stations_empty_title">Yüklü istasyon yok</string>
+    <string name="stations_empty_message">Ağın istasyonlarını almak için listeyi aşağı çek.</string>
+    <string name="action_refresh">Yenile</string>
+    <string name="action_retry">Tekrar dene</string>
+
+    <string name="map_open_list">İstasyon listesini gör</string>
+    <string name="map_description">Harita. İki parmağınla sürükleyerek kaydır, yakınlaştırmak veya uzaklaştırmak için iki parmağını kıstır, döndürmek için iki parmağını çevir, eğmek için iki parmağını yukarı veya aşağı kaydır.</string>
+    <string name="map_attribution">© OpenStreetMap katkıda bulunanlar</string>
+    <string name="map_locate_me">Konumumu bul</string>
+    <string name="map_locating">Konumun bulunuyor…</string>
+    <string name="map_location_denied">Konum olmadan, başlangıç noktanı haritadan ya da adresten seç.</string>
+    <string name="map_location_unavailable">Konum alınamadı. Konum hizmetlerinin açık olduğundan emin ol, sonra tekrar dene.</string>
+    <string name="map_outside_city_title">Başka yerdesin</string>
+    <string name="map_outside_city_message">Konumun, %1$s kapsama alanının dışında kaldığı için bu harita onu gösteremiyor. İstasyonları görmek için bulunduğun şehri seç.</string>
+    <string name="map_outside_city_brief">Konumun, %1$s kapsama alanının dışında kalıyor.</string>
+    <string name="map_needs_tiles_title">Haritanın çevrimdışı verilerine ihtiyacı var</string>
+    <string name="map_needs_tiles_message">Harita verilerini depolama ekranından yükle. O zamana kadar istasyon listesi kullanılabilir kalır.</string>
+    <string name="map_downloading_title">Harita indiriliyor</string>
+    <string name="map_downloading_message">Yüklenir yüklenmez burada görünecek. O zamana kadar istasyon listesi kullanılabilir kalır.</string>
+    <string name="map_needs_city_title">Hangi şehir?</string>
+    <string name="map_needs_city_message">Kullanmak istediğin şehri seç. Verileri sonrasında, bir kez ve temelli indirilir.</string>
+    <string name="map_city_withdrawn_title">Ağ artık kullanılamıyor</string>
+    <string name="map_city_withdrawn_message">%1$s artık kullanılamıyor ve istasyonları artık gösterilmiyor. Başka bir şehir seç. Bu cihazda kalan verilerini şehir listesinden silebilirsin.</string>
+    <string name="map_city_withdrawn_message_unnamed">Seçtiğin ağ artık kullanılamıyor ve istasyonları artık gösterilmiyor. Başka bir şehir seç. Bu cihazda kalan verilerini şehir listesinden silebilirsin.</string>
+    <string name="map_city_newer_version_message">%1$s uygulamanın daha yeni bir sürümünde kullanılabiliyor ve istasyonları bu sürümde gösterilmiyor. Uygulamayı güncelle veya başka bir şehir seç.</string>
+    <string name="city_choose_another">Başka bir şehir seç</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">Kuzeye çevir ve haritayı düzleştir</string>
+    <plurals name="map_bearing_description">
+        <item quantity="one">Harita kuzeyden %1$d derece döndürülmüş.</item>
+        <item quantity="other">Harita kuzeyden %1$d derece döndürülmüş.</item>
+    </plurals>
+    <string name="map_tilted_description">Harita eğik.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="one">Harita kuzeyden %1$d derece döndürülmüş ve eğik.</item>
+        <item quantity="other">Harita kuzeyden %1$d derece döndürülmüş ve eğik.</item>
+    </plurals>
+
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">Bu uygulama paylaşımlı bisikletleri haritada gösterir ve kapıdan kapıya bir yolculuk hesaplar: bir istasyona yürü, bisiklete bin, kalan yolu yürü.\n\nÖzgür ve açık kaynaklı. Hesap yok, reklam yok, izleyici yok.</string>
+    <string name="welcome_privacy_title">Bu telefondan hiçbir şey çıkmaz</string>
+    <string name="welcome_privacy_body">Yolculuklar bu telefonda hesaplanır. Aradığın adresler kimseye gönderilmez, sen yazarken bile.\n\nHiçbir geçmiş tutulmaz: ne yolculukların, ne konumların, ne de hedeflerin.\n\nGünlük kullanımda dışarı çıkan tek istek, kaç bisiklet olduğunu sorar.</string>
+    <string name="welcome_fleet_title">Bisiklet ne anlatır?</string>
+    <string name="welcome_fleet_body">Çizilen bisiklet, şehrinin ne sunduğunu gösterir.\n\nBu bilgi ağın kendi akışından okunur, asla tahmin edilmez.</string>
+    <string name="welcome_fleet_mechanical_only">Ağ yalnızca klasik bisiklet sunuyor.</string>
+    <string name="welcome_fleet_electric_only">Ağ yalnızca elektrikli bisiklet sunuyor.</string>
+    <string name="welcome_fleet_mixed">Ağ her iki türü de sunuyor.</string>
+
+    <string name="welcome_data_title">Tek şehir, tek indirme</string>
+    <string name="welcome_data_body">Harita, sokaklar ve rota hesabı cihazda durur. Bağlantı olmadan çalışmalarını sağlayan da budur — ve bu, şehrinin verilerini bir kez indirmek demektir.\n\nO yüzden işe şehrini seçerek başla. Orta büyüklükte bir şehir için yaklaşık kırk megabayt bekle, bir başkent için daha fazlası; boyut indirmeden önce bildirilir.\n\nBunu sonra da yapabilirsin: o zamana kadar istasyon listesi ve durumları kullanılabilir kalır.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">%1$d / %2$d</string>
+    <string name="welcome_continue">Devam et</string>
+    <string name="welcome_skip">Atla</string>
+    <string name="welcome_choose_city">Şehrimi seç</string>
+    <string name="welcome_later">Sonra</string>
+    <string name="welcome_open">Tanıtımı yeniden oku</string>
+
+    <string name="whats_new_title">Yenilikler</string>
+    <string name="whats_new_done">Devam et</string>
+    <string name="whats_new_nothing">Bu sürümün notları yok.</string>
+    <string name="whats_new_open">Yenilikleri gör</string>
+
+    <string name="incoming_place_default_label">Alınan yer</string>
+    <string name="incoming_show_me">Göster</string>
+    <string name="incoming_needs_index">Bu adresin, yüklü olmayan çevrimdışı dizinde aranması gerekiyor.</string>
+    <string name="incoming_address_not_found">“%1$s”, kapsanan alandaki hiçbir adresle eşleşmiyor.</string>
+    <string name="incoming_address_choices_title">Şu adreslerden birini mi demek istedin?</string>
+    <string name="incoming_address_choice">%1$s\n%2$s</string>
+    <string name="incoming_outside_coverage">Bu yer, yüklü verilerin kapsadığı alanın dışında kalıyor: ona ulaşan bir yolculuk kurulamaz.</string>
+    <string name="incoming_unreadable_link">Bu bağlantı nereye gidileceğini söylemiyor: içindeki yer okunamadı.</string>
+
+    <string name="favourites_title">Favoriler</string>
+    <string name="stations_all_title">Tüm istasyonlar</string>
+    <string name="stations_favourites_reorder">Yeniden sırala</string>
+    <string name="stations_favourites_fold">Favorileri gizle</string>
+    <string name="stations_favourites_unfold">Favorileri göster</string>
+    <string name="favourites_reorder_hint">Taşımak için bir satıra dokunup basılı tut.</string>
+
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_open">Ayarlar</string>
+    <!-- The section titles of the settings screen, in the order the screen
+         lays them out. -->
+    <string name="settings_section_city">Şehir</string>
+    <string name="settings_section_journey">Yolculuk</string>
+    <string name="settings_section_display">Ekran</string>
+    <string name="settings_section_data">Çevrimdışı veriler</string>
+
+    <!-- The walking pace, named in words and never as a speed: `tempo` is a
+         pace one knows about oneself, where `hız` is a figure nobody has
+         measured about themselves. -->
+    <string name="settings_walking_pace_title">Yürüyüş temposu</string>
+    <string name="settings_walking_pace_slow">Yavaş</string>
+    <string name="settings_walking_pace_normal">Normal</string>
+    <string name="settings_walking_pace_brisk">Tempolu</string>
+    <string name="settings_walking_pace_description">Yolculuğun yürüme bölümlerinin hesaplandığı tempo</string>
+
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_system">Sistem</string>
+    <string name="settings_theme_light">Açık</string>
+    <string name="settings_theme_dark">Koyu</string>
+
+    <string name="settings_units_title">Birimler</string>
+    <string name="settings_units_system">Sistem</string>
+    <string name="settings_units_metric">m · km</string>
+    <string name="settings_units_us">ft · mi</string>
+    <string name="settings_units_uk">yd · mi</string>
+    <string name="settings_units_description">Mesafelerde kullanılan birimler</string>
+    <string name="settings_units_system_description">Cihazın ayarlı olduğu bölgeyi izle</string>
+    <string name="settings_units_metric_description">Metre ve kilometre</string>
+    <string name="settings_units_us_description">Fit ve mil</string>
+    <string name="settings_units_uk_description">Yarda ve mil</string>
+
+    <string name="about_title">Hakkında</string>
+    <string name="about_open">Hakkında</string>
+    <string name="about_version">Sürüm %1$s</string>
+    <string name="about_privacy_title">Gizlilik</string>
+    <string name="about_privacy_body">Hesap yok, reklam yok, izleyici yok, benzersiz tanımlayıcı yok. Aradığın ya da hesapladığın hiçbir şey bu telefondan çıkmaz: adresler, yolculuklar ve konumun burada kalır, saklanmaz. Günlük kullanımda dışarı çıkan tek istek bisiklet durumunu getirir. Veriler yalnızca istendiğinde indirilir.</string>
+    <string name="about_attributions_title">Veri kaynakları</string>
+    <string name="about_attribution_gbfs">Bisiklet durumu: hizmet verilen ağın GBFS biçiminde yayımlanan açık verisi. Fransa’da transport.data.gouv.fr üzerinde dizinlenir.</string>
+    <string name="about_attribution_osm">Harita, rota ve önemli noktalar: © OpenStreetMap katkıda bulunanlar, ODbL lisansı.</string>
+    <string name="about_attribution_ban">Adresler ve kapı numaraları: Base Adresse Nationale, ODbL lisansı.</string>
+    <string name="about_attribution_geonames">Belediye adları: GeoNames, CC BY 4.0 lisansı.</string>
+    <string name="about_attribution_brouter">Rota hesabı: BRouter, MIT lisansı, OpenStreetMap verileri üzerinde.</string>
+    <string name="about_attribution_maplibre">Harita çizimi: MapLibre Native, iki maddeli BSD lisansı.</string>
+    <string name="about_links_title">Başka bir uygulamadan yer açmak</string>
+    <string name="about_links_body">“geo:” bağlantıları ve düz metin olarak paylaşılan adresler doğrudan buraya gelir: Android’in uygulama seçicisinde Roue Libre’yi seç. Harita sitelerinden gelen bağlantılar izin ister: Ayarlar → Uygulamalar → Roue Libre → Varsayılan olarak aç → Bağlantı ekle.</string>
+    <string name="about_licence_title">Lisans</string>
+    <string name="about_licence_body">Roue Libre özgür yazılımdır, GNU GPL sürüm 3 ile yayımlanır. Kullanabilir, inceleyebilir, değiştirebilir ve başkasına verebilirsin.</string>
+    <string name="about_open_repository">Kaynak kodu gör</string>
+    <!-- `tools:ignore="Typos"`: "şehir şehir" is not a stutter but Turkish
+         distributive reduplication, the form that says "city by city". Lint
+         reads any repeated word as a slip and cannot tell the two apart. The
+         adversarial review of this file asked for exactly this form: the
+         adverbial reduplication is what the phrase needs, an epithet is not. -->
+    <string name="about_open_sources" tools:ignore="Typos">Kaynaklar, şehir şehir</string>
+    <string name="about_open_licences">Bileşen lisansları</string>
+    <string name="donate_open">Liberapay ile bağış yap</string>
+
+    <string name="sources_title">Veri kaynakları</string>
+    <string name="sources_intro">Durum bilgisi, her şehrin ağından açık veri olarak gelir. Yüklemediğin şehirler de dahil, bu veriyi kimin ürettiği burada yazıyor.</string>
+    <string name="sources_open">Kaynağı aç</string>
+    <string name="about_licences_title">Lisanslar</string>
+    <string name="about_no_browser">Bu cihazda tarayıcı yüklü değil.</string>
+
+    <string name="journey_title">Yolculuk</string>
+    <string name="journey_open">Yolculuk planla</string>
+    <string name="journey_origin_empty">Nereden?</string>
+    <string name="journey_destination_empty">Nereye?</string>
+    <string name="journey_choose_origin">Nereden?</string>
+    <string name="journey_choose_destination">Nereye?</string>
+    <string name="journey_swap">Başlangıç ile hedefi değiştir</string>
+    <string name="journey_hint">Yolculuk cihazda hesaplanır: bir istasyona yürü, bisiklete bin, kalan yolu yürü.</string>
+    <!-- The switch that leaves the network out of the journey, and the
+         sentence that replaces the one above it when it is on. -->
+    <string name="journey_own_bike">Kendi bisikletimle</string>
+    <string name="journey_hint_own_bike">Yolculuk cihazda hesaplanır: kapıdan kapıya tek sürüş, yolda istasyon yok.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">İstasyon dışındaki bisiklet</string>
+    <string name="journey_origin_street_bike_locked">Yolculuk seçtiğin bisikletten başlar.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">Yolculuk cihazda hesaplanır: bisikletle buradan git, onu bir istasyona bırak, kalan yolu yürü.</string>
+
+    <!-- Which bike one wants to ride. The first asks for nothing, which is
+         what the application does at rest. -->
+    <string name="journey_bike_kind_any">Fark etmez</string>
+    <string name="journey_bike_kind_mechanical">Klasik</string>
+    <string name="journey_bike_kind_electric">Elektrikli</string>
+    <string name="journey_bike_kind_any_description">Türü ne olursa olsun herhangi bir bisiklet</string>
+    <string name="journey_bike_kind_mechanical_description">Pedalını kendim çevirdiğim bir bisiklet</string>
+    <string name="journey_bike_kind_electric_description">Pedal destekli bir bisiklet</string>
+    <string name="journey_compute">Yolculuğu hesapla</string>
+    <string name="journey_computing">En iyi yolculuk hesaplanıyor…</string>
+    <string name="journey_computing_own_bike">Sürüş hesaplanıyor…</string>
+    <string name="journey_source_home">Ev</string>
+    <string name="journey_source_work">İş</string>
+    <string name="journey_source_my_position">Konumum</string>
+    <string name="journey_locating">Konumun bulunuyor…</string>
+    <string name="journey_source_favourite">Favori bir istasyon</string>
+    <string name="journey_source_on_map">Haritada bir nokta</string>
+    <string name="journey_no_favourite">Henüz favori istasyon yok. Bir istasyonu aç ve eklemek için yıldıza dokun.</string>
+    <string name="journey_pick_crosshair">Hedeflenen nokta</string>
+    <string name="journey_pick_confirm">Bu noktayı seç</string>
+    <string name="journey_picked_point">Haritadaki nokta</string>
+    <string name="journey_frame">Yolculuğun tamamını göster</string>
+
+    <string name="journey_summary">%1$s yürüyerek, %2$s bisikletle · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. -->
+    <string name="journey_climb">%1$s tırmanış</string>
+    <!-- What waits at the station one sets off from. %1$s is the two counts,
+         mechanical and electric, each already agreed in number. -->
+    <string name="journey_bikes_at_departure">Kalkış istasyonunda %1$s</string>
+    <string name="journey_detail_open">Yolculuğu ayrıntılı göster</string>
+    <string name="journey_detail_title">Yolculuğun ayrıntısı</string>
+    <string name="journey_detail_departure_station">Kalkış istasyonu</string>
+    <string name="journey_detail_arrival_station">Varış istasyonu</string>
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">Sürüşün inişi ve çıkışı</string>
+    <!-- Read out in place of the drawing. %1$s is the climb of the ride, %2$s
+         its lowest point above sea level and %3$s its highest. -->
+    <string name="journey_detail_profile_description">Sürüş %1$s tırmanıyor, deniz seviyesinden %2$s ile %3$s arasında.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">Sürüş, deniz seviyesinden %1$s ile %2$s arasında ilerliyor.</string>
+    <string name="journey_detail_availability_note">Bisiklet ve boş yuva sayıları, yolculuğun hesaplandığı andaki haliyle.</string>
+    <string name="journey_detail_availability_note_bikes">Bisiklet sayıları, yolculuğun hesaplandığı andaki haliyle.</string>
+    <!-- Hands one leg of the journey to another application: this one computes
+         journeys, it does not guide along them. -->
+    <string name="journey_navigate">Bir navigasyon uygulamasında aç</string>
+    <string name="journey_navigate_which">Yolculuğun hangi bölümü?</string>
+    <!-- The five steps read as one series. The two that name a station take
+         the colon form this file uses elsewhere rather than a compound: a feed
+         publishing no name has `station_unnamed` substituted for it
+         (`GbfsRemoteSource.kt:91`), and a compound would then stutter —
+         "Adsız istasyon istasyonuna git". Both are row labels, which a colon
+         suits. -->
+    <string name="journey_step_to_station">Yürüyerek git: %1$s</string>
+    <string name="journey_step_ride">Bisikletle git: %1$s</string>
+    <string name="journey_step_ride_electric_description">Elektrikli bisikletle git: %1$s</string>
+    <string name="journey_step_ride_mechanical_description">Klasik bisikletle git: %1$s</string>
+    <string name="journey_step_to_destination">Yürüyerek hedefe git</string>
+    <string name="journey_step_walk_all">Yürüyerek hedefe git</string>
+    <string name="journey_step_ride_all">Bisikletle hedefe git</string>
+    <!-- The summary of a journey, hung under the total time. -->
+    <string name="journey_own_bike_only">kendi bisikletinle, toplam %1$s.</string>
+    <string name="journey_own_bike_only_climb">kendi bisikletinle, toplam %1$s ve %2$s tırmanış.</string>
+    <string name="journey_walk_only">yürüyerek, toplam %1$s — burada bisikletli bir yolculuk mümkün değil.</string>
+    <string name="journey_walk_only_climb">yürüyerek, toplam %1$s ve %2$s tırmanış — burada bisikletli bir yolculuk mümkün değil.</string>
+    <string name="journey_walk_is_quicker">yürüyerek, toplam %1$s — bisiklet almaya gitmekten daha çabuk.</string>
+    <string name="journey_walk_is_quicker_climb">yürüyerek, toplam %1$s ve %2$s tırmanış — bisiklet almaya gitmekten daha çabuk.</string>
+    <string name="journey_none_title">Yolculuk yok</string>
+    <string name="journey_no_bike_nearby">Başlangıcın yakınında bisikleti olan istasyon yok. Daha sonra tekrar dene ya da başka bir yerden başla.</string>
+
+    <!-- Both name the control the reader has to touch, and quote
+         `journey_bike_kind_any` word for word: if that button's wording
+         changes, these two change with it. -->
+    <string name="journey_no_mechanical_nearby">Yakındaki hiçbir istasyonda şu an klasik bisiklet yok. “Fark etmez” seçeneğini seç ya da daha sonra tekrar dene.</string>
+    <string name="journey_no_electric_nearby">Yakındaki hiçbir istasyonda şu an elektrikli bisiklet yok. “Fark etmez” seçeneğini seç ya da daha sonra tekrar dene.</string>
+    <string name="journey_no_dock_nearby">Hedefin yakınında boş yuvası olan istasyon yok. Daha sonra tekrar dene ya da başka bir yeri hedefle.</string>
+    <string name="journey_no_return_nearby">Hedefin yakınında şu anda bisiklet kabul eden istasyon yok. Daha sonra tekrar dene ya da başka bir yeri hedefle.</string>
+    <string name="journey_no_route">Bu iki nokta arasında geçilebilir bir rota yok.</string>
+    <string name="journey_graph_missing">Rota verileri yüklü değil. Depolama ekranından ekle.</string>
+    <string name="journey_outside_coverage">Bu nokta, yüklü verilerin kapsadığı alanın dışında kalıyor.</string>
+    <string name="journey_outside_coverage_start">Kalkış noktası, yüklü verilerin kapsadığı alanın dışında kalıyor. Alanın içindeki bir noktadan yola çık.</string>
+    <string name="journey_outside_coverage_destination">Varış noktası, yüklü verilerin kapsadığı alanın dışında kalıyor. Alanın içinden bir varış noktası seç.</string>
+    <string name="journey_outside_coverage_both">İki uç da yüklü verilerin kapsadığı alanın içinde değil. Yolculuk ettiğin şehrin verilerini yükle.</string>
+    <string name="journey_no_stations">Bilinen istasyon yok. İstasyon listesini yenile, sonra tekrar dene.</string>
+
+    <!-- Turkish abbreviates the two units itself: dakika → dk, saat → sa. -->
+    <string name="duration_minutes">%1$d dk</string>
+    <string name="duration_hours_minutes">%1$d sa %2$02d</string>
+
+    <!-- A station's docking points counted as a total, beside the free ones. -->
+    <plurals name="docks_total">
+        <item quantity="one">%1$d park yeri</item>
+        <item quantity="other">%1$d park yeri</item>
+    </plurals>
+    <string name="station_capacity_and_age">%1$s · %2$s</string>
+    <string name="station_address_nearby">%1$s yakınında</string>
+    <string name="station_favourite_add">Favorilere ekle</string>
+    <string name="station_favourite_remove">Favorilerden kaldır</string>
+    <string name="station_as_origin">Buradan başla</string>
+    <string name="station_as_destination">Buraya git</string>
+    <string name="station_open_in_navigation">Bir navigasyon uygulamasında aç</string>
+    <string name="station_no_navigation_app">Bu cihazda harita uygulaması yüklü değil.</string>
+
+    <string name="address_search_title">Adres ara</string>
+    <!-- The order Turkey writes an address in: street, then number, then the
+         town. `AddressQuery.parseQuery` reads a house number standing between
+         the two, which is what lets this line be written in Turkish's order
+         rather than in English's. -->
+    <string name="address_search_hint">Sokak, numara, şehir</string>
+    <string name="address_search_clear">Aramayı temizle</string>
+    <string name="address_search_privacy">Her şey cihazda aranır. Hiçbir şey gönderilmez, sen yazarken bile.</string>
+    <string name="address_locality">%1$s %2$s</string>
+    <string name="address_detail">%1$s · %2$s</string>
+    <string name="address_detail_approximate">%1$s · yaklaşık konum</string>
+    <string name="address_content_description">%1$s, %2$s</string>
+    <string name="address_search_prompt_title">Nereye gidiyorsun?</string>
+    <!-- "Stations" here means railway stations, which Turkish names with a
+         compound of its own, so the bike-share `istasyon` stays unambiguous. -->
+    <string name="address_search_prompt_message">Bir sokak adı yaz, numaralı ya da numarasız. Tren istasyonları, üniversiteler ve büyük meydanlar da aranabilir.</string>
+    <string name="address_searching_title">Aranıyor…</string>
+    <string name="address_searching_message">Bu cihazda yüklü adresler taranıyor.</string>
+    <string name="address_no_match_title">Adres bulunamadı</string>
+    <string name="address_no_match_message">“%1$s” ile eşleşen bir şey yok. Yalnızca sokak adını dene ya da şehri ekle.</string>
+    <string name="address_needs_index_title">Aramanın adres dizinine ihtiyacı var</string>
+    <string name="address_needs_index_message">Dizini depolama ekranından yükle. Cihazda kalır ve hiçbir zaman dışarı gönderilmez.</string>
+    <string name="address_unreadable_title">Adres dizini okunamıyor</string>
+    <string name="map_picked_place_description">%1$s. Bu yerle neler yapabileceğini görmek için dokun.</string>
+
+    <string name="place_sheet_title">Bu yer</string>
+    <string name="place_clear">Bu noktayı temizle</string>
+
+    <!-- Distances. %1$s is a figure already rounded and already written in the
+         interface's language: the translation places the symbol, never the
+         number. -->
+    <string name="distance_metres">%1$s m</string>
+    <string name="distance_kilometres">%1$s km</string>
+    <string name="distance_feet">%1$s ft</string>
+    <string name="distance_yards">%1$s yd</string>
+    <string name="distance_miles">%1$s mi</string>
+    <string name="action_back">Geri</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">Şehir</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">Kullanılan ağ: %1$s</string>
+    <string name="city_choose">Şehrimi seç</string>
+    <string name="city_intro">Kullanmak istediğin şehri seç. Verileri sonrasında, bir kez ve temelli yüklenir.</string>
+    <string name="city_locate_me">Şehrimi bul</string>
+    <string name="city_active">Kullanımda</string>
+    <plurals name="city_detail">
+        <item quantity="one">%1$d istasyon · %2$s indirilecek</item>
+        <item quantity="other">%1$d istasyon · %2$s indirilecek</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="one">%1$d istasyon</item>
+        <item quantity="other">%1$d istasyon</item>
+    </plurals>
+    <string name="city_detail_size_only">%1$s indirilecek</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="one">%1$d istasyon · boyut indirmeden önce bildirilir</item>
+        <item quantity="other">%1$d istasyon · boyut indirmeden önce bildirilir</item>
+    </plurals>
+    <string name="city_size_unknown">Boyut indirmeden önce bildirilir</string>
+    <string name="city_needs_newer_version">Uygulamanın bu sürümünde kullanılamıyor</string>
+    <string name="city_installed">Cihazda %1$s yüklü</string>
+    <string name="city_label">%1$s — %2$s</string>
+    <string name="city_delete">Sil</string>
+    <!-- These three are handed the NETWORK's name, not the city's, so none of
+         them says `şehir`. The postposition `için` takes a bare nominative,
+         which keeps every suffix off the placeholder. -->
+    <string name="city_delete_description">%1$s için verileri sil</string>
+    <string name="city_delete_title">Bu veriler silinsin mi?</string>
+    <string name="city_delete_body">%1$s için tüm çevrimdışı veriler silinecek. Yeniden kullanmak için baştan indirmen gerekecek.</string>
+    <string name="city_withdrawn">Artık kullanılamıyor</string>
+    <string name="city_withdrawn_delete_body">%1$s için tüm çevrimdışı veriler silinecek. Ağ artık kullanılamadığı için bu verilerin bir faydası kalmadı.</string>
+    <string name="city_delete_confirm">Sil</string>
+    <string name="city_deleted">%1$s için veriler silindi</string>
+    <string name="city_search_hint">Şehir ara</string>
+    <string name="city_search_clear">Aramayı temizle</string>
+    <string name="city_country_filter">Ülke</string>
+    <string name="city_country_all">Tüm ülkeler</string>
+    <string name="city_no_match_title">Şehir bulunamadı</string>
+    <string name="city_no_match_message">“%1$s” ile eşleşen bir şey yok. Yazımı kontrol et ya da aramayı temizle.</string>
+    <string name="city_no_match_in_country">Seçilen ülkede (%2$s) “%1$s” ile eşleşen şehir yok. Başka ülkelerde var.</string>
+    <string name="city_proposal_title">Şehrin</string>
+    <!-- Shown when the position says one is in another served conurbation than
+         the one installed. -->
+    <string name="city_here_title">Başka bir şehirdesin</string>
+    <string name="city_here_body">%1$s bulunduğun bölgeye hizmet veriyor. İstasyonlarını görmek ve buradan yolculuk hesaplamak için verilerini yükle.</string>
+    <string name="city_here_installed_body">%1$s bulunduğun bölgeye hizmet veriyor ve verileri cihazda zaten var.</string>
+    <string name="city_here_install">Verilerini yükle</string>
+    <string name="city_here_use">Bunu kullan</string>
+    <string name="city_proposal_body">%1$s kapsama alanında görünüyorsun. Bununla devam edelim mi?</string>
+    <string name="city_proposal_accept">Evet</string>
+    <string name="city_none_nearby">Buraya yakın bilinen bir ağ yok. Listeden bir şehir seç.</string>
+    <string name="city_location_denied">Konum olmadan şehrini listeden seç ya da adıyla ara.</string>
+    <string name="action_cancel">İptal</string>
+
+    <string name="size_bytes">%1$s B</string>
+    <string name="size_kilobytes">%1$s kB</string>
+    <string name="size_megabytes">%1$s MB</string>
+    <string name="size_gigabytes">%1$s GB</string>
+
+    <string name="storage_title">Depolama</string>
+    <string name="storage_open">Çevrimdışı verileri yönet</string>
+    <string name="storage_intro">Harita, yolculuk hesabı ve adres araması bağlantı olmadan çalışır. Bunun için bir kez yüklenen üç veri kümesi gerekir.</string>
+    <string name="storage_total">Bu cihazda %1$s kullanılıyor</string>
+    <string name="storage_nothing_installed">Yüklü veri yok</string>
+    <string name="storage_no_city">Şehir seçilmedi</string>
+    <string name="city_withdrawn_label">%1$s · artık kullanılamıyor</string>
+    <string name="city_newer_version_label">%1$s · güncelleme gerekiyor</string>
+
+    <string name="dataset_tiles">Harita verileri</string>
+    <string name="dataset_tiles_purpose">Haritayı bağlantı olmadan çizer</string>
+    <string name="dataset_routing">Rota verileri</string>
+    <string name="dataset_routing_purpose">Yolculukları cihazda hesaplar</string>
+    <string name="dataset_addresses">Adres dizini</string>
+    <string name="dataset_addresses_purpose">Sokakları hiçbir şey göndermeden arar</string>
+
+    <string name="storage_check_updates">Güncellemeleri denetle</string>
+    <string name="storage_checking">Manifest okunuyor…</string>
+    <string name="storage_up_to_date">Her şey güncel.</string>
+    <!-- %1$s is a dataset's name. A colon turns the button into a label, which
+         declines nothing; an accusative ending would have to guess the vowels
+         of a name this string never sees. -->
+    <string name="storage_download_pending">İndir: %1$s</string>
+    <string name="storage_download_starting">İndirme başlatılıyor…</string>
+    <string name="storage_downloading">%1$s · %2$s / %3$s</string>
+    <string name="storage_download_failed">%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">Yayımlanan veriler %2$s ağının değil, %1$s ağının verileri. Hiçbir şey indirilmedi: başka bir şehrin haritasını ve adreslerini almış olacaktın.</string>
+    <string name="storage_wifi_warning">Kablosuz bağlantıda değilsin. Bu indirme mobil veri paketine ağır gelebilir.</string>
+    <string name="dataset_update_available">Güncelleme var</string>
+    <string name="dataset_download_failed">İndirme başarısız oldu. %1$s</string>
+
+    <string name="dataset_absent">Yüklü değil</string>
+    <string name="dataset_installed">%1$s · %2$s</string>
+    <string name="dataset_import">Dosya içe aktar</string>
+    <string name="dataset_replace">Dosyayla değiştir</string>
+    <string name="dataset_delete">Sil</string>
+    <string name="dataset_delete_description">Sil: %1$s</string>
+    <string name="dataset_delete_title">Bu veriler silinsin mi?</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">“%1$s” verileri silinecek ve %2$s yer açılacak. Çevrimdışı çalışmak için yeniden indirmen gerekecek.</string>
+    <string name="dataset_imported">%1$s yüklendi</string>
+    <string name="dataset_deleted">%1$s silindi</string>
+
+    <string name="dataset_rejected_empty">Seçilen dosya boş.</string>
+    <string name="dataset_rejected_format">Bu dosya beklenen dosya değil. Üretim betiklerinin oluşturduğu “%1$s” dosyasını seç.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">Bu dosya “%1$s” değil, uygulamanın okuduğu başka bir veri de değil. Üretim betiklerinin oluşturduğu “%2$s” dosyasını seç.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">Bu dosya “%1$s”, “%2$s” değil. Onu kendi satırından içe aktar.</string>
+    <string name="dataset_rejected_version">Bu dosya %1$d numaralı biçim sürümünde, uygulamanın bu sürümü ise %2$d numaralı sürümü okuyor. Uygulamayı güncelle.</string>
+    <string name="dataset_rejected_checksum">Dosya sağlama toplamıyla uyuşmuyor: eksik ya da bozuk. Yeniden indir.</string>
+    <string name="dataset_rejected_transfer">Dosya kopyalanamadı. Boş alanı kontrol et ve tekrar dene.</string>
+
+    <string name="error_offline">Bağlantı yok. Son bilinen durum ekranda kalır.</string>
+    <string name="error_offline_no_availability">Bağlantı yok. Durum bilgisi henüz alınmadı, bu yüzden gösterilecek bir şey yok.</string>
+    <!-- The same failures read on the storage screen, where a dataset transfer
+         failed rather than an availability refresh. The server is the one
+         hosting the files, not the bike network's, and those files come down
+         resumably. -->
+    <string name="error_offline_download">Bağlantı yok. Yeniden bağlandığında, kaldığı yerden devam etmek için “İndir”e dokun.</string>
+    <string name="error_timeout_download">Sunucu yanıt vermiyor. Kaldığı yerden devam etmek için daha sonra “İndir”e dokun.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">Sunucu hatası (%1$d). Kaldığı yerden devam etmek için daha sonra “İndir”e dokun.</string>
+    <string name="error_untrusted_server_download">Geçersiz güvenlik sertifikası. Sertifika yenilendiğinde devam etmek için “İndir”e dokun.</string>
+    <string name="error_malformed_download">Okunamayan bir dosya alındı. Kaldığı yerden devam etmek için daha sonra “İndir”e dokun.</string>
+    <string name="error_local_storage_download">Dosya kaydedilemedi. Yer aç, ardından devam etmek için “İndir”e dokun.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">Bağlantı yok. Hiçbir şey denetlenmedi; bağlantı gelince tekrar dene.</string>
+    <string name="error_timeout_check">Sunucu yanıt vermiyor. Hiçbir şey denetlenmedi; birazdan tekrar dene.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">Sunucu hatası (%1$d). Hiçbir şey denetlenmedi; daha sonra tekrar dene.</string>
+    <string name="error_untrusted_server_check">Geçersiz güvenlik sertifikası. Sertifika yenilenene kadar hiçbir şey denetlenemez.</string>
+    <string name="error_malformed_check">Yayımlanan veri listesi okunamıyor. Hiçbir şey denetlenmedi; daha sonra tekrar dene.</string>
+    <string name="error_local_storage_check">Cihazda saklanan veriler okunamıyor. Karşılaştırılacak bir şey olmadı.</string>
+    <string name="error_timeout">Ağın sunucusu yanıt vermekte çok gecikiyor. Birazdan tekrar dene.</string>
+    <string name="error_server_refused">Ağın sunucusu bir hata döndürdü (%1$d). Daha sonra tekrar dene.</string>
+    <string name="error_untrusted_server">Ağın sunucusu geçersiz bir güvenlik sertifikası sundu. İşletmeci onu yenileyene kadar verileri güvenle alınamaz.</string>
+    <string name="error_malformed">Alınan veri okunamıyor. Kusur ağın akışında; daha sonra tekrar dene.</string>
+    <string name="error_feed_unavailable">Ağ “%1$s” akışını yayımlamıyor.</string>
+    <string name="error_unsupported_version">Bu ağ verilerini %1$s sürümünde yayımlıyor, uygulamanın bu sürümü onu okuyamıyor. Uygulamayı güncelle.</string>
+    <string name="error_local_storage">Cihazda saklanan veriler okunamıyor.</string>
+    <string name="error_no_city_chosen">Seçili şehir yok. Bir tane seç.</string>
+
+    <!-- Wi-Fi-only downloads. The setting names Wi-Fi, which is the word
+         everybody has, while what is read stays the billing (SPEC §4.4): a
+         phone's shared connection is Wi-Fi and is a mobile plan, and a capped
+         hotspot declares itself billed. The line under the switch names those
+         two cases in ordinary words. Turkish says Wi-Fi the way Android's
+         Turkish does, "kablosuz bağlantı" (`settings:wifi` = Kablosuz), so the
+         switch reads that and not the loanword everyday speech would use;
+         "sayaçlı" still names a metered network and belongs to the explaining
+         lines rather than to the switch. -->
+    <string name="download_unmetered_only">Yalnızca kablosuz bağlantıda indir</string>
+    <string name="download_unmetered_only_description">Paylaşılan bir telefon bağlantısı ya da veri sınırı olan bir kablosuz ağ megabayt başına ücretlendirilebilir ve mobil ağ sayılır.</string>
+    <string name="download_held_back_title">Mobil ağda indirme</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_held_back_body">Bu bağlantı megabayt başına ücretlendirilebilir. %1$s indirmek için kablosuz bağlantıya geç ya da yine de şimdi indir.</string>
+    <string name="download_stopped_title">İndirme durdu</string>
+    <!-- %1$s is a size. What has already arrived is kept on the device and the
+         transfer picks up from there. -->
+    <string name="download_stopped_body">Bu bağlantı megabayt başına ücretlendirilebilir, bu yüzden indirme durdu. Gelenler saklandı. Toplam %1$s olan indirmeyi bitirmek için kablosuz bağlantıya geç ya da yine de şimdi sürdür.</string>
+    <string name="download_anyway">Yine de indir</string>
+    <!-- %1$s is a size. -->
+    <string name="download_waiting_for_unmetered">%1$s indirmek için kablosuz bağlantı bekleniyor.</string>
+    <string name="download_can_resume">Bu bağlantı artık bir mobil ağ değil. İndirmeyi yeniden başlat: kaldığı yerden devam eder.</string>
+    <string name="download_connection_back">Bağlantı geri geldi. İndirmeye kaldığı yerden devam etmek için “İndir”e dokun.</string>
+
+    <string name="settings_opening_title">Uygulama açılışta şunu göstersin</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">Uygulamanın açılışta gösterdiği ekran</string>
+    <string name="settings_opening_map">Harita</string>
+    <string name="settings_opening_list">İstasyon listesi</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">Haritayı gör</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">En yakın istasyon önce</string>
+    <string name="stations_location_denied">Konum olmadan istasyonlar alfabetik sırada kalır.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge. -->
+    <string name="settings_map_filters_title">Haritanın gösterdiği istasyonlar</string>
+    <string name="settings_map_filters_hide_out_of_service">Hizmet dışı istasyonları gizle</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Bisikletler / Boş yuvalar button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">Sunacak bir şeyi olmayan istasyonları gizle</string>
+    <!-- Under the switch, saying what "nothing" is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">“Bir şey”, haritanın o an neyi saydığına göre değişir: bisiklet sayarken bisikleti olmayan, boş yuva sayarken boş yuvası olmayan istasyon.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">“Bir şey” burada bisiklet demek: bu ağda harita yalnızca bisikletleri sayar.</string>
+    <string name="settings_bikes_past_capacity">Dolu istasyonlar bisiklet kabul ediyor</string>
+    <string name="settings_bikes_past_capacity_automatic">Otomatik</string>
+    <string name="settings_bikes_past_capacity_always">Her zaman</string>
+    <string name="settings_bikes_past_capacity_never">Hiçbir zaman</string>
+    <string name="settings_bikes_past_capacity_hint_detected">Otomatik: bu ağ dolu istasyonlarının yanına bisiklet bırakıyor, bu yüzden dolu bir istasyon bisikletini iade edebileceğin bir istasyon sayılır.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">Otomatik: bu ağın verilerinde dolu istasyonların yanına bırakılmış bisiklet görünmüyor, bu yüzden dolu bir istasyon dolu sayılır.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">Otomatik: bu ağın verilerine göre istasyonları boş yuva olmasa da bisiklet kabul ediyor.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">Otomatik: istasyonları yüklenir yüklenmez bu ağın verilerine göre belirlenir.</string>
+    <string name="settings_bikes_past_capacity_hint_always">Dolu bir istasyon bisikletini iade edebileceğin bir istasyon sayılır. Bu ağ buna izin vermiyorsa yolculuk, bisikleti kabul etmeyen bir istasyonda bitebilir.</string>
+    <string name="settings_bikes_past_capacity_hint_never">Bu ağın verileri ne gösterirse göstersin, dolu bir istasyon dolu sayılır.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">Boş yuvası olmayan bir istasyon dolu sayılır. Bu ağda neredeyse hiçbir istasyon boş yuva göstermiyor, bu yüzden çok az yolculuk mümkün kalıyor.</string>
+    <!-- Under both switches. The most important rule of the two filters. -->
+    <string name="settings_map_filters_keeps_unknown">Ağın haklarında bir şey söylemediği istasyonlar haritada kalır: kimsenin okuyamadığı bir sayı, sıfır demek değildir.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">İstasyondaki bisikletlerin pilini ve istasyon dışındaki bisikletleri göster</string>
+    <string name="settings_street_bikes_description">Bir bisikleti istasyon dışında durduğu yerden alıp alamayacağın ağa bağlıdır. Bu, istasyon akışından çok daha ağır bir akış okur ve yalnızca onu yayımlayan ağlar bir şey gösterir.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">İstasyon dışındaki bisikletler</string>
+    <string name="street_bike_intro_body">Ağ bu bisikletleri istasyonlarının uzağında bildiriyor. Bir kısmını oraya bir kullanıcı bırakmış, bir kısmı işletmecinin deposunda bekliyor.\n\nRoue Libre, bisikleti durduğu yerden alma hakkın olup olmadığını bilemez: bunu ağın kuralları söyler ve bazı ağlar istasyon dışına bırakılan bisiklet için ceza uygular.\n\nBir bisikletten önerilen yolculuk her zaman bir istasyonda biter.</string>
+    <string name="street_bike_intro_dismiss">Anladım</string>
+
+    <string name="bikes_past_capacity_title">%1$s dolu istasyonlarda da bisiklet kabul ediyor</string>
+    <string name="bikes_past_capacity_body">Bu ağın birçok istasyonunda yuvadan çok bisiklet duruyor: kullanıcılar bisikletlerini dolu bir istasyonun yanına bırakıyor ve ağ onu teslim alıyor.\n\nBu yüzden Roue Libre dolu bir istasyonu bisikletini hâlâ iade edebileceğin bir istasyon olarak sayar ve bu ağ için artık boş yuva göstermez.\n\nDolu bir istasyon bisikletini kabul etmezse bunu kapat. Bunu istediğin zaman ayarlardan değiştirebilirsin.</string>
+    <string name="bikes_past_capacity_keep">Koru</string>
+    <string name="bikes_past_capacity_turn_off">Kapat</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">Bu bisikletler nedir</string>
+    <string name="street_bike_title">İstasyon dışındaki bisiklet</string>
+    <string name="street_bike_kind_mechanical">Klasik bisiklet</string>
+    <string name="street_bike_kind_electric">Elektrikli bisiklet</string>
+    <string name="street_bike_kind_cargo">Yük bisikleti</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">Pil %%%1$d</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">Yaklaşık %1$s menzil kaldı</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">Bu bisiklet artık burada bildirilmiyor.</string>
+    <string name="street_bike_journey_from_here">Bu bisikletten yolculuk</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">İstasyon dışındaki bisiklet</string>
+    <string name="street_bike_marker_description_electric">İstasyon dışındaki elektrikli bisiklet</string>
+
+    <!-- The rider's OWN bike, not the network's. The journey screen carries a
+         separate, similar-looking choice about the bikes the network lends. -->
+    <string name="settings_own_bike_kind_title">Kendi bisikletin</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">Sahip olduğun bisikletin türü</string>
+    <string name="settings_own_bike_kind_mechanical">Klasik</string>
+    <string name="settings_own_bike_kind_electric">Elektrikli</string>
+    <!-- Under the two buttons. Says what the declaration changes. -->
+    <string name="settings_own_bike_kind_hint">Elektrikli olarak bildirilen kendi bisikletin, kendi rotasını ve kendi sürelerini alır.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to
+         be a pedal-assist one. %1$s is a distance, %2$s a climb. -->
+    <string name="journey_own_bike_electric_only">kendi elektrikli bisikletinle, toplam %1$s.</string>
+    <string name="journey_own_bike_electric_only_climb">kendi elektrikli bisikletinle, toplam %1$s ve %2$s tırmanış.</string>
+
+    <string name="settings_language_title">Dil</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language. The languages themselves are never translated — each is
+         written in its own language, and comes from Android rather than from
+         this file. -->
+    <string name="settings_language_system">Sistem</string>
+    <!-- Spoken label of the row. %1$s is the language in service: "English",
+         "Türkçe", or the wording above when the device's own is followed. -->
+    <string name="settings_language_description">Arayüz dili: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">Yerlerim</string>
+    <string name="settings_place_home">Ev</string>
+    <string name="settings_place_work">İş</string>
+    <string name="settings_place_none">Ayarlanmadı</string>
+    <string name="settings_place_outside_city">Kapsanan şehrin dışında</string>
+    <!-- %1$s is the setting, "Ev" or "İş". -->
+    <string name="settings_place_set">Ayarla: %1$s</string>
+    <string name="settings_place_change">Değiştir: %1$s</string>
+    <string name="settings_place_clear">Unut: %1$s</string>
+    <string name="settings_place_cleared">%1$s unutuldu</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">Evimi haritada göster</string>
+    <string name="map_centre_on_work">İşyerimi haritada göster</string>
+    <string name="settings_places_markers">Yerlerimi haritada işaretle</string>
+    <string name="settings_places_buttons">Haritada her yer için bir düğme</string>
+</resources>

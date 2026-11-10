@@ -1,0 +1,34 @@
+Roue Libre rāda koplietošanas velosipēdu stacijas kartē un aprēķina labāko maršrutu no durvīm līdz durvīm: ar kājām, ar velosipēdu, atkal ar kājām.
+
+Viss notiek tālrunī: kartei, adrešu meklēšanai un maršruta aprēķinam nav vajadzīgs nekāds savienojums. Tīklā tiek saņemta tikai velosipēdu pieejamība reāllaikā, un to nolasa tieši no operatora servera.
+
+<b>Labākais maršruts, nevis tuvākā stacija</b>
+
+• Izbraukšanas un ierašanās stacijas tiek izvēlētas kopā, pēc pieejamības reāllaikā: vienā jābūt velosipēdiem, ko paņemt, otrā — brīvām vietām, kur to nolikt.
+• Gandrīz tukšai stacijai ir mazāks svars, jo tā var iztukšoties, kamēr jūs līdz tai ejat.
+• Kur tīkls piedāvā gan parastos, gan elektriskos velosipēdus, jūs izvēlaties, kuru vēlaties, un tiek ņemtas vērā tikai tās stacijas, kurās tāds tiešām ir.
+• Maršruts ved pa velosipēdu ceļiem un ņem vērā augstuma starpību.
+
+<b>Karte, kas veidota velosipēdam</b>
+
+Velosipēdu ceļi, kas iezīmēti atsevišķi no ielām, sabiedriskās ēkas un orientieri, kas palīdz atrast ceļu, vienkārši paskatoties apkārt, un pie katras stacijas — ko tīkls piedāvā: parastos, elektriskos vai abu veidu velosipēdus.
+
+<b>Nekas jūs neizseko</b>
+
+• Neviena Google pakalpojuma: ne Play Services, ne Firebase, ne Maps SDK.
+• Bez telemetrijas, bez izsekotājiem, bez identifikatora, bez konta.
+• Bez vēstures: ne atrašanās vietu, ne galamērķu. Meklētais neaiziet no tālruņa.
+
+<b>Apkalpotās pilsētas</b>
+
+Vairāk nekā 350 tīklu gandrīz 40 valstīs — no Vélib’ Parīzē līdz Citi Bike Ņujorkā, caur Monreālu, Prāgu, Barselonu, Dubaju un Buenosairesu. Neviena pilsēta netiek uzspiesta: lietotne piedāvā jūsējo pēc jūsu atrašanās vietas, un varat paturēt vairākas.
+
+Roue Libre apkalpo tikai tos tīklus, kas publicē savas stacijas GBFS formātā — atvērtajā koplietošanas velosipēdu standartā — publiskā datu plūsmā bez atslēgas. Ja jūsu pilsētas nav, tās tīkls šādu plūsmu nepublicē: tā jālūdz pašam tīklam vai transporta iestādei.
+
+<b>Ko ir vērts zināt pirms instalēšanas</b>
+
+Karte, maršrutēšanas grafs un adrešu rādītājs nav iekļauti lietotnē: tie tiek lejupielādēti vienreiz, kad jūs to izlemjat, un to lielums tiek paziņots iepriekš (ap desmit megabaitiem vidēji lielai pilsētai, vairāk galvaspilsētai). Tie ir tikai datu faili un nekas cits; tos varat izveidot arī paši ar repozitorija skriptiem.
+
+Roue Libre ir neatkarīga lietotne, kas nav saistīta ne ar tīkliem, ko tā apkalpo, ne ar to operatoriem.
+
+Brīvā programmatūra ar GNU GPL v3 licenci.

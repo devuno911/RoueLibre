@@ -1,0 +1,34 @@
+Roue Librek bizikleta partekatuen geltokiak erakusten ditu mapa batean, eta atez ateko ibilbiderik onena kalkulatzen du: oinez, bizikletaz, oinez.
+
+Dena telefonoan bertan gertatzen da: mapak, helbideen bilaketak eta ibilbideen kalkuluak ez dute inolako konexiorik behar. Bizikleten denbora errealeko erabilgarritasunak baino ez du sarea erabiltzen, eta operadorearen zerbitzaritik zuzenean irakurtzen da.
+
+<b>Ibilbiderik onena, ez geltokirik hurbilena</b>
+
+• Irteerako eta iritsierako geltokiak batera aukeratzen dira, zuzeneko erabilgarritasunaren arabera: alde batean hartzeko bizikletak, bestean itzultzeko leku libreak.
+• Ia hutsik dagoen geltoki batek pisu txikiagoa du, oinez zoazen bitartean hustu baitaiteke.
+• Sareak bizikleta arruntak eta elektrikoak eskaintzen dituen lekuetan, zuk aukeratzen duzu zein nahi duzun, eta benetan halakorik duten geltokiak baino ez dira kontuan hartzen.
+• Ibilbideak bidegorriei jarraitzen die, eta igoerak ere kontuan hartzen ditu.
+
+<b>Bizikletarako egindako mapa</b>
+
+Bidegorriak kaleetatik bereizita marraztuta, eraikin publikoak eta begiz orientatzeko erreferentzia-puntuak, eta geltoki bakoitzean sareak eskaintzen duena: bizikleta arruntak, elektrikoak edo biak.
+
+<b>Inork ez zaitu jarraitzen</b>
+
+• Google-ren zerbitzurik ez: ez Play Services, ez Firebase, ez Maps SDK.
+• Telemetriarik ez, jarraipen-tresnarik ez, identifikatzailerik ez, konturik ez.
+• Historiarik ez: ez kokapenik, ez helmugarik. Bilatzen duzunak ez du telefonoa uzten.
+
+<b>Zerbitzatzen diren hiriak</b>
+
+350 sare baino gehiago, ia 40 herrialdetan: Parisko Vélib’ eta New Yorkeko Citi Bike, eta tartean Montreal, Praga, Bartzelona, Dubai eta Buenos Aires. Ez da hiririk inposatzen: aplikazioak zurea proposatzen dizu zure kokapenaren arabera, eta hainbat gorde ditzakezu.
+
+Roue Librek sare jakin batzuk baino ez ditu zerbitzatzen: beren geltokiak GBFS formatuan —bizikleta partekatuen estandar irekia— argitaratzen dituztenak, jario publiko batean eta gakorik gabe. Zure hiria falta bada, haren sareak ez duelako halako jariorik argitaratzen da: sareari berari edo garraio-agintaritzari eskatu behar zaio.
+
+<b>Instalatu aurretik jakitea komeni dena</b>
+
+Mapa, ibilbideak kalkulatzeko grafoa eta helbideen aurkibidea ez daude aplikazioaren barruan: behin bakarrik deskargatzen dira, zuk erabakitzen duzunean, eta haien pisua aurretik jakinarazten da (hamar bat megabyte tamaina ertaineko hiri batentzat, gehiago hiriburu batentzat). Datu-fitxategiak dira, besterik ez, eta zeuk ere sor ditzakezu biltegiko scriptekin.
+
+Roue Libre aplikazio independentea da, eta ez du loturarik zerbitzatzen dituen sareekin, ezta haien operadoreekin ere.
+
+Software librea, GNU GPL v3 lizentziapean.

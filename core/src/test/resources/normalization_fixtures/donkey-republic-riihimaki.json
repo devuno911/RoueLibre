@@ -1,0 +1,773 @@
+{
+  "language": "fi",
+  "cases": [
+    {
+      "input": "Mannerheimintie",
+      "normalized": "mannerheimintie",
+      "type": null,
+      "name": "mannerheimintie"
+    },
+    {
+      "input": "Aleksanterinkatu",
+      "normalized": "aleksanterinkatu",
+      "type": null,
+      "name": "aleksanterinkatu"
+    },
+    {
+      "input": "Esplanadi",
+      "normalized": "esplanadi",
+      "type": null,
+      "name": "esplanadi"
+    },
+    {
+      "input": "Hämeenkatu",
+      "normalized": "hameenkatu",
+      "type": null,
+      "name": "hameenkatu"
+    },
+    {
+      "input": "Kauppatori",
+      "normalized": "kauppatori",
+      "type": null,
+      "name": "kauppatori"
+    },
+    {
+      "input": "Runeberginkatu",
+      "normalized": "runeberginkatu",
+      "type": null,
+      "name": "runeberginkatu"
+    },
+    {
+      "input": "Länsiväylä",
+      "normalized": "lansivayla",
+      "type": null,
+      "name": "lansivayla"
+    },
+    {
+      "input": "Tehtaankatu",
+      "normalized": "tehtaankatu",
+      "type": null,
+      "name": "tehtaankatu"
+    },
+    {
+      "input": "Ahotie",
+      "normalized": "ahotie",
+      "type": null,
+      "name": "ahotie"
+    },
+    {
+      "input": "Kallenpolku",
+      "normalized": "kallenpolku",
+      "type": null,
+      "name": "kallenpolku"
+    },
+    {
+      "input": "Päivärinne",
+      "normalized": "paivarinne",
+      "type": null,
+      "name": "paivarinne"
+    },
+    {
+      "input": "Karantie",
+      "normalized": "karantie",
+      "type": null,
+      "name": "karantie"
+    },
+    {
+      "input": "Jusulantie",
+      "normalized": "jusulantie",
+      "type": null,
+      "name": "jusulantie"
+    },
+    {
+      "input": "Pirttiläntie",
+      "normalized": "pirttilantie",
+      "type": null,
+      "name": "pirttilantie"
+    },
+    {
+      "input": "Kulmalantie",
+      "normalized": "kulmalantie",
+      "type": null,
+      "name": "kulmalantie"
+    },
+    {
+      "input": "Hiivolan kartanotie",
+      "normalized": "hiivolan kartanotie",
+      "type": null,
+      "name": "hiivolan kartanotie"
+    },
+    {
+      "input": "Härkösentie",
+      "normalized": "harkosentie",
+      "type": null,
+      "name": "harkosentie"
+    },
+    {
+      "input": "Syrjäntie",
+      "normalized": "syrjantie",
+      "type": null,
+      "name": "syrjantie"
+    },
+    {
+      "input": "Näätäkatu",
+      "normalized": "naatakatu",
+      "type": null,
+      "name": "naatakatu"
+    },
+    {
+      "input": "Suvannontie",
+      "normalized": "suvannontie",
+      "type": null,
+      "name": "suvannontie"
+    },
+    {
+      "input": "Reunakatu",
+      "normalized": "reunakatu",
+      "type": null,
+      "name": "reunakatu"
+    },
+    {
+      "input": "Paavolantie",
+      "normalized": "paavolantie",
+      "type": null,
+      "name": "paavolantie"
+    },
+    {
+      "input": "Saviahonkatu",
+      "normalized": "saviahonkatu",
+      "type": null,
+      "name": "saviahonkatu"
+    },
+    {
+      "input": "Ainikinkuja",
+      "normalized": "ainikinkuja",
+      "type": null,
+      "name": "ainikinkuja"
+    },
+    {
+      "input": "Marjatanpolku",
+      "normalized": "marjatanpolku",
+      "type": null,
+      "name": "marjatanpolku"
+    },
+    {
+      "input": "Pyysalontie",
+      "normalized": "pyysalontie",
+      "type": null,
+      "name": "pyysalontie"
+    },
+    {
+      "input": "Kaisantie",
+      "normalized": "kaisantie",
+      "type": null,
+      "name": "kaisantie"
+    },
+    {
+      "input": "Kiljavantie",
+      "normalized": "kiljavantie",
+      "type": null,
+      "name": "kiljavantie"
+    },
+    {
+      "input": "Männistöntie",
+      "normalized": "mannistontie",
+      "type": null,
+      "name": "mannistontie"
+    },
+    {
+      "input": "Rauduskuja",
+      "normalized": "rauduskuja",
+      "type": null,
+      "name": "rauduskuja"
+    },
+    {
+      "input": "Varpukuja",
+      "normalized": "varpukuja",
+      "type": null,
+      "name": "varpukuja"
+    },
+    {
+      "input": "Loimutie",
+      "normalized": "loimutie",
+      "type": null,
+      "name": "loimutie"
+    },
+    {
+      "input": "Kantotie",
+      "normalized": "kantotie",
+      "type": null,
+      "name": "kantotie"
+    },
+    {
+      "input": "Kormuntie",
+      "normalized": "kormuntie",
+      "type": null,
+      "name": "kormuntie"
+    },
+    {
+      "input": "Tuulihaukantie",
+      "normalized": "tuulihaukantie",
+      "type": null,
+      "name": "tuulihaukantie"
+    },
+    {
+      "input": "Perjalantie E",
+      "normalized": "perjalantie e",
+      "type": null,
+      "name": "perjalantie e"
+    },
+    {
+      "input": "Riihimäen kaupungintalo",
+      "normalized": "riihimaen kaupungintalo",
+      "type": null,
+      "name": "riihimaen kaupungintalo"
+    },
+    {
+      "input": "Kalliolantie",
+      "normalized": "kalliolantie",
+      "type": null,
+      "name": "kalliolantie"
+    },
+    {
+      "input": "Kannistontie",
+      "normalized": "kannistontie",
+      "type": null,
+      "name": "kannistontie"
+    },
+    {
+      "input": "Niittykuja",
+      "normalized": "niittykuja",
+      "type": null,
+      "name": "niittykuja"
+    },
+    {
+      "input": "Vieremäntie",
+      "normalized": "vieremantie",
+      "type": null,
+      "name": "vieremantie"
+    },
+    {
+      "input": "Jousikuja",
+      "normalized": "jousikuja",
+      "type": null,
+      "name": "jousikuja"
+    },
+    {
+      "input": "Uimalaitoksenkatu",
+      "normalized": "uimalaitoksenkatu",
+      "type": null,
+      "name": "uimalaitoksenkatu"
+    },
+    {
+      "input": "Rataraitti",
+      "normalized": "rataraitti",
+      "type": null,
+      "name": "rataraitti"
+    },
+    {
+      "input": "Loikkolanpolku",
+      "normalized": "loikkolanpolku",
+      "type": null,
+      "name": "loikkolanpolku"
+    },
+    {
+      "input": "Erkyläntie",
+      "normalized": "erkylantie",
+      "type": null,
+      "name": "erkylantie"
+    },
+    {
+      "input": "Mikkolanpolku",
+      "normalized": "mikkolanpolku",
+      "type": null,
+      "name": "mikkolanpolku"
+    },
+    {
+      "input": "Teerikatu",
+      "normalized": "teerikatu",
+      "type": null,
+      "name": "teerikatu"
+    },
+    {
+      "input": "Purolantie",
+      "normalized": "purolantie",
+      "type": null,
+      "name": "purolantie"
+    },
+    {
+      "input": "Aatunraitti",
+      "normalized": "aatunraitti",
+      "type": null,
+      "name": "aatunraitti"
+    },
+    {
+      "input": "Luhtaniityntie",
+      "normalized": "luhtaniityntie",
+      "type": null,
+      "name": "luhtaniityntie"
+    },
+    {
+      "input": "Saunapolku",
+      "normalized": "saunapolku",
+      "type": null,
+      "name": "saunapolku"
+    },
+    {
+      "input": "Loikkolanpolku",
+      "normalized": "loikkolanpolku",
+      "type": null,
+      "name": "loikkolanpolku"
+    },
+    {
+      "input": "Punkantie",
+      "normalized": "punkantie",
+      "type": null,
+      "name": "punkantie"
+    },
+    {
+      "input": "Käpäläkuja",
+      "normalized": "kapalakuja",
+      "type": null,
+      "name": "kapalakuja"
+    },
+    {
+      "input": "Räätykäntie",
+      "normalized": "raatykantie",
+      "type": null,
+      "name": "raatykantie"
+    },
+    {
+      "input": "Agantie",
+      "normalized": "agantie",
+      "type": null,
+      "name": "agantie"
+    },
+    {
+      "input": "Allinnankuja",
+      "normalized": "allinnankuja",
+      "type": null,
+      "name": "allinnankuja"
+    },
+    {
+      "input": "Arolammintie",
+      "normalized": "arolammintie",
+      "type": null,
+      "name": "arolammintie"
+    },
+    {
+      "input": "Borgintie",
+      "normalized": "borgintie",
+      "type": null,
+      "name": "borgintie"
+    },
+    {
+      "input": "Haarakatu",
+      "normalized": "haarakatu",
+      "type": null,
+      "name": "haarakatu"
+    },
+    {
+      "input": "Hallovantie",
+      "normalized": "hallovantie",
+      "type": null,
+      "name": "hallovantie"
+    },
+    {
+      "input": "Haperolenkki",
+      "normalized": "haperolenkki",
+      "type": null,
+      "name": "haperolenkki"
+    },
+    {
+      "input": "Heikkilänkuja",
+      "normalized": "heikkilankuja",
+      "type": null,
+      "name": "heikkilankuja"
+    },
+    {
+      "input": "Hermannintie",
+      "normalized": "hermannintie",
+      "type": null,
+      "name": "hermannintie"
+    },
+    {
+      "input": "Hirsikatu",
+      "normalized": "hirsikatu",
+      "type": null,
+      "name": "hirsikatu"
+    },
+    {
+      "input": "Iidankuja",
+      "normalized": "iidankuja",
+      "type": null,
+      "name": "iidankuja"
+    },
+    {
+      "input": "Istuinkivi",
+      "normalized": "istuinkivi",
+      "type": null,
+      "name": "istuinkivi"
+    },
+    {
+      "input": "Joosepinkuja",
+      "normalized": "joosepinkuja",
+      "type": null,
+      "name": "joosepinkuja"
+    },
+    {
+      "input": "Junttatie",
+      "normalized": "junttatie",
+      "type": null,
+      "name": "junttatie"
+    },
+    {
+      "input": "Kaarlonkatu",
+      "normalized": "kaarlonkatu",
+      "type": null,
+      "name": "kaarlonkatu"
+    },
+    {
+      "input": "Kallionkatu",
+      "normalized": "kallionkatu",
+      "type": null,
+      "name": "kallionkatu"
+    },
+    {
+      "input": "Käräjäkatu",
+      "normalized": "karajakatu",
+      "type": null,
+      "name": "karajakatu"
+    },
+    {
+      "input": "Kaukolankatu",
+      "normalized": "kaukolankatu",
+      "type": null,
+      "name": "kaukolankatu"
+    },
+    {
+      "input": "Keskuskatu",
+      "normalized": "keskuskatu",
+      "type": null,
+      "name": "keskuskatu"
+    },
+    {
+      "input": "Kinturintie",
+      "normalized": "kinturintie",
+      "type": null,
+      "name": "kinturintie"
+    },
+    {
+      "input": "Kiulupolku",
+      "normalized": "kiulupolku",
+      "type": null,
+      "name": "kiulupolku"
+    },
+    {
+      "input": "Koivumäentie",
+      "normalized": "koivumaentie",
+      "type": null,
+      "name": "koivumaentie"
+    },
+    {
+      "input": "Konepajankatu",
+      "normalized": "konepajankatu",
+      "type": null,
+      "name": "konepajankatu"
+    },
+    {
+      "input": "Korpelantie",
+      "normalized": "korpelantie",
+      "type": null,
+      "name": "korpelantie"
+    },
+    {
+      "input": "Kullervonkatu",
+      "normalized": "kullervonkatu",
+      "type": null,
+      "name": "kullervonkatu"
+    },
+    {
+      "input": "Kumpupolku",
+      "normalized": "kumpupolku",
+      "type": null,
+      "name": "kumpupolku"
+    },
+    {
+      "input": "Kuurakatu",
+      "normalized": "kuurakatu",
+      "type": null,
+      "name": "kuurakatu"
+    },
+    {
+      "input": "Kyynäräntie",
+      "normalized": "kyynarantie",
+      "type": null,
+      "name": "kyynarantie"
+    },
+    {
+      "input": "Lanapolku",
+      "normalized": "lanapolku",
+      "type": null,
+      "name": "lanapolku"
+    },
+    {
+      "input": "Lasitehtaanaukio",
+      "normalized": "lasitehtaanaukio",
+      "type": null,
+      "name": "lasitehtaanaukio"
+    },
+    {
+      "input": "Lehtola",
+      "normalized": "lehtola",
+      "type": null,
+      "name": "lehtola"
+    },
+    {
+      "input": "Leskenpolku",
+      "normalized": "leskenpolku",
+      "type": null,
+      "name": "leskenpolku"
+    },
+    {
+      "input": "Louhelantie",
+      "normalized": "louhelantie",
+      "type": null,
+      "name": "louhelantie"
+    },
+    {
+      "input": "Maisterinkatu",
+      "normalized": "maisterinkatu",
+      "type": null,
+      "name": "maisterinkatu"
+    },
+    {
+      "input": "Markkinatie",
+      "normalized": "markkinatie",
+      "type": null,
+      "name": "markkinatie"
+    },
+    {
+      "input": "Merkoksenkatu",
+      "normalized": "merkoksenkatu",
+      "type": null,
+      "name": "merkoksenkatu"
+    },
+    {
+      "input": "Metsurinkatu",
+      "normalized": "metsurinkatu",
+      "type": null,
+      "name": "metsurinkatu"
+    },
+    {
+      "input": "Museokatu",
+      "normalized": "museokatu",
+      "type": null,
+      "name": "museokatu"
+    },
+    {
+      "input": "Nevantie",
+      "normalized": "nevantie",
+      "type": null,
+      "name": "nevantie"
+    },
+    {
+      "input": "Oikopolku",
+      "normalized": "oikopolku",
+      "type": null,
+      "name": "oikopolku"
+    },
+    {
+      "input": "Orhitie",
+      "normalized": "orhitie",
+      "type": null,
+      "name": "orhitie"
+    },
+    {
+      "input": "Paalukatu",
+      "normalized": "paalukatu",
+      "type": null,
+      "name": "paalukatu"
+    },
+    {
+      "input": "Pakkaskatu",
+      "normalized": "pakkaskatu",
+      "type": null,
+      "name": "pakkaskatu"
+    },
+    {
+      "input": "Parmalantie",
+      "normalized": "parmalantie",
+      "type": null,
+      "name": "parmalantie"
+    },
+    {
+      "input": "Peltokuja",
+      "normalized": "peltokuja",
+      "type": null,
+      "name": "peltokuja"
+    },
+    {
+      "input": "Petäjätie",
+      "normalized": "petajatie",
+      "type": null,
+      "name": "petajatie"
+    },
+    {
+      "input": "Piiankuja",
+      "normalized": "piiankuja",
+      "type": null,
+      "name": "piiankuja"
+    },
+    {
+      "input": "Poikkikatu",
+      "normalized": "poikkikatu",
+      "type": null,
+      "name": "poikkikatu"
+    },
+    {
+      "input": "Puistikko",
+      "normalized": "puistikko",
+      "type": null,
+      "name": "puistikko"
+    },
+    {
+      "input": "Rahtitie",
+      "normalized": "rahtitie",
+      "type": null,
+      "name": "rahtitie"
+    },
+    {
+      "input": "Rauhalantie",
+      "normalized": "rauhalantie",
+      "type": null,
+      "name": "rauhalantie"
+    },
+    {
+      "input": "Rinnekuja",
+      "normalized": "rinnekuja",
+      "type": null,
+      "name": "rinnekuja"
+    },
+    {
+      "input": "Ruotsinkatu",
+      "normalized": "ruotsinkatu",
+      "type": null,
+      "name": "ruotsinkatu"
+    },
+    {
+      "input": "Salkokatu",
+      "normalized": "salkokatu",
+      "type": null,
+      "name": "salkokatu"
+    },
+    {
+      "input": "Savikonkatu",
+      "normalized": "savikonkatu",
+      "type": null,
+      "name": "savikonkatu"
+    },
+    {
+      "input": "Sillansuu",
+      "normalized": "sillansuu",
+      "type": null,
+      "name": "sillansuu"
+    },
+    {
+      "input": "Sivukatu",
+      "normalized": "sivukatu",
+      "type": null,
+      "name": "sivukatu"
+    },
+    {
+      "input": "Syrjäntie",
+      "normalized": "syrjantie",
+      "type": null,
+      "name": "syrjantie"
+    },
+    {
+      "input": "Tehdaskylänkuja",
+      "normalized": "tehdaskylankuja",
+      "type": null,
+      "name": "tehdaskylankuja"
+    },
+    {
+      "input": "Teollisuuskatu",
+      "normalized": "teollisuuskatu",
+      "type": null,
+      "name": "teollisuuskatu"
+    },
+    {
+      "input": "Toivontie",
+      "normalized": "toivontie",
+      "type": null,
+      "name": "toivontie"
+    },
+    {
+      "input": "Töyrykatu",
+      "normalized": "toyrykatu",
+      "type": null,
+      "name": "toyrykatu"
+    },
+    {
+      "input": "Tyyneläntie",
+      "normalized": "tyynelantie",
+      "type": null,
+      "name": "tyynelantie"
+    },
+    {
+      "input": "Uranuksenkatu",
+      "normalized": "uranuksenkatu",
+      "type": null,
+      "name": "uranuksenkatu"
+    },
+    {
+      "input": "Vähäkäyrä",
+      "normalized": "vahakayra",
+      "type": null,
+      "name": "vahakayra"
+    },
+    {
+      "input": "Valtakatu",
+      "normalized": "valtakatu",
+      "type": null,
+      "name": "valtakatu"
+    },
+    {
+      "input": "Vasapolku",
+      "normalized": "vasapolku",
+      "type": null,
+      "name": "vasapolku"
+    },
+    {
+      "input": "Vesuritie",
+      "normalized": "vesuritie",
+      "type": null,
+      "name": "vesuritie"
+    },
+    {
+      "input": "Viljamintie",
+      "normalized": "viljamintie",
+      "type": null,
+      "name": "viljamintie"
+    },
+    {
+      "input": "Vuorikatu",
+      "normalized": "vuorikatu",
+      "type": null,
+      "name": "vuorikatu"
+    },
+    {
+      "input": "Hanhisuontie",
+      "normalized": "hanhisuontie",
+      "type": null,
+      "name": "hanhisuontie"
+    },
+    {
+      "input": "Leppäläntie",
+      "normalized": "leppalantie",
+      "type": null,
+      "name": "leppalantie"
+    }
+  ]
+}

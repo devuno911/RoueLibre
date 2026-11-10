@@ -1,0 +1,34 @@
+Roue Libre zeigt die Stationen von Leihrad-Netzen auf einer Karte und berechnet die beste Route von Tür zu Tür: zu Fuß, mit dem Rad, zu Fuß.
+
+Alles geschieht auf dem Telefon: Die Karte, die Adresssuche und die Routenberechnung brauchen überhaupt keine Verbindung. Nur die Verfügbarkeit der Räder in Echtzeit geht übers Netz, direkt vom Server des Betreibers gelesen.
+
+<b>Die beste Route, nicht die nächste Station</b>
+
+• Start- und Zielstation werden gemeinsam gewählt, nach der aktuellen Verfügbarkeit: Räder zum Ausleihen auf der einen Seite, freie Plätze zum Zurückgeben auf der anderen.
+• Eine fast leere Station zählt weniger, denn sie kann sich leeren, während du zu ihr gehst.
+• Wo das Netz mechanische und elektrische Räder verleiht, wählst du, welches du willst, und es zählen nur die Stationen, die wirklich eines haben.
+• Die Route folgt den Radwegen und berücksichtigt den Anstieg.
+
+<b>Eine Karte fürs Radfahren</b>
+
+Radwege, getrennt von den Straßen eingezeichnet, öffentliche Gebäude und Orientierungspunkte, an denen du dich auf Sicht zurechtfindest, und an jeder Station, was das Netz verleiht: mechanische Räder, elektrische oder beides.
+
+<b>Nichts verfolgt dich</b>
+
+• Kein Google-Dienst: keine Play Services, kein Firebase, kein Maps SDK.
+• Keine Telemetrie, kein Tracker, keine Kennung, kein Konto.
+• Kein Verlauf: keine Positionen, keine Ziele. Was du suchst, verlässt das Telefon nicht.
+
+<b>Die bedienten Städte</b>
+
+Mehr als 350 Netze in fast 40 Ländern, von Vélib’ in Paris bis Citi Bike in New York, über Montreal, Prag, Barcelona, Dubai und Buenos Aires. Keine Stadt wird dir vorgesetzt: Die App schlägt dir deine anhand deiner Position vor, und du kannst mehrere behalten.
+
+Roue Libre bedient nur Netze, die ihre Stationen im Format GBFS veröffentlichen, dem offenen Standard für Leihräder, und zwar in einem öffentlichen Feed ohne Schlüssel. Fehlt deine Stadt, dann veröffentlicht ihr Netz keinen solchen Feed: Danach musst du das Netz selbst oder den Verkehrsverbund fragen.
+
+<b>Vor dem Installieren zu wissen</b>
+
+Die Karte, die Routendaten und der Adressindex stecken nicht in der App: Sie werden ein einziges Mal heruntergeladen, wann du es entscheidest, und ihr Umfang wird vorher genannt (rund zehn Megabyte für eine mittelgroße Stadt, mehr für eine Hauptstadt). Es sind Datendateien und nichts anderes, die du auch selbst mit den Skripten des Repositorys erzeugen kannst.
+
+Roue Libre ist eine unabhängige App, die weder mit den Netzen, die sie bedient, noch mit deren Betreibern verbunden ist.
+
+Freie Software unter der Lizenz GNU GPL v3.

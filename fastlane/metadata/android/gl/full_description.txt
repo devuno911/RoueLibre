@@ -1,0 +1,34 @@
+Roue Libre mostra nun mapa as estacións de bicis compartidas e calcula a mellor ruta porta a porta: a pé, en bici, a pé.
+
+Todo pasa no teléfono: o mapa, a busca de enderezos e o cálculo de rutas non precisan ningunha conexión. Só a dispoñibilidade das bicis en tempo real pasa pola rede, e lese directamente no servidor do operador.
+
+<b>A mellor ruta, non a estación máis próxima</b>
+
+• As estacións de saída e de chegada escóllense xuntas, segundo a dispoñibilidade en directo: bicis que coller nun extremo, espazos libres para devolvela no outro.
+• Unha estación case baleira conta menos, porque pode quedar baleira mentres camiñas.
+• Onde a rede ofrece bicis mecánicas e eléctricas, escolles cal queres, e só contan as estacións que de verdade teñen unha.
+• A ruta segue os carrís bici e ten en conta o desnivel.
+
+<b>Un mapa feito para a bici</b>
+
+Os carrís bici trazados á parte das rúas, os edificios públicos e os puntos de referencia para orientarse á vista, e en cada estación o que ofrece a rede: bicis mecánicas, eléctricas ou ambas.
+
+<b>Nada te rastrexa</b>
+
+• Ningún servizo de Google: nin Play Services, nin Firebase, nin Maps SDK.
+• Sen telemetría, sen rastrexadores, sen identificador, sen conta.
+• Sen historial: nin posicións nin destinos. O que buscas non sae do teléfono.
+
+<b>As cidades servidas</b>
+
+Máis de 350 redes en case 40 países, desde Vélib’ en París ata Citi Bike en Nova York, pasando por Montreal, Praga, Barcelona, Dubai e Bos Aires. Non se impón ningunha cidade: a aplicación proponche a túa a partir da túa posición, e podes gardar varias.
+
+Roue Libre só serve as redes que publican as súas estacións en formato GBFS, o estándar aberto das bicis compartidas, nun fluxo público e sen clave. Se falta a túa cidade, é que a súa rede non publica un fluxo así: é á rede ou á autoridade de transporte a quen hai que pedirllo.
+
+<b>Convén sabelo antes de instalar</b>
+
+O mapa, o grafo de rutas e o índice de enderezos non están na aplicación: descárganse unha soa vez, cando ti o decidas, e o seu peso indícase antes (unha decena de megabytes para unha cidade mediana, máis para unha capital). Son ficheiros de datos e nada máis, que tamén podes xerar ti mesmo cos scripts do repositorio.
+
+Roue Libre é unha aplicación independente, sen ningún vínculo coas redes que serve nin cos seus operadores.
+
+Software libre baixo a licenza GNU GPL v3.

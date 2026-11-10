@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Arabic translation.
+
+    English, in `values/`, is the source (SPEC §9); this file is a translation
+    of it, and it is complete. Translate the contents of the tags, never their
+    `name` attribute.
+
+    The register is Modern Standard Arabic — the register Android's own
+    Settings are written in — and the vocabulary is arbitrated by the system
+    lexicon taken from `framework-res.apk` and `Settings.apk`. Every term and
+    the reason it was picked are in `docs/glossary/ar.md`.
+
+    Typography:
+      · the script runs right to left; the layouts mirror on `start`/`end`;
+      · the comma is ، (U+060C) and the question mark ؟ (U+061F), never their
+        Latin shapes;
+      · a quotation is set in «…»;
+      · a value that opens on a placeholder or on a Latin word carries a
+        right-to-left mark in front of it, written `&#x200F;` so that it can be
+        seen while reading the file. It is what Android's own Arabic resources
+        do: a name or a figure standing at the head of the line would
+        otherwise drag the line into logical order, and "Careem BIKE يخدم"
+        would come out with the network's name on the wrong side;
+      · Arabic writes no apostrophe, so nothing here is escaped;
+      · **not a single digit is written in this file.** The application formats
+        every figure and Android serves Arabic-Indic digits on an Arabic
+        device (SPEC §9); a digit typed by hand would put two numbering
+        systems on one line. Where the English spells a number out — "forty
+        megabytes" — so does this file.
+
+    Plurals: Arabic distinguishes six categories — `zero`, `one`, `two`,
+    `few` (n % 100 = 3–10), `many` (n % 100 = 11–99) and `other` (all the
+    rest: 100, 101, 102, 200…). The rules are **modulo a hundred**, so 306
+    falls in `few` and 143 in `many`. The numeral is always written
+    here, and with a numeral in front of it the noun takes three shapes and
+    not six: the plural after `few`, the accusative singular after `many`, and
+    the plain singular after `zero`, `one` and `other`. Those three therefore
+    read alike, which is Arabic and not an oversight; `two` carries the dual.
+    `docs/glossary/ar.md` sets it out in full.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <!-- Main screen: the station list. -->
+    <string name="stations_title">المحطات</string>
+
+    <!-- The number of bikes available to borrow at a station. -->
+    <plurals name="bikes_available">
+        <item quantity="zero">&#x200F;%1$d دراجة</item>
+        <item quantity="one">&#x200F;%1$d دراجة</item>
+        <item quantity="two">&#x200F;%1$d دراجتان</item>
+        <item quantity="few">&#x200F;%1$d دراجات</item>
+        <item quantity="many">&#x200F;%1$d دراجةً</item>
+        <item quantity="other">&#x200F;%1$d دراجة</item>
+    </plurals>
+
+    <!-- The number of free docks to return a bike to. -->
+    <plurals name="docks_available">
+        <item quantity="zero">&#x200F;%1$d موقف شاغر</item>
+        <item quantity="one">&#x200F;%1$d موقف شاغر</item>
+        <item quantity="two">&#x200F;%1$d موقفان شاغران</item>
+        <item quantity="few">&#x200F;%1$d مواقف شاغرة</item>
+        <item quantity="many">&#x200F;%1$d موقفًا شاغرًا</item>
+        <item quantity="other">&#x200F;%1$d موقف شاغر</item>
+    </plurals>
+    <string name="docks_available_unlimited">&#x200F;المواقف الشاغرة: بلا حدود</string>
+
+    <!-- Spoken by screen readers on a station's indicator. -->
+    <string name="station_content_description">&#x200F;%1$s، %2$s، %3$s</string>
+    <string name="station_content_description_bikes_only">&#x200F;%1$s، %2$s</string>
+
+    <string name="station_out_of_service">خارج الخدمة</string>
+    <string name="station_out_of_service_since">%1$s · آخر تحديث %2$s</string>
+    <string name="station_availability_unknown">التوفّر غير معروف</string>
+
+    <!-- What a station is called when its feed publishes no name for it and no
+         street to stand in for one. -->
+    <string name="station_unnamed">محطة بلا اسم</string>
+
+    <!-- A station the network publishes outside the area its data covers. The
+         short form joins the rest of the row. -->
+    <string name="station_beyond_area_short">خارج الخريطة</string>
+    <string name="station_beyond_area">تقع هذه المحطة خارج المنطقة التي تغطّيها البيانات المثبّتة. تُحتسب دراجاتها مباشرةً، لكن لا خريطة ولا مسار يصل إليها.</string>
+
+    <!-- The search field above the list. It filters stations by name; the
+         address search is a different screen (SPEC §4.3). -->
+    <string name="search_stations_hint">البحث عن محطة</string>
+    <string name="search_stations_clear">محو البحث</string>
+    <string name="stations_no_match_title">لم يتم العثور على أي محطة</string>
+    <string name="stations_no_match_message">لا شيء يطابق «%1$s». تحقّق من الإملاء، أو امحُ البحث.</string>
+    <string name="action_clear_search">محو البحث</string>
+
+    <string name="mode_bikes">الدراجات</string>
+    <string name="mode_docks">المواقف الشاغرة</string>
+
+    <!-- Which bikes the markers count, where the network lends both kinds
+         (SPEC §7.1). -->
+    <string name="map_bikes_all_kinds">كل الدراجات</string>
+    <string name="map_bikes_mechanical">تقليدية</string>
+    <string name="map_bikes_electric">كهربائية</string>
+    <string name="map_bikes_all_kinds_description">تُحتسب كل الدراجات. انقر لاحتساب التقليدية وحدها.</string>
+    <string name="map_bikes_mechanical_description">تُحتسب الدراجات التقليدية. انقر لاحتساب الكهربائية وحدها.</string>
+    <string name="map_bikes_electric_description">تُحتسب الدراجات الكهربائية. انقر لاحتسابها كلها.</string>
+
+    <!-- The label under, or beside, a count. No item holds a number: the
+         figure is painted next to these words already.
+         Two things decide what goes in each item, and neither is the tamyiz.
+         `zero` is what an unknown count resolves to — `StationDetailSheet`
+         and `StationAdapter` both call `getQuantityString(…, count ?: 0)` and
+         both say an unknown count reads as the plural — so it carries the
+         plural and not the singular. And on a list row the label is stacked
+         under the figure, set in `TextAppearance.RoueLibre.Label`, and read
+         as a word standing on its own. So `many` is written bare, without
+         the accusative tanwin the same word carries in `bikes_available`
+         where the numeral really is beside it — and `two` drops the dual for
+         the same reason, the dual being the strongest numeral agreement of
+         all: it says "two" itself, and `دراجتان` stacked under a ٢ repeats
+         the figure instead of naming the thing counted. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="zero">دراجات</item>
+        <item quantity="one">دراجة</item>
+        <item quantity="two">دراجات</item>
+        <item quantity="few">دراجات</item>
+        <item quantity="many">دراجة</item>
+        <item quantity="other">دراجة</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="zero">مواقف شاغرة</item>
+        <item quantity="one">موقف شاغر</item>
+        <item quantity="two">مواقف شاغرة</item>
+        <item quantity="few">مواقف شاغرة</item>
+        <item quantity="many">موقف شاغر</item>
+        <item quantity="other">موقف شاغر</item>
+    </plurals>
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list. %1$s is the
+         distance to the station, or its postcode when the position is not
+         known. %2$d is the number of docking points, all of them. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="zero">&#x200F;%1$s · %2$d موقف</item>
+        <item quantity="one">&#x200F;%1$s · %2$d موقف</item>
+        <item quantity="two">&#x200F;%1$s · %2$d موقفان</item>
+        <item quantity="few">&#x200F;%1$s · %2$d مواقف</item>
+        <item quantity="many">&#x200F;%1$s · %2$d موقفًا</item>
+        <item quantity="other">&#x200F;%1$s · %2$d موقف</item>
+    </plurals>
+
+    <!-- What a station's bikes are, where the network lends both kinds. Each
+         count is read on its own, so each carries its noun. -->
+    <string name="station_bikes_split">&#x200F;%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="zero">&#x200F;%1$d دراجة تقليدية</item>
+        <item quantity="one">&#x200F;%1$d دراجة تقليدية</item>
+        <item quantity="two">&#x200F;%1$d دراجتان تقليديتان</item>
+        <item quantity="few">&#x200F;%1$d دراجات تقليدية</item>
+        <item quantity="many">&#x200F;%1$d دراجةً تقليديةً</item>
+        <item quantity="other">&#x200F;%1$d دراجة تقليدية</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="zero">&#x200F;%1$d دراجة كهربائية</item>
+        <item quantity="one">&#x200F;%1$d دراجة كهربائية</item>
+        <item quantity="two">&#x200F;%1$d دراجتان كهربائيتان</item>
+        <item quantity="few">&#x200F;%1$d دراجات كهربائية</item>
+        <item quantity="many">&#x200F;%1$d دراجةً كهربائيةً</item>
+        <item quantity="other">&#x200F;%1$d دراجة كهربائية</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">&#x200F;%1$d%%</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">البطارية %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">يبقى نحو %1$s من المدى</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">البطارية من %1$s إلى %2$s</string>
+    <string name="station_bikes_range_spread">يبقى نحو %1$s إلى %2$s من المدى</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">تفاصيل الدراجات في هذه المحطة</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">تنشر شبكة الدراجات هذه القائمة في تدفّق خاص بها، منفصل عن العدد أعلاه، وهما هنا متعارضان. تعرض Roue Libre كلًّا منهما كما نُشر بدل أن تختار بينهما.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">محجوزة</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="zero">&#x200F;%1$d دراجة خارج الخدمة</item>
+        <item quantity="one">&#x200F;%1$d دراجة خارج الخدمة</item>
+        <item quantity="two">&#x200F;%1$d دراجتان خارج الخدمة</item>
+        <item quantity="few">&#x200F;%1$d دراجات خارج الخدمة</item>
+        <item quantity="many">&#x200F;%1$d دراجةً خارج الخدمة</item>
+        <item quantity="other">&#x200F;%1$d دراجة خارج الخدمة</item>
+    </plurals>
+
+    <!-- How old the availability figures are. -->
+    <string name="freshness_just_now">للتو</string>
+    <plurals name="freshness_seconds">
+        <item quantity="zero">قبل %1$d ثانية</item>
+        <item quantity="one">قبل %1$d ثانية</item>
+        <item quantity="two">قبل %1$d ثانيتين</item>
+        <item quantity="few">قبل %1$d ثوانٍ</item>
+        <item quantity="many">قبل %1$d ثانيةً</item>
+        <item quantity="other">قبل %1$d ثانية</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="zero">قبل %1$d دقيقة</item>
+        <item quantity="one">قبل %1$d دقيقة</item>
+        <item quantity="two">قبل %1$d دقيقتين</item>
+        <item quantity="few">قبل %1$d دقائق</item>
+        <item quantity="many">قبل %1$d دقيقةً</item>
+        <item quantity="other">قبل %1$d دقيقة</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="zero">قبل %1$d ساعة</item>
+        <item quantity="one">قبل %1$d ساعة</item>
+        <item quantity="two">قبل %1$d ساعتين</item>
+        <item quantity="few">قبل %1$d ساعات</item>
+        <item quantity="many">قبل %1$d ساعةً</item>
+        <item quantity="other">قبل %1$d ساعة</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="zero">قبل %1$d يوم</item>
+        <item quantity="one">قبل %1$d يوم</item>
+        <item quantity="two">قبل %1$d يومين</item>
+        <item quantity="few">قبل %1$d أيام</item>
+        <item quantity="many">قبل %1$d يومًا</item>
+        <item quantity="other">قبل %1$d يوم</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="zero">قبل %1$d شهر</item>
+        <item quantity="one">قبل %1$d شهر</item>
+        <item quantity="two">قبل %1$d شهرين</item>
+        <item quantity="few">قبل %1$d أشهر</item>
+        <item quantity="many">قبل %1$d شهرًا</item>
+        <item quantity="other">قبل %1$d شهر</item>
+    </plurals>
+    <string name="freshness_stale">بيانات متجمّدة · %1$s</string>
+    <string name="freshness_fresh">تم التحديث %1$s</string>
+    <string name="freshness_never">لم يتم التحديث قط</string>
+    <string name="freshness_loading">جارٍ تحميل المحطات…</string>
+
+    <string name="stations_empty_title">لم تُحمَّل أي محطة</string>
+    <string name="stations_empty_message">اسحب القائمة إلى الأسفل لجلب محطات شبكة الدراجات.</string>
+    <string name="action_refresh">تحديث</string>
+    <string name="action_retry">إعادة المحاولة</string>
+
+    <string name="map_open_list">عرض قائمة المحطات</string>
+    <string name="map_description">خريطة. اسحبها بإصبعين لتحريكها، واقرص بإصبعين للتكبير أو التصغير، وأدر إصبعيك لتدويرها، واسحب إصبعيك لأعلى أو لأسفل لإمالتها.</string>
+    <string name="map_attribution">&#x200F;© مساهمو OpenStreetMap</string>
+    <string name="map_locate_me">تحديد موقعي</string>
+    <string name="map_locating">جارٍ تحديد موقعك…</string>
+    <string name="map_location_denied">بدون الموقع الجغرافي، اختر نقطة انطلاقك على الخريطة أو بالعنوان.</string>
+    <string name="map_location_unavailable">الموقع غير متاح. تأكّد من تفعيل الموقع الجغرافي، ثم أعد المحاولة.</string>
+    <string name="map_outside_city_title">أنت في مكان آخر</string>
+    <!-- %1$s is the network and its conurbation, "V'lille — Lille" (cityLabel). -->
+    <string name="map_outside_city_message">يقع موقعك خارج المنطقة التي يغطّيها %1$s، فلا تستطيع هذه الخريطة إظهاره. اختر المدينة التي أنت فيها لرؤية محطاتها.</string>
+    <string name="map_outside_city_brief">يقع موقعك خارج المنطقة التي يغطّيها %1$s.</string>
+    <string name="map_needs_tiles_title">تحتاج الخريطة إلى بياناتها للعمل دون اتصال</string>
+    <string name="map_needs_tiles_message">ثبّت بيانات الخريطة من شاشة التخزين. وفي هذه الأثناء تبقى قائمة المحطات صالحة للاستخدام.</string>
+    <string name="map_downloading_title">جارٍ تنزيل الخريطة</string>
+    <string name="map_downloading_message">ستظهر هنا فور تثبيتها. وفي هذه الأثناء تبقى قائمة المحطات صالحة للاستخدام.</string>
+    <string name="map_needs_city_title">أي مدينة؟</string>
+    <string name="map_needs_city_message">اختر التجمّع الحضري الذي تريد استخدامه. تُنزَّل بياناته بعد ذلك، مرّة واحدة نهائيًا.</string>
+    <string name="map_city_withdrawn_title">الشبكة لم تعد متاحة</string>
+    <string name="map_city_withdrawn_message">لم تعد %1$s متاحة، ولم تعد محطاتها تُعرض. اختر مدينة أخرى. يمكن حذف البيانات التي تركتها على هذا الجهاز من قائمة المدن.</string>
+    <string name="map_city_withdrawn_message_unnamed">الشبكة التي اخترتها لم تعد متاحة، ولم تعد محطاتها تُعرض. اختر مدينة أخرى. يمكن حذف البيانات التي تركتها على هذا الجهاز من قائمة المدن.</string>
+    <string name="map_city_newer_version_message">%1$s متاحة في إصدار أحدث من التطبيق، ولا تُعرض محطاتها في هذا الإصدار. حدّث التطبيق أو اختر مدينة أخرى.</string>
+    <string name="city_choose_another">اختيار مدينة أخرى</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">التوجيه نحو الشمال وتسوية الخريطة</string>
+    <plurals name="map_bearing_description">
+        <item quantity="zero">الخريطة مُدارة بمقدار %1$d درجة عن الشمال.</item>
+        <item quantity="one">الخريطة مُدارة بمقدار %1$d درجة عن الشمال.</item>
+        <item quantity="two">الخريطة مُدارة بمقدار %1$d درجتين عن الشمال.</item>
+        <item quantity="few">الخريطة مُدارة بمقدار %1$d درجات عن الشمال.</item>
+        <item quantity="many">الخريطة مُدارة بمقدار %1$d درجةً عن الشمال.</item>
+        <item quantity="other">الخريطة مُدارة بمقدار %1$d درجة عن الشمال.</item>
+    </plurals>
+    <string name="map_tilted_description">الخريطة مائلة.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="zero">الخريطة مُدارة بمقدار %1$d درجة عن الشمال، وهي مائلة.</item>
+        <item quantity="one">الخريطة مُدارة بمقدار %1$d درجة عن الشمال، وهي مائلة.</item>
+        <item quantity="two">الخريطة مُدارة بمقدار %1$d درجتين عن الشمال، وهي مائلة.</item>
+        <item quantity="few">الخريطة مُدارة بمقدار %1$d درجات عن الشمال، وهي مائلة.</item>
+        <item quantity="many">الخريطة مُدارة بمقدار %1$d درجةً عن الشمال، وهي مائلة.</item>
+        <item quantity="other">الخريطة مُدارة بمقدار %1$d درجة عن الشمال، وهي مائلة.</item>
+    </plurals>
+
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">يعرض هذا التطبيق الدراجات المشتركة على خريطة، ويحسب رحلة من الباب إلى الباب: مشي إلى محطة، ثم ركوب، ثم مشي لبقية الطريق.\n\nهو حرّ ومفتوح المصدر. لا حساب، لا إعلانات، لا متتبّعات.</string>
+    <string name="welcome_privacy_title">لا شيء يغادر هذا الهاتف</string>
+    <string name="welcome_privacy_body">تُحسب الرحلات على هذا الهاتف. والعناوين التي تبحث عنها لا تُرسل إلى أحد، ولا حتى أثناء الكتابة.\n\nلا يُحفظ أي سجلّ: لا رحلاتك، ولا مواقعك، ولا وجهاتك.\n\nالطلب الوحيد الذي يخرج في الاستخدام اليومي يسأل عن عدد الدراجات المتاحة.</string>
+    <string name="welcome_fleet_title">ما تقوله الدراجة</string>
+    <string name="welcome_fleet_body">الدراجة المرسومة تخبرك بما تُعيره مدينتك.\n\nتُقرأ من تدفّق بيانات شبكة الدراجات نفسها، ولا تُخمَّن أبدًا.</string>
+    <string name="welcome_fleet_mechanical_only">تُعير شبكة الدراجات دراجات تقليدية فقط.</string>
+    <string name="welcome_fleet_electric_only">تُعير شبكة الدراجات دراجات كهربائية فقط.</string>
+    <string name="welcome_fleet_mixed">تُعير شبكة الدراجات النوعين معًا.</string>
+
+    <string name="welcome_data_title">مدينة واحدة، تنزيل واحد</string>
+    <string name="welcome_data_body">الخريطة والشوارع وحساب المسارات تعمل كلها على الجهاز. هذا ما يجعلها تعمل بلا شبكة — وهو ما يعني تنزيل بيانات مدينتك مرّة واحدة.\n\nلذا ابدأ باختيارها. توقّع نحو أربعين ميغابايت لتجمّع حضري متوسط الحجم، وأكثر لعاصمة؛ ويُعلَن الحجم قبل التنزيل.\n\nويمكنك أن تفعل ذلك لاحقًا: في هذه الأثناء تبقى قائمة المحطات وتوفّرها صالحين للاستخدام.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">&#x200F;%1$d من %2$d</string>
+    <string name="welcome_continue">متابعة</string>
+    <string name="welcome_skip">التخطي</string>
+    <string name="welcome_choose_city">اختيار مدينتي</string>
+    <string name="welcome_later">لاحقًا</string>
+    <string name="welcome_open">إعادة قراءة المقدّمة</string>
+
+    <string name="whats_new_title">ما الجديد</string>
+    <string name="whats_new_done">متابعة</string>
+    <string name="whats_new_nothing">لا تحمل هذه النسخة أي ملاحظات إصدار.</string>
+    <string name="whats_new_open">الاطّلاع على الجديد</string>
+
+    <string name="incoming_place_default_label">مكان مُستلَم</string>
+    <string name="incoming_show_me">إظهار</string>
+    <string name="incoming_needs_index">يجب البحث عن هذا العنوان في فهرس العناوين، وهو غير مثبّت.</string>
+    <string name="incoming_address_not_found">&#x200F;«%1$s» لا يطابق أي عنوان في المنطقة المغطّاة.</string>
+    <string name="incoming_address_choices_title">هل تقصد أحد هذه العناوين؟</string>
+    <string name="incoming_address_choice">&#x200F;%1$s\n&#x200F;%2$s</string>
+    <string name="incoming_outside_coverage">يقع هذا المكان خارج المنطقة التي تغطّيها البيانات المثبّتة: لا يمكن لأي رحلة الوصول إليه.</string>
+    <string name="incoming_unreadable_link">لا يقول هذا الرابط إلى أين نذهب: تعذّرت قراءة المكان الوارد فيه.</string>
+
+    <string name="favourites_title">المفضّلة</string>
+    <string name="stations_all_title">كل المحطات</string>
+    <string name="stations_favourites_reorder">إعادة الترتيب</string>
+    <string name="stations_favourites_fold">إخفاء المفضّلة</string>
+    <string name="stations_favourites_unfold">إظهار المفضّلة</string>
+    <string name="favourites_reorder_hint">اضغط مطوّلاً على صفّ لتحريكه.</string>
+
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_open">الإعدادات</string>
+    <!-- The section titles of the settings screen (SPEC §7.6). -->
+    <string name="settings_section_city">المدينة</string>
+    <string name="settings_section_journey">الرحلة</string>
+    <string name="settings_section_display">العرض</string>
+    <string name="settings_section_data">البيانات دون اتصال</string>
+
+    <!-- The walking pace (SPEC §6, §7.6). A pace, وتيرة, and never a speed:
+         سرعة would say the opposite of what the English string is for. -->
+    <string name="settings_walking_pace_title">وتيرة المشي</string>
+    <string name="settings_walking_pace_slow">بطيئة</string>
+    <string name="settings_walking_pace_normal">عادية</string>
+    <string name="settings_walking_pace_brisk">نشيطة</string>
+    <string name="settings_walking_pace_description">الوتيرة التي تُحسب بها أجزاء المشي من الرحلة</string>
+
+    <string name="settings_theme_title">المظهر</string>
+    <string name="settings_theme_system">النظام</string>
+    <string name="settings_theme_light">فاتح</string>
+    <string name="settings_theme_dark">داكن</string>
+
+    <!-- Units (SPEC §7.6). The buttons name the units, not the countries. -->
+    <string name="settings_units_title">الوحدات</string>
+    <string name="settings_units_system">النظام</string>
+    <string name="settings_units_metric">م · كم</string>
+    <string name="settings_units_us">قدم · ميل</string>
+    <string name="settings_units_uk">ياردة · ميل</string>
+    <string name="settings_units_description">الوحدات المستخدمة للمسافات</string>
+    <string name="settings_units_system_description">اتّباع المنطقة التي ضُبط عليها الجهاز</string>
+    <string name="settings_units_metric_description">الأمتار والكيلومترات</string>
+    <string name="settings_units_us_description">الأقدام والأميال</string>
+    <string name="settings_units_uk_description">الياردات والأميال</string>
+
+    <string name="about_title">لمحة عن التطبيق</string>
+    <string name="about_open">لمحة عن التطبيق</string>
+    <string name="about_version">الإصدار %1$s</string>
+    <string name="about_privacy_title">الخصوصية</string>
+    <string name="about_privacy_body">لا حساب، لا إعلانات، لا متتبّعات، لا معرّف فريد. لا شيء تبحث عنه أو يُحسب لك يغادر هذا الهاتف: العناوين والرحلات وموقعك تبقى هنا، ولا تُحفظ. والطلب الوحيد الذي يخرج في الاستخدام اليومي يجلب توفّر الدراجات. أما مجموعات البيانات فلا تُنزَّل إلا حين تطلبها.</string>
+    <string name="about_attributions_title">مصادر البيانات</string>
+    <string name="about_attribution_gbfs">توفّر الدراجات: البيانات المفتوحة لشبكة الدراجات المخدومة، منشورة بصيغة GBFS. وفي فرنسا تُفهرَس على transport.data.gouv.fr.</string>
+    <string name="about_attribution_osm">الخريطة والمسارات والمعالم: © مساهمو OpenStreetMap، رخصة ODbL.</string>
+    <string name="about_attribution_ban">العناوين وأرقام المنازل: Base Adresse Nationale، رخصة ODbL.</string>
+    <string name="about_attribution_geonames">أسماء البلديات: GeoNames، رخصة CC BY 4.0.</string>
+    <string name="about_attribution_brouter">المسارات: BRouter، رخصة MIT، فوق بيانات OpenStreetMap.</string>
+    <string name="about_attribution_maplibre">رسم الخريطة: MapLibre Native، رخصة BSD ذات البندين.</string>
+    <string name="about_links_title">فتح مكان من تطبيق آخر</string>
+    <string name="about_links_body">تصل روابط «geo:» والعناوين المشارَكة نصًّا عاديًا إلى هنا مباشرةً: اختر Roue Libre في أداة الاختيار في Android. أما الروابط الآتية من مواقع الخرائط فتحتاج إلى إذن: الإعدادات ← التطبيقات ← Roue Libre ← الفتح تلقائيًا ← إضافة رابط.</string>
+    <string name="about_licence_title">الترخيص</string>
+    <string name="about_licence_body">&#x200F;Roue Libre برنامج حرّ، صادر بموجب رخصة GNU GPL الإصدار الثالث. لك أن تستخدمه وتدرسه وتعدّله وتنقله إلى غيرك.</string>
+    <string name="about_open_repository">عرض الشيفرة المصدرية</string>
+    <string name="about_open_sources">المصادر مدينةً مدينةً</string>
+    <string name="about_open_licences">تراخيص المكوّنات</string>
+    <string name="donate_open">تبرّع عبر Liberapay</string>
+
+    <string name="sources_title">مصادر البيانات</string>
+    <string name="sources_intro">يأتي التوفّر من شبكة كل مدينة، في صورة بيانات مفتوحة. وفي ما يلي من يُنتجها، بما في ذلك للمدن التي لم تثبّتها.</string>
+    <string name="sources_open">فتح المصدر</string>
+    <string name="about_licences_title">التراخيص</string>
+    <string name="about_no_browser">لا يوجد متصفّح مثبّت على هذا الجهاز.</string>
+
+    <string name="journey_title">الرحلة</string>
+    <string name="journey_open">تخطيط رحلة</string>
+    <string name="journey_origin_empty">من أين تنطلق؟</string>
+    <string name="journey_destination_empty">إلى أين تذهب؟</string>
+    <string name="journey_choose_origin">من أين تنطلق؟</string>
+    <string name="journey_choose_destination">إلى أين تذهب؟</string>
+    <string name="journey_swap">تبديل نقطة الانطلاق والوجهة</string>
+    <string name="journey_hint">تُحسب الرحلة على الجهاز: مشي إلى محطة، ثم ركوب، ثم مشي لبقية الطريق.</string>
+    <!-- The switch that leaves the network out of the journey, and the
+         sentence that replaces the one above it when it is on (SPEC §7.3). -->
+    <string name="journey_own_bike">ركوب دراجتي الخاصة</string>
+    <string name="journey_hint_own_bike">تُحسب الرحلة على الجهاز: ركوب واحد من الباب إلى الباب، بلا محطة في الطريق.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">دراجة خارج المحطات</string>
+    <string name="journey_origin_street_bike_locked">تبدأ الرحلة من الدراجة التي اخترتها.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">تُحسب الرحلة على الجهاز: ركوب من الدراجة، ثم تركها في محطة، ثم مشي لبقية الطريق.</string>
+
+    <!-- Which bike one wants to ride (SPEC §7.3). -->
+    <string name="journey_bike_kind_any">أي دراجة</string>
+    <string name="journey_bike_kind_mechanical">تقليدية</string>
+    <string name="journey_bike_kind_electric">كهربائية</string>
+    <string name="journey_bike_kind_any_description">أي دراجة، مهما كان نوعها</string>
+    <string name="journey_bike_kind_mechanical_description">دراجة أدوسها بنفسي</string>
+    <string name="journey_bike_kind_electric_description">دراجة تساعدني كهربائيًا حين أدوس</string>
+    <string name="journey_compute">حساب الرحلة</string>
+    <string name="journey_computing">جارٍ حساب أفضل رحلة…</string>
+    <!-- Nothing is being chosen here — one route to trace, not a pair of
+         stations to weigh — so the wait does not claim to be looking for the
+         best of anything. -->
+    <string name="journey_computing_own_bike">جارٍ حساب الركوب…</string>
+    <string name="journey_source_home">المنزل</string>
+    <string name="journey_source_work">العمل</string>
+    <string name="journey_source_my_position">موقعي</string>
+    <string name="journey_locating">جارٍ تحديد موقعك…</string>
+    <string name="journey_source_favourite">محطة مفضّلة</string>
+    <string name="journey_source_on_map">نقطة على الخريطة</string>
+    <string name="journey_no_favourite">لا محطة مفضّلة بعد. افتح محطة وانقر النجمة لإضافتها.</string>
+    <string name="journey_pick_crosshair">النقطة المستهدَفة</string>
+    <string name="journey_pick_confirm">اختيار هذه النقطة</string>
+    <string name="journey_picked_point">نقطة على الخريطة</string>
+    <string name="journey_frame">إظهار الرحلة كاملةً</string>
+
+    <string name="journey_summary">منها %1$s مشيًا و%2$s ركوبًا · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. -->
+    <string name="journey_climb">&#x200F;%1$s صعودًا</string>
+    <!-- What waits at the station one sets off from (SPEC §7.4). %1$s is the
+         two counts, mechanical and electric, each already agreed in number. -->
+    <string name="journey_bikes_at_departure">&#x200F;%1$s في محطة الانطلاق</string>
+    <!-- The block holding the total time opens the journey in full. -->
+    <string name="journey_detail_open">عرض تفاصيل الرحلة</string>
+    <string name="journey_detail_title">الرحلة بالتفصيل</string>
+    <string name="journey_detail_departure_station">محطة الانطلاق</string>
+    <string name="journey_detail_arrival_station">محطة الوصول</string>
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">الركوب صعودًا وهبوطًا</string>
+    <!-- Read out in place of the drawing. -->
+    <string name="journey_detail_profile_description">يرتفع مسار الركوب %1$s، بين %2$s و%3$s فوق مستوى سطح البحر.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">يمتد مسار الركوب بين %1$s و%2$s فوق مستوى سطح البحر.</string>
+    <string name="journey_detail_availability_note">الدراجات والمواقف كما كانت لحظة حساب الرحلة.</string>
+    <string name="journey_detail_availability_note_bikes">الدراجات كما كانت لحظة حساب الرحلة.</string>
+    <!-- Hands one leg of the journey to another application. -->
+    <string name="journey_navigate">الفتح في تطبيق ملاحة</string>
+    <string name="journey_navigate_which">أي جزء من الرحلة؟</string>
+    <string name="journey_step_to_station">المشي إلى %1$s</string>
+    <string name="journey_step_ride">الركوب إلى %1$s</string>
+    <string name="journey_step_ride_electric_description">الركوب إلى %1$s بدراجة كهربائية</string>
+    <string name="journey_step_ride_mechanical_description">الركوب إلى %1$s بدراجة تقليدية</string>
+    <string name="journey_step_to_destination">المشي إلى الوجهة</string>
+    <string name="journey_step_walk_all">المشي إلى الوجهة</string>
+    <string name="journey_step_ride_all">الركوب إلى الوجهة</string>
+    <!-- The summary of a journey ridden on one's own bike: it sits under the
+         total time and says how far, and how much of it goes up. -->
+    <string name="journey_own_bike_only">على دراجتك الخاصة، على مسافة %1$s.</string>
+    <string name="journey_own_bike_only_climb">على دراجتك الخاصة، على مسافة %1$s وبصعود %2$s.</string>
+    <string name="journey_walk_only">سيرًا على الأقدام، على مسافة %1$s — لا رحلة بالدراجة ممكنة هنا.</string>
+    <string name="journey_walk_only_climb">سيرًا على الأقدام، على مسافة %1$s وبصعود %2$s — لا رحلة بالدراجة ممكنة هنا.</string>
+    <string name="journey_walk_is_quicker">سيرًا على الأقدام، على مسافة %1$s — أسرع من الذهاب لإحضار دراجة.</string>
+    <string name="journey_walk_is_quicker_climb">سيرًا على الأقدام، على مسافة %1$s وبصعود %2$s — أسرع من الذهاب لإحضار دراجة.</string>
+    <string name="journey_none_title">لا رحلة</string>
+    <string name="journey_no_bike_nearby">لا محطة فيها دراجة قرب نقطة الانطلاق. أعد المحاولة لاحقًا، أو انطلق من مكان آخر.</string>
+
+    <string name="journey_no_mechanical_nearby">لا محطة قريبة فيها دراجة تقليدية الآن. اطلب أي دراجة، أو أعد المحاولة لاحقًا.</string>
+    <string name="journey_no_electric_nearby">لا محطة قريبة فيها دراجة كهربائية الآن. اطلب أي دراجة، أو أعد المحاولة لاحقًا.</string>
+    <string name="journey_no_dock_nearby">لا محطة فيها موقف شاغر قرب الوجهة. أعد المحاولة لاحقًا، أو اقصد مكانًا آخر.</string>
+    <string name="journey_no_return_nearby">لا محطة قرب الوجهة تستقبل الدراجات الآن. أعد المحاولة لاحقًا، أو اقصد مكانًا آخر.</string>
+    <string name="journey_no_route">لا مسار سالك بين هاتين النقطتين.</string>
+    <string name="journey_graph_missing">بيانات المسارات غير مثبّتة. أضفها من شاشة التخزين.</string>
+    <string name="journey_outside_coverage">تقع هذه النقطة خارج المنطقة التي تغطّيها البيانات المثبّتة.</string>
+    <string name="journey_outside_coverage_start">تقع نقطة الانطلاق خارج المنطقة التي تغطّيها البيانات المثبّتة. انطلق من نقطة داخلها.</string>
+    <string name="journey_outside_coverage_destination">تقع الوجهة خارج المنطقة التي تغطّيها البيانات المثبّتة. اختر وجهة داخلها.</string>
+    <string name="journey_outside_coverage_both">لا تقع أي من النقطتين داخل المنطقة التي تغطّيها البيانات المثبّتة. ثبّت بيانات المدينة التي تتنقّل فيها.</string>
+    <string name="journey_no_stations">لا محطة معروفة. حدّث قائمة المحطات، ثم أعد المحاولة.</string>
+
+    <!-- Durations. Neither is a plural in the source, which writes "min" and
+         "h" and so needs no agreement; Arabic writes the word, and the word
+         agrees. The second keeps the source's shape and its padding and
+         names no unit at all: `س` was tried and dropped, Android's own Arabic
+         already using it for the year (`mtrl_picker_text_input_year_abbr`),
+         which is the argument that ruled out `د` for the minute. The first
+         cannot do the same: it takes the singular, which is right from
+         eleven minutes up and wrong from three to ten. `docs/glossary/ar.md`
+         says why, and says that the repair is a <plurals> in `values/`. -->
+    <string name="duration_minutes">&#x200F;%1$d دقيقة</string>
+    <string name="duration_hours_minutes">&#x200F;%1$d:%2$02d</string>
+
+    <!-- The docking points a station holds, all of them. -->
+    <plurals name="docks_total">
+        <item quantity="zero">&#x200F;%1$d موقف</item>
+        <item quantity="one">&#x200F;%1$d موقف</item>
+        <item quantity="two">&#x200F;%1$d موقفان</item>
+        <item quantity="few">&#x200F;%1$d مواقف</item>
+        <item quantity="many">&#x200F;%1$d موقفًا</item>
+        <item quantity="other">&#x200F;%1$d موقف</item>
+    </plurals>
+    <string name="station_capacity_and_age">&#x200F;%1$s · %2$s</string>
+    <string name="station_address_nearby">قرب %1$s</string>
+    <string name="station_favourite_add">إضافة إلى المفضّلة</string>
+    <string name="station_favourite_remove">إزالة من المفضّلة</string>
+    <string name="station_as_origin">الانطلاق من هنا</string>
+    <string name="station_as_destination">الذهاب إلى هنا</string>
+    <string name="station_open_in_navigation">الفتح في تطبيق ملاحة</string>
+    <string name="station_no_navigation_app">لا يوجد تطبيق خرائط مثبّت على هذا الجهاز.</string>
+
+    <string name="address_search_title">البحث عن عنوان</string>
+    <!-- Written in the order Arabic writes an address — number, then street,
+         then town — which `AddressQuery.parseQuery` reads first of the three
+         positions it knows (SPEC §4.3), and which is the order the results
+         under the field are laid out in, Arabic having no row of its own in
+         `AddressLayout` and falling on the default. It invites one number and
+         no postcode. -->
+    <string name="address_search_hint">الرقم، الشارع، المدينة</string>
+    <string name="address_search_clear">محو البحث</string>
+    <string name="address_search_privacy">يجري البحث كله على الجهاز. لا شيء يُرسل، ولا حتى أثناء الكتابة.</string>
+    <string name="address_locality">&#x200F;%1$s %2$s</string>
+    <string name="address_detail">&#x200F;%1$s · %2$s</string>
+    <string name="address_detail_approximate">&#x200F;%1$s · موقع تقريبي</string>
+    <string name="address_content_description">&#x200F;%1$s، %2$s</string>
+    <string name="address_search_prompt_title">إلى أين تذهب؟</string>
+    <!-- "Stations" here are railway and metro stations, not bike ones. -->
+    <string name="address_search_prompt_message">اكتب اسم شارع، برقم أو بدونه. ويمكن البحث أيضًا عن محطات القطار والمترو والجامعات والميادين الرئيسية.</string>
+    <!-- Shown while a search runs and the screen has nothing else to show. -->
+    <string name="address_searching_title">جارٍ البحث…</string>
+    <string name="address_searching_message">يجري تفحّص العناوين المثبّتة على هذا الجهاز.</string>
+    <string name="address_no_match_title">لم يتم العثور على أي عنوان</string>
+    <string name="address_no_match_message">لا شيء يطابق «%1$s». جرّب اسم الشارع وحده، أو أضف المدينة.</string>
+    <string name="address_needs_index_title">يحتاج البحث إلى فهرس العناوين</string>
+    <string name="address_needs_index_message">ثبّت الفهرس من شاشة التخزين. يبقى على الجهاز ولا يخرج أبدًا على الشبكة.</string>
+    <string name="address_unreadable_title">فهرس العناوين غير قابل للقراءة</string>
+    <string name="map_picked_place_description">&#x200F;%1$s. انقر لمعرفة ما يمكنك فعله بهذا المكان.</string>
+
+    <string name="place_sheet_title">هذا المكان</string>
+    <string name="place_clear">محو هذه النقطة</string>
+
+    <!-- Distances, formatted through the localisation APIs (SPEC §9). %1$s is
+         a figure already rounded and already written in the reader's digits:
+         the translation places the symbol, never the number. Arabic writes
+         its own symbols, which is why these five are not left in Latin. -->
+    <string name="distance_metres">&#x200F;%1$s م</string>
+    <string name="distance_kilometres">&#x200F;%1$s كم</string>
+    <string name="distance_feet">&#x200F;%1$s قدم</string>
+    <string name="distance_yards">&#x200F;%1$s ياردة</string>
+    <string name="distance_miles">&#x200F;%1$s ميل</string>
+    <string name="action_back">رجوع</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">المدينة</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">الشبكة المخدومة: %1$s</string>
+    <string name="city_choose">اختيار مدينتي</string>
+    <string name="city_intro">اختر التجمّع الحضري الذي تريد استخدامه. تُثبَّت بياناته بعد ذلك، مرّة واحدة نهائيًا.</string>
+    <string name="city_locate_me">العثور على مدينتي</string>
+    <string name="city_active">قيد الاستخدام</string>
+    <plurals name="city_detail">
+        <item quantity="zero">&#x200F;%1$d محطة · %2$s للتنزيل</item>
+        <item quantity="one">&#x200F;%1$d محطة · %2$s للتنزيل</item>
+        <item quantity="two">&#x200F;%1$d محطتان · %2$s للتنزيل</item>
+        <item quantity="few">&#x200F;%1$d محطات · %2$s للتنزيل</item>
+        <item quantity="many">&#x200F;%1$d محطةً · %2$s للتنزيل</item>
+        <item quantity="other">&#x200F;%1$d محطة · %2$s للتنزيل</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="zero">&#x200F;%1$d محطة</item>
+        <item quantity="one">&#x200F;%1$d محطة</item>
+        <item quantity="two">&#x200F;%1$d محطتان</item>
+        <item quantity="few">&#x200F;%1$d محطات</item>
+        <item quantity="many">&#x200F;%1$d محطةً</item>
+        <item quantity="other">&#x200F;%1$d محطة</item>
+    </plurals>
+    <string name="city_detail_size_only">&#x200F;%1$s للتنزيل</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="zero">&#x200F;%1$d محطة · يُعلَن الحجم قبل التنزيل</item>
+        <item quantity="one">&#x200F;%1$d محطة · يُعلَن الحجم قبل التنزيل</item>
+        <item quantity="two">&#x200F;%1$d محطتان · يُعلَن الحجم قبل التنزيل</item>
+        <item quantity="few">&#x200F;%1$d محطات · يُعلَن الحجم قبل التنزيل</item>
+        <item quantity="many">&#x200F;%1$d محطةً · يُعلَن الحجم قبل التنزيل</item>
+        <item quantity="other">&#x200F;%1$d محطة · يُعلَن الحجم قبل التنزيل</item>
+    </plurals>
+    <string name="city_size_unknown">يُعلَن الحجم قبل التنزيل</string>
+    <string name="city_needs_newer_version">غير متوفرة في هذا الإصدار من التطبيق</string>
+    <string name="city_installed">&#x200F;%1$s مثبَّت على الجهاز</string>
+    <string name="city_label">&#x200F;%1$s — %2$s</string>
+    <string name="city_delete">حذف</string>
+    <!-- In these three, %1$s is the name of the network, which is not the name
+         of a city: most networks are named otherwise than their main city, and
+         thirty-six of them are simply called "nextbike". So no noun stands in
+         front of the placeholder. -->
+    <string name="city_delete_description">حذف بيانات %1$s</string>
+    <string name="city_delete_title">حذف هذه البيانات؟</string>
+    <string name="city_delete_body">ستُمحى كل بيانات %1$s المتاحة دون اتصال. وسيتعيّن عليك تنزيلها من جديد لاستخدامها.</string>
+    <string name="city_withdrawn">لم تعد متاحة</string>
+    <string name="city_withdrawn_delete_body">ستُمحى كل بيانات %1$s المتاحة دون اتصال. لم تعد هذه الشبكة متاحة، فلم يعد لهذه البيانات أي نفع.</string>
+    <string name="city_delete_confirm">حذف</string>
+    <string name="city_deleted">تم حذف بيانات %1$s</string>
+    <string name="city_search_hint">البحث عن مدينة</string>
+    <string name="city_search_clear">محو البحث</string>
+    <string name="city_country_filter">الدولة</string>
+    <string name="city_country_all">كل الدول</string>
+    <string name="city_no_match_title">لم يتم العثور على أي مدينة</string>
+    <string name="city_no_match_message">لا شيء يطابق «%1$s». تحقّق من الإملاء، أو امحُ البحث.</string>
+    <string name="city_no_match_in_country">لا مدينة في البلد المختار، %2$s، تطابق «%1$s». توجد في بلدان أخرى.</string>
+    <string name="city_proposal_title">مدينتك</string>
+    <!-- Shown when the position says one is in another served conurbation than
+         the one installed. -->
+    <string name="city_here_title">أنت في مدينة أخرى</string>
+    <string name="city_here_body">يخدم %1$s المنطقة التي أنت فيها. ثبّت بياناته لرؤية محطاته وحساب الرحلات هنا.</string>
+    <string name="city_here_installed_body">يخدم %1$s المنطقة التي أنت فيها، وبياناته موجودة على الجهاز بالفعل.</string>
+    <string name="city_here_install">تثبيت بياناته</string>
+    <string name="city_here_use">استخدامه</string>
+    <string name="city_proposal_body">يبدو أنك في المنطقة التي يغطّيها %1$s. هل نعتمدها؟</string>
+    <string name="city_proposal_accept">نعم</string>
+    <string name="city_none_nearby">لا توجد شبكة دراجات معروفة قريبة من هنا. اختر مدينة من القائمة.</string>
+    <string name="city_location_denied">بدون تحديد الموقع، اختر مدينتك من القائمة أو ابحث عنها بالاسم.</string>
+    <string name="action_cancel">إلغاء</string>
+
+    <string name="size_bytes">&#x200F;%1$s بايت</string>
+    <string name="size_kilobytes">&#x200F;%1$s كيلوبايت</string>
+    <string name="size_megabytes">&#x200F;%1$s ميغابايت</string>
+    <string name="size_gigabytes">&#x200F;%1$s غيغابايت</string>
+
+    <string name="storage_title">التخزين</string>
+    <string name="storage_open">إدارة البيانات دون اتصال</string>
+    <string name="storage_intro">تعمل الخريطة ومخطّط الرحلات والبحث عن العناوين بلا شبكة. وهي تحتاج إلى ثلاث مجموعات بيانات، تُثبَّت مرّة واحدة.</string>
+    <string name="storage_total">&#x200F;%1$s مستخدَم على هذا الجهاز</string>
+    <string name="storage_nothing_installed">لا بيانات مثبّتة</string>
+    <string name="storage_no_city">لم تُختَر أي مدينة</string>
+    <string name="city_withdrawn_label">%1$s · لم تعد متاحة</string>
+    <string name="city_newer_version_label">%1$s · يلزم التحديث</string>
+
+    <string name="dataset_tiles">بيانات الخريطة</string>
+    <string name="dataset_tiles_purpose">لرسم الخريطة بلا شبكة</string>
+    <string name="dataset_routing">بيانات المسارات</string>
+    <string name="dataset_routing_purpose">لحساب الرحلات على الجهاز</string>
+    <string name="dataset_addresses">فهرس العناوين</string>
+    <string name="dataset_addresses_purpose">للبحث في الشوارع دون إرسال أي شيء</string>
+
+    <string name="storage_check_updates">البحث عن تحديثات</string>
+    <string name="storage_checking">جارٍ قراءة ملف البيان…</string>
+    <string name="storage_up_to_date">كل شيء محدَّث.</string>
+    <string name="storage_download_pending">تنزيل %1$s</string>
+    <string name="storage_download_starting">جارٍ بدء التنزيل…</string>
+    <string name="storage_downloading">&#x200F;%1$s · %2$s من %3$s</string>
+    <string name="storage_download_failed">&#x200F;%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">البيانات المنشورة هي بيانات %1$s وليست بيانات %2$s. لم يُنزَّل أي شيء: كنت ستحصل على خريطة مدينة أخرى وعناوينها بدلاً من مدينتك.</string>
+    <string name="storage_wifi_warning">لست متصلاً بشبكة Wi-Fi. وقد يثقل هذا التنزيل على باقة الجوّال.</string>
+    <string name="dataset_update_available">يتوفّر تحديث</string>
+    <string name="dataset_download_failed">فشل التنزيل. %1$s</string>
+
+    <string name="dataset_absent">لم يتم التثبيت</string>
+    <string name="dataset_installed">&#x200F;%1$s · %2$s</string>
+    <string name="dataset_import">استيراد ملف</string>
+    <string name="dataset_replace">استبدال بملف</string>
+    <string name="dataset_delete">حذف</string>
+    <string name="dataset_delete_description">حذف %1$s</string>
+    <string name="dataset_delete_title">حذف هذه البيانات؟</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">ستُمحى بيانات «%1$s»، ما يحرّر %2$s. وسيتعيّن عليك تنزيلها من جديد للعمل دون اتصال.</string>
+    <string name="dataset_imported">تم تثبيت %1$s</string>
+    <string name="dataset_deleted">تم حذف %1$s</string>
+
+    <string name="dataset_rejected_empty">الملف المختار فارغ.</string>
+    <string name="dataset_rejected_format">هذا ليس الملف المتوقَّع. اختر ملف «%1$s» الذي تنتجه النصوص البرمجية للتوليد.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">هذا الملف ليس «%1$s» ولا أي بيانات أخرى يقرأها التطبيق. اختر ملف «%2$s» الذي تنتجه النصوص البرمجية للتوليد.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">هذا الملف هو «%1$s» وليس «%2$s». استورده من سطره الخاص.</string>
+    <string name="dataset_rejected_version">هذا الملف بصيغة الإصدار %1$d، وهذه النسخة من التطبيق تقرأ الإصدار %2$d. حدّث التطبيق.</string>
+    <string name="dataset_rejected_checksum">لا يطابق الملف مجموعه الاختباري: فهو ناقص أو تالف. نزّله من جديد.</string>
+    <string name="dataset_rejected_transfer">فشل نسخ الملف. تحقّق من المساحة الحرّة وأعد المحاولة.</string>
+
+    <string name="error_offline">لا يتوفّر اتصال. يبقى آخر توفّر معروف على الشاشة.</string>
+    <string name="error_offline_no_availability">لا يتوفّر اتصال. لم يصل أي توفّر بعد، لذا لا شيء لعرضه.</string>
+    <!-- The same failures read on the storage screen, where a dataset
+         transfer failed rather than an availability refresh. The server is the
+         one hosting the files, not the bike network's, and those files come
+         down resumably (SPEC §4.4). -->
+    <string name="error_offline_download">لا يتوفّر اتصال. بعد عودة الاتصال، اضغط «تنزيل» لاستئناف التنزيل من حيث توقّف.</string>
+    <string name="error_timeout_download">لا يستجيب الخادم. اضغط «تنزيل» لاحقًا لاستئناف التنزيل من حيث توقّف.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">خطأ في الخادم (%1$d). اضغط «تنزيل» لاحقًا لاستئناف التنزيل من حيث توقّف.</string>
+    <string name="error_untrusted_server_download">شهادة أمان غير صالحة. بعد تجديدها، اضغط «تنزيل» لاستئناف التنزيل.</string>
+    <string name="error_malformed_download">وصل ملف غير قابل للقراءة. اضغط «تنزيل» لاحقًا لاستئناف التنزيل من حيث توقّف.</string>
+    <string name="error_local_storage_download">تعذّر حفظ الملف. حرّر بعض المساحة، ثم اضغط «تنزيل» لاستئناف التنزيل.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">لا يتوفّر اتصال. لم يجرِ أي تحقّق؛ أعد المحاولة بعد عودة الاتصال.</string>
+    <string name="error_timeout_check">لا يستجيب الخادم. لم يجرِ أي تحقّق؛ أعد المحاولة بعد قليل.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">خطأ في الخادم (%1$d). لم يجرِ أي تحقّق؛ أعد المحاولة لاحقًا.</string>
+    <string name="error_untrusted_server_check">شهادة أمان غير صالحة. لا يمكن إجراء أي تحقّق حتى تُجدَّد.</string>
+    <string name="error_malformed_check">قائمة البيانات المنشورة غير قابلة للقراءة. لم يجرِ أي تحقّق؛ أعد المحاولة لاحقًا.</string>
+    <string name="error_local_storage_check">تعذّرت قراءة البيانات المخزّنة على الجهاز. فلم تجرِ أي مقارنة.</string>
+    <string name="error_timeout">يستغرق خادم شبكة الدراجات وقتًا طويلاً للردّ. أعد المحاولة بعد قليل.</string>
+    <string name="error_server_refused">أعاد خادم شبكة الدراجات خطأً (%1$d). أعد المحاولة لاحقًا.</string>
+    <string name="error_untrusted_server">قدّم خادم شبكة الدراجات شهادة أمان غير صالحة. ولا يمكن جلب بياناته بأمان حتى يجدّدها المشغّل.</string>
+    <string name="error_malformed">البيانات الواردة غير قابلة للقراءة. الخلل في تدفّق بيانات شبكة الدراجات؛ أعد المحاولة لاحقًا.</string>
+    <string name="error_feed_unavailable">لا تنشر شبكة الدراجات تدفّق «%1$s».</string>
+    <string name="error_unsupported_version">تنشر هذه الشبكة بياناتها بالإصدار %1$s، وهو ما لا تستطيع هذه النسخة من التطبيق قراءته. حدّث التطبيق.</string>
+    <string name="error_local_storage">تعذّرت قراءة البيانات المخزّنة على الجهاز.</string>
+    <string name="error_no_city_chosen">لم تُختَر أي مدينة. اختر واحدة.</string>
+
+    <!-- Wi-Fi-only downloads. The setting names Wi-Fi, the word everybody
+         has, while what is read stays the billing; the line under the switch
+         names the two cases where they part ways: a phone's shared
+         connection, which is Wi-Fi and is a mobile plan, and a Wi-Fi with a
+         data cap, which declares itself billed. Android's own words for the
+         billing stay in that line and in the dialogues. -->
+    <string name="download_unmetered_only">التنزيل عبر Wi-Fi فقط</string>
+    <string name="download_unmetered_only_description">قد يُحتسب اتصال هاتف مشارَك أو شبكة Wi-Fi محدودة الباقة بالميغابايت، ويُعدّ شبكة جوّال.</string>
+    <string name="download_held_back_title">التنزيل عبر شبكة جوّال</string>
+    <!-- %1$s is a size. -->
+    <string name="download_held_back_body">قد يُحتسب هذا الاتصال بالميغابايت. اتصل بشبكة Wi-Fi لتنزيل %1$s، أو نزّله الآن على أي حال.</string>
+    <string name="download_stopped_title">توقّف التنزيل</string>
+    <!-- %1$s is a size. What has already arrived is kept on the device. -->
+    <string name="download_stopped_body">قد يُحتسب هذا الاتصال بالميغابايت، فتوقّف التنزيل. وما وصل محفوظ. اتصل بشبكة Wi-Fi لإكمال %1$s، أو تابع الآن على أي حال.</string>
+    <string name="download_anyway">التنزيل على أي حال</string>
+    <!-- %1$s is a size. -->
+    <string name="download_waiting_for_unmetered">في انتظار شبكة Wi-Fi لتنزيل %1$s.</string>
+    <string name="download_can_resume">لم يعد هذا الاتصال شبكة جوّال. ابدأ التنزيل من جديد: يتابع من حيث توقّف.</string>
+    <string name="download_connection_back">عاد الاتصال. اضغط «تنزيل» لاستئناف التنزيل من حيث توقّف.</string>
+
+    <string name="settings_opening_title">فتح التطبيق تلقائيًا على:</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">الشاشة التي يفتح عليها التطبيق</string>
+    <string name="settings_opening_map">الخريطة</string>
+    <string name="settings_opening_list">قائمة المحطات</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">عرض الخريطة</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">المحطات الأقرب أولًا</string>
+    <string name="stations_location_denied">بدون الموقع الجغرافي، تبقى المحطات مرتّبة أبجديًا.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge (SPEC §7.1). -->
+    <string name="settings_map_filters_title">المحطات التي تعرضها الخريطة</string>
+    <string name="settings_map_filters_hide_out_of_service">إخفاء المحطات الخارجة عن الخدمة</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Bikes / Free docks button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">إخفاء المحطات التي لا تقدّم شيئًا</string>
+    <!-- Under the switch, saying what "nothing" is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">يتبع «لا شيء» ما تحتسبه الخريطة: لا دراجة حين تحتسب الدراجات، ولا موقف شاغر حين تحتسب المواقف الشاغرة.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">«لا شيء» يعني لا دراجة: لا تحتسب الخريطة في هذه الشبكة إلا الدراجات.</string>
+    <string name="settings_bikes_past_capacity">المحطات الممتلئة تستقبل الدراجات</string>
+    <string name="settings_bikes_past_capacity_automatic">تلقائي</string>
+    <string name="settings_bikes_past_capacity_always">دائمًا</string>
+    <string name="settings_bikes_past_capacity_never">أبدًا</string>
+    <string name="settings_bikes_past_capacity_hint_detected">تلقائي: تترك هذه الشبكة دراجات بجوار محطاتها الممتلئة، لذا تُعَدّ المحطة الممتلئة محطةً يمكنك أن تعيد فيها دراجتك.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">تلقائي: لا شيء في بيانات هذه الشبكة يُظهر دراجات متروكة بجوار محطات ممتلئة، لذا تُعَدّ المحطة الممتلئة ممتلئة.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">تلقائي: بحسب بيانات هذه الشبكة، تستقبل محطاتها الدراجات حتى دون موقف شاغر.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">تلقائي: يُحدَّد من بيانات هذه الشبكة بمجرد تحميل محطاتها.</string>
+    <string name="settings_bikes_past_capacity_hint_always">تُعَدّ المحطة الممتلئة محطةً يمكنك أن تعيد فيها دراجتك. إذا كانت هذه الشبكة لا تسمح بذلك، فقد تنتهي الرحلة عند محطة ترفضها.</string>
+    <string name="settings_bikes_past_capacity_hint_never">تُعَدّ المحطة الممتلئة ممتلئة، أيًّا كان ما تُظهره بيانات هذه الشبكة.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">تُعَدّ المحطة التي لا موقف شاغر فيها ممتلئة. في هذه الشبكة لا تكاد أي محطة تُظهر موقفًا شاغرًا، لذا تبقى رحلات قليلة ممكنة.</string>
+    <!-- Under both switches. -->
+    <string name="settings_map_filters_keeps_unknown">تبقى على الخريطة المحطات التي لا تقول عنها شبكة الدراجات شيئًا: عدد لا يستطيع أحد قراءته ليس عددًا معدومًا.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">إظهار بطارية الدراجات في المحطات، والدراجات خارج المحطات</string>
+    <string name="settings_street_bikes_description">تحدّد شبكة الدراجات ما إذا كان يمكنك استعارة دراجة خارج المحطة حيث هي. يقرأ هذا تدفّق بيانات أثقل بكثير من تدفّق المحطات، ولا تُظهر شيئًا إلا شبكات الدراجات التي تنشره.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">دراجات خارج المحطات</string>
+    <string name="street_bike_intro_body">تشير شبكة الدراجات إلى هذه الدراجات بعيدًا عن محطاتها. بعضها تركه مستخدم هناك، وبعضها ينتظر في مستودع المشغّل.\n\nلا تعرف Roue Libre إن كان يحقّ لك أخذ واحدة حيث هي: قواعد شبكة الدراجات هي التي تقول ذلك، وبعض الشبكات تفرض غرامة على دراجة تُعاد خارج محطة.\n\nالرحلة المقترحة انطلاقًا من دراجة تنتهي دائمًا عند محطة.</string>
+    <string name="street_bike_intro_dismiss">فهمت</string>
+
+    <string name="bikes_past_capacity_title">تستقبل %1$s الدراجات حتى في المحطات الممتلئة</string>
+    <string name="bikes_past_capacity_body">في كثير من محطات هذه الشبكة تقف دراجات أكثر من عدد المواقف: يترك المستخدمون دراجاتهم بجوار محطة ممتلئة، فتستعيدها الشبكة.\n\nلذا تَعُدّ Roue Libre المحطة الممتلئة محطةً لا يزال بإمكانك أن تعيد فيها دراجتك، ولم تعد تعرض المواقف الشاغرة لهذه الشبكة.\n\nإذا رفضت محطة ممتلئة دراجتك، فأوقف هذا الخيار. يمكنك تغييره في أي وقت من الإعدادات.</string>
+    <string name="bikes_past_capacity_keep">إبقاء</string>
+    <string name="bikes_past_capacity_turn_off">إيقاف</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">ما هذه الدراجات</string>
+    <string name="street_bike_title">دراجة خارج المحطات</string>
+    <string name="street_bike_kind_mechanical">دراجة تقليدية</string>
+    <string name="street_bike_kind_electric">دراجة كهربائية</string>
+    <string name="street_bike_kind_cargo">دراجة شحن</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">البطارية %1$d%%</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">يبقى نحو %1$s من المدى</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">لم تعد هذه الدراجة مُبلَّغًا عنها هنا.</string>
+    <string name="street_bike_journey_from_here">رحلة من هذه الدراجة</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">دراجة خارج المحطات</string>
+    <string name="street_bike_marker_description_electric">دراجة كهربائية خارج المحطات</string>
+
+    <!-- The rider's OWN bike, not the network's. -->
+    <string name="settings_own_bike_kind_title">دراجتك الخاصة</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">نوع الدراجة التي تملكها</string>
+    <string name="settings_own_bike_kind_mechanical">تقليدية</string>
+    <string name="settings_own_bike_kind_electric">كهربائية</string>
+    <!-- Under the two buttons. -->
+    <string name="settings_own_bike_kind_hint">متى أُعلنت كهربائية، حصلت دراجتك على مسارها وأوقاتها الخاصة بها.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to
+         be a pedal-assist one. %1$s is a distance, %2$s a climb. -->
+    <string name="journey_own_bike_electric_only">على دراجتك الكهربائية الخاصة، على مسافة %1$s.</string>
+    <string name="journey_own_bike_electric_only_climb">على دراجتك الكهربائية الخاصة، على مسافة %1$s وبصعود %2$s.</string>
+
+    <!-- Application language. -->
+    <string name="settings_language_title">اللغة</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language. The languages themselves are never translated. -->
+    <string name="settings_language_system">النظام</string>
+    <!-- Spoken label of the row. %1$s is the language in service. -->
+    <string name="settings_language_description">لغة الواجهة: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">أماكني</string>
+    <string name="settings_place_home">المنزل</string>
+    <string name="settings_place_work">العمل</string>
+    <string name="settings_place_none">غير محدد</string>
+    <string name="settings_place_outside_city">خارج المدينة المخدومة</string>
+    <!-- %1$s is the setting, "المنزل" or "العمل". -->
+    <string name="settings_place_set">تعيين: %1$s</string>
+    <string name="settings_place_change">تغيير: %1$s</string>
+    <string name="settings_place_clear">حذف: %1$s</string>
+    <string name="settings_place_cleared">تم حذف %1$s</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">&#x200F;%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">عرض منزلي على الخريطة</string>
+    <string name="map_centre_on_work">عرض مكان عملي على الخريطة</string>
+    <string name="settings_places_markers">تمييز أماكني على الخريطة</string>
+    <string name="settings_places_buttons">زر على الخريطة لكل مكان</string>
+</resources>

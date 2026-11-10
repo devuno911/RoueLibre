@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Journey search (SPEC §7.3).
+
+    Two fields, a swap button between them, and nothing else: this is an entry
+    screen, not a dashboard. The compute button stays at the bottom, within
+    thumb reach.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/journey_title"
+        app:titleTextAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+    <!-- The end margin is carried twice, and it has to be: the swap button is
+         gone on a journey departing from a bike (SPEC §7.3), a gone view is a
+         point with no margin of its own, and the field then ran to the physical
+         edge of the screen while everything around it kept its sixteen. The
+         gone margin takes the swap button's over, so the screen's edge is the
+         same whether the button is there or not. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/origin"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_l"
+        android:gravity="start|center_vertical"
+        android:minHeight="@dimen/touch_target_min"
+        android:text="@string/journey_origin_empty"
+        app:layout_constraintEnd_toStartOf="@id/swap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_goneMarginEnd="@dimen/space_l" />
+
+    <!-- No start margin here: this field's edges are those of the one above.
+         A margin, applied on top of a constraint that already carries it,
+         shifted this field sixteen density-independent pixels to the right. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/destination"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_s"
+        android:gravity="start|center_vertical"
+        android:minHeight="@dimen/touch_target_min"
+        android:text="@string/journey_destination_empty"
+        app:layout_constraintEnd_toEndOf="@id/origin"
+        app:layout_constraintStart_toStartOf="@id/origin"
+        app:layout_constraintTop_toBottomOf="@id/origin" />
+
+    <!-- Origin / destination swap (SPEC §7.3), between the two fields and
+         to their right: the position says what the button exchanges. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/swap"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginStart="@dimen/space_s"
+        android:layout_marginEnd="@dimen/space_l"
+        android:contentDescription="@string/journey_swap"
+        app:icon="@drawable/ic_swap"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toBottomOf="@id/destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/origin" />
+
+    <!-- Riding one's own bike (SPEC §7.3): under the two points, because it
+         qualifies the journey they describe, and above the sentence that says
+         what the journey is made of — which this switch rewrites. -->
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/own_bike"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:minHeight="@dimen/touch_target_min"
+        android:text="@string/journey_own_bike"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destination" />
+
+    <!-- Which bike one wants to ride (SPEC §7.3): beside the switch above, for
+         the same reason it sits there — it qualifies the journey rather than
+         one of its points. Gone, not disabled, in a conurbation lending one
+         kind only, and gone again on one's own bike: it is the code that shows
+         it, never this file. -->
+    <io.github.mgdx.rouelibre.ui.ToggleRow
+        android:id="@+id/bike_kind"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_marginEnd="@dimen/space_l"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/own_bike"
+        app:selectionRequired="true"
+        app:singleSelection="true"
+        tools:visibility="visible">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bike_kind_any"
+            style="@style/Widget.RoueLibre.Toggle.Choice"
+            android:contentDescription="@string/journey_bike_kind_any_description"
+            android:text="@string/journey_bike_kind_any" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bike_kind_mechanical"
+            style="@style/Widget.RoueLibre.Toggle.Choice"
+            android:contentDescription="@string/journey_bike_kind_mechanical_description"
+            android:text="@string/journey_bike_kind_mechanical" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bike_kind_electric"
+            style="@style/Widget.RoueLibre.Toggle.Choice"
+            android:contentDescription="@string/journey_bike_kind_electric_description"
+            android:text="@string/journey_bike_kind_electric" />
+    </io.github.mgdx.rouelibre.ui.ToggleRow>
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:text="@string/journey_hint"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bike_kind" />
+
+    <!-- What is missing before any journey can be worked out (SPEC §7.8).
+         A place received from another application opens this screen without
+         anybody having installed a city first, and the screen said nothing of
+         it. These two take the illustration's place rather than come on top of
+         it: the drawing is decoration, and the reason nothing can be computed
+         is not. Shown by the code alone, never by this file. -->
+    <TextView
+        android:id="@+id/missing_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:text="@string/journey_graph_missing"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hint"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/missing_data_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_m"
+        android:minHeight="@dimen/touch_target_min"
+        android:text="@string/storage_open"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/missing_data"
+        tools:visibility="visible" />
+
+    <!-- The shape of a journey, under the sentence that describes it. Purely
+         decorative: it repeats what the text says, so a screen reader must not
+         read it a second time. -->
+    <ImageView
+        android:id="@+id/shape"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/illustration_journey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hint" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/compute"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_min"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:layout_marginBottom="@dimen/space_l"
+        android:enabled="false"
+        android:text="@string/journey_compute"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:enabled="true" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

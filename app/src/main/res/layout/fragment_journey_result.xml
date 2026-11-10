@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Journey result (SPEC §7.4).
+
+    The two ends stay at the top, where they were asked for and where they can
+    be corrected without going back. The map takes whatever room is left, and
+    the detail is anchored to the bottom edge: one reads the total time with the
+    thumb already on it, and the screen never shows a band of nothing under the
+    last line.
+
+    Held sideways there is no room left to stack the two, and the screen shares
+    its width instead: see `layout-land/`. The detail is the same block in both,
+    included from `view_journey_result_detail.xml`.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- No title: the screen says what it is by what it shows, and a whole bar
+         spent repeating the word "journey" pushed the two ends — the part one
+         comes here to read and to correct — a row further down. The way back
+         stays, on the row of the first field, so nothing is lost but the word. -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/touch_target_min"
+        app:layout_constraintBottom_toBottomOf="@id/origin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/origin"
+        app:navigationIcon="@drawable/ic_back" />
+
+    <!-- The two ends, in the shape the search screen gave them: a press
+         reopens the address search, and the answer recomputes the journey.
+
+         The end margin is carried twice, and it has to be: the swap button is
+         gone on a journey departing from a bike (SPEC §7.3), a gone view is a
+         point with no margin of its own, and the field then ran to the physical
+         edge of the screen while everything around it kept its sixteen. The
+         gone margin takes the swap button's over, so the screen's edge is the
+         same whether the button is there or not. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/origin"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_s"
+        android:gravity="start|center_vertical"
+        android:minHeight="@dimen/touch_target_min"
+        app:layout_constraintEnd_toStartOf="@id/swap"
+        app:layout_constraintStart_toEndOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginEnd="@dimen/space_l"
+        tools:text="12 bis Rue Nationale" />
+
+    <!-- No start margin here: this field's edges are those of the one above. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/destination"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_s"
+        android:gravity="start|center_vertical"
+        android:minHeight="@dimen/touch_target_min"
+        app:layout_constraintEnd_toEndOf="@id/origin"
+        app:layout_constraintStart_toStartOf="@id/origin"
+        app:layout_constraintTop_toBottomOf="@id/origin"
+        tools:text="Gare Lille Flandres" />
+
+    <!-- Origin / destination swap (SPEC §7.3), between the two fields and
+         to their right: the position says what the button exchanges. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/swap"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginStart="@dimen/space_s"
+        android:layout_marginEnd="@dimen/space_l"
+        android:contentDescription="@string/journey_swap"
+        app:icon="@drawable/ic_swap"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toBottomOf="@id/destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/origin" />
+
+    <!-- The map takes what the fields and the detail leave: no fixed ratio, so
+         a short detail widens the map instead of leaving a gap. -->
+    <io.github.mgdx.rouelibre.ui.map.DescribedMapView
+        android:id="@+id/map"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_s"
+        app:layout_constraintBottom_toTopOf="@id/detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destination" />
+
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/attribution"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/map_label_halo"
+        android:paddingStart="@dimen/space_s"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/space_s"
+        android:paddingBottom="2dp"
+        android:text="@string/map_attribution"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Label"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Back to the whole journey. It undoes what the button under it does:
+         once the map has come down onto the walker, or a pan has taken it off
+         the track, this is the way back to the shape of the journey without
+         recomputing it. Above "locate me" because it is the wider of the two
+         views, and it is hidden while there is no track to frame. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/frame_journey"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/journey_frame"
+        android:visibility="gone"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_frame_journey"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/locate_me"
+        app:layout_constraintEnd_toEndOf="@id/locate_me"
+        tools:visibility="visible" />
+
+    <!--
+        Face north (SPEC §7.1, §7.4), the same control as on the main map: a
+        map one can turn is turned the same way on both screens, and put back
+        the same way. It appears only once the map has been turned.
+
+        The main map seats it on the top row, to the left of the settings.
+        This screen has no settings button — one journey, one conurbation, and
+        nothing here to set — so what is carried over is the place and not the
+        neighbour: the map's own top corner, on the same side. The reason is
+        the one that put it there: a button that comes and goes must not push
+        about the ones that stay, and on that corner there is nothing under it
+        to push. Here the corner is the map's and not the screen's, the map
+        being only a part of this screen.
+
+        Ours and not MapLibre's own compass, for the reason DescribedMapView
+        gives: the library describes its views in its own languages rather than
+        in the application's, and this one would look like nothing else here.
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/face_north"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_marginEnd="@dimen/space_m"
+        android:contentDescription="@string/map_face_north"
+        android:visibility="gone"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_compass"
+        app:iconTint="@color/ink"
+        app:layout_constraintEnd_toEndOf="@id/map"
+        app:layout_constraintTop_toTopOf="@id/map"
+        tools:visibility="visible" />
+
+    <!-- Locate me, at the corner of the map the thumb reaches: it brings the
+         framing back onto the walker, as close as the tiles allow. The
+         permission is asked for here, at the moment it is understood
+         (SPEC §10). -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/locate_me"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/map_locate_me"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_my_location"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/attribution"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- How far up the detail may climb when it is long. Below it, the map
+         would no longer be a map. -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/detail_ceiling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <!--
+        The detail, laid against the bottom edge.
+
+        It is as tall as it needs to be and no taller — hence the wrap, held to
+        its constraints — and it is the bottom of the screen it hangs from, so
+        the last button sits where the thumb already is. Past the ceiling it
+        scrolls rather than eating the map.
+    -->
+    <include
+        android:id="@+id/detail"
+        layout="@layout/view_journey_result_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_ceiling"
+        app:layout_constraintVertical_bias="1" />
+
+    <!--
+        The wait, while the journey is worked out.
+
+        Declared last so it covers the map and the detail: what is underneath
+        belongs to the previous journey, or to none, and showing it half-built
+        under a spinner would be showing an answer that is not one yet. The two
+        fields stay clear of it: correcting a point is precisely what one does
+        while waiting.
+    -->
+    <LinearLayout
+        android:id="@+id/computing"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurface"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destination">
+
+        <io.github.mgdx.rouelibre.ui.journey.ComputingBikeView
+            android:id="@+id/computing_bike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/computing_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_xxl"
+            android:layout_marginTop="@dimen/space_xl"
+            android:layout_marginEnd="@dimen/space_xxl"
+            android:gravity="center"
+            android:text="@string/journey_computing"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

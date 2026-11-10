@@ -1,0 +1,854 @@
+package io.github.mgdx.rouelibre.ui.journey
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.DrawableRes
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.withStarted
+import io.github.mgdx.rouelibre.R
+import io.github.mgdx.rouelibre.RoueLibreApplication
+import io.github.mgdx.rouelibre.core.address.AddressResult
+import io.github.mgdx.rouelibre.core.config.FleetDescription
+import io.github.mgdx.rouelibre.core.journey.DeparturePoint
+import io.github.mgdx.rouelibre.core.journey.JourneyOption
+import io.github.mgdx.rouelibre.core.journey.JourneyPlan
+import io.github.mgdx.rouelibre.core.journey.NoBikeJourney
+import io.github.mgdx.rouelibre.core.journey.apportionMinutes
+import io.github.mgdx.rouelibre.core.journey.shownMinutes
+import io.github.mgdx.rouelibre.core.measure.isReliefWorthDrawing
+import io.github.mgdx.rouelibre.core.routing.RouteLeg
+import io.github.mgdx.rouelibre.core.routing.elevationProfile
+import io.github.mgdx.rouelibre.core.routing.smoothedOver
+import io.github.mgdx.rouelibre.core.station.Station
+import io.github.mgdx.rouelibre.core.station.VehicleKind
+import io.github.mgdx.rouelibre.core.station.WantedBikeKind
+import io.github.mgdx.rouelibre.data.OwnBikeKind
+import io.github.mgdx.rouelibre.databinding.FragmentJourneyDetailBinding
+import io.github.mgdx.rouelibre.databinding.ItemJourneyPlaceBinding
+import io.github.mgdx.rouelibre.databinding.ItemJourneyStepBinding
+import io.github.mgdx.rouelibre.ui.BikeFleet
+import io.github.mgdx.rouelibre.ui.BikeGlyphs
+import io.github.mgdx.rouelibre.ui.address.toTitle
+import io.github.mgdx.rouelibre.ui.formatAltitude
+import io.github.mgdx.rouelibre.ui.formatClimb
+import io.github.mgdx.rouelibre.ui.formatDistance
+import io.github.mgdx.rouelibre.ui.formatMinutes
+import io.github.mgdx.rouelibre.ui.inServedDigits
+import io.github.mgdx.rouelibre.ui.withBikeFleet
+import io.github.mgdx.rouelibre.ui.withFleet
+import io.github.mgdx.rouelibre.ui.withFreeDocksShown
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+
+/**
+ * The journey, said in full (SPEC §7.4.1).
+ *
+ * The result screen shares its height with a map and answers the question in a
+ * figure, a sentence and a drawing. Everything that did not fit there is here:
+ * each station by name and by street, what it held when the journey was worked
+ * out, and every leg with its distance, its minutes and its climb.
+ *
+ * Nothing is fetched here save the stations' addresses, which are read off the
+ * offline index (SPEC §4.3), and nothing is computed: the journey arrives
+ * already made, through [ShownJourneyViewModel]. The one exception is a screen
+ * coming back from a killed process, which finds that holder empty and has the
+ * journey worked out again from the two ends it kept.
+ */
+class JourneyDetailFragment : Fragment() {
+
+    private var binding: FragmentJourneyDetailBinding? = null
+
+    private val container
+        get() = (requireActivity().application as RoueLibreApplication).container
+
+    private val shownJourney: ShownJourneyViewModel by activityViewModels()
+
+    private val viewModel: JourneyDetailViewModel by viewModels {
+        JourneyDetailViewModel.Factory(container.addressIndex)
+    }
+
+    /**
+     * Where the journey described sets off from, and where it goes.
+     *
+     * The two ends are the whole of what this screen keeps of a journey: two
+     * labelled points, which go no further than its instance state (SPEC §8).
+     * They are what lets it be found again after the process has been killed —
+     * the journey itself, thousands of coordinates long, is not written
+     * anywhere and is worked out afresh (see [ShownJourneyViewModel]).
+     */
+    private var origin: JourneyEndpoint? = null
+    private var destination: JourneyEndpoint? = null
+
+    /**
+     * Whether the journey described is ridden on the user's own bike.
+     *
+     * Read off the journey itself while there is one, and kept beside the two
+     * ends for the same reason they are: it is part of the question the screen
+     * would have to ask again after a killed process, and a station journey
+     * worked out in place of a ride would not be the journey being read
+     * (SPEC §7.3).
+     */
+    private var usesOwnBike = false
+
+    /**
+     * The bike outside the stations the journey described sets off from, or
+     * `null` (SPEC §7.2.1).
+     *
+     * Kept beside the two ends for the reason they are kept: it is part of the
+     * question this screen would have to ask again after a killed process, and
+     * an ordinary journey worked out from the spot that bike stood on would not
+     * be the journey being read.
+     */
+    private var streetBike: StreetBikeHandle? = null
+
+    /**
+     * The kind of bike the journey described was worked out for, or `null` for
+     * any (SPEC §7.3).
+     *
+     * Kept for the reason [streetBike] is: worked out again after a kill
+     * without it, a journey narrowed to electric bikes would come back as one
+     * open to any — another journey than the one being read.
+     */
+    private var rideKind: WantedBikeKind? = null
+
+    /**
+     * Works the journey out again, on the one path that needs it.
+     *
+     * Built only when it is asked for, so arriving here the ordinary way — from
+     * a result screen that has just computed the journey — computes nothing a
+     * second time.
+     */
+    private val plannedAgain: JourneyViewModel by viewModels {
+        JourneyViewModel.Factory(
+            router = container.journeyRouter,
+            repository = container.stationRepository,
+            origin = checkNotNull(origin).position,
+            destination = checkNotNull(destination).position,
+            usesOwnBike = usesOwnBike,
+            wantedBikeKind = rideKind,
+            fleet = container.fleetRepository.fleet,
+            walkingPace = container.preferences.walkingPace,
+            ownBikeKind = container.preferences.ownBikeKind,
+            coveredArea = container.coveredArea(),
+            streetBike = streetBike,
+        )
+    }
+
+    /**
+     * Whether the network served lends pedal-assist bikes (SPEC §15).
+     *
+     * The ride's icon and the two station markers carry the bolt when it does.
+     */
+    private var fleet = BikeFleet.Mechanical
+
+    /**
+     * What the network lends, down to the vehicle types it counts by.
+     *
+     * The summary says what the two kinds of bike at the departure station
+     * divide into, and reading that takes the identifier table (SPEC §7.4.1).
+     */
+    private var lentFleet: FleetDescription? = null
+
+    /**
+     * What the rider said their **own** bike is, or `null` if they have not
+     * (SPEC §7.6).
+     *
+     * A different question from [fleet] and [lentFleet] above, and never read
+     * off them: those say what the network lends, this says what the rider
+     * owns. It reaches the drawing's two ends and the sentence beside the
+     * total, both of which are repeated word for word from the screen this one
+     * opens from (SPEC §7.4.1).
+     */
+    private var ownBikeKind: OwnBikeKind = OwnBikeKind.Mechanical
+
+    /**
+     * Whether the network's free docks are worth showing (SPEC §7.1), `true`
+     * until the stations say otherwise. Where they are not, the arrival station
+     * is named and placed without a word about its free docks, and the note
+     * under the steps speaks of the bikes alone.
+     */
+    private var freeDocksShown = true
+
+    /**
+     * Takes back the two ends of the journey described.
+     *
+     * From the holder while it still holds one, and from the instance state
+     * otherwise — which is the process having been killed while this screen was
+     * open, the one case where the two differ.
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val shown = shownJourney.journey
+        origin = shown?.origin ?: JourneyEndpoint.readFrom(savedInstanceState, STATE_ORIGIN)
+        destination = shown?.destination
+            ?: JourneyEndpoint.readFrom(savedInstanceState, STATE_DESTINATION)
+        usesOwnBike = if (shown != null) {
+            shown.plan is JourneyPlan.OwnBike
+        } else {
+            savedInstanceState?.getBoolean(STATE_OWN_BIKE) == true
+        }
+        // Read back off the journey itself while there is one: the bike is in
+        // it, as the point it sets off from (SPEC §7.2.1).
+        streetBike = shown?.plan?.streetBikeDeparture()
+            ?: StreetBikeHandle.readFrom(savedInstanceState, STATE_STREET_BIKE)
+        rideKind = if (shown != null) {
+            shown.rideKind
+        } else {
+            WantedBikeKind.ofWireName(savedInstanceState?.getString(STATE_RIDE_KIND))
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        val created = FragmentJourneyDetailBinding.inflate(inflater, container, false)
+        binding = created
+        return created.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val views = checkNotNull(binding)
+
+        views.toolbar.setNavigationOnClickListener { parentFragmentManager.popBackStack() }
+        views.toolbar.navigationContentDescription = getString(R.string.action_back)
+
+        // The journey lives in memory only (SPEC §8): a process killed while
+        // this screen was open comes back to an empty holder. The screen the
+        // user left is the one they must find again, so it is worked out again
+        // here rather than stepping back to the result screen — which is what
+        // used to happen, and lost them the very page they were reading.
+        val journey = shownJourney.journey
+        if (journey == null) {
+            workTheJourneyOutAgain()
+            return
+        }
+        showJourneyInFull(journey)
+    }
+
+    /**
+     * Keeps the two ends, so this screen can be found again after a kill.
+     *
+     * Two labelled points and nothing else: no track, no station, no history
+     * (SPEC §8). They live in this bundle and go no further, exactly as the
+     * result screen keeps its own.
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        origin?.writeTo(outState, STATE_ORIGIN)
+        destination?.writeTo(outState, STATE_DESTINATION)
+        outState.putBoolean(STATE_OWN_BIKE, usesOwnBike)
+        streetBike?.writeTo(outState, STATE_STREET_BIKE)
+        outState.putString(STATE_RIDE_KIND, rideKind?.wireName)
+    }
+
+    /**
+     * Composes the journey again, and shows it here when it arrives.
+     *
+     * Without the two ends there is nothing to compose — a state that should
+     * not arise, since they are saved with the screen — and the result screen
+     * underneath is then the only place left that can answer. The wait is
+     * inhabited by the same bike as on that screen: this computation takes
+     * exactly as long as the first one did.
+     */
+    private fun workTheJourneyOutAgain() {
+        val from = origin
+        val to = destination
+        if (from == null || to == null) {
+            parentFragmentManager.popBackStack()
+            return
+        }
+        val views = checkNotNull(binding)
+        views.computing.isVisible = true
+        if (usesOwnBike) views.computingLabel.setText(R.string.journey_computing_own_bike)
+        withBikeFleet { lent ->
+            fleet = lent
+            binding?.computingBike?.fleet = lent
+        }
+        // The bike the computation is actually looking for, which it says as
+        // soon as it starts: the one that was asked, unless the network can no
+        // longer honour it (SPEC §7.4).
+        viewLifecycleOwner.lifecycleScope.launch {
+            plannedAgain.state.collect { binding?.computingBike?.rideKind = it.rideKind }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            val settled = plannedAgain.state.first { !it.isComputing }
+            // The screen may be in the background by now: laying a journey out
+            // there — and, failing one, stepping back — has to wait for it to be
+            // looked at again.
+            viewLifecycleOwner.withStarted { showComputed(settled, from, to) }
+        }
+    }
+
+    /**
+     * Shows the journey just worked out, or gives up on describing it.
+     *
+     * A journey that can no longer be composed — the bikes gone from the
+     * departure station while the application was away, the network not yet
+     * fetched — has no detail to read. The result screen is where the reason for
+     * that is said, and stepping back to it is what puts the reason on screen.
+     */
+    private fun showComputed(state: JourneyUiState, from: JourneyEndpoint, to: JourneyEndpoint) {
+        val plan = state.plan
+        if (plan == null || plan is JourneyPlan.Impossible) {
+            parentFragmentManager.popBackStack()
+            return
+        }
+        val journey = ShownJourney(from, to, plan, state.rideKind)
+        // Left where the result screen underneath reads it too: it is the
+        // journey being shown, whichever of the two screens shows it.
+        shownJourney.journey = journey
+        binding?.computing?.isVisible = false
+        showJourneyInFull(journey)
+    }
+
+    /** Lays the whole screen out for a journey that is ready to be described. */
+    private fun showJourneyInFull(journey: ShownJourney) {
+        showTotal(journey)
+        showProfile(journey.plan)
+        // The city's configuration is read from disk: the rows are laid with
+        // the plain bike and drawn again, a moment later, with the network's
+        // own.
+        withBikeFleet { lent ->
+            fleet = lent
+            binding?.shape?.fleet = lent
+            showJourney(journey, viewModel.addresses.value)
+        }
+        // The same reading, read in full: the summary splits the bikes waiting
+        // at the departure station, which the bike glyph alone cannot say.
+        withFleet { lent ->
+            lentFleet = lent
+            showTotal(journey)
+        }
+        // And the rider's own bike, which is another question entirely: it
+        // reaches the two ends of the drawing, the sentence beside the total —
+        // both repeated word for word from the screen this one was opened from —
+        // and the icon of the one row a ride on one's own bike has
+        // (SPEC §7.4.1, §7.6). All three, or the reader would meet the bolt
+        // above the row and a plain bike on it.
+        withOwnBikeKind { declared ->
+            ownBikeKind = declared
+            binding?.shape?.ownBikeKind = declared
+            showTotal(journey)
+            showJourney(journey, viewModel.addresses.value)
+        }
+        withFreeDocksShown { shown ->
+            freeDocksShown = shown
+            showJourney(journey, viewModel.addresses.value)
+        }
+        viewModel.locate(stationsOf(journey.plan))
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.addresses.collectLatest { showJourney(journey, it) }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
+    }
+
+    /**
+     * The stations to place in a street: none at all on a walk.
+     *
+     * One alone on a journey begun at a bike outside stations, which has no
+     * departure station to look up (SPEC §7.2.1).
+     */
+    private fun stationsOf(plan: JourneyPlan): List<Station> = when (plan) {
+        is JourneyPlan.Found -> listOfNotNull(
+            (plan.best.departure as? DeparturePoint.AtStation)?.station,
+            plan.best.arrivalStation,
+        )
+
+        else -> emptyList()
+    }
+
+    /**
+     * The two lines the previous screen showed, repeated verbatim.
+     *
+     * A detail that restated the total differently would read as a second
+     * journey. The wording is therefore built the same way, from the same
+     * resources — the bikes waiting at the departure station included.
+     */
+    private fun showTotal(journey: ShownJourney) {
+        val views = binding ?: return
+        val plan = journey.plan
+        val option = (plan as? JourneyPlan.Found)?.best
+        val walk = plan as? JourneyPlan.WalkOnly
+        val ownBike = plan as? JourneyPlan.OwnBike
+        // The legs rounded together, so this screen's total, sentence, band and
+        // step rows all say the same journey — and say the same thing as the
+        // screen it was opened from, which rounds it the same way.
+        val minutes = legMinutesOf(plan)
+        if (minutes.isEmpty()) return
+        views.totalTime.text = requireContext().formatMinutes(minutes.sum())
+        views.summary.text = when {
+            option != null -> requireContext().journeySummary(
+                option,
+                minutes = option.shownMinutes(),
+                atDeparture = requireContext()
+                    .bikesAtDeparture(option.bikeSplitAtDeparture(lentFleet)),
+            )
+            walk != null -> requireContext().walkSummary(
+                walk.directWalk,
+                isQuickerThanTheBike = walk.reason == NoBikeJourney.WalkingIsQuicker,
+            )
+
+            ownBike != null -> requireContext().ownBikeSummary(ownBike.ride, ownBikeKind)
+            else -> return
+        }
+        // The bike a journey may set off on takes the first disc of the
+        // drawing, exactly as it does on the screen this one opens from
+        // (SPEC §7.4).
+        views.shape.departureMarker = option?.departure?.let(JourneyMarkers::departureMarkerOf)
+        views.shape.rideKind = option?.let { rideKindOf(it.departure, journey.rideKind) }
+        views.shape.legs = legsOf(plan).mapIndexed { index, leg ->
+            JourneyShapeView.Leg(
+                isRide = leg.isRide,
+                duration = requireContext().formatMinutes(minutes[index]),
+                distance = distanceOf(leg.route),
+            )
+        }
+    }
+
+    /**
+     * The legs of [plan] in whole minutes, in the order [legsOf] gives them.
+     *
+     * Empty for a journey that could not be composed: it has no leg to show and
+     * no total to announce.
+     */
+    private fun legMinutesOf(plan: JourneyPlan): List<Int> =
+        apportionMinutes(legsOf(plan).map { it.route.duration })
+
+    /**
+     * The ground the ride runs over, where the graph has something to say
+     * (SPEC §7.4.1).
+     *
+     * Only the bike leg is drawn: the walks are lived at a pace no hill
+     * changes, and it is the ride one decides on. The drawing is silent
+     * wherever the climb figure itself would be — under three hundred metres of
+     * ground, or inside five metres of height, what the graph holds is the
+     * error between two SRTM samples, and stretching it across the screen would
+     * draw a hill that is not there.
+     */
+    private fun showProfile(plan: JourneyPlan) {
+        val views = binding ?: return
+        val ride = when (plan) {
+            is JourneyPlan.Found -> plan.best.ride
+            // The whole journey is the ride here, and it is decided on the same
+            // question: what goes up.
+            is JourneyPlan.OwnBike -> plan.ride
+            is JourneyPlan.WalkOnly, is JourneyPlan.Impossible -> null
+        }
+        val profile = ride?.elevationProfile()?.smoothedOver(PROFILE_SMOOTHING_METRES).orEmpty()
+        val lowest = profile.minOfOrNull { it.elevationMetres }
+        val highest = profile.maxOfOrNull { it.elevationMetres }
+        val worthDrawing = ride != null &&
+            lowest != null &&
+            highest != null &&
+            isReliefWorthDrawing(ride.distanceMetres, highest - lowest)
+
+        views.profileTitle.isVisible = worthDrawing
+        views.profile.isVisible = worthDrawing
+        if (!worthDrawing) return
+
+        views.profile.lowestLabel = requireContext().formatAltitude(lowest)
+        views.profile.highestLabel = requireContext().formatAltitude(highest)
+        views.profile.profile = profile
+        // A drawing says nothing to a screen reader: the sentence it stands for
+        // is read instead, and it is the one the drawing draws.
+        //
+        // Two sentences, because the climb is not always sayable while the
+        // drawing is worth showing. What silences the figure is measured on the
+        // metres gained — under five of them, or over less than three hundred
+        // metres of ground, they are the error between two SRTM samples rather
+        // than the ground (see `writeClimb`) — while what silences the drawing
+        // is measured on the height between its lowest and its highest reading.
+        // A ride that mostly goes down has a shape to draw and no climb to
+        // name. The clause is then dropped rather than filled with nothing: a
+        // null argument is written "null" by `String.format`, which is what the
+        // screen reader used to say — "the ride climbs null" — and an empty one
+        // would leave the comma behind it with nothing to separate.
+        val climb = requireContext().formatClimb(ride.ascentMetres, ride.distanceMetres)
+        val lowestRead = views.profile.lowestLabel
+        val highestRead = views.profile.highestLabel
+        views.profile.contentDescription = if (climb == null) {
+            getString(
+                R.string.journey_detail_profile_description_no_climb,
+                lowestRead,
+                highestRead,
+            )
+        } else {
+            getString(
+                R.string.journey_detail_profile_description,
+                climb,
+                lowestRead,
+                highestRead,
+            )
+        }
+    }
+
+    /** One leg of the journey, and whether a bike is ridden along it. */
+    private data class Leg(val route: RouteLeg, val isRide: Boolean)
+
+    private fun legsOf(plan: JourneyPlan): List<Leg> = when (plan) {
+        // Either walk may be absent, and the journey then reads in two legs.
+        // The access walk goes on a journey begun at a bike outside stations:
+        // the rider is standing beside it, and no walk to it was computed
+        // (SPEC §6). The final one goes where the destination is the arrival
+        // station itself: the journey ends when the bike is handed back, and a
+        // leg of no length would be shown as a minute nobody spends
+        // (SPEC §7.4.1).
+        is JourneyPlan.Found -> listOfNotNull(
+            plan.best.walkToStation?.let { Leg(it, isRide = false) },
+            Leg(plan.best.ride, isRide = true),
+            plan.best.walkToDestination?.let { Leg(it, isRide = false) },
+        )
+
+        is JourneyPlan.WalkOnly -> listOf(Leg(plan.directWalk, isRide = false))
+        is JourneyPlan.OwnBike -> listOf(Leg(plan.ride, isRide = true))
+        is JourneyPlan.Impossible -> emptyList()
+    }
+
+    /**
+     * The journey in the order it is lived: each leg, and the stations between.
+     *
+     * Rebuilt whole whenever an address arrives: the rows are few, and a list
+     * assembled in one pass is easier to follow than one patched in place.
+     */
+    private fun showJourney(journey: ShownJourney, addresses: Map<String, AddressResult>) {
+        val views = binding ?: return
+        views.steps.removeAllViews()
+
+        // The rows carry the same minutes as the band above them, which is why
+        // they are handed the apportioned figures rather than rounding the legs
+        // again for themselves.
+        val minutes = legMinutesOf(journey.plan)
+
+        // The two ends are not rows of their own: they are named by the legs
+        // that reach them — "walk to the destination" — and by the two fields
+        // at the top of the screen this one was opened from. A row repeating
+        // one of them said nothing the reader had not just read.
+        when (val plan = journey.plan) {
+            is JourneyPlan.Found -> addRide(plan.best, journey.rideKind, minutes, addresses)
+            is JourneyPlan.WalkOnly -> addLeg(
+                icon = R.drawable.ic_walk,
+                label = getString(R.string.journey_step_walk_all),
+                leg = plan.directWalk,
+                minutes = minutes.first(),
+            )
+
+            // Never the cog, and the bolt from the rider rather than from the
+            // network: what a network lends says nothing about a bike that is
+            // not its own (SPEC §15), and the rider who declared an electric one
+            // said everything about it (SPEC §7.6). The same move the ride row
+            // of a station journey makes with `BikeGlyphs.icon`, with the
+            // declaration in place of the fleet — and the same answer the shape
+            // above this row and the sentence beside the total already give.
+            is JourneyPlan.OwnBike -> addLeg(
+                icon = OwnBikeGlyphs.icon(ownBikeKind),
+                label = getString(R.string.journey_step_ride_all),
+                leg = plan.ride,
+                minutes = minutes.first(),
+            )
+
+            is JourneyPlan.Impossible -> Unit
+        }
+        // The counts are the ones the journey was decided on, not the ones the
+        // stations hold now: saying so is what keeps a figure read five minutes
+        // ago from being taken for a promise (SPEC §6). Only a bike journey has
+        // a station to count anything at.
+        views.availabilityNote.isVisible = journey.plan is JourneyPlan.Found
+        views.availabilityNote.setText(
+            if (freeDocksShown) {
+                R.string.journey_detail_availability_note
+            } else {
+                R.string.journey_detail_availability_note_bikes
+            },
+        )
+    }
+
+    /**
+     * The three legs, and the two stations they run between.
+     *
+     * @param computedFor the kind of bike the journey was worked out for, or
+     *   `null` for any.
+     * @param minutes the three legs' apportioned minutes, in that same order.
+     */
+    private fun addRide(
+        option: JourneyOption,
+        computedFor: WantedBikeKind?,
+        minutes: List<Int>,
+        addresses: Map<String, AddressResult>,
+    ) {
+        // A journey begun at a bike outside stations opens on the ride: no walk
+        // was computed to that bike, and it is no station to count anything at
+        // (SPEC §6, §7.2.1). The two rows go together, and the ride's minutes
+        // move up with them — which is why they are read off the legs rather
+        // than by rank.
+        val accessWalk = option.walkToStation
+        val departure = option.departure as? DeparturePoint.AtStation
+        if (accessWalk != null) {
+            addLeg(
+                icon = R.drawable.ic_walk,
+                label = getString(
+                    R.string.journey_step_to_station,
+                    departure?.station?.name
+                        ?: getString(R.string.journey_departure_street_bike),
+                ),
+                leg = accessWalk,
+                minutes = minutes.first(),
+            )
+        }
+        if (departure != null) {
+            addStation(
+                role = getString(R.string.journey_detail_departure_station),
+                station = departure.station,
+                address = addresses[departure.station.id],
+                availability = availabilityOf(
+                    counted = resources.getQuantityString(
+                        R.plurals.bikes_available,
+                        option.bikesAtDeparture,
+                        option.bikesAtDeparture,
+                    ),
+                    station = departure.station,
+                ),
+            )
+        }
+        // The kind the drawing above names on the ride, said too: the icon
+        // alone is lost on a screen reader, which reads this row and skips the
+        // drawing (SPEC §7.4).
+        val kind = shownRideKind(fleet, rideKindOf(option.departure, computedFor))
+        addLeg(
+            icon = rideIcon(option.departure, kind),
+            label = getString(R.string.journey_step_ride, option.arrivalStation.name),
+            leg = option.ride,
+            minutes = minutes[if (accessWalk == null) 0 else 1],
+            description = kind?.let {
+                getString(rideDescriptionOf(it), option.arrivalStation.name)
+            },
+        )
+        addStation(
+            role = getString(R.string.journey_detail_arrival_station),
+            station = option.arrivalStation,
+            address = addresses[option.arrivalStation.id],
+            // Nothing at all where the network's free docks are not worth
+            // showing (SPEC §7.1): the free docks are what this line counts,
+            // and a capacity left on its own — "12 docks" under "Arrival
+            // station" — would read as the very count it replaces.
+            availability = if (freeDocksShown) {
+                availabilityOf(
+                    // No count where the station takes back any bike: the
+                    // journey carried none, and the line says why (SPEC §4.1).
+                    counted = option.docksAtArrival
+                        ?.let { resources.getQuantityString(R.plurals.docks_available, it, it) }
+                        ?: getString(R.string.docks_available_unlimited),
+                    station = option.arrivalStation,
+                )
+            } else {
+                null
+            },
+        )
+        // Nothing follows the arrival station where the destination is that
+        // station: the journey is over, and a row saying "walk to the
+        // destination · 0 m · 1 min" would invent a minute (SPEC §7.4.1).
+        option.walkToDestination?.let { walk ->
+            addLeg(
+                icon = R.drawable.ic_walk,
+                label = getString(R.string.journey_step_to_destination),
+                leg = walk,
+                minutes = minutes.last(),
+            )
+        }
+    }
+
+    /**
+     * The bike drawn beside the ride row (SPEC §7.4.1).
+     *
+     * What the **network** lends, on a journey between two of its stations:
+     * the rack may hand over either kind, and the row says what one is walking
+     * towards. On a journey begun at a bike outside stations there is nothing
+     * left to guess — the feed named that bike's type — so the row draws that
+     * bike and never the fleet: it takes the bolt where the type table reads it
+     * as electric, and never the cog, one bike being of one kind. It is the
+     * same move the row of a ride on one's own bike makes with the rider's
+     * declaration in place of the fleet. A journey between two stations that
+     * was worked out for one kind is settled the same way, and draws that kind.
+     *
+     * @param kind the ride's kind where it is worth saying (see [shownRideKind]).
+     */
+    @DrawableRes
+    private fun rideIcon(departure: DeparturePoint, kind: WantedBikeKind?): Int = when (departure) {
+        is DeparturePoint.AtStation -> kind?.let(::rideIconOf) ?: BikeGlyphs.icon(fleet)
+        is DeparturePoint.AtStreetBike -> when (departure.kind) {
+            VehicleKind.Electric -> R.drawable.ic_bike_electric
+            VehicleKind.Mechanical, VehicleKind.Other -> R.drawable.ic_bike
+        }
+    }
+
+    /**
+     * What a station held when the journey was worked out, and how big it is.
+     *
+     * The capacity is only there when the feed publishes it: "8 bikes of 40
+     * docks" places the count on a scale, and a bare count on a station whose
+     * size is unknown is still worth reading.
+     */
+    private fun availabilityOf(counted: String, station: Station): String {
+        val capacity = station.capacity ?: return counted
+        return getString(
+            R.string.address_detail,
+            counted,
+            resources.getQuantityString(R.plurals.docks_total, capacity, capacity),
+        )
+    }
+
+    /**
+     * A station of the journey: what it is called, where it stands, what it
+     * held.
+     *
+     * The marker is the map's own, so the row and the point drawn on the
+     * previous screen are recognised as the same thing.
+     *
+     * @param availability what it held, or `null` for no line at all.
+     */
+    private fun addStation(
+        role: String,
+        station: Station,
+        address: AddressResult?,
+        availability: String?,
+    ) {
+        val views = binding ?: return
+        val place = ItemJourneyPlaceBinding.inflate(layoutInflater, views.steps, false)
+        place.marker.setImageResource(BikeGlyphs.stationMarker(fleet))
+        place.role.text = role
+        place.name.text = station.name
+        place.address.isGone = address == null
+        address?.let { place.address.text = addressLineOf(it) }
+        place.availability.isGone = availability == null
+        place.availability.text = availability
+        views.steps.addView(place.root)
+    }
+
+    /**
+     * The street a station stands in, written as the station's sheet writes it.
+     *
+     * A station in the middle of a square has no address of its own: the
+     * nearest street is named instead, and said to be nearby rather than
+     * passed off as the station's own number.
+     */
+    private fun addressLineOf(address: AddressResult): String {
+        val place = if (address.postcode.isNullOrBlank()) {
+            address.city
+        } else {
+            // The digits of a postcode are moved to the numeration served,
+            // never formatted: a number format would group them into
+            // "59 260" (SPEC §9).
+            getString(
+                R.string.address_locality,
+                requireContext().inServedDigits(address.postcode.orEmpty()),
+                address.city,
+            )
+        }
+        val what = if (address.houseNumber == null) {
+            getString(R.string.station_address_nearby, address.streetName)
+        } else {
+            address.toTitle(requireContext())
+        }
+        return getString(R.string.address_detail, what, place)
+    }
+
+    /**
+     * One leg, with what it costs under what it asks of you.
+     *
+     * The second line reads in the order the leg is lived: how far it runs, and
+     * how much of it goes up. Flat ground names no climb (SPEC §7.4).
+     *
+     * @param minutes what this leg was apportioned out of the journey's total,
+     *   rather than its own rounding: the rows are read against the total above
+     *   them, and have to add up to it.
+     * @param description what a screen reader says in place of [label], where
+     *   the icon carries something the label does not.
+     */
+    private fun addLeg(
+        icon: Int,
+        label: String,
+        leg: RouteLeg,
+        minutes: Int,
+        description: String? = null,
+    ) {
+        val views = binding ?: return
+        val step = ItemJourneyStepBinding.inflate(layoutInflater, views.steps, false)
+        step.modeIcon.setImageResource(icon)
+        step.label.text = label
+        step.label.contentDescription = description
+        step.duration.text = requireContext().formatMinutes(minutes)
+        step.detail.text = listOfNotNull(distanceOf(leg), climbOf(leg))
+            .reduce { read, next -> getString(R.string.address_detail, read, next) }
+        views.steps.addView(step.root)
+    }
+
+    private fun distanceOf(leg: RouteLeg): String =
+        requireContext().formatDistance(leg.distanceMetres.toDouble())
+
+    /**
+     * The climb of one leg, named as such, or nothing on flat ground.
+     *
+     * A bare figure would be unreadable beside a distance — "650 m · 20 m" says
+     * nothing about which way the second one runs — so the metres never appear
+     * without the word that turns them upright.
+     */
+    private fun climbOf(leg: RouteLeg): String? = requireContext()
+        .formatClimb(leg.ascentMetres, leg.distanceMetres)
+        ?.let { getString(R.string.journey_climb, it) }
+
+    private companion object {
+        private const val STATE_ORIGIN = "state-origin"
+        private const val STATE_DESTINATION = "state-destination"
+        private const val STATE_OWN_BIKE = "state-own-bike"
+        private const val STATE_STREET_BIKE = "state-street-bike"
+        private const val STATE_RIDE_KIND = "state-ride-kind"
+
+        /**
+         * The ground a reading of the profile is averaged over.
+         *
+         * Half of what it takes for a climb to be worth naming (SPEC §7.4): a
+         * rise of three hundred metres comes through whole, and the saw the
+         * SRTM samples draw across flat ground — a metre up and a metre down
+         * every fifty — does not.
+         */
+        const val PROFILE_SMOOTHING_METRES = 150.0
+    }
+}
+
+/**
+ * The bike a journey sets off on, as it travels between screens, or `null`
+ * (SPEC §7.2.1).
+ *
+ * The one thing this screen keeps of a journey besides its two ends: enough to
+ * ask for it again after a killed process, and no more — the tracks are worked
+ * out afresh (SPEC §8).
+ */
+private fun JourneyPlan.streetBikeDeparture(): StreetBikeHandle? {
+    val departure = (this as? JourneyPlan.Found)?.best?.departure
+    val bike = departure as? DeparturePoint.AtStreetBike ?: return null
+    return StreetBikeHandle(
+        id = bike.bike.id,
+        position = bike.bike.position,
+        kind = bike.kind,
+        chargeRatio = bike.bike.chargeRatio,
+        rangeMetres = bike.bike.rangeMetres,
+    )
+}

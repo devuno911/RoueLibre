@@ -1,0 +1,34 @@
+Roue Libre tregon në hartë stacionet e biçikletave të përbashkëta dhe llogarit udhëtimin më të mirë derë më derë: në këmbë, me biçikletë, në këmbë.
+
+Gjithçka ndodh në telefon: hartës, kërkimit të adresave dhe llogaritjes së itinerarit nuk u duhet asnjë lidhje. Vetëm disponueshmëria e biçikletave në kohë reale kalon nga rrjeti, e lexuar drejtpërdrejt nga serveri i operatorit.
+
+<b>Udhëtimi më i mirë, jo stacioni më i afërt</b>
+
+• Stacionet e nisjes dhe të mbërritjes zgjidhen bashkë, sipas disponueshmërisë së drejtpërdrejtë: biçikleta për të marrë në njërin skaj, vende të lira për ta kthyer në tjetrin.
+• Një stacion gati bosh peshon më pak, sepse mund të zbrazet ndërsa ti ecën.
+• Aty ku rrjeti jep biçikleta mekanike dhe elektrike, ti zgjedh cilën do, dhe llogariten vetëm stacionet që e kanë vërtet një të tillë.
+• Itinerari ndjek shtigjet e biçikletave dhe merr parasysh ngjitjet dhe zbritjet.
+
+<b>Një hartë e bërë për biçikletën</b>
+
+Shtigjet e biçikletave të vizatuara veçmas nga rrugët, ndërtesat publike dhe pikat e referimit për t’u orientuar me sy, dhe mbi çdo stacion ajo që jep rrjeti: biçikleta mekanike, elektrike ose të dyja.
+
+<b>Asgjë nuk të ndjek</b>
+
+• Asnjë shërbim i Google-it: as Play Services, as Firebase, as Maps SDK.
+• Pa telemetri, pa gjurmues, pa identifikues, pa llogari.
+• Pa historik: as pozicione, as destinacione. Ajo që kërkon nuk del nga telefoni.
+
+<b>Qytetet e shërbyera</b>
+
+Mbi 350 rrjete në afro 40 shtete, nga Vélib’ i Parisit te Citi Bike i Nju Jorkut, duke kaluar nëpër Montreal, Pragë, Barcelonë, Dubai dhe Buenos Aires. Asnjë qytet nuk të imponohet: aplikacioni ta propozon tëndin sipas pozicionit dhe mund të mbash disa.
+
+Roue Libre shërben vetëm rrjetet që i publikojnë stacionet e tyre në formatin GBFS, standardin e hapur të biçikletave të përbashkëta, në një burim publik dhe pa çelës. Nëse qyteti yt mungon, rrjeti i tij nuk publikon një burim të tillë: duhet t’ia kërkosh atij ose autoritetit të transportit.
+
+<b>Ç’duhet ditur para se ta instalosh</b>
+
+Harta, grafi i itinerarëve dhe indeksi i adresave nuk ndodhen brenda aplikacionit: shkarkohen vetëm një herë, kur të vendosësh ti, dhe pesha e tyre njoftohet paraprakisht (rreth dhjetë megabajt për një qytet mesatar, më shumë për një kryeqytet). Janë skedarë të dhënash dhe asgjë tjetër, që mund t’i prodhosh edhe vetë me skriptet e depos.
+
+Roue Libre është një aplikacion i pavarur, pa asnjë lidhje as me rrjetet që shërben, as me operatorët e tyre.
+
+Softuer i lirë nën licencën GNU GPL v3.

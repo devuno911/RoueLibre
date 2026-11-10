@@ -1,0 +1,177 @@
+# Allowlist of the objects kept in the base map — SPEC.md §4.2
+#
+# The filtering happens AT GENERATION TIME, not only in the style: what is not
+# kept here weighs nothing in the tile file. It is the main size lever after
+# the zoom level.
+#
+# A design choice made on purpose: the map is a SETTING, the stations are the
+# SUBJECT. Every commercial point of interest is therefore left out — shops,
+# restaurants, bars, cafés, hotels, banks, cash machines, hairdressers,
+# agencies, offices, filling stations, private car parks. Do not bring them
+# back without revisiting §4.2.
+#
+# Format of each layer:
+#   filters      selection expressions in "osmium tags-filter" format
+#                (n/ = node, w/ = way, r/ = relation, a/ = area)
+#   geometry     point | linestring | polygon
+#   keepTags     attributes kept in the tiles; everything else is thrown away
+#   minZoom      zoom from which the layer exists
+#   maxZoom      maximum zoom (default: the global maxZoom)
+#
+# Layers sharing the same minZoom are produced in a single call to tippecanoe,
+# then joined by tile-join.
+
+globalMaxZoom: 16
+
+layers:
+
+  # -------------------------------------------------------------- water ----
+  water:
+    description: Bodies of water, basins, ponds — areas.
+    filters: ["a/natural=water", "a/landuse=reservoir,basin", "a/waterway=riverbank"]
+    geometry: polygon
+    keepTags: [name]
+    minZoom: 10
+
+  waterway:
+    description: Watercourses and canals — the Deûle and the Marque shape the metropolis.
+    filters: ["w/waterway=river,canal", "w/waterway=stream"]
+    geometry: linestring
+    keepTags: [name, waterway]
+    minZoom: 12
+
+  # ----------------------------------------------------------- greenery ----
+  landcover:
+    description: Parks, green spaces, woods, cemeteries — major visual landmarks.
+    filters:
+      - "a/leisure=park,garden,nature_reserve,pitch,recreation_ground"
+      - "a/landuse=forest,grass,meadow,cemetery,allotments,village_green"
+      - "a/natural=wood,scrub,heath"
+    geometry: polygon
+    keepTags: [name, leisure, landuse, natural]
+    minZoom: 11
+
+  # --------------------------------------------------------------- roads ----
+  # Split into two layers by importance: drawing every road from zoom 10 on
+  # would produce enormous, unreadable tiles.
+  road_major:
+    description: Motorways and main roads, visible from the far zooms on.
+    filters: ["w/highway=motorway,trunk,primary,secondary,motorway_link,trunk_link,primary_link,secondary_link"]
+    geometry: linestring
+    keepTags: [name, highway, ref, tunnel, bridge]
+    minZoom: 10
+
+  road_minor:
+    description: >
+      Local roads and cycle ways. Carries the street names §4.2 requires.
+      Arrives at zoom 13: any earlier, it would drown the map.
+    filters:
+      - "w/highway=tertiary,residential,unclassified,living_street,pedestrian,tertiary_link"
+      - "w/highway=service,footway,path,cycleway,steps,track"
+    geometry: linestring
+    keepTags: [name, highway, tunnel, bridge]
+    minZoom: 13
+
+  railway:
+    description: Railways, including metro and tram lines.
+    filters: ["w/railway=rail,subway,light_rail,tram,narrow_gauge"]
+    geometry: linestring
+    keepTags: [name, railway, tunnel]
+    minZoom: 11
+
+  # ---------------------------------------------------------- buildings ----
+  building:
+    description: >
+      Building footprints, as a discreet flat tint. Zoom 15 at the earliest:
+      this is usually the heaviest layer of a vector tile set. If the size
+      budget is exceeded, it is the FIRST lever to pull (§4.2) — raise its
+      minZoom to 16, or drop it entirely.
+    filters: ["a/building"]
+    geometry: polygon
+    keepTags: []
+    minZoom: 15
+
+  # ---------------------------------------------------------- boundaries ----
+  boundary:
+    description: >
+      Municipal boundaries — the metropolis has 95 municipalities. Exported
+      as POLYGONS, not as lines: the lines of a boundary relation are its
+      member ways, that is the streets running along the border, not the
+      outline of the municipality. The style draws the border stroke only.
+    filters: ["r/boundary=administrative"]
+    geometry: polygon
+    keepTags: [name, admin_level, boundary]
+    minZoom: 10
+    onlyAdminLevels: ["8"]
+
+  place:
+    description: Names of municipalities, districts and localities.
+    filters: ["n/place=city,town,village,suburb,neighbourhood,quarter,hamlet"]
+    geometry: point
+    keepTags: [name, place, population]
+    minZoom: 10
+
+  # ------------------------------------------------------------- transit ----
+  transit:
+    description: >
+      Metro and tram stations, railway stations. Visible at every zoom: they
+      are the most useful orientation landmarks in a town, and the natural
+      connections of a bike journey.
+    filters:
+      - "n/railway=station,halt,subway_entrance"
+      - "a/railway=station"
+      - "n/station=subway,light_rail"
+      - "n/public_transport=station"
+    geometry: point
+    keepTags: [name, railway, station, public_transport, subway, light_rail, train]
+    minZoom: 10
+
+  busstop:
+    description: >
+      Bus stops, as discreet points and WITHOUT a label. Zoom 15 at the
+      earliest: the metropolis has several thousand of them, and showing them
+      earlier would drown the map, and the bike stations with it (§4.2).
+    filters: ["n/highway=bus_stop", "n/public_transport=platform"]
+    geometry: point
+    keepTags: []
+    minZoom: 15
+
+  # ------------------------------------- public buildings and landmarks ----
+  poi:
+    description: >
+      Public buildings and visual landmarks, and nothing else. The list is
+      closed: any addition must justify itself by finding one's way, never by
+      completeness.
+    filters:
+      # public buildings
+      - "n/amenity=townhall,school,college,university,hospital,clinic,post_office,library,police,fire_station"
+      - "a/amenity=townhall,school,college,university,hospital,clinic,post_office,library,police,fire_station"
+      - "n/amenity=place_of_worship,theatre,arts_centre,community_centre"
+      - "a/amenity=place_of_worship,theatre,arts_centre,community_centre"
+      - "a/landuse=cemetery"
+      - "n/leisure=sports_centre,swimming_pool,stadium"
+      - "a/leisure=sports_centre,swimming_pool,stadium"
+      # visual landmarks
+      - "n/tourism=museum,attraction,artwork,viewpoint"
+      - "a/tourism=museum,attraction"
+      - "n/historic=monument,memorial,castle,tower,building"
+      - "a/historic=monument,memorial,castle,building"
+      - "n/man_made=tower,water_tower,windmill"
+      - "a/man_made=tower,windmill"
+    geometry: point
+    keepTags: [name, amenity, leisure, tourism, historic, man_made, religion, landuse]
+    minZoom: 13
+
+# Objects deliberately left out (§4.2). This list plays no part in the
+# filtering — the allowlist above is enough — but records the choice so that
+# it is not undone by accident.
+excludedOnPurpose:
+  - shop=*            # shops of every kind
+  - amenity=restaurant, fast_food, cafe, bar, pub, biergarten
+  - tourism=hotel, hostel, guest_house, motel
+  - amenity=bank, atm, bureau_de_change
+  - amenity=fuel, charging_station
+  - amenity=parking    # including private car parks
+  - office=*           # company offices and agencies
+  - craft=*            # tradespeople, hairdressers
+  - healthcare=*       # private practices (hospitals come through amenity)

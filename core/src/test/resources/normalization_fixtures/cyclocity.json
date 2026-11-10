@@ -1,0 +1,767 @@
+{
+  "language": "lt",
+  "cases": [
+    {
+      "input": "Gedimino pr.",
+      "normalized": "gedimino prospektas",
+      "type": null,
+      "name": "gedimino prospektas"
+    },
+    {
+      "input": "Gedimino prospektas",
+      "normalized": "gedimino prospektas",
+      "type": null,
+      "name": "gedimino prospektas"
+    },
+    {
+      "input": "Pilies g.",
+      "normalized": "pilies gatve",
+      "type": null,
+      "name": "pilies gatve"
+    },
+    {
+      "input": "Pilies gatvė",
+      "normalized": "pilies gatve",
+      "type": null,
+      "name": "pilies gatve"
+    },
+    {
+      "input": "Katedros aikštė",
+      "normalized": "katedros aikste",
+      "type": null,
+      "name": "katedros aikste"
+    },
+    {
+      "input": "Laisvės alėja",
+      "normalized": "laisves aleja",
+      "type": null,
+      "name": "laisves aleja"
+    },
+    {
+      "input": "Savanorių pr.",
+      "normalized": "savanoriu prospektas",
+      "type": null,
+      "name": "savanoriu prospektas"
+    },
+    {
+      "input": "Neries g.",
+      "normalized": "neries gatve",
+      "type": null,
+      "name": "neries gatve"
+    },
+    {
+      "input": "Helsinkio g.",
+      "normalized": "helsinkio gatve",
+      "type": null,
+      "name": "helsinkio gatve"
+    },
+    {
+      "input": "Ilgoji g.",
+      "normalized": "ilgoji gatve",
+      "type": null,
+      "name": "ilgoji gatve"
+    },
+    {
+      "input": "Topolių g.",
+      "normalized": "topoliu gatve",
+      "type": null,
+      "name": "topoliu gatve"
+    },
+    {
+      "input": "Vilnius",
+      "normalized": "vilnius",
+      "type": null,
+      "name": "vilnius"
+    },
+    {
+      "input": "Lazdynų biblioteka",
+      "normalized": "lazdynu biblioteka",
+      "type": null,
+      "name": "lazdynu biblioteka"
+    },
+    {
+      "input": "Vilniaus Ivano Lukievičiaus baltarusių muziejus",
+      "normalized": "vilniaus ivano lukieviciaus baltarusiu muziejus",
+      "type": null,
+      "name": "vilniaus ivano lukieviciaus baltarusiu muziejus"
+    },
+    {
+      "input": "Raganiukės teatras",
+      "normalized": "raganiukes teatras",
+      "type": null,
+      "name": "raganiukes teatras"
+    },
+    {
+      "input": "Šilo tiltas",
+      "normalized": "silo tiltas",
+      "type": null,
+      "name": "silo tiltas"
+    },
+    {
+      "input": "Adomo Mickevičiaus viešoji biblioteka",
+      "normalized": "adomo mickeviciaus viesoji biblioteka",
+      "type": null,
+      "name": "adomo mickeviciaus viesoji biblioteka"
+    },
+    {
+      "input": "Altanos kalnas",
+      "normalized": "altanos kalnas",
+      "type": null,
+      "name": "altanos kalnas"
+    },
+    {
+      "input": "Keistuolių teatras",
+      "normalized": "keistuoliu teatras",
+      "type": null,
+      "name": "keistuoliu teatras"
+    },
+    {
+      "input": "Hilarijaus Raduškevičiaus rūmai",
+      "normalized": "hilarijaus raduskeviciaus rumai",
+      "type": null,
+      "name": "hilarijaus raduskeviciaus rumai"
+    },
+    {
+      "input": "Trys kryžiai",
+      "normalized": "trys kryziai",
+      "type": null,
+      "name": "trys kryziai"
+    },
+    {
+      "input": "Vilniaus universiteto Lietuvos matematikų muziejus",
+      "normalized": "vilniaus universiteto lietuvos matematiku muziejus",
+      "type": null,
+      "name": "vilniaus universiteto lietuvos matematiku muziejus"
+    },
+    {
+      "input": "Jono Meko vizualiųjų menų centras",
+      "normalized": "jono meko vizualiuju menu centras",
+      "type": null,
+      "name": "jono meko vizualiuju menu centras"
+    },
+    {
+      "input": "Vilniaus universiteto Zoologijos muziejus",
+      "normalized": "vilniaus universiteto zoologijos muziejus",
+      "type": null,
+      "name": "vilniaus universiteto zoologijos muziejus"
+    },
+    {
+      "input": "Gemma",
+      "normalized": "gemma",
+      "type": null,
+      "name": "gemma"
+    },
+    {
+      "input": "Teismų ekspozicija",
+      "normalized": "teismu ekspozicija",
+      "type": null,
+      "name": "teismu ekspozicija"
+    },
+    {
+      "input": "Mykolo Kleopo Oginskio grojantis suoliukas",
+      "normalized": "mykolo kleopo oginskio grojantis suoliukas",
+      "type": null,
+      "name": "mykolo kleopo oginskio grojantis suoliukas"
+    },
+    {
+      "input": "Vito Gerulaičio g.",
+      "normalized": "vito gerulaicio gatve",
+      "type": null,
+      "name": "vito gerulaicio gatve"
+    },
+    {
+      "input": "Karaliaus Mindaugo tiltas",
+      "normalized": "karaliaus mindaugo tiltas",
+      "type": null,
+      "name": "karaliaus mindaugo tiltas"
+    },
+    {
+      "input": "Saulės alėja",
+      "normalized": "saules aleja",
+      "type": null,
+      "name": "saules aleja"
+    },
+    {
+      "input": "Gegužės 3-iosios g.",
+      "normalized": "geguzes 3 iosios gatve",
+      "type": null,
+      "name": "geguzes 3 iosios gatve"
+    },
+    {
+      "input": "Bitininkų g.",
+      "normalized": "bitininku gatve",
+      "type": null,
+      "name": "bitininku gatve"
+    },
+    {
+      "input": "Monmartro tiltas",
+      "normalized": "monmartro tiltas",
+      "type": null,
+      "name": "monmartro tiltas"
+    },
+    {
+      "input": "Šv. Brunono Bonifaco g.",
+      "normalized": "sventojo brunono bonifaco gatve",
+      "type": null,
+      "name": "sventojo brunono bonifaco gatve"
+    },
+    {
+      "input": "A. Goštauto g.",
+      "normalized": "aikste gostauto gatve",
+      "type": null,
+      "name": "aikste gostauto gatve"
+    },
+    {
+      "input": "A. Mickevičiaus g.",
+      "normalized": "aikste mickeviciaus gatve",
+      "type": null,
+      "name": "aikste mickeviciaus gatve"
+    },
+    {
+      "input": "A. Tumėno g.",
+      "normalized": "aikste tumeno gatve",
+      "type": null,
+      "name": "aikste tumeno gatve"
+    },
+    {
+      "input": "Alkūnės g.",
+      "normalized": "alkunes gatve",
+      "type": null,
+      "name": "alkunes gatve"
+    },
+    {
+      "input": "Anykščių g.",
+      "normalized": "anyksciu gatve",
+      "type": null,
+      "name": "anyksciu gatve"
+    },
+    {
+      "input": "Atradimų aklg.",
+      "normalized": "atradimu aklg",
+      "type": null,
+      "name": "atradimu aklg"
+    },
+    {
+      "input": "Ąžuolyno g.",
+      "normalized": "azuolyno gatve",
+      "type": null,
+      "name": "azuolyno gatve"
+    },
+    {
+      "input": "Barboros Radvilaitės g.",
+      "normalized": "barboros radvilaites gatve",
+      "type": null,
+      "name": "barboros radvilaites gatve"
+    },
+    {
+      "input": "Bernardinų g.",
+      "normalized": "bernardinu gatve",
+      "type": null,
+      "name": "bernardinu gatve"
+    },
+    {
+      "input": "Bistryčios g.",
+      "normalized": "bistrycios gatve",
+      "type": null,
+      "name": "bistrycios gatve"
+    },
+    {
+      "input": "Bulgarų g.",
+      "normalized": "bulgaru gatve",
+      "type": null,
+      "name": "bulgaru gatve"
+    },
+    {
+      "input": "D. Poškos g.",
+      "normalized": "d poskos gatve",
+      "type": null,
+      "name": "d poskos gatve"
+    },
+    {
+      "input": "Dariaus ir Girėno g.",
+      "normalized": "dariaus ir gireno gatve",
+      "type": null,
+      "name": "dariaus ir gireno gatve"
+    },
+    {
+      "input": "Dirvonų g.",
+      "normalized": "dirvonu gatve",
+      "type": null,
+      "name": "dirvonu gatve"
+    },
+    {
+      "input": "Dunojaus g.",
+      "normalized": "dunojaus gatve",
+      "type": null,
+      "name": "dunojaus gatve"
+    },
+    {
+      "input": "Elektrinės g.",
+      "normalized": "elektrines gatve",
+      "type": null,
+      "name": "elektrines gatve"
+    },
+    {
+      "input": "Fabijoniškių g.",
+      "normalized": "fabijoniskiu gatve",
+      "type": null,
+      "name": "fabijoniskiu gatve"
+    },
+    {
+      "input": "Galų g.",
+      "normalized": "galu gatve",
+      "type": null,
+      "name": "galu gatve"
+    },
+    {
+      "input": "Gegužės g.",
+      "normalized": "geguzes gatve",
+      "type": null,
+      "name": "geguzes gatve"
+    },
+    {
+      "input": "Gervėčių g.",
+      "normalized": "gerveciu gatve",
+      "type": null,
+      "name": "gerveciu gatve"
+    },
+    {
+      "input": "Gražinos g.",
+      "normalized": "grazinos gatve",
+      "type": null,
+      "name": "grazinos gatve"
+    },
+    {
+      "input": "Gurių Sodų 10-oji g.",
+      "normalized": "guriu sodu 10 oji gatve",
+      "type": null,
+      "name": "guriu sodu 10 oji gatve"
+    },
+    {
+      "input": "Gurių Sodų 20-oji g.",
+      "normalized": "guriu sodu 20 oji gatve",
+      "type": null,
+      "name": "guriu sodu 20 oji gatve"
+    },
+    {
+      "input": "Gurių Sodų 6-oji g.",
+      "normalized": "guriu sodu 6 oji gatve",
+      "type": null,
+      "name": "guriu sodu 6 oji gatve"
+    },
+    {
+      "input": "I. Šimulionio g.",
+      "normalized": "i simulionio gatve",
+      "type": null,
+      "name": "i simulionio gatve"
+    },
+    {
+      "input": "J. Baltrušaičio g.",
+      "normalized": "j baltrusaicio gatve",
+      "type": null,
+      "name": "j baltrusaicio gatve"
+    },
+    {
+      "input": "J. Kubiliaus g.",
+      "normalized": "j kubiliaus gatve",
+      "type": null,
+      "name": "j kubiliaus gatve"
+    },
+    {
+      "input": "J. Treinio g.",
+      "normalized": "j treinio gatve",
+      "type": null,
+      "name": "j treinio gatve"
+    },
+    {
+      "input": "Juodasis kel.",
+      "normalized": "juodasis kel",
+      "type": null,
+      "name": "juodasis kel"
+    },
+    {
+      "input": "K. Jauniaus g.",
+      "normalized": "k jauniaus gatve",
+      "type": null,
+      "name": "k jauniaus gatve"
+    },
+    {
+      "input": "Kaimelio g.",
+      "normalized": "kaimelio gatve",
+      "type": null,
+      "name": "kaimelio gatve"
+    },
+    {
+      "input": "Kalvarijų Sodų 4-oji g.",
+      "normalized": "kalvariju sodu 4 oji gatve",
+      "type": null,
+      "name": "kalvariju sodu 4 oji gatve"
+    },
+    {
+      "input": "Kanklių g.",
+      "normalized": "kankliu gatve",
+      "type": null,
+      "name": "kankliu gatve"
+    },
+    {
+      "input": "Kaštonų g.",
+      "normalized": "kastonu gatve",
+      "type": null,
+      "name": "kastonu gatve"
+    },
+    {
+      "input": "Kenos g.",
+      "normalized": "kenos gatve",
+      "type": null,
+      "name": "kenos gatve"
+    },
+    {
+      "input": "Kolektyvo g.",
+      "normalized": "kolektyvo gatve",
+      "type": null,
+      "name": "kolektyvo gatve"
+    },
+    {
+      "input": "Krivūlės g.",
+      "normalized": "krivules gatve",
+      "type": null,
+      "name": "krivules gatve"
+    },
+    {
+      "input": "Kyjivo g.",
+      "normalized": "kyjivo gatve",
+      "type": null,
+      "name": "kyjivo gatve"
+    },
+    {
+      "input": "Labdarių g.",
+      "normalized": "labdariu gatve",
+      "type": null,
+      "name": "labdariu gatve"
+    },
+    {
+      "input": "Latvių g.",
+      "normalized": "latviu gatve",
+      "type": null,
+      "name": "latviu gatve"
+    },
+    {
+      "input": "Lentupio g.",
+      "normalized": "lentupio gatve",
+      "type": null,
+      "name": "lentupio gatve"
+    },
+    {
+      "input": "Lingių g.",
+      "normalized": "lingiu gatve",
+      "type": null,
+      "name": "lingiu gatve"
+    },
+    {
+      "input": "Lukiškių skg.",
+      "normalized": "lukiskiu skg",
+      "type": null,
+      "name": "lukiskiu skg"
+    },
+    {
+      "input": "M. K. Čiurlionio g.",
+      "normalized": "m k ciurlionio gatve",
+      "type": null,
+      "name": "m k ciurlionio gatve"
+    },
+    {
+      "input": "Maironio g.",
+      "normalized": "maironio gatve",
+      "type": null,
+      "name": "maironio gatve"
+    },
+    {
+      "input": "Maudyklos g.",
+      "normalized": "maudyklos gatve",
+      "type": null,
+      "name": "maudyklos gatve"
+    },
+    {
+      "input": "Mėsinių g.",
+      "normalized": "mesiniu gatve",
+      "type": null,
+      "name": "mesiniu gatve"
+    },
+    {
+      "input": "Mileišiškių Sodų 11-oji g.",
+      "normalized": "mileisiskiu sodu 11 oji gatve",
+      "type": null,
+      "name": "mileisiskiu sodu 11 oji gatve"
+    },
+    {
+      "input": "Mileišiškių Sodų 6-oji g.",
+      "normalized": "mileisiskiu sodu 6 oji gatve",
+      "type": null,
+      "name": "mileisiskiu sodu 6 oji gatve"
+    },
+    {
+      "input": "Miškinių g.",
+      "normalized": "miskiniu gatve",
+      "type": null,
+      "name": "miskiniu gatve"
+    },
+    {
+      "input": "Naugarduko g.",
+      "normalized": "naugarduko gatve",
+      "type": null,
+      "name": "naugarduko gatve"
+    },
+    {
+      "input": "Neužmirštuolių g.",
+      "normalized": "neuzmirstuoliu gatve",
+      "type": null,
+      "name": "neuzmirstuoliu gatve"
+    },
+    {
+      "input": "Odminių g.",
+      "normalized": "odminiu gatve",
+      "type": null,
+      "name": "odminiu gatve"
+    },
+    {
+      "input": "P. Ancevičiaus g.",
+      "normalized": "p anceviciaus gatve",
+      "type": null,
+      "name": "p anceviciaus gatve"
+    },
+    {
+      "input": "P. Vileišio g.",
+      "normalized": "p vileisio gatve",
+      "type": null,
+      "name": "p vileisio gatve"
+    },
+    {
+      "input": "Pakraščio g.",
+      "normalized": "pakrascio gatve",
+      "type": null,
+      "name": "pakrascio gatve"
+    },
+    {
+      "input": "Pasakų g.",
+      "normalized": "pasaku gatve",
+      "type": null,
+      "name": "pasaku gatve"
+    },
+    {
+      "input": "Pavilnio Sodų 4-oji g.",
+      "normalized": "pavilnio sodu 4 oji gatve",
+      "type": null,
+      "name": "pavilnio sodu 4 oji gatve"
+    },
+    {
+      "input": "Pieninės g.",
+      "normalized": "pienines gatve",
+      "type": null,
+      "name": "pienines gatve"
+    },
+    {
+      "input": "Poligrafijos g.",
+      "normalized": "poligrafijos gatve",
+      "type": null,
+      "name": "poligrafijos gatve"
+    },
+    {
+      "input": "Pragiedrulių Sodų 5-oji g.",
+      "normalized": "pragiedruliu sodu 5 oji gatve",
+      "type": null,
+      "name": "pragiedruliu sodu 5 oji gatve"
+    },
+    {
+      "input": "Pumpurų g.",
+      "normalized": "pumpuru gatve",
+      "type": null,
+      "name": "pumpuru gatve"
+    },
+    {
+      "input": "Radvilų g.",
+      "normalized": "radvilu gatve",
+      "type": null,
+      "name": "radvilu gatve"
+    },
+    {
+      "input": "Ratilių g.",
+      "normalized": "ratiliu gatve",
+      "type": null,
+      "name": "ratiliu gatve"
+    },
+    {
+      "input": "Ribiškių tak.",
+      "normalized": "ribiskiu tak",
+      "type": null,
+      "name": "ribiskiu tak"
+    },
+    {
+      "input": "Rudens g.",
+      "normalized": "rudens gatve",
+      "type": null,
+      "name": "rudens gatve"
+    },
+    {
+      "input": "S. Daukanto a.",
+      "normalized": "s daukanto aikste",
+      "type": null,
+      "name": "s daukanto aikste"
+    },
+    {
+      "input": "Sakalų g.",
+      "normalized": "sakalu gatve",
+      "type": null,
+      "name": "sakalu gatve"
+    },
+    {
+      "input": "Šatrijos g.",
+      "normalized": "satrijos gatve",
+      "type": null,
+      "name": "satrijos gatve"
+    },
+    {
+      "input": "Savanorių pr.",
+      "normalized": "savanoriu prospektas",
+      "type": null,
+      "name": "savanoriu prospektas"
+    },
+    {
+      "input": "Šeškinės Sodų 2-oji g.",
+      "normalized": "seskines sodu 2 oji gatve",
+      "type": null,
+      "name": "seskines sodu 2 oji gatve"
+    },
+    {
+      "input": "Šiltadaržio g.",
+      "normalized": "siltadarzio gatve",
+      "type": null,
+      "name": "siltadarzio gatve"
+    },
+    {
+      "input": "Skudučių g.",
+      "normalized": "skuduciu gatve",
+      "type": null,
+      "name": "skuduciu gatve"
+    },
+    {
+      "input": "Sniego g.",
+      "normalized": "sniego gatve",
+      "type": null,
+      "name": "sniego gatve"
+    },
+    {
+      "input": "Stadiono g.",
+      "normalized": "stadiono gatve",
+      "type": null,
+      "name": "stadiono gatve"
+    },
+    {
+      "input": "Subačiaus g.",
+      "normalized": "subaciaus gatve",
+      "type": null,
+      "name": "subaciaus gatve"
+    },
+    {
+      "input": "Švenčionių g.",
+      "normalized": "svencioniu gatve",
+      "type": null,
+      "name": "svencioniu gatve"
+    },
+    {
+      "input": "Šv. Mikalojaus g.",
+      "normalized": "sventojo mikalojaus gatve",
+      "type": null,
+      "name": "sventojo mikalojaus gatve"
+    },
+    {
+      "input": "T. Kosciuškos g.",
+      "normalized": "t kosciuskos gatve",
+      "type": null,
+      "name": "t kosciuskos gatve"
+    },
+    {
+      "input": "Tauro g.",
+      "normalized": "tauro gatve",
+      "type": null,
+      "name": "tauro gatve"
+    },
+    {
+      "input": "Tolimosios Sodų 3-ioji g.",
+      "normalized": "tolimosios sodu 3 ioji gatve",
+      "type": null,
+      "name": "tolimosios sodu 3 ioji gatve"
+    },
+    {
+      "input": "Trimitų g.",
+      "normalized": "trimitu gatve",
+      "type": null,
+      "name": "trimitu gatve"
+    },
+    {
+      "input": "Tverečiaus g.",
+      "normalized": "tvereciaus gatve",
+      "type": null,
+      "name": "tvereciaus gatve"
+    },
+    {
+      "input": "Upelio g.",
+      "normalized": "upelio gatve",
+      "type": null,
+      "name": "upelio gatve"
+    },
+    {
+      "input": "V. Grybo g.",
+      "normalized": "v grybo gatve",
+      "type": null,
+      "name": "v grybo gatve"
+    },
+    {
+      "input": "V. Sezemano g.",
+      "normalized": "v sezemano gatve",
+      "type": null,
+      "name": "v sezemano gatve"
+    },
+    {
+      "input": "Vandentiekio g.",
+      "normalized": "vandentiekio gatve",
+      "type": null,
+      "name": "vandentiekio gatve"
+    },
+    {
+      "input": "Vengrų g.",
+      "normalized": "vengru gatve",
+      "type": null,
+      "name": "vengru gatve"
+    },
+    {
+      "input": "Vilkpėdės g.",
+      "normalized": "vilkpedes gatve",
+      "type": null,
+      "name": "vilkpedes gatve"
+    },
+    {
+      "input": "Viršuliškių skg.",
+      "normalized": "virsuliskiu skg",
+      "type": null,
+      "name": "virsuliskiu skg"
+    },
+    {
+      "input": "Visų Šventųjų g.",
+      "normalized": "visu sventuju gatve",
+      "type": null,
+      "name": "visu sventuju gatve"
+    },
+    {
+      "input": "Ž. Liauksmino g.",
+      "normalized": "z liauksmino gatve",
+      "type": null,
+      "name": "z liauksmino gatve"
+    },
+    {
+      "input": "Žemaitijos g.",
+      "normalized": "zemaitijos gatve",
+      "type": null,
+      "name": "zemaitijos gatve"
+    }
+  ]
+}

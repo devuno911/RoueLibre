@@ -1,0 +1,761 @@
+{
+  "language": "sq",
+  "cases": [
+    {
+      "input": "Rruga e Kavajës",
+      "normalized": "rruga e kavajes",
+      "type": "rruga",
+      "name": "e kavajes"
+    },
+    {
+      "input": "Rr. e Durrësit",
+      "normalized": "rruga e durresit",
+      "type": "rruga",
+      "name": "e durresit"
+    },
+    {
+      "input": "Bulevardi Dëshmorët e Kombit",
+      "normalized": "bulevardi deshmoret e kombit",
+      "type": "bulevardi",
+      "name": "deshmoret e kombit"
+    },
+    {
+      "input": "Sheshi Skënderbej",
+      "normalized": "sheshi skenderbej",
+      "type": "sheshi",
+      "name": "skenderbej"
+    },
+    {
+      "input": "Rruga e Elbasanit",
+      "normalized": "rruga e elbasanit",
+      "type": "rruga",
+      "name": "e elbasanit"
+    },
+    {
+      "input": "Ura e Tabakëve",
+      "normalized": "ura e tabakeve",
+      "type": "ura",
+      "name": "e tabakeve"
+    },
+    {
+      "input": "2 Nëntori",
+      "normalized": "2 nentori",
+      "type": null,
+      "name": "2 nentori"
+    },
+    {
+      "input": "Qamil Haxhiu",
+      "normalized": "qamil haxhiu",
+      "type": null,
+      "name": "qamil haxhiu"
+    },
+    {
+      "input": "Dil Mramori",
+      "normalized": "dil mramori",
+      "type": null,
+      "name": "dil mramori"
+    },
+    {
+      "input": "Rexhë Delia",
+      "normalized": "rexhe delia",
+      "type": null,
+      "name": "rexhe delia"
+    },
+    {
+      "input": "Zenel Gjoleka",
+      "normalized": "zenel gjoleka",
+      "type": null,
+      "name": "zenel gjoleka"
+    },
+    {
+      "input": "llir Durmishi",
+      "normalized": "llir durmishi",
+      "type": null,
+      "name": "llir durmishi"
+    },
+    {
+      "input": "Fridjof Nansen",
+      "normalized": "fridjof nansen",
+      "type": null,
+      "name": "fridjof nansen"
+    },
+    {
+      "input": "Mehmet Gjevori",
+      "normalized": "mehmet gjevori",
+      "type": null,
+      "name": "mehmet gjevori"
+    },
+    {
+      "input": "Ardhmëria",
+      "normalized": "ardhmeria",
+      "type": null,
+      "name": "ardhmeria"
+    },
+    {
+      "input": "Durrësi",
+      "normalized": "durresi",
+      "type": null,
+      "name": "durresi"
+    },
+    {
+      "input": "Ismet Asllani",
+      "normalized": "ismet asllani",
+      "type": null,
+      "name": "ismet asllani"
+    },
+    {
+      "input": "Mihailo Pupin",
+      "normalized": "mihailo pupin",
+      "type": null,
+      "name": "mihailo pupin"
+    },
+    {
+      "input": "Peshteri",
+      "normalized": "peshteri",
+      "type": null,
+      "name": "peshteri"
+    },
+    {
+      "input": "Salajdin Braha",
+      "normalized": "salajdin braha",
+      "type": null,
+      "name": "salajdin braha"
+    },
+    {
+      "input": "Vedat Kokona",
+      "normalized": "vedat kokona",
+      "type": null,
+      "name": "vedat kokona"
+    },
+    {
+      "input": "Kroi i Bardhë",
+      "normalized": "kroi i bardhe",
+      "type": null,
+      "name": "kroi i bardhe"
+    },
+    {
+      "input": "2 Korriku",
+      "normalized": "2 korriku",
+      "type": null,
+      "name": "2 korriku"
+    },
+    {
+      "input": "Kuvendi i Lezhes",
+      "normalized": "kuvendi i lezhes",
+      "type": null,
+      "name": "kuvendi i lezhes"
+    },
+    {
+      "input": "Mark Kaçinari",
+      "normalized": "mark kacinari",
+      "type": null,
+      "name": "mark kacinari"
+    },
+    {
+      "input": "Bedri Pejani",
+      "normalized": "bedri pejani",
+      "type": null,
+      "name": "bedri pejani"
+    },
+    {
+      "input": "Lasgush Poradeci",
+      "normalized": "lasgush poradeci",
+      "type": null,
+      "name": "lasgush poradeci"
+    },
+    {
+      "input": "Pajazit Islami",
+      "normalized": "pajazit islami",
+      "type": null,
+      "name": "pajazit islami"
+    },
+    {
+      "input": "Struga",
+      "normalized": "struga",
+      "type": null,
+      "name": "struga"
+    },
+    {
+      "input": "Faruk Rama",
+      "normalized": "faruk rama",
+      "type": null,
+      "name": "faruk rama"
+    },
+    {
+      "input": "Zenel Hajdini",
+      "normalized": "zenel hajdini",
+      "type": null,
+      "name": "zenel hajdini"
+    },
+    {
+      "input": "Fazli Ramadani",
+      "normalized": "fazli ramadani",
+      "type": null,
+      "name": "fazli ramadani"
+    },
+    {
+      "input": "Muharrem Qena",
+      "normalized": "muharrem qena",
+      "type": null,
+      "name": "muharrem qena"
+    },
+    {
+      "input": "Zenel Hajdini",
+      "normalized": "zenel hajdini",
+      "type": null,
+      "name": "zenel hajdini"
+    },
+    {
+      "input": "Dibra",
+      "normalized": "dibra",
+      "type": null,
+      "name": "dibra"
+    },
+    {
+      "input": "Ibrahim Krasniqi",
+      "normalized": "ibrahim krasniqi",
+      "type": null,
+      "name": "ibrahim krasniqi"
+    },
+    {
+      "input": "Papa Kristo Negovani",
+      "normalized": "papa kristo negovani",
+      "type": null,
+      "name": "papa kristo negovani"
+    },
+    {
+      "input": "Vehap Shita",
+      "normalized": "vehap shita",
+      "type": null,
+      "name": "vehap shita"
+    },
+    {
+      "input": "Arif Seferi",
+      "normalized": "arif seferi",
+      "type": null,
+      "name": "arif seferi"
+    },
+    {
+      "input": "Çajkovski",
+      "normalized": "cajkovski",
+      "type": null,
+      "name": "cajkovski"
+    },
+    {
+      "input": "Fadil Nimani",
+      "normalized": "fadil nimani",
+      "type": null,
+      "name": "fadil nimani"
+    },
+    {
+      "input": "Hilmi Zariqi",
+      "normalized": "hilmi zariqi",
+      "type": null,
+      "name": "hilmi zariqi"
+    },
+    {
+      "input": "Kadri Qerimi",
+      "normalized": "kadri qerimi",
+      "type": null,
+      "name": "kadri qerimi"
+    },
+    {
+      "input": "Makiaveli",
+      "normalized": "makiaveli",
+      "type": null,
+      "name": "makiaveli"
+    },
+    {
+      "input": "Mrika Gjoka",
+      "normalized": "mrika gjoka",
+      "type": null,
+      "name": "mrika gjoka"
+    },
+    {
+      "input": "Niketë Dardani",
+      "normalized": "nikete dardani",
+      "type": null,
+      "name": "nikete dardani"
+    },
+    {
+      "input": "Risto Siliqi",
+      "normalized": "risto siliqi",
+      "type": null,
+      "name": "risto siliqi"
+    },
+    {
+      "input": "Shaban Shalla",
+      "normalized": "shaban shalla",
+      "type": null,
+      "name": "shaban shalla"
+    },
+    {
+      "input": "Tutini",
+      "normalized": "tutini",
+      "type": null,
+      "name": "tutini"
+    },
+    {
+      "input": "Gjeravica",
+      "normalized": "gjeravica",
+      "type": null,
+      "name": "gjeravica"
+    },
+    {
+      "input": "Aleko Prodani",
+      "normalized": "aleko prodani",
+      "type": null,
+      "name": "aleko prodani"
+    },
+    {
+      "input": "Kujtim Spahivogli",
+      "normalized": "kujtim spahivogli",
+      "type": null,
+      "name": "kujtim spahivogli"
+    },
+    {
+      "input": "Ramadan Shabani",
+      "normalized": "ramadan shabani",
+      "type": null,
+      "name": "ramadan shabani"
+    },
+    {
+      "input": "Ulëza",
+      "normalized": "uleza",
+      "type": null,
+      "name": "uleza"
+    },
+    {
+      "input": "Shaqir Konjusha",
+      "normalized": "shaqir konjusha",
+      "type": null,
+      "name": "shaqir konjusha"
+    },
+    {
+      "input": "Hipokrati",
+      "normalized": "hipokrati",
+      "type": null,
+      "name": "hipokrati"
+    },
+    {
+      "input": "QKUK Bicycle Lane",
+      "normalized": "qkuk bicycle lane",
+      "type": null,
+      "name": "qkuk bicycle lane"
+    },
+    {
+      "input": "Taulantia",
+      "normalized": "taulantia",
+      "type": null,
+      "name": "taulantia"
+    },
+    {
+      "input": "Nora e Hotit",
+      "normalized": "nora e hotit",
+      "type": null,
+      "name": "nora e hotit"
+    },
+    {
+      "input": "Hysni Hajdarmataj",
+      "normalized": "hysni hajdarmataj",
+      "type": null,
+      "name": "hysni hajdarmataj"
+    },
+    {
+      "input": "Vashingtoni",
+      "normalized": "vashingtoni",
+      "type": null,
+      "name": "vashingtoni"
+    },
+    {
+      "input": "Mustafë Rezniqi",
+      "normalized": "mustafe rezniqi",
+      "type": null,
+      "name": "mustafe rezniqi"
+    },
+    {
+      "input": "Alpet Shqiptare",
+      "normalized": "alpet shqiptare",
+      "type": null,
+      "name": "alpet shqiptare"
+    },
+    {
+      "input": "Dëshmorët e Janarit",
+      "normalized": "deshmoret e janarit",
+      "type": null,
+      "name": "deshmoret e janarit"
+    },
+    {
+      "input": "Hëna Spahiu",
+      "normalized": "hena spahiu",
+      "type": null,
+      "name": "hena spahiu"
+    },
+    {
+      "input": "Mehmet Begraca",
+      "normalized": "mehmet begraca",
+      "type": null,
+      "name": "mehmet begraca"
+    },
+    {
+      "input": "Shpend Malaj",
+      "normalized": "shpend malaj",
+      "type": null,
+      "name": "shpend malaj"
+    },
+    {
+      "input": "Adnan Maliqi",
+      "normalized": "adnan maliqi",
+      "type": null,
+      "name": "adnan maliqi"
+    },
+    {
+      "input": "Drita Pelingu",
+      "normalized": "drita pelingu",
+      "type": null,
+      "name": "drita pelingu"
+    },
+    {
+      "input": "Kongresi i Lushnjës",
+      "normalized": "kongresi i lushnjes",
+      "type": null,
+      "name": "kongresi i lushnjes"
+    },
+    {
+      "input": "Myslim Peza",
+      "normalized": "myslim peza",
+      "type": null,
+      "name": "myslim peza"
+    },
+    {
+      "input": "Ragip Hoti",
+      "normalized": "ragip hoti",
+      "type": null,
+      "name": "ragip hoti"
+    },
+    {
+      "input": "Taulantët",
+      "normalized": "taulantet",
+      "type": null,
+      "name": "taulantet"
+    },
+    {
+      "input": "Burim Grajçevci",
+      "normalized": "burim grajcevci",
+      "type": null,
+      "name": "burim grajcevci"
+    },
+    {
+      "input": "Gjon Sereqi",
+      "normalized": "gjon sereqi",
+      "type": null,
+      "name": "gjon sereqi"
+    },
+    {
+      "input": "Labinoti",
+      "normalized": "labinoti",
+      "type": null,
+      "name": "labinoti"
+    },
+    {
+      "input": "Selim Rekaliu",
+      "normalized": "selim rekaliu",
+      "type": null,
+      "name": "selim rekaliu"
+    },
+    {
+      "input": "Kruja",
+      "normalized": "kruja",
+      "type": null,
+      "name": "kruja"
+    },
+    {
+      "input": "Selim Grajçevci",
+      "normalized": "selim grajcevci",
+      "type": null,
+      "name": "selim grajcevci"
+    },
+    {
+      "input": "Kraljice Marije",
+      "normalized": "kraljice marije",
+      "type": null,
+      "name": "kraljice marije"
+    },
+    {
+      "input": "Klinika e Syve",
+      "normalized": "klinika e syve",
+      "type": null,
+      "name": "klinika e syve"
+    },
+    {
+      "input": "Shkolla Ekonomike",
+      "normalized": "shkolla ekonomike",
+      "type": null,
+      "name": "shkolla ekonomike"
+    },
+    {
+      "input": "Amfiteatri i Gërmisë",
+      "normalized": "amfiteatri i germise",
+      "type": null,
+      "name": "amfiteatri i germise"
+    },
+    {
+      "input": "Spitali Lindja",
+      "normalized": "spitali lindja",
+      "type": null,
+      "name": "spitali lindja"
+    },
+    {
+      "input": "Mjekësia Nukleare",
+      "normalized": "mjekesia nukleare",
+      "type": null,
+      "name": "mjekesia nukleare"
+    },
+    {
+      "input": "Ramiz Cërnica",
+      "normalized": "ramiz cernica",
+      "type": null,
+      "name": "ramiz cernica"
+    },
+    {
+      "input": "Besmir Azemi",
+      "normalized": "besmir azemi",
+      "type": null,
+      "name": "besmir azemi"
+    },
+    {
+      "input": "Holger Pendersen",
+      "normalized": "holger pendersen",
+      "type": null,
+      "name": "holger pendersen"
+    },
+    {
+      "input": "Rruga A",
+      "normalized": "rruga a",
+      "type": "rruga",
+      "name": "a"
+    },
+    {
+      "input": "Bekim Fehmiu",
+      "normalized": "bekim fehmiu",
+      "type": null,
+      "name": "bekim fehmiu"
+    },
+    {
+      "input": "Katarina Josipi",
+      "normalized": "katarina josipi",
+      "type": null,
+      "name": "katarina josipi"
+    },
+    {
+      "input": "Rene Dekarti",
+      "normalized": "rene dekarti",
+      "type": null,
+      "name": "rene dekarti"
+    },
+    {
+      "input": "Nebih Gashi",
+      "normalized": "nebih gashi",
+      "type": null,
+      "name": "nebih gashi"
+    },
+    {
+      "input": "Arben Xheladini",
+      "normalized": "arben xheladini",
+      "type": null,
+      "name": "arben xheladini"
+    },
+    {
+      "input": "Eqrem Qabaj",
+      "normalized": "eqrem qabaj",
+      "type": null,
+      "name": "eqrem qabaj"
+    },
+    {
+      "input": "Hilmi Rakovica",
+      "normalized": "hilmi rakovica",
+      "type": null,
+      "name": "hilmi rakovica"
+    },
+    {
+      "input": "Lidhja e Prizrenit",
+      "normalized": "lidhja e prizrenit",
+      "type": null,
+      "name": "lidhja e prizrenit"
+    },
+    {
+      "input": "Rexhep Krasniqi",
+      "normalized": "rexhep krasniqi",
+      "type": null,
+      "name": "rexhep krasniqi"
+    },
+    {
+      "input": "Sheshi Nëna Terezë",
+      "normalized": "sheshi nena tereze",
+      "type": "sheshi",
+      "name": "nena tereze"
+    },
+    {
+      "input": "Zeki Shulemaja",
+      "normalized": "zeki shulemaja",
+      "type": null,
+      "name": "zeki shulemaja"
+    },
+    {
+      "input": "Kadri Dushi",
+      "normalized": "kadri dushi",
+      "type": null,
+      "name": "kadri dushi"
+    },
+    {
+      "input": "Qazim Dushku",
+      "normalized": "qazim dushku",
+      "type": null,
+      "name": "qazim dushku"
+    },
+    {
+      "input": "Andrea Durrsaku",
+      "normalized": "andrea durrsaku",
+      "type": null,
+      "name": "andrea durrsaku"
+    },
+    {
+      "input": "Dasaretët",
+      "normalized": "dasaretet",
+      "type": null,
+      "name": "dasaretet"
+    },
+    {
+      "input": "Gaspër Karaçi",
+      "normalized": "gasper karaci",
+      "type": null,
+      "name": "gasper karaci"
+    },
+    {
+      "input": "Jeton Debushaj",
+      "normalized": "jeton debushaj",
+      "type": null,
+      "name": "jeton debushaj"
+    },
+    {
+      "input": "Naser Lani",
+      "normalized": "naser lani",
+      "type": null,
+      "name": "naser lani"
+    },
+    {
+      "input": "Sefedin Vitia",
+      "normalized": "sefedin vitia",
+      "type": null,
+      "name": "sefedin vitia"
+    },
+    {
+      "input": "Isa Boletini",
+      "normalized": "isa boletini",
+      "type": null,
+      "name": "isa boletini"
+    },
+    {
+      "input": "Berlini",
+      "normalized": "berlini",
+      "type": null,
+      "name": "berlini"
+    },
+    {
+      "input": "Ukë Mavriqi",
+      "normalized": "uke mavriqi",
+      "type": null,
+      "name": "uke mavriqi"
+    },
+    {
+      "input": "Demë Ahmeti",
+      "normalized": "deme ahmeti",
+      "type": null,
+      "name": "deme ahmeti"
+    },
+    {
+      "input": "Komani",
+      "normalized": "komani",
+      "type": null,
+      "name": "komani"
+    },
+    {
+      "input": "Nerodimja",
+      "normalized": "nerodimja",
+      "type": null,
+      "name": "nerodimja"
+    },
+    {
+      "input": "Xhavit Ahmeti",
+      "normalized": "xhavit ahmeti",
+      "type": null,
+      "name": "xhavit ahmeti"
+    },
+    {
+      "input": "Hazir Mala",
+      "normalized": "hazir mala",
+      "type": null,
+      "name": "hazir mala"
+    },
+    {
+      "input": "Mehmet Ali Vrioni",
+      "normalized": "mehmet ali vrioni",
+      "type": null,
+      "name": "mehmet ali vrioni"
+    },
+    {
+      "input": "Selman Kadria",
+      "normalized": "selman kadria",
+      "type": null,
+      "name": "selman kadria"
+    },
+    {
+      "input": "Mokrogorska",
+      "normalized": "mokrogorska",
+      "type": null,
+      "name": "mokrogorska"
+    },
+    {
+      "input": "Fehmi Lladrovci",
+      "normalized": "fehmi lladrovci",
+      "type": null,
+      "name": "fehmi lladrovci"
+    },
+    {
+      "input": "Xhevë Lladrovci",
+      "normalized": "xheve lladrovci",
+      "type": null,
+      "name": "xheve lladrovci"
+    },
+    {
+      "input": "Ibe Palikuqi",
+      "normalized": "ibe palikuqi",
+      "type": null,
+      "name": "ibe palikuqi"
+    },
+    {
+      "input": "Rifat Berisha",
+      "normalized": "rifat berisha",
+      "type": null,
+      "name": "rifat berisha"
+    },
+    {
+      "input": "Xhemali Berisha",
+      "normalized": "xhemali berisha",
+      "type": null,
+      "name": "xhemali berisha"
+    },
+    {
+      "input": "Ernest Heminguej",
+      "normalized": "ernest heminguej",
+      "type": null,
+      "name": "ernest heminguej"
+    },
+    {
+      "input": "Istria",
+      "normalized": "istria",
+      "type": null,
+      "name": "istria"
+    }
+  ]
+}

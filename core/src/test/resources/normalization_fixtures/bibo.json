@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "Avenida Arroyomolinos",
+      "normalized": "avenida arroyomolinos",
+      "type": "avenida",
+      "name": "arroyomolinos"
+    },
+    {
+      "input": "Arco Verde",
+      "normalized": "arco verde",
+      "type": null,
+      "name": "arco verde"
+    },
+    {
+      "input": "Calle Albarracín",
+      "normalized": "calle albarracin",
+      "type": "calle",
+      "name": "albarracin"
+    },
+    {
+      "input": "Calle Cazorla",
+      "normalized": "calle cazorla",
+      "type": "calle",
+      "name": "cazorla"
+    },
+    {
+      "input": "Calle de la Comunidad Canaria",
+      "normalized": "calle de la comunidad canaria",
+      "type": "calle",
+      "name": "de la comunidad canaria"
+    },
+    {
+      "input": "Calle de Santillana del Mar",
+      "normalized": "calle de santillana del mar",
+      "type": "calle",
+      "name": "de santillana del mar"
+    },
+    {
+      "input": "Calle Francisco Alonso",
+      "normalized": "calle francisco alonso",
+      "type": "calle",
+      "name": "francisco alonso"
+    },
+    {
+      "input": "Calle Luigi Boccherini",
+      "normalized": "calle luigi boccherini",
+      "type": "calle",
+      "name": "luigi boccherini"
+    },
+    {
+      "input": "Calle Nájera",
+      "normalized": "calle najera",
+      "type": "calle",
+      "name": "najera"
+    },
+    {
+      "input": "Calle Río Genil",
+      "normalized": "calle rio genil",
+      "type": "calle",
+      "name": "rio genil"
+    },
+    {
+      "input": "Calle Sigüenza",
+      "normalized": "calle siguenza",
+      "type": "calle",
+      "name": "siguenza"
+    },
+    {
+      "input": "Camino de Alcorcón",
+      "normalized": "camino de alcorcon",
+      "type": "camino",
+      "name": "de alcorcon"
+    },
+    {
+      "input": "Plaza Virgen del Prado",
+      "normalized": "plaza virgen del prado",
+      "type": "plaza",
+      "name": "virgen del prado"
+    },
+    {
+      "input": "Calle Alcazaba",
+      "normalized": "calle alcazaba",
+      "type": "calle",
+      "name": "alcazaba"
+    },
+    {
+      "input": "Calle Bullaque",
+      "normalized": "calle bullaque",
+      "type": "calle",
+      "name": "bullaque"
+    },
+    {
+      "input": "Calle de Budapest",
+      "normalized": "calle de budapest",
+      "type": "calle",
+      "name": "de budapest"
+    },
+    {
+      "input": "Calle Eresma",
+      "normalized": "calle eresma",
+      "type": "calle",
+      "name": "eresma"
+    },
+    {
+      "input": "Calle Guadalete",
+      "normalized": "calle guadalete",
+      "type": "calle",
+      "name": "guadalete"
+    },
+    {
+      "input": "Calle Hijuela",
+      "normalized": "calle hijuela",
+      "type": "calle",
+      "name": "hijuela"
+    },
+    {
+      "input": "Calle Los Chopos",
+      "normalized": "calle los chopos",
+      "type": "calle",
+      "name": "los chopos"
+    },
+    {
+      "input": "Calle Navia",
+      "normalized": "calle navia",
+      "type": "calle",
+      "name": "navia"
+    },
+    {
+      "input": "Calle Oria",
+      "normalized": "calle oria",
+      "type": "calle",
+      "name": "oria"
+    },
+    {
+      "input": "Calle Segre",
+      "normalized": "calle segre",
+      "type": "calle",
+      "name": "segre"
+    },
+    {
+      "input": "Calle Ulla",
+      "normalized": "calle ulla",
+      "type": "calle",
+      "name": "ulla"
+    },
+    {
+      "input": "Calle Acamar",
+      "normalized": "calle acamar",
+      "type": "calle",
+      "name": "acamar"
+    },
+    {
+      "input": "Calle Arakkis",
+      "normalized": "calle arakkis",
+      "type": "calle",
+      "name": "arakkis"
+    },
+    {
+      "input": "Calle Constelación del Centauro",
+      "normalized": "calle constelacion del centauro",
+      "type": "calle",
+      "name": "constelacion del centauro"
+    },
+    {
+      "input": "Calle Escorpio",
+      "normalized": "calle escorpio",
+      "type": "calle",
+      "name": "escorpio"
+    },
+    {
+      "input": "Calle Lucero del Alba",
+      "normalized": "calle lucero del alba",
+      "type": "calle",
+      "name": "lucero del alba"
+    },
+    {
+      "input": "Calle Playa de Gandía",
+      "normalized": "calle playa de gandia",
+      "type": "calle",
+      "name": "playa de gandia"
+    },
+    {
+      "input": "Calle Pléyades",
+      "normalized": "calle pleyades",
+      "type": "calle",
+      "name": "pleyades"
+    },
+    {
+      "input": "Camino de la Huerta",
+      "normalized": "camino de la huerta",
+      "type": "camino",
+      "name": "de la huerta"
+    },
+    {
+      "input": "M-503",
+      "normalized": "m 503",
+      "type": null,
+      "name": "m 503"
+    },
+    {
+      "input": "Avenida del Príncipe de Asturias",
+      "normalized": "avenida del principe de asturias",
+      "type": "avenida",
+      "name": "del principe de asturias"
+    },
+    {
+      "input": "Calle Azafrán",
+      "normalized": "calle azafran",
+      "type": "calle",
+      "name": "azafran"
+    },
+    {
+      "input": "Calle Ciruela",
+      "normalized": "calle ciruela",
+      "type": "calle",
+      "name": "ciruela"
+    },
+    {
+      "input": "Calle de Fontis",
+      "normalized": "calle de fontis",
+      "type": "calle",
+      "name": "de fontis"
+    },
+    {
+      "input": "Calle de la Granadilla",
+      "normalized": "calle de la granadilla",
+      "type": "calle",
+      "name": "de la granadilla"
+    },
+    {
+      "input": "Calle de las Norias",
+      "normalized": "calle de las norias",
+      "type": "calle",
+      "name": "de las norias"
+    },
+    {
+      "input": "Calle de San Andrés",
+      "normalized": "calle de san andres",
+      "type": "calle",
+      "name": "de san andres"
+    },
+    {
+      "input": "Calle de Santa Bárbara",
+      "normalized": "calle de santa barbara",
+      "type": "calle",
+      "name": "de santa barbara"
+    },
+    {
+      "input": "Calle del Barco",
+      "normalized": "calle del barco",
+      "type": "calle",
+      "name": "del barco"
+    },
+    {
+      "input": "Calle del Velero",
+      "normalized": "calle del velero",
+      "type": "calle",
+      "name": "del velero"
+    },
+    {
+      "input": "Calle Flor de Té",
+      "normalized": "calle flor de te",
+      "type": "calle",
+      "name": "flor de te"
+    },
+    {
+      "input": "Calle Jazmín",
+      "normalized": "calle jazmin",
+      "type": "calle",
+      "name": "jazmin"
+    },
+    {
+      "input": "Calle Mar Adriático",
+      "normalized": "calle mar adriatico",
+      "type": "calle",
+      "name": "mar adriatico"
+    },
+    {
+      "input": "Calle Mar Negro",
+      "normalized": "calle mar negro",
+      "type": "calle",
+      "name": "mar negro"
+    },
+    {
+      "input": "Calle Real Baja",
+      "normalized": "calle real baja",
+      "type": "calle",
+      "name": "real baja"
+    },
+    {
+      "input": "Calle Urca",
+      "normalized": "calle urca",
+      "type": "calle",
+      "name": "urca"
+    },
+    {
+      "input": "Paseo de Polifemo",
+      "normalized": "paseo de polifemo",
+      "type": "paseo",
+      "name": "de polifemo"
+    },
+    {
+      "input": "Travesía del Cristo",
+      "normalized": "travesia del cristo",
+      "type": "travesia",
+      "name": "del cristo"
+    },
+    {
+      "input": "Calle de los Pinos",
+      "normalized": "calle de los pinos",
+      "type": "calle",
+      "name": "de los pinos"
+    },
+    {
+      "input": "Calle del Mar Rojo",
+      "normalized": "calle del mar rojo",
+      "type": "calle",
+      "name": "del mar rojo"
+    },
+    {
+      "input": "Calle las Praderas",
+      "normalized": "calle las praderas",
+      "type": "calle",
+      "name": "las praderas"
+    },
+    {
+      "input": "Camino del Huerto",
+      "normalized": "camino del huerto",
+      "type": "camino",
+      "name": "del huerto"
+    },
+    {
+      "input": "Senda Botánica del Aroyo de Vagrande",
+      "normalized": "senda botanica del aroyo de vagrande",
+      "type": null,
+      "name": "senda botanica del aroyo de vagrande"
+    },
+    {
+      "input": "Calle del Tomillo",
+      "normalized": "calle del tomillo",
+      "type": "calle",
+      "name": "del tomillo"
+    },
+    {
+      "input": "Teatro de la Casa de la Cultura Carmen Conde",
+      "normalized": "teatro de la casa de la cultura carmen conde",
+      "type": null,
+      "name": "teatro de la casa de la cultura carmen conde"
+    },
+    {
+      "input": "Infante Don Luis",
+      "normalized": "infante don luis",
+      "type": null,
+      "name": "infante don luis"
+    },
+    {
+      "input": "Calle del Jazmín",
+      "normalized": "calle del jazmin",
+      "type": "calle",
+      "name": "del jazmin"
+    },
+    {
+      "input": "Calle Vidrieros",
+      "normalized": "calle vidrieros",
+      "type": "calle",
+      "name": "vidrieros"
+    },
+    {
+      "input": "Calle Alonso de Ojeda",
+      "normalized": "calle alonso de ojeda",
+      "type": "calle",
+      "name": "alonso de ojeda"
+    },
+    {
+      "input": "Calle Federico Chueca",
+      "normalized": "calle federico chueca",
+      "type": "calle",
+      "name": "federico chueca"
+    },
+    {
+      "input": "Calle Hernán Cortés",
+      "normalized": "calle hernan cortes",
+      "type": "calle",
+      "name": "hernan cortes"
+    },
+    {
+      "input": "Calle José Solana",
+      "normalized": "calle jose solana",
+      "type": "calle",
+      "name": "jose solana"
+    },
+    {
+      "input": "Calle Miguel López de Legazpi",
+      "normalized": "calle miguel lopez de legazpi",
+      "type": "calle",
+      "name": "miguel lopez de legazpi"
+    },
+    {
+      "input": "Carretera Boadilla",
+      "normalized": "carretera boadilla",
+      "type": "carretera",
+      "name": "boadilla"
+    },
+    {
+      "input": "Calle Méndez Nuñez",
+      "normalized": "calle mendez nunez",
+      "type": "calle",
+      "name": "mendez nunez"
+    },
+    {
+      "input": "Calle Río Nervión",
+      "normalized": "calle rio nervion",
+      "type": "calle",
+      "name": "rio nervion"
+    },
+    {
+      "input": "Camino de Romanillos",
+      "normalized": "camino de romanillos",
+      "type": "camino",
+      "name": "de romanillos"
+    },
+    {
+      "input": "Avenida del Club",
+      "normalized": "avenida del club",
+      "type": "avenida",
+      "name": "del club"
+    },
+    {
+      "input": "Calle de la Urca",
+      "normalized": "calle de la urca",
+      "type": "calle",
+      "name": "de la urca"
+    },
+    {
+      "input": "Calle de los Claveles",
+      "normalized": "calle de los claveles",
+      "type": "calle",
+      "name": "de los claveles"
+    },
+    {
+      "input": "Calle del Castaño",
+      "normalized": "calle del castano",
+      "type": "calle",
+      "name": "del castano"
+    },
+    {
+      "input": "Calle Hayas",
+      "normalized": "calle hayas",
+      "type": "calle",
+      "name": "hayas"
+    },
+    {
+      "input": "Calle Murillo",
+      "normalized": "calle murillo",
+      "type": "calle",
+      "name": "murillo"
+    },
+    {
+      "input": "Calle Transversal 3",
+      "normalized": "calle transversal 3",
+      "type": "calle",
+      "name": "transversal 3"
+    },
+    {
+      "input": "Carretera de Majadahonda",
+      "normalized": "carretera de majadahonda",
+      "type": "carretera",
+      "name": "de majadahonda"
+    },
+    {
+      "input": "Plaza de las Higueras",
+      "normalized": "plaza de las higueras",
+      "type": "plaza",
+      "name": "de las higueras"
+    },
+    {
+      "input": "Vereda Gansino",
+      "normalized": "vereda gansino",
+      "type": null,
+      "name": "vereda gansino"
+    },
+    {
+      "input": "Calle de la Acacia",
+      "normalized": "calle de la acacia",
+      "type": "calle",
+      "name": "de la acacia"
+    },
+    {
+      "input": "Calle Guipúzcoa",
+      "normalized": "calle guipuzcoa",
+      "type": "calle",
+      "name": "guipuzcoa"
+    },
+    {
+      "input": "Calle Salamanca",
+      "normalized": "calle salamanca",
+      "type": "calle",
+      "name": "salamanca"
+    },
+    {
+      "input": "Cañada de la Carrera",
+      "normalized": "canada de la carrera",
+      "type": null,
+      "name": "canada de la carrera"
+    },
+    {
+      "input": "Paseo de los Cedros",
+      "normalized": "paseo de los cedros",
+      "type": "paseo",
+      "name": "de los cedros"
+    },
+    {
+      "input": "Avenida de las Encinas",
+      "normalized": "avenida de las encinas",
+      "type": "avenida",
+      "name": "de las encinas"
+    },
+    {
+      "input": "Calle Cabo de Creus",
+      "normalized": "calle cabo de creus",
+      "type": "calle",
+      "name": "cabo de creus"
+    },
+    {
+      "input": "Calle de la Comunidad Murciana",
+      "normalized": "calle de la comunidad murciana",
+      "type": "calle",
+      "name": "de la comunidad murciana"
+    },
+    {
+      "input": "Calle Isla Coelleira",
+      "normalized": "calle isla coelleira",
+      "type": "calle",
+      "name": "isla coelleira"
+    },
+    {
+      "input": "Calle Jaras",
+      "normalized": "calle jaras",
+      "type": "calle",
+      "name": "jaras"
+    },
+    {
+      "input": "Calle Playa de Altea",
+      "normalized": "calle playa de altea",
+      "type": "calle",
+      "name": "playa de altea"
+    },
+    {
+      "input": "Calle Playa de Castro Urdiales",
+      "normalized": "calle playa de castro urdiales",
+      "type": "calle",
+      "name": "playa de castro urdiales"
+    },
+    {
+      "input": "Calle Playa de Lagoa",
+      "normalized": "calle playa de lagoa",
+      "type": "calle",
+      "name": "playa de lagoa"
+    },
+    {
+      "input": "Calle Playa de Menduiña",
+      "normalized": "calle playa de menduina",
+      "type": "calle",
+      "name": "playa de menduina"
+    },
+    {
+      "input": "Calle Playa de Roquetas",
+      "normalized": "calle playa de roquetas",
+      "type": "calle",
+      "name": "playa de roquetas"
+    },
+    {
+      "input": "Calle Playa del Sardinero",
+      "normalized": "calle playa del sardinero",
+      "type": "calle",
+      "name": "playa del sardinero"
+    },
+    {
+      "input": "Calle Río Arlanzón",
+      "normalized": "calle rio arlanzon",
+      "type": "calle",
+      "name": "rio arlanzon"
+    },
+    {
+      "input": "Calle Río Lega",
+      "normalized": "calle rio lega",
+      "type": "calle",
+      "name": "rio lega"
+    },
+    {
+      "input": "Calle Río Urumea",
+      "normalized": "calle rio urumea",
+      "type": "calle",
+      "name": "rio urumea"
+    },
+    {
+      "input": "Calle Valle de Galanes",
+      "normalized": "calle valle de galanes",
+      "type": "calle",
+      "name": "valle de galanes"
+    },
+    {
+      "input": "Calle Valle de Oro",
+      "normalized": "calle valle de oro",
+      "type": "calle",
+      "name": "valle de oro"
+    },
+    {
+      "input": "Calle Valle del Roncal",
+      "normalized": "calle valle del roncal",
+      "type": "calle",
+      "name": "valle del roncal"
+    },
+    {
+      "input": "Pasarela «Roza Martín»",
+      "normalized": "pasarela roza martin",
+      "type": null,
+      "name": "pasarela roza martin"
+    },
+    {
+      "input": "Calle Colada de Pozuelo",
+      "normalized": "calle colada de pozuelo",
+      "type": "calle",
+      "name": "colada de pozuelo"
+    },
+    {
+      "input": "Calle de Coslada",
+      "normalized": "calle de coslada",
+      "type": "calle",
+      "name": "de coslada"
+    },
+    {
+      "input": "Calle de Villamanta",
+      "normalized": "calle de villamanta",
+      "type": "calle",
+      "name": "de villamanta"
+    },
+    {
+      "input": "Calle Pozuelo",
+      "normalized": "calle pozuelo",
+      "type": "calle",
+      "name": "pozuelo"
+    },
+    {
+      "input": "Calle Castillo de Almansa",
+      "normalized": "calle castillo de almansa",
+      "type": "calle",
+      "name": "castillo de almansa"
+    },
+    {
+      "input": "Calle Castillo de Gomar",
+      "normalized": "calle castillo de gomar",
+      "type": "calle",
+      "name": "castillo de gomar"
+    },
+    {
+      "input": "Calle del Valle de Ulzama",
+      "normalized": "calle del valle de ulzama",
+      "type": "calle",
+      "name": "del valle de ulzama"
+    },
+    {
+      "input": "Carril de la Lana",
+      "normalized": "carril de la lana",
+      "type": null,
+      "name": "carril de la lana"
+    },
+    {
+      "input": "Calle Duero",
+      "normalized": "calle duero",
+      "type": "calle",
+      "name": "duero"
+    },
+    {
+      "input": "Avenida de la Selección Española de Fútbol",
+      "normalized": "avenida de la seleccion espanola de futbol",
+      "type": "avenida",
+      "name": "de la seleccion espanola de futbol"
+    },
+    {
+      "input": "Calle Cabo de Trafalgar",
+      "normalized": "calle cabo de trafalgar",
+      "type": "calle",
+      "name": "cabo de trafalgar"
+    },
+    {
+      "input": "Calle de la Margarita",
+      "normalized": "calle de la margarita",
+      "type": "calle",
+      "name": "de la margarita"
+    },
+    {
+      "input": "Calle de Monte Peñalara",
+      "normalized": "calle de monte penalara",
+      "type": "calle",
+      "name": "de monte penalara"
+    },
+    {
+      "input": "Calle del Jazmín",
+      "normalized": "calle del jazmin",
+      "type": "calle",
+      "name": "del jazmin"
+    },
+    {
+      "input": "Calle Isla de Buda",
+      "normalized": "calle isla de buda",
+      "type": "calle",
+      "name": "isla de buda"
+    },
+    {
+      "input": "Calle Isla Grosa",
+      "normalized": "calle isla grosa",
+      "type": "calle",
+      "name": "isla grosa"
+    },
+    {
+      "input": "Calle Monte Aitana",
+      "normalized": "calle monte aitana",
+      "type": "calle",
+      "name": "monte aitana"
+    }
+  ]
+}

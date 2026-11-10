@@ -1,0 +1,34 @@
+Roue Libre toont de stations van deelfietsnetwerken op een kaart en berekent de beste reis van deur tot deur: lopen, fietsen, lopen.
+
+Alles gebeurt op de telefoon: de kaart, het zoeken naar adressen en de routeberekening hebben helemaal geen verbinding nodig. Alleen de beschikbaarheid van de fietsen in real time gaat over het netwerk, rechtstreeks gelezen van de server van de beheerder.
+
+<b>De beste reis, niet het dichtstbijzijnde station</b>
+
+• Het vertrek- en het aankomststation worden samen gekozen, op basis van de actuele beschikbaarheid: fietsen om mee te nemen aan de ene kant, vrije plaatsen om hem terug te zetten aan de andere.
+• Een bijna leeg station weegt minder zwaar, want het kan leeglopen terwijl je ernaartoe loopt.
+• Waar het netwerk mechanische en elektrische fietsen uitleent, kies je welke je wilt, en tellen alleen de stations die er echt een hebben.
+• De reis volgt de fietspaden en houdt rekening met de stijging.
+
+<b>Een kaart gemaakt om te fietsen</b>
+
+Fietspaden die los van de straten zijn getekend, openbare gebouwen en herkenningspunten om je op zicht te oriënteren, en bij elk station wat het netwerk uitleent: mechanische fietsen, elektrische of allebei.
+
+<b>Niets volgt je</b>
+
+• Geen enkele Google-dienst: geen Play Services, geen Firebase, geen Maps SDK.
+• Geen telemetrie, geen tracker, geen identificatiecode, geen account.
+• Geen geschiedenis: geen posities, geen bestemmingen. Wat je zoekt, verlaat de telefoon niet.
+
+<b>De bediende steden</b>
+
+Meer dan 350 netwerken in bijna 40 landen, van Vélib’ in Parijs tot Citi Bike in New York, via Montreal, Praag, Barcelona, Dubai en Buenos Aires. Geen stad wordt je opgedrongen: de app stelt je die van jou voor op basis van je positie, en je kunt er meerdere houden.
+
+Roue Libre bedient alleen netwerken die hun stations publiceren in GBFS, de open standaard voor deelfietsen, in een openbare feed zonder sleutel. Ontbreekt je stad, dan publiceert haar netwerk zo’n feed niet: daarom moet je het netwerk zelf of de vervoersautoriteit vragen.
+
+<b>Goed om te weten vóór het installeren</b>
+
+De kaart, de routegegevens en de adresindex zitten niet in de app: je downloadt ze één keer, wanneer jij dat besluit, en hun omvang wordt vooraf genoemd (zo’n tien megabyte voor een middelgrote stad, meer voor een hoofdstad). Het zijn gegevensbestanden en verder niets, die je ook zelf kunt maken met de scripts van de repository.
+
+Roue Libre is een onafhankelijke app, zonder enige band met de bediende netwerken of met hun beheerders.
+
+Vrije software onder de licentie GNU GPL v3.

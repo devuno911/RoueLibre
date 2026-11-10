@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The station list (SPEC §7.2), lying down.
+
+    Same screen, same views, same reading — what changes is what the rows are
+    measured against. Stacked as in portrait, the header costs the same dp
+    whichever way the phone is held: a title, a freshness line, a field and a
+    toggle. On a Fairphone 3 turned sideways the window stops at 397 px once
+    Gboard is open, and that header takes all of it — the list came out a row
+    and a half tall, and the "nearest station first" button, which hangs from
+    the bottom edge the keyboard has just pushed up, ended over the field it
+    had nothing to do with, half covering the cross that clears it.
+
+    So the header and the rows share the width instead of the height, and the
+    whole header — the title, the data's age, the settings, the field and the
+    two buttons saying what the stations count — lives in the column on the
+    start side. The thumb's column of portrait (SPEC §7.6) floats over the
+    rows' column, in the order portrait gives it. Nothing spans both:
+    the rows start at the top of the screen and end at the bottom of it, and
+    the button hangs from a column as tall as the window.
+
+    Half and not some finer split for the reason written in
+    `layout-land/fragment_welcome.xml`: half a sideways Fairphone 3 is 411 dp,
+    exactly the width the portrait screen gives the same rows, so a station's
+    name and its counts wrap and read as they always have. **The half is a
+    percentage anchored to the start edge, and no bias**: a bias is measured
+    from the left whichever way the language runs, and this screen is read
+    right to left in Arabic. Each column carries one anchor and its own half,
+    so the two mirror together with the language. A chain would mirror too, but
+    a chain needs both its links to be children of this layout, and the header
+    is no longer one child.
+
+    **The header column scrolls, and that is the whole of what a text size can
+    do to it.** The first sideways arrangement seated the title and the data's
+    age inside the row of icons, whose height is 48 dp of touch target: at a
+    text size of ×2.0 the freshness no longer fitted, and being centred in that
+    row it lost what did not fit off the top of the screen — "Aktualisiert vor
+    59 Sekunden" measured `[457,0][670,320]`, its first word cut above the edge.
+    SPEC §7 has the height give way, never the letters, and the comment beside
+    `mode_toggle` in `fragment_map.xml` records the same defect being fixed the
+    same way on the map.
+
+    Here nothing is centred in a fixed height any more. The row of the title is
+    an ordinary row that wraps its tallest child, so the data's age keeps the
+    title's line where it fits on it — which is what buys the field the 53 px
+    it needs at the ordinary text sizes — and takes a second and a third line
+    when it does not, the row growing under it. What the growing pushes past
+    the bottom of a window a keyboard has shortened is scrolled to, and the
+    field, being the focused view, is scrolled back into sight by the scroll
+    view itself when the keyboard opens. At ×2.0 the header is simply taller
+    than a sideways window: 36 dp of inset, a 64 dp row, a 72 dp field. There
+    is no arrangement that fits it, and the choice is between letters lost and
+    a column one scrolls.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- The header's half of the width, and as much height as it asks for. -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/space_s"
+            android:paddingBottom="@dimen/space_m">
+
+            <!-- The title, the data's age and the settings on one row, which
+                 portrait gives three. The row wraps its tallest child: the
+                 icon is 48 dp of touch target and the two texts are written
+                 in `sp`, so at the ordinary sizes the row is the icon's and at
+                 ×2.0 it is the freshness's. Nothing is centred in a height it
+                 cannot have, which is the defect this file was rewritten for.
+
+                 A row lays its children out from the start, so the settings
+                 end up at the end edge, as in portrait, in either direction of
+                 reading. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/space_l"
+                android:paddingEnd="@dimen/space_s">
+
+                <!-- No wider than its own words: what follows it on this row is
+                     the freshness, and a title box running under the text
+                     beside it is only harmless while the text is left-aligned.
+                     In Arabic it is right-aligned. -->
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stations_title"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+                <!-- The data's age, required by SPEC §4.1. It takes what the
+                     title and the icons leave and wraps inside it, however many
+                     lines that comes to. Not justified, for the reason given in
+                     the portrait file: it is a status line and not a
+                     paragraph. -->
+                <TextView
+                    android:id="@+id/freshness"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:layout_marginEnd="@dimen/space_m"
+                    android:layout_weight="1"
+                    android:justificationMode="none"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+                    tools:text="Mis à jour il y a 12 secondes" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_settings"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:contentDescription="@string/settings_open"
+                    app:icon="@drawable/ic_settings"
+                    app:iconTint="@color/ink" />
+            </LinearLayout>
+
+            <!-- `flagNoExtractUi`, as in portrait: it is what refuses the
+                 keyboard's own full-screen copy of this field, and this
+                 arrangement would be for nothing under one. -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_field"
+                style="@style/Widget.RoueLibre.SearchField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_l"
+                android:layout_marginTop="@dimen/space_s"
+                android:layout_marginEnd="@dimen/space_l"
+                android:hint="@string/search_stations_hint"
+                app:endIconContentDescription="@string/search_stations_clear"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch|flagNoExtractUi"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- What the stations count (SPEC §7.1), under the field: the two
+                 of them are what one does to the list, and they stay
+                 together. The map's two buttons, as in portrait, but in the
+                 header's column rather than floating over the rows: lying
+                 down, the rows' column is half a screen wide, and two buttons
+                 at its bottom start would sit on the discs of its last rows. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_l"
+                android:layout_marginTop="@dimen/space_m"
+                android:layout_marginEnd="@dimen/space_l"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mode_toggle"
+                    style="@style/Widget.RoueLibre.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_s"
+                    android:minHeight="@dimen/touch_target_min"
+                    tools:text="Vélos" />
+
+                <!-- Measured against what the toggle leaves, so a large text
+                     size wraps its label rather than run it off the column. -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bike_kind_filter"
+                    style="@style/Widget.RoueLibre.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:visibility="gone"
+                    tools:text="Électriques"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- The rows, in the other half, from the top of the screen to the bottom
+         of it. Nothing costs them height any more, so what the keyboard gives
+         back is theirs.
+
+         The room under the last row is kept, and has to be: the thumb's
+         column floats over this column's bottom corner, and
+         `StationListFragment` still raises both by the height of the banner
+         when there is one. -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorSurface"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/list_room_under_the_last_row"
+            android:scrollbars="vertical"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_station" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- An empty screen: an invitation to act, not a statement (SPEC §7). In
+         the middle of the rows' column, which is the place it takes in
+         portrait, that column being the whole screen there. Its side spacing
+         is the ordinary one and not portrait's wide one: the column is already
+         half a screen. -->
+    <LinearLayout
+        android:id="@+id/empty_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/swipe_refresh"
+        app:layout_constraintEnd_toEndOf="@id/swipe_refresh"
+        app:layout_constraintStart_toStartOf="@id/swipe_refresh"
+        app:layout_constraintTop_toTopOf="@id/swipe_refresh"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/empty_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Title"
+            tools:text="Aucune station chargée" />
+
+        <TextView
+            android:id="@+id/empty_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            tools:text="Tire la liste vers le bas pour récupérer les stations du réseau." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/empty_action"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/touch_target_min"
+            android:layout_marginTop="@dimen/space_l"
+            tools:text="Rafraîchir" />
+    </LinearLayout>
+
+    <!--
+        The thumb's column of portrait (SPEC §7.6) — the way to the map at the
+        bottom, then the search, nearest station first and the journey — over
+        the bottom corner of the rows' column, of the column and not of the
+        screen, and the column runs the whole height of the window. That is
+        what settles where it lands: hanging from a column a header had
+        shortened to 302 px, "nearest station first" sat 239 px down and bit
+        into the first station's name; over a column that starts at the top of
+        the screen it is back among the last rows, where the padding under the
+        last one is what lets them be scrolled clear of it.
+
+        It is still the screen's own end edge, the columns being laid out with
+        the rows against it, so the thumb finds it where it found it. Last in
+        the layout, so it draws over the rows. Portrait says why each disc is
+        where it is and why it is filled as it is.
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_map"
+        style="@style/Widget.RoueLibre.ListRailButton"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_m"
+        android:contentDescription="@string/stations_open_map"
+        app:icon="@drawable/ic_map_place"
+        app:layout_constraintBottom_toBottomOf="@id/swipe_refresh"
+        app:layout_constraintEnd_toEndOf="@id/swipe_refresh" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_search"
+        style="@style/Widget.RoueLibre.ListRailButton"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/search_stations_hint"
+        app:icon="@drawable/ic_search"
+        app:layout_constraintBottom_toTopOf="@id/open_map"
+        app:layout_constraintEnd_toEndOf="@id/swipe_refresh" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/locate_me"
+        style="@style/Widget.RoueLibre.ListRailButton"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/stations_order_by_distance"
+        app:icon="@drawable/ic_my_location"
+        app:layout_constraintBottom_toTopOf="@id/open_search"
+        app:layout_constraintEnd_toEndOf="@id/swipe_refresh" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_journey"
+        style="@style/Widget.RoueLibre.ListRailButton"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/journey_open"
+        android:visibility="gone"
+        app:backgroundTint="@color/signal"
+        app:icon="@drawable/ic_bike"
+        app:iconTint="@color/surface_on_signal"
+        app:layout_constraintBottom_toTopOf="@id/locate_me"
+        app:layout_constraintEnd_toEndOf="@id/swipe_refresh"
+        app:strokeWidth="0dp"
+        tools:visibility="visible" />
+
+    <!-- That the button is working, while the fix is waited for. Over the
+         button and taking its foreground, for the reasons written in the
+         portrait file. -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/locating"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:importantForAccessibility="no"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/ink"
+        app:indicatorInset="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/locate_me"
+        app:layout_constraintEnd_toEndOf="@id/locate_me"
+        app:layout_constraintStart_toStartOf="@id/locate_me"
+        app:layout_constraintTop_toTopOf="@id/locate_me"
+        app:minHideDelay="500"
+        app:showDelay="500"
+        app:trackColor="@android:color/transparent"
+        app:trackThickness="2dp"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Address search (SPEC §4.3).
+
+    The field is at the top because the keyboard is at the bottom: the list
+    pushes its results towards the thumb as they arrive, without the hand
+    leaving the typing area.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/address_search_title"
+        app:titleTextAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_field"
+        style="@style/Widget.RoueLibre.SearchField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginEnd="@dimen/space_l"
+        android:hint="@string/address_search_hint"
+        app:endIconContentDescription="@string/address_search_clear"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <!-- `flagNoExtractUi`: in landscape the keyboard otherwise takes the
+             whole screen for a copy of this field, and the results that
+             follow every keystroke stay hidden until it is folded away. -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch|flagNoExtractUi"
+            android:inputType="textPostalAddress"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- A reminder of what the search does, and above all of what it does
+         not: nothing leaves the device, not even while typing. -->
+    <TextView
+        android:id="@+id/privacy_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginEnd="@dimen/space_l"
+        android:text="@string/address_search_privacy"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_field" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/results"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_m"
+        android:background="?attr/colorSurface"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/empty_state"
+        app:layout_goneMarginTop="@dimen/space_m"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_address" />
+
+    <!-- An empty screen: an invitation to act, not a statement (SPEC §7).
+
+         Above the list rather than over it. Drawn over it, it laid its message
+         across the three shortcuts and made both unreadable; taking the list
+         away under it in every case cost the user, on an installation holding
+         no data, the two ways of naming a point that need no index at all. So
+         it takes its height at the top and leaves the rest to the list, which
+         the code hides only under the messages that speak for the whole screen.
+
+         Its height wraps its text but is held within the space its two anchors
+         leave — hence the scrolling, which is what keeps the button reachable
+         at the largest text sizes rather than clipped off the bottom. -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/empty_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_xxl"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_marginEnd="@dimen/space_xxl"
+        android:visibility="gone"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privacy_note"
+        app:layout_constraintVertical_bias="0"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/empty_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Title"
+                tools:text="Aucune adresse trouvée" />
+
+            <TextView
+                android:id="@+id/empty_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_s"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+                tools:text="Rien ne correspond à « rue de la lune »." />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/empty_action"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/touch_target_min"
+                android:layout_marginTop="@dimen/space_l"
+                android:visibility="gone"
+                tools:text="Gérer les données hors ligne"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

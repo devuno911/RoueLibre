@@ -1,0 +1,791 @@
+{
+  "language": "pl",
+  "cases": [
+    {
+      "input": "ul. Długa",
+      "normalized": "ulica dluga",
+      "type": "ulica",
+      "name": "dluga"
+    },
+    {
+      "input": "Ulica Długa",
+      "normalized": "ulica dluga",
+      "type": "ulica",
+      "name": "dluga"
+    },
+    {
+      "input": "al. Jerozolimskie",
+      "normalized": "aleja jerozolimskie",
+      "type": "aleja",
+      "name": "jerozolimskie"
+    },
+    {
+      "input": "pl. Zbawiciela",
+      "normalized": "plac zbawiciela",
+      "type": "plac",
+      "name": "zbawiciela"
+    },
+    {
+      "input": "Aleja Niepodległości",
+      "normalized": "aleja niepodleglosci",
+      "type": "aleja",
+      "name": "niepodleglosci"
+    },
+    {
+      "input": "os. Tysiąclecia",
+      "normalized": "osiedle tysiaclecia",
+      "type": "osiedle",
+      "name": "tysiaclecia"
+    },
+    {
+      "input": "Rondo Daszyńskiego",
+      "normalized": "rondo daszynskiego",
+      "type": "rondo",
+      "name": "daszynskiego"
+    },
+    {
+      "input": "ul. Świętego Marcina",
+      "normalized": "ulica swietego marcina",
+      "type": "ulica",
+      "name": "swietego marcina"
+    },
+    {
+      "input": "Bulwar Nadwiślański",
+      "normalized": "bulwar nadwislanski",
+      "type": "bulwar",
+      "name": "nadwislanski"
+    },
+    {
+      "input": "Most Poniatowskiego",
+      "normalized": "most poniatowskiego",
+      "type": "most",
+      "name": "poniatowskiego"
+    },
+    {
+      "input": "ul. gen. Władysława Sikorskiego",
+      "normalized": "ulica general wladyslawa sikorskiego",
+      "type": "ulica",
+      "name": "general wladyslawa sikorskiego"
+    },
+    {
+      "input": "Akrobatów",
+      "normalized": "akrobatow",
+      "type": null,
+      "name": "akrobatow"
+    },
+    {
+      "input": "Alejka Bagienna",
+      "normalized": "alejka bagienna",
+      "type": null,
+      "name": "alejka bagienna"
+    },
+    {
+      "input": "(Alejka) Kręta",
+      "normalized": "alejka kreta",
+      "type": null,
+      "name": "alejka kreta"
+    },
+    {
+      "input": "Alejka Przylesie",
+      "normalized": "alejka przylesie",
+      "type": null,
+      "name": "alejka przylesie"
+    },
+    {
+      "input": "(Alejka) Wspólna",
+      "normalized": "alejka wspolna",
+      "type": null,
+      "name": "alejka wspolna"
+    },
+    {
+      "input": "Kopciuszka",
+      "normalized": "kopciuszka",
+      "type": null,
+      "name": "kopciuszka"
+    },
+    {
+      "input": "Siewna",
+      "normalized": "siewna",
+      "type": null,
+      "name": "siewna"
+    },
+    {
+      "input": "Jodłowa",
+      "normalized": "jodlowa",
+      "type": null,
+      "name": "jodlowa"
+    },
+    {
+      "input": "Krępa-Pokrzywowa",
+      "normalized": "krepa pokrzywowa",
+      "type": null,
+      "name": "krepa pokrzywowa"
+    },
+    {
+      "input": "Kolej szprotawska",
+      "normalized": "kolej szprotawska",
+      "type": null,
+      "name": "kolej szprotawska"
+    },
+    {
+      "input": "Ochla-Mixdorfa Bernda",
+      "normalized": "ochla mixdorfa bernda",
+      "type": null,
+      "name": "ochla mixdorfa bernda"
+    },
+    {
+      "input": "SP-ANA  02 lX 2005",
+      "normalized": "sp ana 02 lx 2005",
+      "type": null,
+      "name": "sp ana 02 lx 2005"
+    },
+    {
+      "input": "Biblioteka Publiczna, Filia w Łężycy",
+      "normalized": "biblioteka publiczna filia w lezycy",
+      "type": null,
+      "name": "biblioteka publiczna filia w lezycy"
+    },
+    {
+      "input": "Bananowa",
+      "normalized": "bananowa",
+      "type": null,
+      "name": "bananowa"
+    },
+    {
+      "input": "Okrężna",
+      "normalized": "okrezna",
+      "type": null,
+      "name": "okrezna"
+    },
+    {
+      "input": "Truskawkowa",
+      "normalized": "truskawkowa",
+      "type": null,
+      "name": "truskawkowa"
+    },
+    {
+      "input": "Dojazd pożarowy",
+      "normalized": "dojazd pozarowy",
+      "type": null,
+      "name": "dojazd pozarowy"
+    },
+    {
+      "input": "Agrestowa",
+      "normalized": "agrestowa",
+      "type": null,
+      "name": "agrestowa"
+    },
+    {
+      "input": "Alejka Pod Dębem",
+      "normalized": "alejka pod debem",
+      "type": null,
+      "name": "alejka pod debem"
+    },
+    {
+      "input": "Kętrzyńska",
+      "normalized": "ketrzynska",
+      "type": null,
+      "name": "ketrzynska"
+    },
+    {
+      "input": "Alejka Makowa",
+      "normalized": "alejka makowa",
+      "type": null,
+      "name": "alejka makowa"
+    },
+    {
+      "input": "Dojazd pożarowy 28",
+      "normalized": "dojazd pozarowy 28",
+      "type": null,
+      "name": "dojazd pozarowy 28"
+    },
+    {
+      "input": "Ścieżka Ptasia",
+      "normalized": "sciezka ptasia",
+      "type": null,
+      "name": "sciezka ptasia"
+    },
+    {
+      "input": "Alejka Groszkowa",
+      "normalized": "alejka groszkowa",
+      "type": null,
+      "name": "alejka groszkowa"
+    },
+    {
+      "input": "Alejka Wiśniowa",
+      "normalized": "alejka wisniowa",
+      "type": null,
+      "name": "alejka wisniowa"
+    },
+    {
+      "input": "Rondo podpułkownika pilota Edwarda Jaworskiego",
+      "normalized": "rondo podpulkownika pilota edwarda jaworskiego",
+      "type": "rondo",
+      "name": "podpulkownika pilota edwarda jaworskiego"
+    },
+    {
+      "input": "dojazd pożarowy 6",
+      "normalized": "dojazd pozarowy 6",
+      "type": null,
+      "name": "dojazd pozarowy 6"
+    },
+    {
+      "input": "Brzoskwiniowa",
+      "normalized": "brzoskwiniowa",
+      "type": null,
+      "name": "brzoskwiniowa"
+    },
+    {
+      "input": "Borówkowa",
+      "normalized": "borowkowa",
+      "type": null,
+      "name": "borowkowa"
+    },
+    {
+      "input": "Dojazd pożarowy 29",
+      "normalized": "dojazd pozarowy 29",
+      "type": null,
+      "name": "dojazd pozarowy 29"
+    },
+    {
+      "input": "Kosowa",
+      "normalized": "kosowa",
+      "type": null,
+      "name": "kosowa"
+    },
+    {
+      "input": "Orzechowa",
+      "normalized": "orzechowa",
+      "type": null,
+      "name": "orzechowa"
+    },
+    {
+      "input": "Stokrotkowa",
+      "normalized": "stokrotkowa",
+      "type": null,
+      "name": "stokrotkowa"
+    },
+    {
+      "input": "Zatonie-Fiołkowa",
+      "normalized": "zatonie fiolkowa",
+      "type": null,
+      "name": "zatonie fiolkowa"
+    },
+    {
+      "input": "Agatowa",
+      "normalized": "agatowa",
+      "type": null,
+      "name": "agatowa"
+    },
+    {
+      "input": "Alejka Czereśniowa",
+      "normalized": "alejka czeresniowa",
+      "type": null,
+      "name": "alejka czeresniowa"
+    },
+    {
+      "input": "Aleksandra Czekanowskiego",
+      "normalized": "aleksandra czekanowskiego",
+      "type": null,
+      "name": "aleksandra czekanowskiego"
+    },
+    {
+      "input": "Astrowa",
+      "normalized": "astrowa",
+      "type": null,
+      "name": "astrowa"
+    },
+    {
+      "input": "Błękitna",
+      "normalized": "blekitna",
+      "type": null,
+      "name": "blekitna"
+    },
+    {
+      "input": "Botaniczna",
+      "normalized": "botaniczna",
+      "type": null,
+      "name": "botaniczna"
+    },
+    {
+      "input": "Bułgarska",
+      "normalized": "bulgarska",
+      "type": null,
+      "name": "bulgarska"
+    },
+    {
+      "input": "Cicha",
+      "normalized": "cicha",
+      "type": null,
+      "name": "cicha"
+    },
+    {
+      "input": "Dekoracyjna",
+      "normalized": "dekoracyjna",
+      "type": null,
+      "name": "dekoracyjna"
+    },
+    {
+      "input": "Drzonków-Agrestowa",
+      "normalized": "drzonkow agrestowa",
+      "type": null,
+      "name": "drzonkow agrestowa"
+    },
+    {
+      "input": "Drzonków-Iglasta",
+      "normalized": "drzonkow iglasta",
+      "type": null,
+      "name": "drzonkow iglasta"
+    },
+    {
+      "input": "Drzonków-Leśna",
+      "normalized": "drzonkow lesna",
+      "type": null,
+      "name": "drzonkow lesna"
+    },
+    {
+      "input": "Drzonków-Pogodna",
+      "normalized": "drzonkow pogodna",
+      "type": null,
+      "name": "drzonkow pogodna"
+    },
+    {
+      "input": "Drzonków-Regimentowa",
+      "normalized": "drzonkow regimentowa",
+      "type": null,
+      "name": "drzonkow regimentowa"
+    },
+    {
+      "input": "Drzonków-Staromłyńska",
+      "normalized": "drzonkow staromlynska",
+      "type": null,
+      "name": "drzonkow staromlynska"
+    },
+    {
+      "input": "Drzonków-Zmienna",
+      "normalized": "drzonkow zmienna",
+      "type": null,
+      "name": "drzonkow zmienna"
+    },
+    {
+      "input": "Fantazego",
+      "normalized": "fantazego",
+      "type": null,
+      "name": "fantazego"
+    },
+    {
+      "input": "Gabriela Boduena",
+      "normalized": "gabriela boduena",
+      "type": null,
+      "name": "gabriela boduena"
+    },
+    {
+      "input": "Goplany",
+      "normalized": "goplany",
+      "type": null,
+      "name": "goplany"
+    },
+    {
+      "input": "Gryfa",
+      "normalized": "gryfa",
+      "type": null,
+      "name": "gryfa"
+    },
+    {
+      "input": "Horsztyńskiego",
+      "normalized": "horsztynskiego",
+      "type": null,
+      "name": "horsztynskiego"
+    },
+    {
+      "input": "Jana Dantyszka",
+      "normalized": "jana dantyszka",
+      "type": null,
+      "name": "jana dantyszka"
+    },
+    {
+      "input": "Jarzębinowa",
+      "normalized": "jarzebinowa",
+      "type": null,
+      "name": "jarzebinowa"
+    },
+    {
+      "input": "Jeleniów",
+      "normalized": "jeleniow",
+      "type": null,
+      "name": "jeleniow"
+    },
+    {
+      "input": "Józefa Poniatowskiego",
+      "normalized": "jozefa poniatowskiego",
+      "type": null,
+      "name": "jozefa poniatowskiego"
+    },
+    {
+      "input": "Kaspra Twardowskiego",
+      "normalized": "kaspra twardowskiego",
+      "type": null,
+      "name": "kaspra twardowskiego"
+    },
+    {
+      "input": "Kiełpin-Lwa",
+      "normalized": "kielpin lwa",
+      "type": null,
+      "name": "kielpin lwa"
+    },
+    {
+      "input": "Klementowskich",
+      "normalized": "klementowskich",
+      "type": null,
+      "name": "klementowskich"
+    },
+    {
+      "input": "Kopciuszka",
+      "normalized": "kopciuszka",
+      "type": null,
+      "name": "kopciuszka"
+    },
+    {
+      "input": "Krawiecka",
+      "normalized": "krawiecka",
+      "type": null,
+      "name": "krawiecka"
+    },
+    {
+      "input": "Krępa-Piękna",
+      "normalized": "krepa piekna",
+      "type": null,
+      "name": "krepa piekna"
+    },
+    {
+      "input": "Krzemieniecka",
+      "normalized": "krzemieniecka",
+      "type": null,
+      "name": "krzemieniecka"
+    },
+    {
+      "input": "Lawendowa",
+      "normalized": "lawendowa",
+      "type": null,
+      "name": "lawendowa"
+    },
+    {
+      "input": "Łężyca-Apartamentowa",
+      "normalized": "lezyca apartamentowa",
+      "type": null,
+      "name": "lezyca apartamentowa"
+    },
+    {
+      "input": "Łężyca-Dębowa",
+      "normalized": "lezyca debowa",
+      "type": null,
+      "name": "lezyca debowa"
+    },
+    {
+      "input": "Łężyca-Krańcowa",
+      "normalized": "lezyca krancowa",
+      "type": null,
+      "name": "lezyca krancowa"
+    },
+    {
+      "input": "Łężyca-Nastrojowa",
+      "normalized": "lezyca nastrojowa",
+      "type": null,
+      "name": "lezyca nastrojowa"
+    },
+    {
+      "input": "Łężyca-Sosnowa",
+      "normalized": "lezyca sosnowa",
+      "type": null,
+      "name": "lezyca sosnowa"
+    },
+    {
+      "input": "Lilii Wenedy",
+      "normalized": "lilii wenedy",
+      "type": null,
+      "name": "lilii wenedy"
+    },
+    {
+      "input": "Łużycka",
+      "normalized": "luzycka",
+      "type": null,
+      "name": "luzycka"
+    },
+    {
+      "input": "Marzęcin",
+      "normalized": "marzecin",
+      "type": null,
+      "name": "marzecin"
+    },
+    {
+      "input": "Mikołaja Kopernika",
+      "normalized": "mikolaja kopernika",
+      "type": null,
+      "name": "mikolaja kopernika"
+    },
+    {
+      "input": "Morwowa",
+      "normalized": "morwowa",
+      "type": null,
+      "name": "morwowa"
+    },
+    {
+      "input": "Nowy Kisielin-Krótka",
+      "normalized": "nowy kisielin krotka",
+      "type": null,
+      "name": "nowy kisielin krotka"
+    },
+    {
+      "input": "Ochla-3 Maja",
+      "normalized": "ochla 3 maja",
+      "type": null,
+      "name": "ochla 3 maja"
+    },
+    {
+      "input": "Ochla-Daglezjowa",
+      "normalized": "ochla daglezjowa",
+      "type": null,
+      "name": "ochla daglezjowa"
+    },
+    {
+      "input": "Ochla-Franciszka Gaudy'ego",
+      "normalized": "ochla franciszka gaudy ego",
+      "type": null,
+      "name": "ochla franciszka gaudy ego"
+    },
+    {
+      "input": "Ochla-Józefa Ignacego Kraszewskiego",
+      "normalized": "ochla jozefa ignacego kraszewskiego",
+      "type": null,
+      "name": "ochla jozefa ignacego kraszewskiego"
+    },
+    {
+      "input": "Ochla-Kwiatowa",
+      "normalized": "ochla kwiatowa",
+      "type": null,
+      "name": "ochla kwiatowa"
+    },
+    {
+      "input": "Ochla-Niedźwiedzia",
+      "normalized": "ochla niedzwiedzia",
+      "type": null,
+      "name": "ochla niedzwiedzia"
+    },
+    {
+      "input": "Ochla-Poziomkowa",
+      "normalized": "ochla poziomkowa",
+      "type": null,
+      "name": "ochla poziomkowa"
+    },
+    {
+      "input": "Ochla-Stroma",
+      "normalized": "ochla stroma",
+      "type": null,
+      "name": "ochla stroma"
+    },
+    {
+      "input": "Ochla-Winogronowa",
+      "normalized": "ochla winogronowa",
+      "type": null,
+      "name": "ochla winogronowa"
+    },
+    {
+      "input": "Ogrodowa",
+      "normalized": "ogrodowa",
+      "type": null,
+      "name": "ogrodowa"
+    },
+    {
+      "input": "Osiedle Śląskie",
+      "normalized": "osiedle slaskie",
+      "type": "osiedle",
+      "name": "slaskie"
+    },
+    {
+      "input": "Perłowa",
+      "normalized": "perlowa",
+      "type": null,
+      "name": "perlowa"
+    },
+    {
+      "input": "Plac Bohaterów",
+      "normalized": "plac bohaterow",
+      "type": "plac",
+      "name": "bohaterow"
+    },
+    {
+      "input": "Pod Topolami",
+      "normalized": "pod topolami",
+      "type": null,
+      "name": "pod topolami"
+    },
+    {
+      "input": "Potokowa",
+      "normalized": "potokowa",
+      "type": null,
+      "name": "potokowa"
+    },
+    {
+      "input": "Przylep-Akacjowa",
+      "normalized": "przylep akacjowa",
+      "type": null,
+      "name": "przylep akacjowa"
+    },
+    {
+      "input": "Przylep-Kokosowa",
+      "normalized": "przylep kokosowa",
+      "type": null,
+      "name": "przylep kokosowa"
+    },
+    {
+      "input": "Przylep-Morelowa",
+      "normalized": "przylep morelowa",
+      "type": null,
+      "name": "przylep morelowa"
+    },
+    {
+      "input": "Przylep-Skokowa",
+      "normalized": "przylep skokowa",
+      "type": null,
+      "name": "przylep skokowa"
+    },
+    {
+      "input": "Przylep-Winna",
+      "normalized": "przylep winna",
+      "type": null,
+      "name": "przylep winna"
+    },
+    {
+      "input": "Racula-11 Listopada",
+      "normalized": "racula 11 listopada",
+      "type": null,
+      "name": "racula 11 listopada"
+    },
+    {
+      "input": "Racula-Hortensji",
+      "normalized": "racula hortensji",
+      "type": null,
+      "name": "racula hortensji"
+    },
+    {
+      "input": "Racula-Ku Słońcu",
+      "normalized": "racula ku sloncu",
+      "type": null,
+      "name": "racula ku sloncu"
+    },
+    {
+      "input": "Racula-Mieczysława Karłowicza",
+      "normalized": "racula mieczyslawa karlowicza",
+      "type": null,
+      "name": "racula mieczyslawa karlowicza"
+    },
+    {
+      "input": "Racula-Rodła",
+      "normalized": "racula rodla",
+      "type": null,
+      "name": "racula rodla"
+    },
+    {
+      "input": "Racula-Wierzbowa",
+      "normalized": "racula wierzbowa",
+      "type": null,
+      "name": "racula wierzbowa"
+    },
+    {
+      "input": "Rezedowa",
+      "normalized": "rezedowa",
+      "type": null,
+      "name": "rezedowa"
+    },
+    {
+      "input": "Różana",
+      "normalized": "rozana",
+      "type": null,
+      "name": "rozana"
+    },
+    {
+      "input": "Salomei",
+      "normalized": "salomei",
+      "type": null,
+      "name": "salomei"
+    },
+    {
+      "input": "Słowicza",
+      "normalized": "slowicza",
+      "type": null,
+      "name": "slowicza"
+    },
+    {
+      "input": "Srebrna",
+      "normalized": "srebrna",
+      "type": null,
+      "name": "srebrna"
+    },
+    {
+      "input": "Stary Kisielin-Jeździecka",
+      "normalized": "stary kisielin jezdziecka",
+      "type": null,
+      "name": "stary kisielin jezdziecka"
+    },
+    {
+      "input": "Stary Kisielin-Przedszkolna",
+      "normalized": "stary kisielin przedszkolna",
+      "type": null,
+      "name": "stary kisielin przedszkolna"
+    },
+    {
+      "input": "Stary Kisielin-Zagajnikowa",
+      "normalized": "stary kisielin zagajnikowa",
+      "type": null,
+      "name": "stary kisielin zagajnikowa"
+    },
+    {
+      "input": "Stroma",
+      "normalized": "stroma",
+      "type": null,
+      "name": "stroma"
+    },
+    {
+      "input": "Świętej Kingi",
+      "normalized": "swietej kingi",
+      "type": null,
+      "name": "swietej kingi"
+    },
+    {
+      "input": "Szpakowa",
+      "normalized": "szpakowa",
+      "type": null,
+      "name": "szpakowa"
+    },
+    {
+      "input": "Tomasza Sobkowiaka",
+      "normalized": "tomasza sobkowiaka",
+      "type": null,
+      "name": "tomasza sobkowiaka"
+    },
+    {
+      "input": "Urodzajna",
+      "normalized": "urodzajna",
+      "type": null,
+      "name": "urodzajna"
+    },
+    {
+      "input": "Wesoła",
+      "normalized": "wesola",
+      "type": null,
+      "name": "wesola"
+    },
+    {
+      "input": "Władysława Reymonta",
+      "normalized": "wladyslawa reymonta",
+      "type": null,
+      "name": "wladyslawa reymonta"
+    },
+    {
+      "input": "Zachodnia",
+      "normalized": "zachodnia",
+      "type": null,
+      "name": "zachodnia"
+    }
+  ]
+}

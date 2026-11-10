@@ -1,0 +1,34 @@
+Roue Libre viser delecykelnetværkenes stationer på et kort og beregner den bedste rejse fra dør til dør: gang, cykel, gang.
+
+Alt foregår på telefonen: kortet, adressesøgningen og ruteberegningen har slet ikke brug for nogen forbindelse. Kun cyklernes tilgængelighed i realtid går over nettet, læst direkte fra operatørens server.
+
+<b>Den bedste rejse, ikke den nærmeste station</b>
+
+• Start- og ankomststationen vælges sammen, ud fra den aktuelle tilgængelighed: cykler at tage i den ene ende, ledige pladser at aflevere den på i den anden.
+• En næsten tom station vejer mindre, fordi den kan blive tom, mens du går derhen.
+• Hvor netværket udlåner både mekaniske cykler og elcykler, vælger du, hvilken du vil have, og kun de stationer, der faktisk har en, tæller med.
+• Rejsen følger cykelstierne og regner stigningen med.
+
+<b>Et kort lavet til cykling</b>
+
+Cykelstier tegnet adskilt fra gaderne, offentlige bygninger og landemærker at orientere sig efter, og ved hver station det, netværket udlåner: mekaniske cykler, elcykler eller begge dele.
+
+<b>Intet følger dig</b>
+
+• Ingen Google-tjeneste: ingen Play Services, ingen Firebase, ingen Maps SDK.
+• Ingen telemetri, ingen tracker, intet id, ingen konto.
+• Ingen historik: ingen positioner, ingen destinationer. Det, du søger efter, forlader ikke telefonen.
+
+<b>De byer, der betjenes</b>
+
+Mere end 350 netværk i næsten 40 lande, fra Vélib’ i Paris til Citi Bike i New York, via Montreal, Prag, Barcelona, Dubai og Buenos Aires. Ingen by påtvinges dig: appen foreslår dig din egen ud fra din position, og du kan beholde flere.
+
+Roue Libre betjener kun netværk, der udgiver deres stationer i GBFS, den åbne standard for delecykler, i et offentligt feed uden nøgle. Mangler din by, er det, fordi dens netværk ikke udgiver et sådant feed: det er netværket selv eller trafikselskabet, du skal bede om det.
+
+<b>Værd at vide, før du installerer</b>
+
+Kortet, rutegrafen og adresseindekset ligger ikke i appen: de hentes én gang for alle, når du beslutter det, og størrelsen oplyses på forhånd (omkring ti megabyte for en mellemstor by, mere for en hovedstad). Det er datafiler og intet andet, som du også selv kan lave med arkivets scripts.
+
+Roue Libre er en uafhængig app uden tilknytning til de netværk, den betjener, eller til deres operatører.
+
+Fri software under licensen GNU GPL v3.

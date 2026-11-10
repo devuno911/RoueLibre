@@ -1,0 +1,34 @@
+Roue Libre mostra su una mappa le stazioni di bike sharing e calcola il miglior itinerario da porta a porta: a piedi, in bici, a piedi.
+
+Tutto avviene sul telefono: la mappa, la ricerca degli indirizzi e il calcolo degli itinerari non hanno bisogno di nessuna connessione. Solo la disponibilità delle bici in tempo reale passa dalla rete, letta direttamente sul server dell’operatore.
+
+<b>L’itinerario migliore, non la stazione più vicina</b>
+
+• Le stazioni di partenza e di arrivo vengono scelte insieme, in base alla disponibilità in diretta: bici da prendere da una parte, posti liberi per riconsegnarla dall’altra.
+• Una stazione quasi vuota pesa meno, perché potrebbe svuotarsi mentre cammini.
+• Dove la rete mette a disposizione bici meccaniche ed elettriche, scegli quale vuoi, e contano solo le stazioni che ne hanno davvero una.
+• L’itinerario segue le piste ciclabili e tiene conto del dislivello.
+
+<b>Una mappa fatta per la bici</b>
+
+Le piste ciclabili tracciate separatamente dalle strade, gli edifici pubblici e i punti di riferimento per orientarsi a vista, e su ogni stazione quello che la rete mette a disposizione: bici meccaniche, elettriche o entrambe.
+
+<b>Nessuno ti segue</b>
+
+• Nessun servizio Google: né Play Services, né Firebase, né Maps SDK.
+• Nessuna telemetria, nessun tracker, nessun identificatore, nessun account.
+• Nessuna cronologia: né posizioni, né destinazioni. Quello che cerchi non esce dal telefono.
+
+<b>Le città servite</b>
+
+Più di 350 reti in quasi 40 paesi, da Vélib’ a Parigi a Citi Bike a New York, passando per Montréal, Praga, Barcellona, Dubai e Buenos Aires. Nessuna città è imposta: l’app ti propone la tua in base alla tua posizione, e puoi tenerne più di una.
+
+Roue Libre serve solo le reti che pubblicano le loro stazioni in formato GBFS, lo standard aperto del bike sharing, in un flusso pubblico e senza chiave. Se la tua città manca, è perché la sua rete non pubblica un flusso del genere: è alla rete o all’autorità dei trasporti che va chiesto.
+
+<b>Da sapere prima di installare</b>
+
+La mappa, il grafo dei percorsi e l’indice degli indirizzi non sono dentro l’app: si scaricano una sola volta, quando decidi tu, e il loro peso viene indicato prima (una decina di megabyte per una città media, di più per una capitale). Sono file di dati e nient’altro, che puoi anche produrre da te con gli script del repository.
+
+Roue Libre è un’app indipendente, senza alcun legame con le reti che serve né con i loro operatori.
+
+Software libero sotto licenza GNU GPL v3.

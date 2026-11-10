@@ -1,0 +1,10 @@
+// Root file: declares the plugins without applying them. Each module applies
+// the ones it needs.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.ktlint) apply false
+}

@@ -1,0 +1,34 @@
+Roue Libre ukazuje na mapě stanice sdílených kol a počítá nejlepší trasu ode dveří ke dveřím: pěšky, na kole, pěšky.
+
+Vše běží v telefonu: mapa, hledání adres i výpočet trasy se obejdou zcela bez připojení. Připojení potřebuje jen dostupnost kol v reálném čase, která se načítá přímo ze serveru provozovatele.
+
+<b>Nejlepší trasa, ne nejbližší stanice</b>
+
+• Výchozí a cílová stanice se vybírají společně podle aktuální dostupnosti: na jedné straně kola k vypůjčení, na druhé volná místa, kam kolo vrátit.
+• Téměř prázdná stanice má menší váhu, protože se může vyprázdnit, než k ní dojdete.
+• Kde síť půjčuje mechanická i elektrická kola, vyberete si, které chcete, a počítají se jen stanice, kde takové kolo opravdu je.
+• Trasa vede po cyklostezkách a počítá s převýšením.
+
+<b>Mapa stvořená pro kolo</b>
+
+Cyklostezky zakreslené odděleně od ulic, veřejné budovy a orientační body, podle kterých se zorientujete pohledem, a u každé stanice to, co síť půjčuje: mechanická kola, elektrická, nebo obojí.
+
+<b>Nic vás nesleduje</b>
+
+• Žádné služby Google: žádné Play Services, žádný Firebase, žádné Maps SDK.
+• Žádná telemetrie, žádný sledovací nástroj, žádný identifikátor, žádný účet.
+• Žádná historie: ani polohy, ani cíle. To, co hledáte, telefon neopustí.
+
+<b>Obsluhovaná města</b>
+
+Více než 350 sítí v téměř 40 zemích, od Vélib’ v Paříži po Citi Bike v New Yorku, přes Montreal, Prahu, Barcelonu, Dubaj a Buenos Aires. Žádné město není vnucené: aplikace vám podle polohy navrhne to vaše a můžete jich mít i několik.
+
+Roue Libre obsluhuje jen sítě, které zveřejňují své stanice ve formátu GBFS, otevřeném standardu pro sdílená kola, ve veřejném datovém kanálu bez klíče. Pokud vaše město chybí, jeho síť takový kanál nezveřejňuje: požádat o něj je třeba ji samotnou nebo organizátora dopravy.
+
+<b>Co je dobré vědět před instalací</b>
+
+Mapa, graf pro výpočet tras a rejstřík adres nejsou součástí aplikace: stáhnou se jen jednou, až se tak rozhodnete, a jejich velikost se oznámí předem (zhruba deset megabajtů u průměrného města, více u hlavního města). Jsou to datové soubory a nic jiného; můžete si je také vytvořit sami skripty z repozitáře.
+
+Roue Libre je nezávislá aplikace a nemá žádnou vazbu na sítě, které obsluhuje, ani na jejich provozovatele.
+
+Svobodný software pod licencí GNU GPL v3.

@@ -1,0 +1,34 @@
+Roue Libre na zemljevidu prikazuje postaje za souporabo koles in izračuna najboljšo pot od vrat do vrat: peš, s kolesom, peš.
+
+Vse teče v telefonu: zemljevid, iskanje naslovov in izračun poti ne potrebujejo nobene povezave. Povezavo potrebuje le razpoložljivost koles v realnem času, ki se prebere neposredno s strežnika upravljavca.
+
+<b>Najboljša pot, ne najbližja postaja</b>
+
+• Izhodiščna in ciljna postaja se izbereta skupaj, glede na sprotno razpoložljivost: na eni strani kolesa za izposojo, na drugi prosta mesta za vračilo.
+• Skoraj prazna postaja šteje manj, saj se lahko izprazni, medtem ko hodite do nje.
+• Kjer omrežje posoja navadna in električna kolesa, izberete, katero želite, upoštevajo pa se le postaje, ki ga res imajo.
+• Pot sledi kolesarskim stezam in upošteva vzpone.
+
+<b>Zemljevid po meri kolesarjev</b>
+
+Kolesarske steze, narisane ločeno od ulic, javne stavbe in orientirji, po katerih se znajdete na pogled, ob vsaki postaji pa to, kar posoja omrežje: navadna kolesa, električna ali oboje.
+
+<b>Nič vam ne sledi</b>
+
+• Brez Googlovih storitev: brez Play Services, brez Firebase, brez Maps SDK.
+• Brez telemetrije, brez sledilnikov, brez identifikatorja, brez računa.
+• Brez zgodovine: ne položajev ne ciljev. Kar iščete, ne zapusti telefona.
+
+<b>Mesta, ki jih aplikacija pokriva</b>
+
+Več kot 350 omrežij v skoraj 40 državah, od Vélib’ v Parizu do Citi Bike v New Yorku, mimo Montreala, Prage, Barcelone, Dubaja in Buenos Airesa. Nobeno mesto ni vsiljeno: aplikacija vam glede na položaj predlaga vaše, obdržite pa jih lahko tudi več.
+
+Roue Libre pokriva le omrežja, ki svoje postaje objavljajo v formatu GBFS, odprtem standardu za souporabo koles, v javnem viru brez ključa. Če vašega mesta ni, njegovo omrežje takega vira ne objavlja: zanj je treba zaprositi omrežje samo ali organ, pristojen za javni promet.
+
+<b>Dobro je vedeti pred namestitvijo</b>
+
+Zemljevid, graf za izračun poti in kazalo naslovov niso v aplikaciji: prenesejo se samo enkrat, ko se za to odločite, njihova velikost pa je napovedana vnaprej (okoli deset megabajtov za srednje veliko mesto, več za prestolnico). To so podatkovne datoteke in nič drugega, lahko pa jih ustvarite tudi sami s skripti iz repozitorija.
+
+Roue Libre je neodvisna aplikacija in ni povezana ne z omrežji, ki jih pokriva, ne z njihovimi upravljavci.
+
+Prosta programska oprema pod licenco GNU GPL v3.

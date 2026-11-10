@@ -1,0 +1,34 @@
+Roue Libre shows bike-share stations on a map and computes the best door-to-door journey: walk, bike, walk.
+
+Everything happens on the phone: the map, the address search and the route computation need no connection at all. Only real-time bike availability goes over the network, read straight from the operator’s server.
+
+<b>The best journey, not the nearest station</b>
+
+• The departure and arrival stations are chosen together, from live availability: bikes to take at one end, free docks to return one at the other.
+• A nearly empty station counts for less, because it may run out while you walk to it.
+• Where the network lends both mechanical and electric bikes, you choose which you want, and only the stations that actually have one count.
+• The route follows cycle lanes and takes the climb into account.
+
+<b>A map made for cycling</b>
+
+Cycle lanes drawn apart from the streets, public buildings and landmarks to find your way by sight, and on each station what the network lends: mechanical bikes, electric ones, or both.
+
+<b>Nothing tracks you</b>
+
+• No Google service: no Play Services, no Firebase, no Maps SDK.
+• No telemetry, no tracker, no identifier, no account.
+• No history: no positions, no destinations. What you search for does not leave the phone.
+
+<b>The cities served</b>
+
+More than 350 networks in nearly 40 countries, from Vélib’ in Paris to Citi Bike in New York, by way of Montreal, Prague, Barcelona, Dubai and Buenos Aires. No city is imposed: the application proposes yours from your position, and you can keep several.
+
+Roue Libre serves only the networks that publish their stations in GBFS, the open standard for bike sharing, in a public feed that needs no key. If your city is missing, its network publishes no such feed: it is the network, or the transport authority, that has to be asked for one.
+
+<b>Worth knowing before installing</b>
+
+The map, the routing graph and the address index are not in the application: they are downloaded once, when you decide, and their size is announced beforehand (around ten megabytes for a medium-sized city, more for a capital). They are data files and nothing else, which you can also produce yourself with the repository’s scripts.
+
+Roue Libre is an independent application, with no link to the networks it serves or their operators.
+
+Free software under the GNU GPL v3 licence.

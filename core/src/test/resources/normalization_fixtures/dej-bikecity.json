@@ -1,0 +1,779 @@
+{
+  "language": "ro",
+  "cases": [
+    {
+      "input": "Strada Lipscani",
+      "normalized": "strada lipscani",
+      "type": "strada",
+      "name": "lipscani"
+    },
+    {
+      "input": "Bulevardul Unirii",
+      "normalized": "bulevardul unirii",
+      "type": "bulevardul",
+      "name": "unirii"
+    },
+    {
+      "input": "B-dul Magheru",
+      "normalized": "b dul magheru",
+      "type": null,
+      "name": "b dul magheru"
+    },
+    {
+      "input": "Calea Victoriei",
+      "normalized": "calea victoriei",
+      "type": "calea",
+      "name": "victoriei"
+    },
+    {
+      "input": "Șos. Kiseleff",
+      "normalized": "soseaua kiseleff",
+      "type": "soseaua",
+      "name": "kiseleff"
+    },
+    {
+      "input": "Piața Universității",
+      "normalized": "piata universitatii",
+      "type": "piata",
+      "name": "universitatii"
+    },
+    {
+      "input": "Aleea Teilor",
+      "normalized": "aleea teilor",
+      "type": "aleea",
+      "name": "teilor"
+    },
+    {
+      "input": "Splaiul Independenței",
+      "normalized": "splaiul independentei",
+      "type": "splaiul",
+      "name": "independentei"
+    },
+    {
+      "input": "Str. Sf. Vineri",
+      "normalized": "strada sfantul vineri",
+      "type": "strada",
+      "name": "sfantul vineri"
+    },
+    {
+      "input": "Strada Alexandru Ioan Cuza",
+      "normalized": "strada alexandru ioan cuza",
+      "type": "strada",
+      "name": "alexandru ioan cuza"
+    },
+    {
+      "input": "Strada Canalului",
+      "normalized": "strada canalului",
+      "type": "strada",
+      "name": "canalului"
+    },
+    {
+      "input": "Strada Libertății",
+      "normalized": "strada libertatii",
+      "type": "strada",
+      "name": "libertatii"
+    },
+    {
+      "input": "Aleea Galaxiei",
+      "normalized": "aleea galaxiei",
+      "type": "aleea",
+      "name": "galaxiei"
+    },
+    {
+      "input": "Aleea Mercur",
+      "normalized": "aleea mercur",
+      "type": "aleea",
+      "name": "mercur"
+    },
+    {
+      "input": "Aleea Venus",
+      "normalized": "aleea venus",
+      "type": "aleea",
+      "name": "venus"
+    },
+    {
+      "input": "Strada Marin Preda",
+      "normalized": "strada marin preda",
+      "type": "strada",
+      "name": "marin preda"
+    },
+    {
+      "input": "Strada Câmpului",
+      "normalized": "strada campului",
+      "type": "strada",
+      "name": "campului"
+    },
+    {
+      "input": "Strada Pescarilor",
+      "normalized": "strada pescarilor",
+      "type": "strada",
+      "name": "pescarilor"
+    },
+    {
+      "input": "Strada Cetății",
+      "normalized": "strada cetatii",
+      "type": "strada",
+      "name": "cetatii"
+    },
+    {
+      "input": "Strada Griviței",
+      "normalized": "strada grivitei",
+      "type": "strada",
+      "name": "grivitei"
+    },
+    {
+      "input": "Strada Ion I. C. Brătianu",
+      "normalized": "strada ion i c bratianu",
+      "type": "strada",
+      "name": "ion i c bratianu"
+    },
+    {
+      "input": "Strada Morii",
+      "normalized": "strada morii",
+      "type": "strada",
+      "name": "morii"
+    },
+    {
+      "input": "Strada Simion Bărnuțiu",
+      "normalized": "strada simion barnutiu",
+      "type": "strada",
+      "name": "simion barnutiu"
+    },
+    {
+      "input": "Strada Viilor",
+      "normalized": "strada viilor",
+      "type": "strada",
+      "name": "viilor"
+    },
+    {
+      "input": "Strada Livezilor",
+      "normalized": "strada livezilor",
+      "type": "strada",
+      "name": "livezilor"
+    },
+    {
+      "input": "Strada Slatinei",
+      "normalized": "strada slatinei",
+      "type": "strada",
+      "name": "slatinei"
+    },
+    {
+      "input": "Strada Bucovinei",
+      "normalized": "strada bucovinei",
+      "type": "strada",
+      "name": "bucovinei"
+    },
+    {
+      "input": "Strada Lucian Blaga",
+      "normalized": "strada lucian blaga",
+      "type": "strada",
+      "name": "lucian blaga"
+    },
+    {
+      "input": "Strada Podgorenilor",
+      "normalized": "strada podgorenilor",
+      "type": "strada",
+      "name": "podgorenilor"
+    },
+    {
+      "input": "Strada Tudor Arghezi",
+      "normalized": "strada tudor arghezi",
+      "type": "strada",
+      "name": "tudor arghezi"
+    },
+    {
+      "input": "Aleea Aurora",
+      "normalized": "aleea aurora",
+      "type": "aleea",
+      "name": "aurora"
+    },
+    {
+      "input": "Aleea Ghioceilor",
+      "normalized": "aleea ghioceilor",
+      "type": "aleea",
+      "name": "ghioceilor"
+    },
+    {
+      "input": "Aleea Lalelelor",
+      "normalized": "aleea lalelelor",
+      "type": "aleea",
+      "name": "lalelelor"
+    },
+    {
+      "input": "Aleea Tomis",
+      "normalized": "aleea tomis",
+      "type": "aleea",
+      "name": "tomis"
+    },
+    {
+      "input": "Baia Mare",
+      "normalized": "baia mare",
+      "type": null,
+      "name": "baia mare"
+    },
+    {
+      "input": "Crizantemelor",
+      "normalized": "crizantemelor",
+      "type": null,
+      "name": "crizantemelor"
+    },
+    {
+      "input": "Fânațelor",
+      "normalized": "fanatelor",
+      "type": null,
+      "name": "fanatelor"
+    },
+    {
+      "input": "Griviței",
+      "normalized": "grivitei",
+      "type": null,
+      "name": "grivitei"
+    },
+    {
+      "input": "Liviu Rebreanu",
+      "normalized": "liviu rebreanu",
+      "type": null,
+      "name": "liviu rebreanu"
+    },
+    {
+      "input": "Mihai Viteazul",
+      "normalized": "mihai viteazul",
+      "type": null,
+      "name": "mihai viteazul"
+    },
+    {
+      "input": "Nichita Stănescu",
+      "normalized": "nichita stanescu",
+      "type": null,
+      "name": "nichita stanescu"
+    },
+    {
+      "input": "Nicolae Titulescu",
+      "normalized": "nicolae titulescu",
+      "type": null,
+      "name": "nicolae titulescu"
+    },
+    {
+      "input": "Piața 16 Februarie",
+      "normalized": "piata 16 februarie",
+      "type": "piata",
+      "name": "16 februarie"
+    },
+    {
+      "input": "Piața Lupeni",
+      "normalized": "piata lupeni",
+      "type": "piata",
+      "name": "lupeni"
+    },
+    {
+      "input": "Plevnei",
+      "normalized": "plevnei",
+      "type": null,
+      "name": "plevnei"
+    },
+    {
+      "input": "Pomilor",
+      "normalized": "pomilor",
+      "type": null,
+      "name": "pomilor"
+    },
+    {
+      "input": "Strada 1 Mai",
+      "normalized": "strada 1 mai",
+      "type": "strada",
+      "name": "1 mai"
+    },
+    {
+      "input": "Strada Ady Endre",
+      "normalized": "strada ady endre",
+      "type": "strada",
+      "name": "ady endre"
+    },
+    {
+      "input": "Strada Alexandru Szopos",
+      "normalized": "strada alexandru szopos",
+      "type": "strada",
+      "name": "alexandru szopos"
+    },
+    {
+      "input": "Strada Aurel Vlaicu",
+      "normalized": "strada aurel vlaicu",
+      "type": "strada",
+      "name": "aurel vlaicu"
+    },
+    {
+      "input": "Strada Avram Iancu",
+      "normalized": "strada avram iancu",
+      "type": "strada",
+      "name": "avram iancu"
+    },
+    {
+      "input": "Strada Brândușei",
+      "normalized": "strada brandusei",
+      "type": "strada",
+      "name": "brandusei"
+    },
+    {
+      "input": "Strada Călugăreni",
+      "normalized": "strada calugareni",
+      "type": "strada",
+      "name": "calugareni"
+    },
+    {
+      "input": "Strada Ciprian Porumbescu",
+      "normalized": "strada ciprian porumbescu",
+      "type": "strada",
+      "name": "ciprian porumbescu"
+    },
+    {
+      "input": "Strada Constantin Dobrogeanu Gherea",
+      "normalized": "strada constantin dobrogeanu gherea",
+      "type": "strada",
+      "name": "constantin dobrogeanu gherea"
+    },
+    {
+      "input": "Strada Corneliu Coposu",
+      "normalized": "strada corneliu coposu",
+      "type": "strada",
+      "name": "corneliu coposu"
+    },
+    {
+      "input": "Strada Crișan",
+      "normalized": "strada crisan",
+      "type": "strada",
+      "name": "crisan"
+    },
+    {
+      "input": "Strada Dealul Rozelor",
+      "normalized": "strada dealul rozelor",
+      "type": "strada",
+      "name": "dealul rozelor"
+    },
+    {
+      "input": "Strada Dragoș Vodă",
+      "normalized": "strada dragos voda",
+      "type": "strada",
+      "name": "dragos voda"
+    },
+    {
+      "input": "Strada Eroilor",
+      "normalized": "strada eroilor",
+      "type": "strada",
+      "name": "eroilor"
+    },
+    {
+      "input": "Strada Fericirii",
+      "normalized": "strada fericirii",
+      "type": "strada",
+      "name": "fericirii"
+    },
+    {
+      "input": "Strada Fragilor",
+      "normalized": "strada fragilor",
+      "type": "strada",
+      "name": "fragilor"
+    },
+    {
+      "input": "Strada George Coșbuc",
+      "normalized": "strada george cosbuc",
+      "type": "strada",
+      "name": "george cosbuc"
+    },
+    {
+      "input": "Strada Gheorge Șincai",
+      "normalized": "strada gheorge sincai",
+      "type": "strada",
+      "name": "gheorge sincai"
+    },
+    {
+      "input": "Strada Gutuiului",
+      "normalized": "strada gutuiului",
+      "type": "strada",
+      "name": "gutuiului"
+    },
+    {
+      "input": "Strada I. C. Brătianu",
+      "normalized": "strada i c bratianu",
+      "type": "strada",
+      "name": "i c bratianu"
+    },
+    {
+      "input": "Strada Ion Agârbiceanu",
+      "normalized": "strada ion agarbiceanu",
+      "type": "strada",
+      "name": "ion agarbiceanu"
+    },
+    {
+      "input": "Strada Ion Pop-Reteganul",
+      "normalized": "strada ion pop reteganul",
+      "type": "strada",
+      "name": "ion pop reteganul"
+    },
+    {
+      "input": "Strada Iuliu Maniu",
+      "normalized": "strada iuliu maniu",
+      "type": "strada",
+      "name": "iuliu maniu"
+    },
+    {
+      "input": "Strada Laurilor",
+      "normalized": "strada laurilor",
+      "type": "strada",
+      "name": "laurilor"
+    },
+    {
+      "input": "Strada Luceafărului",
+      "normalized": "strada luceafarului",
+      "type": "strada",
+      "name": "luceafarului"
+    },
+    {
+      "input": "Strada Mărășești",
+      "normalized": "strada marasesti",
+      "type": "strada",
+      "name": "marasesti"
+    },
+    {
+      "input": "Strada Matei Corvin",
+      "normalized": "strada matei corvin",
+      "type": "strada",
+      "name": "matei corvin"
+    },
+    {
+      "input": "Strada Micșunelelor",
+      "normalized": "strada micsunelelor",
+      "type": "strada",
+      "name": "micsunelelor"
+    },
+    {
+      "input": "Strada Mihai Viteazul",
+      "normalized": "strada mihai viteazul",
+      "type": "strada",
+      "name": "mihai viteazul"
+    },
+    {
+      "input": "Strada Mioriței",
+      "normalized": "strada mioritei",
+      "type": "strada",
+      "name": "mioritei"
+    },
+    {
+      "input": "Strada Nicolae Iorga",
+      "normalized": "strada nicolae iorga",
+      "type": "strada",
+      "name": "nicolae iorga"
+    },
+    {
+      "input": "Strada Octavian Goga",
+      "normalized": "strada octavian goga",
+      "type": "strada",
+      "name": "octavian goga"
+    },
+    {
+      "input": "Strada Păcii",
+      "normalized": "strada pacii",
+      "type": "strada",
+      "name": "pacii"
+    },
+    {
+      "input": "Strada Panseluțelor",
+      "normalized": "strada panselutelor",
+      "type": "strada",
+      "name": "panselutelor"
+    },
+    {
+      "input": "Strada Pepinierei",
+      "normalized": "strada pepinierei",
+      "type": "strada",
+      "name": "pepinierei"
+    },
+    {
+      "input": "Strada Petru Rareș",
+      "normalized": "strada petru rares",
+      "type": "strada",
+      "name": "petru rares"
+    },
+    {
+      "input": "Strada Pintea Viteazu",
+      "normalized": "strada pintea viteazu",
+      "type": "strada",
+      "name": "pintea viteazu"
+    },
+    {
+      "input": "Strada Regina Maria",
+      "normalized": "strada regina maria",
+      "type": "strada",
+      "name": "regina maria"
+    },
+    {
+      "input": "Strada Rozelor",
+      "normalized": "strada rozelor",
+      "type": "strada",
+      "name": "rozelor"
+    },
+    {
+      "input": "Strada Simion Bărnuțiu",
+      "normalized": "strada simion barnutiu",
+      "type": "strada",
+      "name": "simion barnutiu"
+    },
+    {
+      "input": "Strada Țibleșului",
+      "normalized": "strada tiblesului",
+      "type": "strada",
+      "name": "tiblesului"
+    },
+    {
+      "input": "Strada Tomis",
+      "normalized": "strada tomis",
+      "type": "strada",
+      "name": "tomis"
+    },
+    {
+      "input": "Strada Tudor Vladimirescu",
+      "normalized": "strada tudor vladimirescu",
+      "type": "strada",
+      "name": "tudor vladimirescu"
+    },
+    {
+      "input": "Strada Văii",
+      "normalized": "strada vaii",
+      "type": "strada",
+      "name": "vaii"
+    },
+    {
+      "input": "Strada Valea Chiejdului",
+      "normalized": "strada valea chiejdului",
+      "type": "strada",
+      "name": "valea chiejdului"
+    },
+    {
+      "input": "Strada Victor Motogna",
+      "normalized": "strada victor motogna",
+      "type": "strada",
+      "name": "victor motogna"
+    },
+    {
+      "input": "Strada Vidin",
+      "normalized": "strada vidin",
+      "type": "strada",
+      "name": "vidin"
+    },
+    {
+      "input": "Strada Zorilor",
+      "normalized": "strada zorilor",
+      "type": "strada",
+      "name": "zorilor"
+    },
+    {
+      "input": "Drumul de acces la castelul Kornis",
+      "normalized": "drumul de acces la castelul kornis",
+      "type": "drumul",
+      "name": "de acces la castelul kornis"
+    },
+    {
+      "input": "Strada Profesor Inginer Leon Birnbaum",
+      "normalized": "strada profesor inginer leon birnbaum",
+      "type": "strada",
+      "name": "profesor inginer leon birnbaum"
+    },
+    {
+      "input": "19",
+      "normalized": "19",
+      "type": null,
+      "name": "19"
+    },
+    {
+      "input": "Strada Brazilor",
+      "normalized": "strada brazilor",
+      "type": "strada",
+      "name": "brazilor"
+    },
+    {
+      "input": "Strada Castanilor",
+      "normalized": "strada castanilor",
+      "type": "strada",
+      "name": "castanilor"
+    },
+    {
+      "input": "Strada Gheorghe Barițiu",
+      "normalized": "strada gheorghe baritiu",
+      "type": "strada",
+      "name": "gheorghe baritiu"
+    },
+    {
+      "input": "Strada Gheorghe Lazăr",
+      "normalized": "strada gheorghe lazar",
+      "type": "strada",
+      "name": "gheorghe lazar"
+    },
+    {
+      "input": "Strada Măceșului",
+      "normalized": "strada macesului",
+      "type": "strada",
+      "name": "macesului"
+    },
+    {
+      "input": "Strada Miron Costin",
+      "normalized": "strada miron costin",
+      "type": "strada",
+      "name": "miron costin"
+    },
+    {
+      "input": "Strada Prunilor",
+      "normalized": "strada prunilor",
+      "type": "strada",
+      "name": "prunilor"
+    },
+    {
+      "input": "Strada Tatra",
+      "normalized": "strada tatra",
+      "type": "strada",
+      "name": "tatra"
+    },
+    {
+      "input": "Strada Trandafirilor",
+      "normalized": "strada trandafirilor",
+      "type": "strada",
+      "name": "trandafirilor"
+    },
+    {
+      "input": "Strada Berzelor",
+      "normalized": "strada berzelor",
+      "type": "strada",
+      "name": "berzelor"
+    },
+    {
+      "input": "Strada Busuiocului",
+      "normalized": "strada busuiocului",
+      "type": "strada",
+      "name": "busuiocului"
+    },
+    {
+      "input": "Strada Căpșunilor",
+      "normalized": "strada capsunilor",
+      "type": "strada",
+      "name": "capsunilor"
+    },
+    {
+      "input": "Strada Ciocârliei",
+      "normalized": "strada ciocarliei",
+      "type": "strada",
+      "name": "ciocarliei"
+    },
+    {
+      "input": "Strada Clopoțeilor",
+      "normalized": "strada clopoteilor",
+      "type": "strada",
+      "name": "clopoteilor"
+    },
+    {
+      "input": "Strada Fagului",
+      "normalized": "strada fagului",
+      "type": "strada",
+      "name": "fagului"
+    },
+    {
+      "input": "Strada Frasinului",
+      "normalized": "strada frasinului",
+      "type": "strada",
+      "name": "frasinului"
+    },
+    {
+      "input": "Strada Gorunului",
+      "normalized": "strada gorunului",
+      "type": "strada",
+      "name": "gorunului"
+    },
+    {
+      "input": "Strada Lebedelor",
+      "normalized": "strada lebedelor",
+      "type": "strada",
+      "name": "lebedelor"
+    },
+    {
+      "input": "Strada Mieilor",
+      "normalized": "strada mieilor",
+      "type": "strada",
+      "name": "mieilor"
+    },
+    {
+      "input": "Strada Migdalelor",
+      "normalized": "strada migdalelor",
+      "type": "strada",
+      "name": "migdalelor"
+    },
+    {
+      "input": "Strada Mixandrelor",
+      "normalized": "strada mixandrelor",
+      "type": "strada",
+      "name": "mixandrelor"
+    },
+    {
+      "input": "Strada Piersicului",
+      "normalized": "strada piersicului",
+      "type": "strada",
+      "name": "piersicului"
+    },
+    {
+      "input": "Strada Pițigoilor",
+      "normalized": "strada pitigoilor",
+      "type": "strada",
+      "name": "pitigoilor"
+    },
+    {
+      "input": "Strada Porumbeilor",
+      "normalized": "strada porumbeilor",
+      "type": "strada",
+      "name": "porumbeilor"
+    },
+    {
+      "input": "Strada Salbelor",
+      "normalized": "strada salbelor",
+      "type": "strada",
+      "name": "salbelor"
+    },
+    {
+      "input": "Strada Stejarului",
+      "normalized": "strada stejarului",
+      "type": "strada",
+      "name": "stejarului"
+    },
+    {
+      "input": "Strada Trandafirilor",
+      "normalized": "strada trandafirilor",
+      "type": "strada",
+      "name": "trandafirilor"
+    },
+    {
+      "input": "Strada Ulmului",
+      "normalized": "strada ulmului",
+      "type": "strada",
+      "name": "ulmului"
+    },
+    {
+      "input": "Strada Vânătorilor",
+      "normalized": "strada vanatorilor",
+      "type": "strada",
+      "name": "vanatorilor"
+    },
+    {
+      "input": "Strada Viorelelor",
+      "normalized": "strada viorelelor",
+      "type": "strada",
+      "name": "viorelelor"
+    },
+    {
+      "input": "Strada Vulturilor",
+      "normalized": "strada vulturilor",
+      "type": "strada",
+      "name": "vulturilor"
+    },
+    {
+      "input": "Strada Zmeurei",
+      "normalized": "strada zmeurei",
+      "type": "strada",
+      "name": "zmeurei"
+    }
+  ]
+}

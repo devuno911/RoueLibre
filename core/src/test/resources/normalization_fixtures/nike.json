@@ -1,0 +1,797 @@
+{
+  "language": "en",
+  "cases": [
+    {
+      "input": "Abbey Rd",
+      "normalized": "abbey road",
+      "type": null,
+      "name": "abbey road"
+    },
+    {
+      "input": "Baker Street",
+      "normalized": "baker street",
+      "type": null,
+      "name": "baker street"
+    },
+    {
+      "input": "St James's Park",
+      "normalized": "saint james south park",
+      "type": null,
+      "name": "saint james south park"
+    },
+    {
+      "input": "Queen's Crescent",
+      "normalized": "queen south crescent",
+      "type": null,
+      "name": "queen south crescent"
+    },
+    {
+      "input": "Kensington High St",
+      "normalized": "kensington high st",
+      "type": null,
+      "name": "kensington high st"
+    },
+    {
+      "input": "Dr Martin Luther King Jr Blvd",
+      "normalized": "doctor martin luther king jr boulevard",
+      "type": null,
+      "name": "doctor martin luther king jr boulevard"
+    },
+    {
+      "input": "N Michigan Ave",
+      "normalized": "north michigan avenue",
+      "type": null,
+      "name": "north michigan avenue"
+    },
+    {
+      "input": "The Mall",
+      "normalized": "the mall",
+      "type": null,
+      "name": "the mall"
+    },
+    {
+      "input": "Hyde Park Corner",
+      "normalized": "hyde park corner",
+      "type": null,
+      "name": "hyde park corner"
+    },
+    {
+      "input": "Cherry Ln",
+      "normalized": "cherry lane",
+      "type": null,
+      "name": "cherry lane"
+    },
+    {
+      "input": "Mt Pleasant Ter",
+      "normalized": "mount pleasant terrace",
+      "type": null,
+      "name": "mount pleasant terrace"
+    },
+    {
+      "input": "Fifth Avenue",
+      "normalized": "fifth avenue",
+      "type": null,
+      "name": "fifth avenue"
+    },
+    {
+      "input": "Southwest Scottie Place",
+      "normalized": "southwest scottie place",
+      "type": null,
+      "name": "southwest scottie place"
+    },
+    {
+      "input": "NW 173rd Ave",
+      "normalized": "north west 173rd avenue",
+      "type": null,
+      "name": "north west 173rd avenue"
+    },
+    {
+      "input": "Northwest 154th Avenue",
+      "normalized": "northwest 154th avenue",
+      "type": null,
+      "name": "northwest 154th avenue"
+    },
+    {
+      "input": "Northwest 166th Terrace",
+      "normalized": "northwest 166th terrace",
+      "type": null,
+      "name": "northwest 166th terrace"
+    },
+    {
+      "input": "Northwest 176th Avenue",
+      "normalized": "northwest 176th avenue",
+      "type": null,
+      "name": "northwest 176th avenue"
+    },
+    {
+      "input": "Northwest Arcadia Court",
+      "normalized": "northwest arcadia court",
+      "type": null,
+      "name": "northwest arcadia court"
+    },
+    {
+      "input": "Northwest Blueridge Court",
+      "normalized": "northwest blueridge court",
+      "type": null,
+      "name": "northwest blueridge court"
+    },
+    {
+      "input": "Northwest David Court",
+      "normalized": "northwest david court",
+      "type": null,
+      "name": "northwest david court"
+    },
+    {
+      "input": "Northwest Farmstead Court",
+      "normalized": "northwest farmstead court",
+      "type": null,
+      "name": "northwest farmstead court"
+    },
+    {
+      "input": "Northwest Heritage Terrace",
+      "normalized": "northwest heritage terrace",
+      "type": null,
+      "name": "northwest heritage terrace"
+    },
+    {
+      "input": "Northwest Lydia Place",
+      "normalized": "northwest lydia place",
+      "type": null,
+      "name": "northwest lydia place"
+    },
+    {
+      "input": "Northwest Nyssa Court",
+      "normalized": "northwest nyssa court",
+      "type": null,
+      "name": "northwest nyssa court"
+    },
+    {
+      "input": "Northwest Persimmon Place",
+      "normalized": "northwest persimmon place",
+      "type": null,
+      "name": "northwest persimmon place"
+    },
+    {
+      "input": "Northwest Sedgewick Court",
+      "normalized": "northwest sedgewick court",
+      "type": null,
+      "name": "northwest sedgewick court"
+    },
+    {
+      "input": "Northwest Telshire Terrace",
+      "normalized": "northwest telshire terrace",
+      "type": null,
+      "name": "northwest telshire terrace"
+    },
+    {
+      "input": "Northwest Widgi Creek Court",
+      "normalized": "northwest widgi creek court",
+      "type": null,
+      "name": "northwest widgi creek court"
+    },
+    {
+      "input": "Southwest 105th Avenue",
+      "normalized": "southwest 105th avenue",
+      "type": null,
+      "name": "southwest 105th avenue"
+    },
+    {
+      "input": "Southwest 118th Avenue",
+      "normalized": "southwest 118th avenue",
+      "type": null,
+      "name": "southwest 118th avenue"
+    },
+    {
+      "input": "Southwest 130th Avenue",
+      "normalized": "southwest 130th avenue",
+      "type": null,
+      "name": "southwest 130th avenue"
+    },
+    {
+      "input": "Southwest 140th Place",
+      "normalized": "southwest 140th place",
+      "type": null,
+      "name": "southwest 140th place"
+    },
+    {
+      "input": "Southwest 14th Street",
+      "normalized": "southwest 14th street",
+      "type": null,
+      "name": "southwest 14th street"
+    },
+    {
+      "input": "Southwest 158th Avenue",
+      "normalized": "southwest 158th avenue",
+      "type": null,
+      "name": "southwest 158th avenue"
+    },
+    {
+      "input": "Southwest 164th Place",
+      "normalized": "southwest 164th place",
+      "type": null,
+      "name": "southwest 164th place"
+    },
+    {
+      "input": "Southwest 169th Place",
+      "normalized": "southwest 169th place",
+      "type": null,
+      "name": "southwest 169th place"
+    },
+    {
+      "input": "Southwest 174th Terrace",
+      "normalized": "southwest 174th terrace",
+      "type": null,
+      "name": "southwest 174th terrace"
+    },
+    {
+      "input": "Southwest 180th Avenue",
+      "normalized": "southwest 180th avenue",
+      "type": null,
+      "name": "southwest 180th avenue"
+    },
+    {
+      "input": "Southwest 184th Place",
+      "normalized": "southwest 184th place",
+      "type": null,
+      "name": "southwest 184th place"
+    },
+    {
+      "input": "Southwest 18th Street",
+      "normalized": "southwest 18th street",
+      "type": null,
+      "name": "southwest 18th street"
+    },
+    {
+      "input": "Southwest 194th Place",
+      "normalized": "southwest 194th place",
+      "type": null,
+      "name": "southwest 194th place"
+    },
+    {
+      "input": "Southwest 2nd Street",
+      "normalized": "southwest 2nd street",
+      "type": null,
+      "name": "southwest 2nd street"
+    },
+    {
+      "input": "Southwest Alan Blumlein Way",
+      "normalized": "southwest alan blumlein way",
+      "type": null,
+      "name": "southwest alan blumlein way"
+    },
+    {
+      "input": "Southwest Alton Street",
+      "normalized": "southwest alton street",
+      "type": null,
+      "name": "southwest alton street"
+    },
+    {
+      "input": "Southwest Artesian Drive",
+      "normalized": "southwest artesian drive",
+      "type": null,
+      "name": "southwest artesian drive"
+    },
+    {
+      "input": "Southwest Barlow Court",
+      "normalized": "southwest barlow court",
+      "type": null,
+      "name": "southwest barlow court"
+    },
+    {
+      "input": "Southwest Benji Court",
+      "normalized": "southwest benji court",
+      "type": null,
+      "name": "southwest benji court"
+    },
+    {
+      "input": "Southwest Blamon Street",
+      "normalized": "southwest blamon street",
+      "type": null,
+      "name": "southwest blamon street"
+    },
+    {
+      "input": "Southwest Briarcliff Circle",
+      "normalized": "southwest briarcliff circle",
+      "type": null,
+      "name": "southwest briarcliff circle"
+    },
+    {
+      "input": "Southwest Brooklawn Place",
+      "normalized": "southwest brooklawn place",
+      "type": null,
+      "name": "southwest brooklawn place"
+    },
+    {
+      "input": "Southwest Butner Road",
+      "normalized": "southwest butner road",
+      "type": null,
+      "name": "southwest butner road"
+    },
+    {
+      "input": "Southwest Cape Meares Court",
+      "normalized": "southwest cape meares court",
+      "type": null,
+      "name": "southwest cape meares court"
+    },
+    {
+      "input": "Southwest Chapman Avenue",
+      "normalized": "southwest chapman avenue",
+      "type": null,
+      "name": "southwest chapman avenue"
+    },
+    {
+      "input": "Southwest Chrisben Court",
+      "normalized": "southwest chrisben court",
+      "type": null,
+      "name": "southwest chrisben court"
+    },
+    {
+      "input": "Southwest Corona Lane",
+      "normalized": "southwest corona lane",
+      "type": null,
+      "name": "southwest corona lane"
+    },
+    {
+      "input": "Southwest Cypress Street",
+      "normalized": "southwest cypress street",
+      "type": null,
+      "name": "southwest cypress street"
+    },
+    {
+      "input": "Southwest Delta Court",
+      "normalized": "southwest delta court",
+      "type": null,
+      "name": "southwest delta court"
+    },
+    {
+      "input": "Southwest Donna Court",
+      "normalized": "southwest donna court",
+      "type": null,
+      "name": "southwest donna court"
+    },
+    {
+      "input": "Southwest El Rancho Court",
+      "normalized": "southwest el rancho court",
+      "type": null,
+      "name": "southwest el rancho court"
+    },
+    {
+      "input": "Southwest Fairfield Court",
+      "normalized": "southwest fairfield court",
+      "type": null,
+      "name": "southwest fairfield court"
+    },
+    {
+      "input": "Southwest Forest Place",
+      "normalized": "southwest forest place",
+      "type": null,
+      "name": "southwest forest place"
+    },
+    {
+      "input": "Southwest Glenbrook Road",
+      "normalized": "southwest glenbrook road",
+      "type": null,
+      "name": "southwest glenbrook road"
+    },
+    {
+      "input": "Southwest Hall Court",
+      "normalized": "southwest hall court",
+      "type": null,
+      "name": "southwest hall court"
+    },
+    {
+      "input": "Southwest Hennig Court",
+      "normalized": "southwest hennig court",
+      "type": null,
+      "name": "southwest hennig court"
+    },
+    {
+      "input": "Southwest Hollyridge Lane",
+      "normalized": "southwest hollyridge lane",
+      "type": null,
+      "name": "southwest hollyridge lane"
+    },
+    {
+      "input": "Southwest Innovation Court",
+      "normalized": "southwest innovation court",
+      "type": null,
+      "name": "southwest innovation court"
+    },
+    {
+      "input": "Southwest Jenine Lane",
+      "normalized": "southwest jenine lane",
+      "type": null,
+      "name": "southwest jenine lane"
+    },
+    {
+      "input": "Southwest Kavitt Lane",
+      "normalized": "southwest kavitt lane",
+      "type": null,
+      "name": "southwest kavitt lane"
+    },
+    {
+      "input": "Southwest Kirsten Court",
+      "normalized": "southwest kirsten court",
+      "type": null,
+      "name": "southwest kirsten court"
+    },
+    {
+      "input": "Southwest Larkspur Place",
+      "normalized": "southwest larkspur place",
+      "type": null,
+      "name": "southwest larkspur place"
+    },
+    {
+      "input": "Southwest Linette Way",
+      "normalized": "southwest linette way",
+      "type": null,
+      "name": "southwest linette way"
+    },
+    {
+      "input": "Southwest Macorey Court",
+      "normalized": "southwest macorey court",
+      "type": null,
+      "name": "southwest macorey court"
+    },
+    {
+      "input": "Southwest Max Court",
+      "normalized": "southwest max court",
+      "type": null,
+      "name": "southwest max court"
+    },
+    {
+      "input": "Southwest Melnore Court",
+      "normalized": "southwest melnore court",
+      "type": null,
+      "name": "southwest melnore court"
+    },
+    {
+      "input": "Southwest Moniker Place",
+      "normalized": "southwest moniker place",
+      "type": null,
+      "name": "southwest moniker place"
+    },
+    {
+      "input": "Southwest Netarts Court",
+      "normalized": "southwest netarts court",
+      "type": null,
+      "name": "southwest netarts court"
+    },
+    {
+      "input": "Southwest Oakwood Court",
+      "normalized": "southwest oakwood court",
+      "type": null,
+      "name": "southwest oakwood court"
+    },
+    {
+      "input": "Southwest Palatial Place",
+      "normalized": "southwest palatial place",
+      "type": null,
+      "name": "southwest palatial place"
+    },
+    {
+      "input": "Southwest Pheasant Court",
+      "normalized": "southwest pheasant court",
+      "type": null,
+      "name": "southwest pheasant court"
+    },
+    {
+      "input": "Southwest Prospect Street",
+      "normalized": "southwest prospect street",
+      "type": null,
+      "name": "southwest prospect street"
+    },
+    {
+      "input": "Southwest Riddle Court",
+      "normalized": "southwest riddle court",
+      "type": null,
+      "name": "southwest riddle court"
+    },
+    {
+      "input": "Southwest Rollingwood Drive",
+      "normalized": "southwest rollingwood drive",
+      "type": null,
+      "name": "southwest rollingwood drive"
+    },
+    {
+      "input": "Southwest Saint John Vianney Way",
+      "normalized": "southwest saint john vianney way",
+      "type": null,
+      "name": "southwest saint john vianney way"
+    },
+    {
+      "input": "Southwest Savannah Place",
+      "normalized": "southwest savannah place",
+      "type": null,
+      "name": "southwest savannah place"
+    },
+    {
+      "input": "Southwest Sherwood Place",
+      "normalized": "southwest sherwood place",
+      "type": null,
+      "name": "southwest sherwood place"
+    },
+    {
+      "input": "Southwest Springwater Court",
+      "normalized": "southwest springwater court",
+      "type": null,
+      "name": "southwest springwater court"
+    },
+    {
+      "input": "Southwest Sumac Court",
+      "normalized": "southwest sumac court",
+      "type": null,
+      "name": "southwest sumac court"
+    },
+    {
+      "input": "Southwest Tea Party Circle",
+      "normalized": "southwest tea party circle",
+      "type": null,
+      "name": "southwest tea party circle"
+    },
+    {
+      "input": "Southwest Tracy Ann Court",
+      "normalized": "southwest tracy ann court",
+      "type": null,
+      "name": "southwest tracy ann court"
+    },
+    {
+      "input": "Southwest Valley Avenue",
+      "normalized": "southwest valley avenue",
+      "type": null,
+      "name": "southwest valley avenue"
+    },
+    {
+      "input": "Southwest Vino Place",
+      "normalized": "southwest vino place",
+      "type": null,
+      "name": "southwest vino place"
+    },
+    {
+      "input": "Southwest Waterleaf Lane",
+      "normalized": "southwest waterleaf lane",
+      "type": null,
+      "name": "southwest waterleaf lane"
+    },
+    {
+      "input": "Southwest Westwind Lane",
+      "normalized": "southwest westwind lane",
+      "type": null,
+      "name": "southwest westwind lane"
+    },
+    {
+      "input": "Southwest Willow Creek Court",
+      "normalized": "southwest willow creek court",
+      "type": null,
+      "name": "southwest willow creek court"
+    },
+    {
+      "input": "Southwest Woodruff Court",
+      "normalized": "southwest woodruff court",
+      "type": null,
+      "name": "southwest woodruff court"
+    },
+    {
+      "input": "Southwest 99th Terrace",
+      "normalized": "southwest 99th terrace",
+      "type": null,
+      "name": "southwest 99th terrace"
+    },
+    {
+      "input": "Northwest 116th Terrace",
+      "normalized": "northwest 116th terrace",
+      "type": null,
+      "name": "northwest 116th terrace"
+    },
+    {
+      "input": "Northwest Stone Mountain Lane",
+      "normalized": "northwest stone mountain lane",
+      "type": null,
+      "name": "northwest stone mountain lane"
+    },
+    {
+      "input": "Southwest 120th Place",
+      "normalized": "southwest 120th place",
+      "type": null,
+      "name": "southwest 120th place"
+    },
+    {
+      "input": "Southwest 139th Place",
+      "normalized": "southwest 139th place",
+      "type": null,
+      "name": "southwest 139th place"
+    },
+    {
+      "input": "Parcel Pickup",
+      "normalized": "parcel pickup",
+      "type": null,
+      "name": "parcel pickup"
+    },
+    {
+      "input": "Northeast Allie Avenue",
+      "normalized": "northeast allie avenue",
+      "type": null,
+      "name": "northeast allie avenue"
+    },
+    {
+      "input": "Northeast Heron Way",
+      "normalized": "northeast heron way",
+      "type": null,
+      "name": "northeast heron way"
+    },
+    {
+      "input": "Northwest Evergreen Parkway",
+      "normalized": "northwest evergreen parkway",
+      "type": null,
+      "name": "northwest evergreen parkway"
+    },
+    {
+      "input": "Southwest Kokich Place",
+      "normalized": "southwest kokich place",
+      "type": null,
+      "name": "southwest kokich place"
+    },
+    {
+      "input": "Deschutes/Wilamette Skybridge",
+      "normalized": "deschutes wilamette skybridge",
+      "type": null,
+      "name": "deschutes wilamette skybridge"
+    },
+    {
+      "input": "Thomas Paine Road",
+      "normalized": "thomas paine road",
+      "type": null,
+      "name": "thomas paine road"
+    },
+    {
+      "input": "Elmonica/Southwest 170th Avenue",
+      "normalized": "elmonica southwest 170th avenue",
+      "type": null,
+      "name": "elmonica southwest 170th avenue"
+    },
+    {
+      "input": "Northwest 109th Avenue",
+      "normalized": "northwest 109th avenue",
+      "type": null,
+      "name": "northwest 109th avenue"
+    },
+    {
+      "input": "Northwest 117th Court",
+      "normalized": "northwest 117th court",
+      "type": null,
+      "name": "northwest 117th court"
+    },
+    {
+      "input": "Northwest 126th Avenue",
+      "normalized": "northwest 126th avenue",
+      "type": null,
+      "name": "northwest 126th avenue"
+    },
+    {
+      "input": "Northwest 133rd Place",
+      "normalized": "northwest 133rd place",
+      "type": null,
+      "name": "northwest 133rd place"
+    },
+    {
+      "input": "Northwest Abbey Road",
+      "normalized": "northwest abbey road",
+      "type": null,
+      "name": "northwest abbey road"
+    },
+    {
+      "input": "Northwest Barrett Way",
+      "normalized": "northwest barrett way",
+      "type": null,
+      "name": "northwest barrett way"
+    },
+    {
+      "input": "Northwest Bronson Road",
+      "normalized": "northwest bronson road",
+      "type": null,
+      "name": "northwest bronson road"
+    },
+    {
+      "input": "Northwest Circle A Drive",
+      "normalized": "northwest circle a drive",
+      "type": null,
+      "name": "northwest circle a drive"
+    },
+    {
+      "input": "Northwest Dumar Street",
+      "normalized": "northwest dumar street",
+      "type": null,
+      "name": "northwest dumar street"
+    },
+    {
+      "input": "Northwest Green View Lane",
+      "normalized": "northwest green view lane",
+      "type": null,
+      "name": "northwest green view lane"
+    },
+    {
+      "input": "Northwest Jenne Avenue",
+      "normalized": "northwest jenne avenue",
+      "type": null,
+      "name": "northwest jenne avenue"
+    },
+    {
+      "input": "Northwest Knightsview Lane",
+      "normalized": "northwest knightsview lane",
+      "type": null,
+      "name": "northwest knightsview lane"
+    },
+    {
+      "input": "Northwest Lovejoy Court",
+      "normalized": "northwest lovejoy court",
+      "type": null,
+      "name": "northwest lovejoy court"
+    },
+    {
+      "input": "Northwest McEnery Lane",
+      "normalized": "northwest mcenery lane",
+      "type": null,
+      "name": "northwest mcenery lane"
+    },
+    {
+      "input": "Northwest Nottage Drive",
+      "normalized": "northwest nottage drive",
+      "type": null,
+      "name": "northwest nottage drive"
+    },
+    {
+      "input": "Northwest Pinyon Street",
+      "normalized": "northwest pinyon street",
+      "type": null,
+      "name": "northwest pinyon street"
+    },
+    {
+      "input": "Northwest Ridgetop Street",
+      "normalized": "northwest ridgetop street",
+      "type": null,
+      "name": "northwest ridgetop street"
+    },
+    {
+      "input": "Northwest Stimpson Lane",
+      "normalized": "northwest stimpson lane",
+      "type": null,
+      "name": "northwest stimpson lane"
+    },
+    {
+      "input": "Northwest Westlawn Street",
+      "normalized": "northwest westlawn street",
+      "type": null,
+      "name": "northwest westlawn street"
+    },
+    {
+      "input": "Southwest 106th Place",
+      "normalized": "southwest 106th place",
+      "type": null,
+      "name": "southwest 106th place"
+    },
+    {
+      "input": "Southwest Ardenwood Street",
+      "normalized": "southwest ardenwood street",
+      "type": null,
+      "name": "southwest ardenwood street"
+    },
+    {
+      "input": "Southwest Colmar Lane",
+      "normalized": "southwest colmar lane",
+      "type": null,
+      "name": "southwest colmar lane"
+    },
+    {
+      "input": "Southwest Havencrest Street",
+      "normalized": "southwest havencrest street",
+      "type": null,
+      "name": "southwest havencrest street"
+    },
+    {
+      "input": "Southwest Meade Street",
+      "normalized": "southwest meade street",
+      "type": null,
+      "name": "southwest meade street"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Who produces the availability data, city by city (SPEC §4.5).
+
+    One block per city, filled at run time from the configurations shipped in
+    the APK: the list follows the cities served, and no screen has to be
+    remembered when one is added.
+
+    A search field narrows it, as on the city screen: the catalogue runs to
+    dozens of conurbations, and scrolling to one's own is a poor way of
+    finding it.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/sources_title"
+        app:titleTextAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <!--
+            Holds the initial focus itself, so the field below does not take
+            it: one comes here to read credits, not to type.
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/space_l"
+            android:paddingTop="@dimen/space_s"
+            android:paddingEnd="@dimen/space_l"
+            android:paddingBottom="@dimen/space_xxl">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sources_intro"
+                android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_field"
+                style="@style/Widget.RoueLibre.SearchField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:hint="@string/city_search_hint"
+                app:endIconContentDescription="@string/city_search_clear"
+                app:endIconMode="clear_text">
+
+                <!-- `flagNoExtractUi`: in landscape the keyboard otherwise takes the
+                     whole screen for a copy of this field, and the results that
+                     follow every keystroke stay hidden until it is folded away. -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch|flagNoExtractUi"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Body" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/cities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- An empty screen: an invitation to act, not a statement (SPEC §7). -->
+            <LinearLayout
+                android:id="@+id/empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xxl"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/city_no_match_title"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+                <TextView
+                    android:id="@+id/empty_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_s"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+                    tools:text="Nothing matches “reykjavik”." />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/empty_action"
+                    style="@style/Widget.RoueLibre.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:layout_marginTop="@dimen/space_m"
+                    android:text="@string/action_clear_search" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

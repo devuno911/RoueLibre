@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Greek translation.
+
+    A translation, not a starting point: every string below has been written in
+    Greek from `values/strings.xml`, which stays the source (SPEC §9). Rules,
+    the same as everywhere: positional placeholders, <plurals> for anything
+    that agrees, and the `name` attributes left untouched.
+
+    Greek distinguishes `one` and `other`, as English does.
+
+    This file keeps the XML comments of `values/strings.xml`: they say what a
+    placeholder stands for and on which screen a sentence appears, and
+    stripping them made five translators go back to the English file to find
+    out what they meant. A few carry a line of their own about a Greek choice,
+    marked "Greek:".
+
+    The typography is Greek:
+      · the question mark is the semicolon `;` (U+003B), never the deprecated
+        U+037E that looks the same;
+      · the áno teleía `·` (U+00B7, the middle dot Unicode canonicalises
+        U+0387 to) stands where English writes a semicolon between two
+        clauses, and it is also the separator this interface hangs its
+        figures on;
+      · quotations are « », with no space inside them;
+      · the apostrophe is ’ (U+2019) and never the straight quote, which is
+        why nothing here is escaped;
+      · the tonos is written on lower case and drops in all capitals. Some
+        thirty strings are set in capitals by the interface itself, through
+        `TextAppearance.RoueLibre.Label` and `Widget.RoueLibre.SettingsLabel`,
+        and every one of them is written accented here all the same: a
+        resource file is written in the orthography of its language, and
+        dropping the tonos is the business of whatever uppercases the string.
+        Whether Android drops it here is unsettled: an AppCompat view goes
+        through `AllCapsTransformationMethod`, which calls
+        `String.toUpperCase`, whose tailoring covers `tr`, `az` and `lt` and
+        not Greek. If the About screen shows ΑΠΌΡΡΗΤΟ, the fix belongs to the
+        uppercasing, in the code, and never to this file;
+      · final sigma ς closes a word, σ stands everywhere else.
+
+    The interface says **εσείς**, the plural of politeness, and buttons carry
+    the deverbal noun Android's own Greek puts on them — Ακύρωση, Διαγραφή,
+    Συνέχεια, Αντικατάσταση. See docs/glossary/el.md for the vocabulary and
+    for the handful of places that depart from Android's wording.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <string name="stations_title">Σταθμοί</string>
+
+    <plurals name="bikes_available">
+        <item quantity="one">%1$d ποδήλατο</item>
+        <item quantity="other">%1$d ποδήλατα</item>
+    </plurals>
+
+    <plurals name="docks_available">
+        <item quantity="one">%1$d ελεύθερη θέση</item>
+        <item quantity="other">%1$d ελεύθερες θέσεις</item>
+    </plurals>
+    <string name="docks_available_unlimited">Ελεύθερες θέσεις: απεριόριστες</string>
+
+    <string name="station_content_description">%1$s, %2$s, %3$s</string>
+    <string name="station_content_description_bikes_only">%1$s, %2$s</string>
+    <string name="station_out_of_service">Εκτός υπηρεσίας</string>
+    <string name="station_out_of_service_since">%1$s · τελευταία ενημέρωση %2$s</string>
+    <string name="station_availability_unknown">Άγνωστη διαθεσιμότητα</string>
+
+    <!-- What a station is called when its feed publishes no name for it and no
+         street to stand in for one. The station itself is kept: it is real and
+         it holds bikes, and dropping it would take it off the map over a
+         mistyped string. -->
+    <string name="station_unnamed">Σταθμός χωρίς όνομα</string>
+
+    <!-- Shown for a station the network publishes outside the area its data
+         covers: it exists and its bikes are counted, but no map and no route
+         reach it. The short form joins the rest of the row. -->
+    <string name="station_beyond_area_short">εκτός χάρτη</string>
+    <string name="station_beyond_area">Αυτός ο σταθμός βρίσκεται έξω από την περιοχή που καλύπτουν τα εγκατεστημένα δεδομένα. Τα ποδήλατά του μετριούνται σε πραγματικό χρόνο, αλλά ούτε χάρτης ούτε διαδρομή φτάνουν μέχρι εκεί.</string>
+
+    <string name="search_stations_hint">Αναζήτηση σταθμού</string>
+    <string name="search_stations_clear">Διαγραφή της αναζήτησης</string>
+    <string name="stations_no_match_title">Δεν βρέθηκε σταθμός</string>
+    <string name="stations_no_match_message">Τίποτα δεν ταιριάζει με «%1$s». Ελέγξτε την ορθογραφία ή διαγράψτε την αναζήτηση.</string>
+    <string name="action_clear_search">Διαγραφή της αναζήτησης</string>
+
+    <string name="mode_bikes">Ποδήλατα</string>
+    <string name="mode_docks">Ελεύθερες θέσεις</string>
+
+    <!-- Which bikes the markers count, where the network lends both kinds
+         (SPEC §7.1). Named after what is shown, like the toggle beside it.
+         Greek: neuter plurals agreeing with «ποδήλατα», which is the noun the
+         toggle beside them carries. -->
+    <string name="map_bikes_all_kinds">Όλα τα ποδήλατα</string>
+    <string name="map_bikes_mechanical">Μηχανικά</string>
+    <string name="map_bikes_electric">Ηλεκτρικά</string>
+    <string name="map_bikes_all_kinds_description">Μετρώνται όλα τα ποδήλατα. Πατήστε για να μετρηθούν μόνο τα μηχανικά.</string>
+    <string name="map_bikes_mechanical_description">Μετρώνται τα μηχανικά ποδήλατα. Πατήστε για να μετρηθούν μόνο τα ηλεκτρικά.</string>
+    <string name="map_bikes_electric_description">Μετρώνται τα ηλεκτρικά ποδήλατα. Πατήστε για να μετρηθούν όλα.</string>
+    <!-- The label under, or beside, a count.
+         No item holds a number, and none ever should: the figure is written
+         next to these words already, so writing it here would say it twice.
+         The word alone agrees, which is why these are plurals resolved with
+         the count and formatted with nothing. `CounterpartAgreementTest`
+         fails the day a placeholder comes back.
+         **Where the figure sits is not the same on the two screens, and a
+         language whose grammar reaches across the gap has to know it.** On a
+         station's sheet the two are side by side. On a list row they are
+         stacked, the figure over the label, and the label is set in capitals
+         (`TextAppearance.RoueLibre.Label`): whatever stands at the head of it
+         is read as a word of its own, on its own line, and not as part of the
+         phrase the count would make. Romanian found this the hard way — its
+         grammar wants "de" after twenty, and "DE LOCURI LIBERE" alone under a
+         figure reads as nothing at all. Treat these as labels, not as the
+         tail of a sentence.
+         Greek: nothing is prefixed to either label — a bare noun phrase reads
+         as a label on its own line, and «ελεύθερες θέσεις» keeps the adjective
+         that tells it apart from the capacity below it. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="one">ποδήλατο</item>
+        <item quantity="other">ποδήλατα</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="one">ελεύθερη θέση</item>
+        <item quantity="other">ελεύθερες θέσεις</item>
+    </plurals>
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list.
+         %1$s is the distance to the station when the reader's position is
+         known, and its postcode when it is not — never both, and never a
+         label saying which: a postcode says nothing to somebody standing
+         fifty metres away. %2$d is the number of docking points.
+         `StationAdapter.whereabouts` is what decides. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="one">%1$s · %2$d θέση</item>
+        <item quantity="other">%1$s · %2$d θέσεις</item>
+    </plurals>
+
+    <!-- What a station's bikes are, shown only where the network lends both
+         kinds side by side. %1$s is the mechanical count, %2$s the electric
+         one, each already agreed in number. -->
+    <string name="station_bikes_split">%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="one">%1$d μηχανικό</item>
+        <item quantity="other">%1$d μηχανικά</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="one">%1$d ηλεκτρικό</item>
+        <item quantity="other">%1$d ηλεκτρικά</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">%1$d%%</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">Μπαταρία %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">Απομένει αυτονομία περίπου %1$s</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">Μπαταρία από %1$s έως %2$s</string>
+    <string name="station_bikes_range_spread">Απομένει αυτονομία περίπου %1$s έως %2$s</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">Λεπτομέρειες για τα ποδήλατα σε αυτόν τον σταθμό</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">Το δίκτυο δημοσιεύει αυτόν τον κατάλογο σε δική του ροή, χωριστά από τον αριθμό παραπάνω, και εδώ τα δύο αλληλοαναιρούνται. Το Roue Libre δείχνει και τα δύο όπως δημοσιεύονται, αντί να διαλέξει.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">Κρατημένο</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="one">%1$d ποδήλατο εκτός υπηρεσίας</item>
+        <item quantity="other">%1$d ποδήλατα εκτός υπηρεσίας</item>
+    </plurals>
+
+    <!-- Greek: the whole series is built with a trailing «πριν», so that
+         «Ενημερώθηκε 5 λεπτά πριν» and «Παγωμένα δεδομένα · 5 λεπτά πριν»
+         read as one wording. -->
+    <string name="freshness_just_now">μόλις τώρα</string>
+    <plurals name="freshness_seconds">
+        <item quantity="one">%1$d δευτερόλεπτο πριν</item>
+        <item quantity="other">%1$d δευτερόλεπτα πριν</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="one">%1$d λεπτό πριν</item>
+        <item quantity="other">%1$d λεπτά πριν</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="one">%1$d ώρα πριν</item>
+        <item quantity="other">%1$d ώρες πριν</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="one">%1$d ημέρα πριν</item>
+        <item quantity="other">%1$d ημέρες πριν</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="one">%1$d μήνα πριν</item>
+        <item quantity="other">%1$d μήνες πριν</item>
+    </plurals>
+    <string name="freshness_stale">Παγωμένα δεδομένα · %1$s</string>
+    <string name="freshness_fresh">Ενημερώθηκε %1$s</string>
+    <string name="freshness_never">Δεν ενημερώθηκε ποτέ</string>
+    <string name="freshness_loading">Φόρτωση σταθμών…</string>
+
+    <string name="stations_empty_title">Δεν έχουν φορτωθεί σταθμοί</string>
+    <string name="stations_empty_message">Τραβήξτε τη λίστα προς τα κάτω για να φορτωθούν οι σταθμοί του δικτύου.</string>
+    <string name="action_refresh">Ανανέωση</string>
+    <string name="action_retry">Δοκιμάστε ξανά</string>
+
+    <string name="map_open_list">Δείτε τη λίστα των σταθμών</string>
+    <string name="map_description">Χάρτης. Σύρετε με δύο δάχτυλα για να τον μετακινήσετε, τσιμπήστε με δύο δάχτυλα για μεγέθυνση ή σμίκρυνση, περιστρέψτε δύο δάχτυλα για να τον στρέψετε και σύρετε δύο δάχτυλα προς τα πάνω ή προς τα κάτω για να του δώσετε κλίση.</string>
+    <string name="map_attribution">© συνεισφέροντες του OpenStreetMap</string>
+    <string name="map_locate_me">Εντοπισμός της θέσης μου</string>
+    <string name="map_locating">Εντοπισμός της θέσης σας…</string>
+    <string name="map_location_denied">Χωρίς τοποθεσία, διαλέξτε την αφετηρία σας στον χάρτη ή με διεύθυνση.</string>
+    <string name="map_location_unavailable">Η θέση δεν είναι διαθέσιμη. Ελέγξτε ότι η τοποθεσία είναι ενεργή και δοκιμάστε ξανά.</string>
+    <string name="map_outside_city_title">Βρίσκεστε αλλού</string>
+    <!-- Greek: %1$s is the label of the network served, "network — city", and
+         a foreign name takes the neuter article in Greek — «το nextbike». -->
+    <string name="map_outside_city_message">Η θέση σας βρίσκεται έξω από την περιοχή που καλύπτει το %1$s, οπότε αυτός ο χάρτης δεν μπορεί να τη δείξει. Διαλέξτε την πόλη στην οποία βρίσκεστε για να δείτε τους σταθμούς της.</string>
+    <string name="map_outside_city_brief">Η θέση σας βρίσκεται έξω από την περιοχή που καλύπτει το %1$s.</string>
+    <string name="map_needs_tiles_title">Ο χάρτης χρειάζεται τα δεδομένα του</string>
+    <string name="map_needs_tiles_message">Εγκαταστήστε τα δεδομένα του χάρτη από την οθόνη αποθηκευτικού χώρου. Στο μεταξύ, η λίστα των σταθμών παραμένει χρησιμοποιήσιμη.</string>
+    <string name="map_downloading_title">Γίνεται λήψη του χάρτη</string>
+    <string name="map_downloading_message">Θα εμφανιστεί εδώ μόλις εγκατασταθεί. Στο μεταξύ, η λίστα των σταθμών παραμένει διαθέσιμη.</string>
+    <string name="map_needs_city_title">Ποια πόλη;</string>
+    <string name="map_needs_city_message">Διαλέξτε την αστική περιοχή που θέλετε να χρησιμοποιήσετε. Τα δεδομένα της κατεβαίνουν μετά, μία φορά και για πάντα.</string>
+    <string name="map_city_withdrawn_title">Το δίκτυο δεν είναι πλέον διαθέσιμο</string>
+    <string name="map_city_withdrawn_message">Το %1$s δεν είναι πλέον διαθέσιμο και οι σταθμοί του δεν εμφανίζονται πια. Επιλέξτε άλλη πόλη. Τα δεδομένα που άφησε σε αυτή τη συσκευή μπορούν να διαγραφούν από τη λίστα των πόλεων.</string>
+    <string name="map_city_withdrawn_message_unnamed">Το δίκτυο που επιλέξατε δεν είναι πλέον διαθέσιμο και οι σταθμοί του δεν εμφανίζονται πια. Επιλέξτε άλλη πόλη. Τα δεδομένα που άφησε σε αυτή τη συσκευή μπορούν να διαγραφούν από τη λίστα των πόλεων.</string>
+    <string name="map_city_newer_version_message">Το %1$s είναι διαθέσιμο σε νεότερη έκδοση της εφαρμογής και οι σταθμοί του δεν εμφανίζονται σε αυτή την έκδοση. Ενημερώστε την εφαρμογή ή επιλέξτε άλλη πόλη.</string>
+    <string name="city_choose_another">Επιλογή άλλης πόλης</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">Προσανατολισμός στον βορρά και επίπεδη προβολή</string>
+    <plurals name="map_bearing_description">
+        <item quantity="one">Ο χάρτης είναι στραμμένος %1$d μοίρα από τον βορρά.</item>
+        <item quantity="other">Ο χάρτης είναι στραμμένος %1$d μοίρες από τον βορρά.</item>
+    </plurals>
+    <string name="map_tilted_description">Ο χάρτης έχει κλίση.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="one">Ο χάρτης είναι στραμμένος %1$d μοίρα από τον βορρά και έχει κλίση.</item>
+        <item quantity="other">Ο χάρτης είναι στραμμένος %1$d μοίρες από τον βορρά και έχει κλίση.</item>
+    </plurals>
+
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">Αυτή η εφαρμογή δείχνει τα κοινόχρηστα ποδήλατα σε έναν χάρτη και υπολογίζει μια διαδρομή από πόρτα σε πόρτα: με τα πόδια μέχρι έναν σταθμό, μετά με ποδήλατο και μετά με τα πόδια μέχρι τον προορισμό.\n\nΕίναι δωρεάν και ανοιχτού κώδικα. Χωρίς λογαριασμό, χωρίς διαφημίσεις, χωρίς ιχνηλάτες.</string>
+    <string name="welcome_privacy_title">Τίποτα δεν φεύγει από αυτό το τηλέφωνο</string>
+    <string name="welcome_privacy_body">Οι διαδρομές υπολογίζονται σε αυτό το τηλέφωνο. Οι διευθύνσεις που αναζητάτε δεν στέλνονται σε κανέναν, ούτε καν την ώρα που πληκτρολογείτε.\n\nΔεν κρατιέται κανένα ιστορικό: ούτε οι διαδρομές σας, ούτε οι θέσεις σας, ούτε οι προορισμοί σας.\n\nΤο μόνο αίτημα που βγαίνει στην καθημερινή χρήση ρωτά πόσα ποδήλατα είναι διαθέσιμα.</string>
+    <string name="welcome_fleet_title">Τι λέει το ποδήλατο</string>
+    <string name="welcome_fleet_body">Το ποδήλατο που εικονίζεται σας λέει τι δανείζει η πόλη σας.\n\nΔιαβάζεται από την ίδια τη ροή του δικτύου, ποτέ δεν μαντεύεται.</string>
+    <string name="welcome_fleet_mechanical_only">Το δίκτυο δανείζει μόνο μηχανικά ποδήλατα.</string>
+    <string name="welcome_fleet_electric_only">Το δίκτυο δανείζει μόνο ηλεκτρικά ποδήλατα.</string>
+    <string name="welcome_fleet_mixed">Το δίκτυο δανείζει και τα δύο είδη.</string>
+
+    <string name="welcome_data_title">Μία πόλη, μία λήψη</string>
+    <string name="welcome_data_body">Ο χάρτης, οι δρόμοι και ο υπολογισμός των διαδρομών ζουν στη συσκευή. Αυτό είναι που τα κάνει να δουλεύουν χωρίς δίκτυο — και σημαίνει μία λήψη των δεδομένων της πόλης σας.\n\nΞεκινήστε λοιπόν διαλέγοντάς την. Περιμένετε γύρω στα σαράντα megabyte για μια αστική περιοχή μεσαίου μεγέθους, περισσότερα για μια πρωτεύουσα· το μέγεθος ανακοινώνεται πριν από τη λήψη.\n\nΜπορείτε να το κάνετε και αργότερα: στο μεταξύ, η λίστα των σταθμών και η διαθεσιμότητά τους παραμένουν χρησιμοποιήσιμες.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">%1$d από %2$d</string>
+    <string name="welcome_continue">Συνέχεια</string>
+    <string name="welcome_skip">Παράβλεψη</string>
+    <string name="welcome_choose_city">Επιλογή της πόλης μου</string>
+    <string name="welcome_later">Αργότερα</string>
+    <string name="welcome_open">Διαβάστε ξανά την εισαγωγή</string>
+
+    <string name="whats_new_title">Τι νέο υπάρχει</string>
+    <string name="whats_new_done">Συνέχεια</string>
+    <string name="whats_new_nothing">Αυτή η έκδοση δεν έχει σημειώσεις κυκλοφορίας.</string>
+    <string name="whats_new_open">Δείτε τι νέο υπάρχει</string>
+
+    <string name="incoming_place_default_label">Σημείο που ελήφθη</string>
+    <string name="incoming_show_me">Εμφάνιση</string>
+    <string name="incoming_needs_index">Αυτή η διεύθυνση πρέπει να αναζητηθεί στο ευρετήριο εκτός σύνδεσης, το οποίο δεν είναι εγκατεστημένο.</string>
+    <string name="incoming_address_not_found">Το «%1$s» δεν αντιστοιχεί σε καμία διεύθυνση της καλυπτόμενης περιοχής.</string>
+    <string name="incoming_address_choices_title">Μήπως εννοείτε μία από αυτές τις διευθύνσεις;</string>
+    <string name="incoming_address_choice">%1$s\n%2$s</string>
+    <string name="incoming_outside_coverage">Αυτό το σημείο βρίσκεται έξω από την περιοχή που καλύπτουν τα εγκατεστημένα δεδομένα: καμία διαδρομή δεν φτάνει μέχρι εκεί.</string>
+    <string name="incoming_unreadable_link">Αυτός ο σύνδεσμος δεν λέει πού να πάτε: δεν ήταν δυνατή η ανάγνωση του τόπου του.</string>
+
+    <string name="favourites_title">Αγαπημένα</string>
+    <string name="stations_all_title">Όλοι οι σταθμοί</string>
+    <string name="stations_favourites_reorder">Αναδιάταξη</string>
+    <string name="stations_favourites_fold">Απόκρυψη αγαπημένων</string>
+    <string name="stations_favourites_unfold">Εμφάνιση αγαπημένων</string>
+    <string name="favourites_reorder_hint">Πατήστε παρατεταμένα μια γραμμή για να τη μετακινήσετε.</string>
+
+    <string name="settings_title">Ρυθμίσεις</string>
+    <string name="settings_open">Ρυθμίσεις</string>
+    <!-- The section titles of the settings screen (SPEC §7.6), in the order
+         the screen lays them out. A section holding nothing is not shown, so a
+         title arrives with the first setting placed under it. -->
+    <string name="settings_section_city">Πόλη</string>
+    <string name="settings_section_journey">Διαδρομή</string>
+    <string name="settings_section_display">Οθόνη</string>
+    <string name="settings_section_data">Δεδομένα εκτός σύνδεσης</string>
+
+    <!-- The walking pace (SPEC §6, §7.6). Named in words and never in km/h: a
+         pace is something one knows about oneself, where a speed is a figure
+         nobody has measured about themselves — and a speed written on a button
+         would be read as a promise about the minutes to come.
+         Greek: the three are masculine, agreeing with «ρυθμός» in the title
+         above them and not with the feminine «ταχύτητα» Android's own
+         Αργή / Γρήγορη agree with. -->
+    <string name="settings_walking_pace_title">Ρυθμός βαδίσματος</string>
+    <string name="settings_walking_pace_slow">Αργός</string>
+    <string name="settings_walking_pace_normal">Κανονικός</string>
+    <string name="settings_walking_pace_brisk">Γρήγορος</string>
+    <string name="settings_walking_pace_description">Ο ρυθμός με τον οποίο υπολογίζονται τα πεζά σκέλη μιας διαδρομής</string>
+
+    <string name="settings_theme_title">Θέμα</string>
+    <string name="settings_theme_system">Σύστημα</string>
+    <string name="settings_theme_light">Ανοιχτό</string>
+    <string name="settings_theme_dark">Σκούρο</string>
+
+    <!-- Units (SPEC 7.6). The buttons name the units rather than the
+         countries: what one gets is what is shown, and no system belongs to a
+         nation. -->
+    <string name="settings_units_title">Μονάδες</string>
+    <string name="settings_units_system">Σύστημα</string>
+    <string name="settings_units_metric">m · km</string>
+    <string name="settings_units_us">ft · mi</string>
+    <string name="settings_units_uk">yd · mi</string>
+    <string name="settings_units_description">Οι μονάδες στις οποίες γράφονται οι αποστάσεις</string>
+    <string name="settings_units_system_description">Ακολουθεί την περιοχή στην οποία είναι ρυθμισμένη η συσκευή</string>
+    <string name="settings_units_metric_description">Μέτρα και χιλιόμετρα</string>
+    <string name="settings_units_us_description">Πόδια και μίλια</string>
+    <string name="settings_units_uk_description">Γιάρδες και μίλια</string>
+
+    <string name="about_title">Σχετικά</string>
+    <string name="about_open">Σχετικά</string>
+    <string name="about_version">Έκδοση %1$s</string>
+    <string name="about_privacy_title">Απόρρητο</string>
+    <string name="about_privacy_body">Χωρίς λογαριασμό, χωρίς διαφημίσεις, χωρίς ιχνηλάτες, χωρίς μοναδικό αναγνωριστικό. Τίποτα από όσα αναζητάτε ή υπολογίζετε δεν φεύγει από αυτό το τηλέφωνο: οι διευθύνσεις, οι διαδρομές και η θέση σας μένουν εδώ και δεν κρατιούνται. Το μόνο αίτημα που βγαίνει στην καθημερινή χρήση φέρνει τη διαθεσιμότητα των ποδηλάτων. Τα σύνολα δεδομένων κατεβαίνουν μόνο όταν το ζητήσετε.</string>
+    <string name="about_attributions_title">Πηγές δεδομένων</string>
+    <string name="about_attribution_gbfs">Διαθεσιμότητα ποδηλάτων: τα ανοιχτά δεδομένα του δικτύου που εξυπηρετείται, δημοσιευμένα στη μορφή GBFS. Στη Γαλλία ευρετηριάζονται στο transport.data.gouv.fr.</string>
+    <string name="about_attribution_osm">Χάρτης, δρομολόγηση και σημεία ενδιαφέροντος: © συνεισφέροντες του OpenStreetMap, άδεια ODbL.</string>
+    <string name="about_attribution_ban">Διευθύνσεις και αριθμοί κτιρίων: Base Adresse Nationale, άδεια ODbL.</string>
+    <string name="about_attribution_geonames">Ονόματα δήμων: GeoNames, άδεια CC BY 4.0.</string>
+    <string name="about_attribution_brouter">Δρομολόγηση: BRouter, άδεια MIT, πάνω σε δεδομένα του OpenStreetMap.</string>
+    <string name="about_attribution_maplibre">Απόδοση χάρτη: MapLibre Native, άδεια BSD δύο όρων.</string>
+    <string name="about_links_title">Άνοιγμα ενός σημείου από άλλη εφαρμογή</string>
+    <string name="about_links_body">Οι σύνδεσμοι «geo:» και οι διευθύνσεις που μοιράζονται ως απλό κείμενο έρχονται κατευθείαν εδώ: διαλέξτε το Roue Libre στον επιλογέα του Android. Οι σύνδεσμοι από ιστότοπους χαρτών χρειάζονται άδεια: Ρυθμίσεις → Εφαρμογές → Roue Libre → Άνοιγμα από προεπιλογή → Προσθήκη συνδέσμου.</string>
+    <string name="about_licence_title">Άδεια</string>
+    <string name="about_licence_body">Το Roue Libre είναι ελεύθερο λογισμικό, με άδεια GNU GPL έκδοση 3. Μπορείτε να το χρησιμοποιήσετε, να το μελετήσετε, να το τροποποιήσετε και να το διαδώσετε.</string>
+    <string name="about_open_repository">Δείτε τον πηγαίο κώδικα</string>
+    <string name="about_open_sources">Πηγές πόλη προς πόλη</string>
+    <string name="about_open_licences">Άδειες των βιβλιοθηκών</string>
+    <string name="donate_open">Δωρεά μέσω Liberapay</string>
+
+    <string name="sources_title">Πηγές δεδομένων</string>
+    <string name="sources_intro">Η διαθεσιμότητα έρχεται από το δίκτυο κάθε πόλης, ως ανοιχτά δεδομένα. Να ποιος τα παράγει, ακόμη και για τις πόλεις που δεν έχετε εγκαταστήσει.</string>
+    <string name="sources_open">Άνοιγμα της πηγής</string>
+    <string name="about_licences_title">Άδειες</string>
+    <string name="about_no_browser">Δεν υπάρχει εγκατεστημένο πρόγραμμα περιήγησης σε αυτή τη συσκευή.</string>
+
+    <string name="journey_title">Διαδρομή</string>
+    <string name="journey_open">Σχεδιασμός διαδρομής</string>
+    <string name="journey_origin_empty">Από πού;</string>
+    <string name="journey_destination_empty">Προς πού;</string>
+    <string name="journey_choose_origin">Από πού;</string>
+    <string name="journey_choose_destination">Προς πού;</string>
+    <string name="journey_swap">Αντιστροφή αφετηρίας και προορισμού</string>
+    <string name="journey_hint">Η διαδρομή υπολογίζεται στη συσκευή: με τα πόδια μέχρι έναν σταθμό, μετά με ποδήλατο και μετά με τα πόδια μέχρι τον προορισμό.</string>
+    <!-- The switch that leaves the network out of the journey, and the sentence
+         that replaces the one above it when it is on (SPEC §7.3). -->
+    <string name="journey_own_bike">Με το δικό μου ποδήλατο</string>
+    <string name="journey_hint_own_bike">Η διαδρομή υπολογίζεται στη συσκευή: ένα ενιαίο σκέλος με ποδήλατο από πόρτα σε πόρτα, χωρίς σταθμό στη μέση.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">Ποδήλατο εκτός σταθμών</string>
+    <string name="journey_origin_street_bike_locked">Η διαδρομή ξεκινά από το ποδήλατο που επιλέξατε.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">Η διαδρομή υπολογίζεται στη συσκευή: με το ποδήλατο από εδώ, το αφήνετε σε έναν σταθμό και μετά με τα πόδια μέχρι τον προορισμό.</string>
+
+    <!-- Which bike one wants to ride (SPEC §7.3). The first asks for nothing,
+         which is what the application does at rest.
+         Greek: the three are neuter, agreeing with «ποδήλατο». -->
+    <string name="journey_bike_kind_any">Οποιοδήποτε</string>
+    <string name="journey_bike_kind_mechanical">Μηχανικό</string>
+    <string name="journey_bike_kind_electric">Ηλεκτρικό</string>
+    <string name="journey_bike_kind_any_description">Οποιοδήποτε ποδήλατο, ανεξάρτητα από είδος</string>
+    <string name="journey_bike_kind_mechanical_description">Ένα ποδήλατο που το κινώ με τα πόδια μου</string>
+    <string name="journey_bike_kind_electric_description">Ένα ποδήλατο με υποβοήθηση πεταλιού</string>
+    <string name="journey_compute">Υπολογισμός της διαδρομής</string>
+    <string name="journey_computing">Υπολογισμός της καλύτερης διαδρομής…</string>
+    <!-- Nothing is being chosen here — there is one route to trace, not a pair
+         of stations to weigh — so the wait does not claim to be looking for the
+         best of anything. -->
+    <string name="journey_computing_own_bike">Υπολογισμός του ποδηλατικού σκέλους…</string>
+    <string name="journey_source_home">Σπίτι</string>
+    <string name="journey_source_work">Εργασία</string>
+    <string name="journey_source_my_position">Η θέση μου</string>
+    <string name="journey_locating">Εντοπισμός της θέσης σας…</string>
+    <string name="journey_source_favourite">Ένας αγαπημένος σταθμός</string>
+    <string name="journey_source_on_map">Ένα σημείο στον χάρτη</string>
+    <string name="journey_no_favourite">Κανένας αγαπημένος σταθμός ακόμη. Ανοίξτε έναν σταθμό και πατήστε το αστέρι για να τον προσθέσετε.</string>
+    <string name="journey_pick_crosshair">Στοχευμένο σημείο</string>
+    <string name="journey_pick_confirm">Επιλογή αυτού του σημείου</string>
+    <string name="journey_picked_point">Σημείο στον χάρτη</string>
+    <string name="journey_frame">Εμφάνιση όλης της διαδρομής</string>
+
+    <string name="journey_summary">εκ των οποίων %1$s με τα πόδια και %2$s με ποδήλατο · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. Shown only where
+         there is relief worth naming; a flat city never reads this. -->
+    <string name="journey_climb">%1$s ανάβασης</string>
+    <!-- What waits at the station one sets off from, hung at the end of the
+         journey summary, in a conurbation lending both kinds of bike
+         (SPEC §7.4). %1$s is the two counts, mechanical and electric, each
+         already agreed in number. -->
+    <string name="journey_bikes_at_departure">%1$s στον σταθμό αναχώρησης</string>
+    <!-- The block holding the total time, the summary and the drawing opens
+         the journey in full: this is what the press does, announced to a screen
+         reader that would otherwise say only "activate". -->
+    <string name="journey_detail_open">Εμφάνιση της διαδρομής με λεπτομέρειες</string>
+    <string name="journey_detail_title">Η διαδρομή με λεπτομέρειες</string>
+    <string name="journey_detail_departure_station">Σταθμός αναχώρησης</string>
+    <string name="journey_detail_arrival_station">Σταθμός άφιξης</string>
+    <!-- The counts shown are the ones the journey was worked out on: a station
+         empties while one walks to it (SPEC §6). -->
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">Το ποδηλατικό σκέλος, ανηφόρες και κατηφόρες</string>
+    <!-- Read out in place of the drawing. %1$s is the climb of the ride, %2$s
+         its lowest point above sea level and %3$s its highest. -->
+    <string name="journey_detail_profile_description">Το ποδηλατικό σκέλος ανεβαίνει %1$s, ανάμεσα σε %2$s και %3$s πάνω από την επιφάνεια της θάλασσας.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">Το ποδηλατικό σκέλος κινείται ανάμεσα σε %1$s και %2$s πάνω από την επιφάνεια της θάλασσας.</string>
+    <!-- Greek: the figures beside this note are `bikes_available` and
+         `docks_available`, so the docks named here are the free ones. -->
+    <string name="journey_detail_availability_note">Ποδήλατα και ελεύθερες θέσεις όπως ήταν τη στιγμή που υπολογίστηκε η διαδρομή.</string>
+    <string name="journey_detail_availability_note_bikes">Ποδήλατα όπως ήταν τη στιγμή που υπολογίστηκε η διαδρομή.</string>
+    <!-- Hands one leg of the journey to another application: this one computes
+         journeys, it does not guide along them. -->
+    <string name="journey_navigate">Άνοιγμα σε εφαρμογή πλοήγησης</string>
+    <string name="journey_navigate_which">Ποιο μέρος της διαδρομής;</string>
+    <!-- Greek: %1$s is a station name, of any language, so «τον σταθμό» stands
+         before it — the article a bare foreign name could not be given. -->
+    <string name="journey_step_to_station">Με τα πόδια μέχρι τον σταθμό %1$s</string>
+    <string name="journey_step_ride">Με ποδήλατο μέχρι τον σταθμό %1$s</string>
+    <string name="journey_step_ride_electric_description">Με ηλεκτρικό ποδήλατο μέχρι τον σταθμό %1$s</string>
+    <string name="journey_step_ride_mechanical_description">Με μηχανικό ποδήλατο μέχρι τον σταθμό %1$s</string>
+    <string name="journey_step_to_destination">Με τα πόδια μέχρι τον προορισμό</string>
+    <string name="journey_step_walk_all">Με τα πόδια μέχρι τον προορισμό</string>
+    <string name="journey_step_ride_all">Με ποδήλατο μέχρι τον προορισμό</string>
+    <!-- The summary of a journey ridden on one's own bike: it sits under the
+         total time, where the walk's own summary sits, and says the same two
+         things — how far, and how much of it goes up. -->
+    <string name="journey_own_bike_only">με το δικό σας ποδήλατο, για %1$s.</string>
+    <string name="journey_own_bike_only_climb">με το δικό σας ποδήλατο, για %1$s και %2$s ανάβασης.</string>
+    <string name="journey_walk_only">με τα πόδια, για %1$s — καμία διαδρομή με ποδήλατο δεν είναι δυνατή εδώ.</string>
+    <string name="journey_walk_only_climb">με τα πόδια, για %1$s και %2$s ανάβασης — καμία διαδρομή με ποδήλατο δεν είναι δυνατή εδώ.</string>
+    <string name="journey_walk_is_quicker">με τα πόδια, για %1$s — πιο γρήγορα από το να πάτε να πάρετε ποδήλατο.</string>
+    <string name="journey_walk_is_quicker_climb">με τα πόδια, για %1$s και %2$s ανάβασης — πιο γρήγορα από το να πάτε να πάρετε ποδήλατο.</string>
+    <string name="journey_none_title">Καμία διαδρομή</string>
+    <string name="journey_no_bike_nearby">Κανένας σταθμός με ποδήλατο κοντά στην αφετηρία. Δοκιμάστε αργότερα ή ξεκινήστε από αλλού.</string>
+
+    <string name="journey_no_mechanical_nearby">Κανένας κοντινός σταθμός δεν έχει μηχανικό ποδήλατο αυτή τη στιγμή. Ζητήστε οποιοδήποτε ποδήλατο ή δοκιμάστε αργότερα.</string>
+    <string name="journey_no_electric_nearby">Κανένας κοντινός σταθμός δεν έχει ηλεκτρικό ποδήλατο αυτή τη στιγμή. Ζητήστε οποιοδήποτε ποδήλατο ή δοκιμάστε αργότερα.</string>
+    <string name="journey_no_dock_nearby">Κανένας σταθμός με ελεύθερη θέση κοντά στον προορισμό. Δοκιμάστε αργότερα ή στοχεύστε αλλού.</string>
+    <string name="journey_no_return_nearby">Κανένας σταθμός κοντά στον προορισμό δεν δέχεται ποδήλατα αυτή τη στιγμή. Δοκιμάστε αργότερα ή στοχεύστε αλλού.</string>
+    <!-- Greek: «δρόμος» is the line on the ground. Here it stands in for
+         «διαδρομή», which this screen is about to use for the journey it
+         could not work out — the two would read as one refusal twice. -->
+    <string name="journey_no_route">Δεν υπάρχει βατός δρόμος ανάμεσα σε αυτά τα δύο σημεία.</string>
+    <string name="journey_graph_missing">Τα δεδομένα δρομολόγησης δεν είναι εγκατεστημένα. Προσθέστε τα από την οθόνη αποθηκευτικού χώρου.</string>
+    <string name="journey_outside_coverage">Αυτό το σημείο βρίσκεται έξω από την περιοχή που καλύπτουν τα εγκατεστημένα δεδομένα.</string>
+    <string name="journey_outside_coverage_start">Το σημείο αφετηρίας βρίσκεται έξω από την περιοχή που καλύπτουν τα εγκατεστημένα δεδομένα. Ξεκινήστε από ένα σημείο μέσα σε αυτήν.</string>
+    <string name="journey_outside_coverage_destination">Ο προορισμός βρίσκεται έξω από την περιοχή που καλύπτουν τα εγκατεστημένα δεδομένα. Διαλέξτε προορισμό μέσα σε αυτήν.</string>
+    <string name="journey_outside_coverage_both">Κανένα από τα δύο άκρα δεν βρίσκεται μέσα στην περιοχή που καλύπτουν τα εγκατεστημένα δεδομένα. Εγκαταστήστε τα δεδομένα της πόλης στην οποία ταξιδεύετε.</string>
+    <string name="journey_no_stations">Κανένας γνωστός σταθμός. Ανανεώστε τη λίστα των σταθμών και δοκιμάστε ξανά.</string>
+
+    <!-- Greek: «λεπ.» rather than «λεπτά», which would be wrong at one; the
+         abbreviation agrees with nothing, as the English "min" does. -->
+    <string name="duration_minutes">%1$d λεπ.</string>
+    <string name="duration_hours_minutes">%1$d ώ. %2$02d</string>
+
+    <plurals name="docks_total">
+        <item quantity="one">%1$d θέση</item>
+        <item quantity="other">%1$d θέσεις</item>
+    </plurals>
+    <string name="station_capacity_and_age">%1$s · %2$s</string>
+    <!-- Greek: %1$s may be a street or a landmark — `AddressEntryKind` tells
+         them apart and this call site does not — and a Greek street name
+         often carries its own type («Λεωφόρος Κηφισίας»). So no noun is put
+         in front of it: a colon hands the name over uninflected. -->
+    <string name="station_address_nearby">Κοντά: %1$s</string>
+    <string name="station_favourite_add">Προσθήκη στα αγαπημένα</string>
+    <string name="station_favourite_remove">Κατάργηση από τα αγαπημένα</string>
+    <string name="station_as_origin">Αναχώρηση από εδώ</string>
+    <string name="station_as_destination">Άφιξη εδώ</string>
+    <string name="station_open_in_navigation">Άνοιγμα σε εφαρμογή πλοήγησης</string>
+    <string name="station_no_navigation_app">Δεν υπάρχει εγκατεστημένη εφαρμογή χαρτών σε αυτή τη συσκευή.</string>
+
+    <string name="address_search_title">Αναζήτηση διεύθυνσης</string>
+    <!-- Greek: the order Greek writes an address in, street before number
+         («Ερμού 12»), which `AddressQuery.parseQuery` reads (SPEC §4.3). No
+         postcode is invited: Greece writes it in two groups of digits and
+         Cyprus in a single group of four (1010), where `AddressQuery`
+         recognises a single group of five and nothing else — so a Cypriot
+         postcode would be read as a house number. -->
+    <string name="address_search_hint">Οδός, αριθμός, πόλη</string>
+    <string name="address_search_clear">Διαγραφή της αναζήτησης</string>
+    <string name="address_search_privacy">Όλα αναζητούνται στη συσκευή. Τίποτα δεν στέλνεται, ούτε καν την ώρα που πληκτρολογείτε.</string>
+    <string name="address_locality">%1$s %2$s</string>
+    <string name="address_detail">%1$s · %2$s</string>
+    <string name="address_detail_approximate">%1$s · κατά προσέγγιση θέση</string>
+    <string name="address_content_description">%1$s, %2$s</string>
+    <string name="address_search_prompt_title">Πού πηγαίνετε;</string>
+    <string name="address_search_prompt_message">Πληκτρολογήστε ένα όνομα οδού, με ή χωρίς αριθμό. Μπορείτε να αναζητήσετε επίσης σταθμούς των συγκοινωνιών, πανεπιστήμια και κεντρικές πλατείες.</string>
+    <!-- Shown while a search runs and the screen has nothing else to show. It
+         says nothing about the outcome, which is the whole point: on a large
+         index the answer can be seconds away. -->
+    <string name="address_searching_title">Αναζήτηση…</string>
+    <string name="address_searching_message">Γίνεται αναζήτηση στις διευθύνσεις που είναι εγκατεστημένες σε αυτή τη συσκευή.</string>
+    <string name="address_no_match_title">Δεν βρέθηκε διεύθυνση</string>
+    <string name="address_no_match_message">Τίποτα δεν ταιριάζει με «%1$s». Δοκιμάστε μόνο το όνομα της οδού ή προσθέστε την πόλη.</string>
+    <string name="address_needs_index_title">Η αναζήτηση χρειάζεται το ευρετήριο διευθύνσεων</string>
+    <string name="address_needs_index_message">Εγκαταστήστε το ευρετήριο από την οθόνη αποθηκευτικού χώρου. Μένει στη συσκευή και δεν βγαίνει ποτέ στο δίκτυο.</string>
+    <string name="address_unreadable_title">Το ευρετήριο διευθύνσεων δεν διαβάζεται</string>
+    <string name="map_picked_place_description">%1$s. Πατήστε για να δείτε τι μπορείτε να κάνετε με αυτήν την τοποθεσία.</string>
+
+    <string name="place_sheet_title">Αυτή η τοποθεσία</string>
+    <string name="place_clear">Διαγραφή αυτού του σημείου</string>
+
+    <!-- Distances, formatted through the localisation APIs (SPEC §9). In all
+         five, %1$s is a figure already rounded and already written in the
+         interface's language: the translation places the symbol, never the
+         number. Which of the five applies is the reader's unit system. -->
+    <string name="distance_metres">%1$s m</string>
+    <string name="distance_kilometres">%1$s km</string>
+    <!-- The symbols of the two imperial systems. Written the same way in most
+         languages; the string exists in every one all the same, so a language
+         that writes them otherwise has somewhere to say so. -->
+    <string name="distance_feet">%1$s ft</string>
+    <string name="distance_yards">%1$s yd</string>
+    <string name="distance_miles">%1$s mi</string>
+    <string name="action_back">Πίσω</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">Πόλη</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">Δίκτυο σε χρήση: %1$s</string>
+    <string name="city_choose">Επιλογή της πόλης μου</string>
+    <string name="city_intro">Διαλέξτε την αστική περιοχή που θέλετε να χρησιμοποιήσετε. Τα δεδομένα της εγκαθίστανται μετά, μία φορά και για πάντα.</string>
+    <string name="city_locate_me">Εντοπισμός της πόλης μου</string>
+    <string name="city_active">Σε χρήση</string>
+    <plurals name="city_detail">
+        <item quantity="one">%1$d σταθμός · %2$s για λήψη</item>
+        <item quantity="other">%1$d σταθμοί · %2$s για λήψη</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="one">%1$d σταθμός</item>
+        <item quantity="other">%1$d σταθμοί</item>
+    </plurals>
+    <string name="city_detail_size_only">%1$s για λήψη</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="one">%1$d σταθμός · το μέγεθος ανακοινώνεται πριν από τη λήψη</item>
+        <item quantity="other">%1$d σταθμοί · το μέγεθος ανακοινώνεται πριν από τη λήψη</item>
+    </plurals>
+    <string name="city_size_unknown">Το μέγεθος ανακοινώνεται πριν από τη λήψη</string>
+    <string name="city_needs_newer_version">Μη διαθέσιμη σε αυτή την έκδοση της εφαρμογής</string>
+    <string name="city_installed">%1$s στη συσκευή</string>
+    <string name="city_label">%1$s — %2$s</string>
+    <string name="city_delete">Διαγραφή</string>
+    <!-- Greek: %1$s is the network's name and not the city's — 328 of the 331
+         networks are named otherwise than their main city — so «για %1$s»
+         stands behind the data and names no city. -->
+    <string name="city_delete_description">Διαγραφή των δεδομένων για %1$s</string>
+    <string name="city_delete_title">Να διαγραφούν αυτά τα δεδομένα;</string>
+    <string name="city_delete_body">Όλα τα δεδομένα εκτός σύνδεσης για %1$s θα σβηστούν. Θα πρέπει να τα κατεβάσετε ξανά για να τα χρησιμοποιήσετε.</string>
+    <string name="city_withdrawn">Δεν είναι πλέον διαθέσιμη</string>
+    <string name="city_withdrawn_delete_body">Όλα τα δεδομένα εκτός σύνδεσης για %1$s θα σβηστούν. Το δίκτυο δεν είναι πλέον διαθέσιμο, οπότε αυτά τα δεδομένα δεν χρησιμεύουν πια σε τίποτα.</string>
+    <string name="city_delete_confirm">Διαγραφή</string>
+    <string name="city_deleted">Τα δεδομένα για %1$s διαγράφηκαν</string>
+    <string name="city_search_hint">Αναζήτηση πόλης</string>
+    <string name="city_search_clear">Διαγραφή της αναζήτησης</string>
+    <string name="city_country_filter">Χώρα</string>
+    <string name="city_country_all">Όλες οι χώρες</string>
+    <string name="city_no_match_title">Δεν βρέθηκε πόλη</string>
+    <string name="city_no_match_message">Τίποτα δεν ταιριάζει με «%1$s». Ελέγξτε την ορθογραφία ή διαγράψτε την αναζήτηση.</string>
+    <string name="city_no_match_in_country">Καμία πόλη στη χώρα που επιλέξατε, %2$s, δεν ταιριάζει με «%1$s». Υπάρχουν σε άλλες χώρες.</string>
+    <string name="city_proposal_title">Η πόλη σας</string>
+    <!-- Shown when the position says one is in another served conurbation than the one installed. -->
+    <string name="city_here_title">Βρίσκεστε σε άλλη πόλη</string>
+    <string name="city_here_body">Το %1$s εξυπηρετεί την περιοχή στην οποία βρίσκεστε. Εγκαταστήστε τα δεδομένα του για να δείτε τους σταθμούς του και να υπολογίσετε διαδρομές εδώ.</string>
+    <string name="city_here_installed_body">Το %1$s εξυπηρετεί την περιοχή στην οποία βρίσκεστε, και τα δεδομένα του βρίσκονται ήδη στη συσκευή.</string>
+    <string name="city_here_install">Εγκατάσταση δεδομένων</string>
+    <string name="city_here_use">Χρήση του</string>
+    <string name="city_proposal_body">Φαίνεται πως βρίσκεστε στην περιοχή που καλύπτει το %1$s. Να το χρησιμοποιήσουμε;</string>
+    <string name="city_proposal_accept">Ναι</string>
+    <string name="city_none_nearby">Κανένα γνωστό δίκτυο εδώ κοντά. Διαλέξτε μια πόλη από τη λίστα.</string>
+    <string name="city_location_denied">Χωρίς τοποθεσία, διαλέξτε την πόλη σας από τη λίστα ή αναζητήστε την με το όνομά της.</string>
+    <string name="action_cancel">Ακύρωση</string>
+
+    <string name="size_bytes">%1$s B</string>
+    <string name="size_kilobytes">%1$s kB</string>
+    <string name="size_megabytes">%1$s MB</string>
+    <string name="size_gigabytes">%1$s GB</string>
+
+    <string name="storage_title">Αποθηκευτικός χώρος</string>
+    <string name="storage_open">Διαχείριση των δεδομένων εκτός σύνδεσης</string>
+    <string name="storage_intro">Ο χάρτης, ο σχεδιασμός των διαδρομών και η αναζήτηση διευθύνσεων δουλεύουν χωρίς δίκτυο. Χρειάζονται τρία σύνολα δεδομένων, εγκατεστημένα μία φορά.</string>
+    <!-- Greek: the size is set off by a colon behind «Σύνολο», so that no
+         article, verb or participle has to agree with a figure that may be
+         «1 MB» or «340 MB». -->
+    <string name="storage_total">Σύνολο: %1$s σε αυτή τη συσκευή</string>
+    <string name="storage_nothing_installed">Δεν υπάρχουν εγκατεστημένα δεδομένα</string>
+    <string name="storage_no_city">Δεν έχει επιλεγεί πόλη</string>
+    <string name="city_withdrawn_label">%1$s · δεν είναι πλέον διαθέσιμη</string>
+    <string name="city_newer_version_label">%1$s · απαιτείται ενημέρωση</string>
+
+    <string name="dataset_tiles">Δεδομένα χάρτη</string>
+    <string name="dataset_tiles_purpose">Σχεδιάζει τον χάρτη χωρίς δίκτυο</string>
+    <string name="dataset_routing">Δεδομένα δρομολόγησης</string>
+    <string name="dataset_routing_purpose">Υπολογίζει τις διαδρομές στη συσκευή</string>
+    <string name="dataset_addresses">Ευρετήριο διευθύνσεων</string>
+    <string name="dataset_addresses_purpose">Αναζητά οδούς χωρίς να στέλνει τίποτα</string>
+
+    <string name="storage_check_updates">Έλεγχος για ενημερώσεις</string>
+    <string name="storage_checking">Ανάγνωση του μανιφέστου…</string>
+    <string name="storage_up_to_date">Όλα είναι ενημερωμένα.</string>
+    <!-- %1$s is a size, "340 MB" for instance, and never a dataset's name. -->
+    <string name="storage_download_pending">Λήψη %1$s</string>
+    <string name="storage_download_starting">Έναρξη της λήψης…</string>
+    <string name="storage_downloading">%1$s · %2$s από %3$s</string>
+    <string name="storage_download_failed">%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">Τα δημοσιευμένα δεδομένα είναι του %1$s, όχι του %2$s. Δεν έγινε καμία λήψη: θα παίρνατε τον χάρτη και τις διευθύνσεις μιας άλλης πόλης.</string>
+    <string name="storage_wifi_warning">Δεν είστε σε Wi-Fi. Αυτή η λήψη μπορεί να βαρύνει πολύ ένα πρόγραμμα κινητής τηλεφωνίας.</string>
+    <string name="dataset_update_available">Διαθέσιμη ενημέρωση</string>
+    <string name="dataset_download_failed">Η λήψη απέτυχε. %1$s</string>
+
+    <string name="dataset_absent">Δεν είναι εγκατεστημένο</string>
+    <string name="dataset_installed">%1$s · %2$s</string>
+    <string name="dataset_import">Εισαγωγή αρχείου</string>
+    <string name="dataset_replace">Αντικατάσταση με αρχείο</string>
+    <string name="dataset_delete">Διαγραφή</string>
+    <!-- Greek: a colon carries the dataset's name in its own case, where a
+         genitive would have to guess whether the name is singular
+         («Ευρετήριο διευθύνσεων») or plural («Δεδομένα χάρτη»). The same
+         device answers for the two notices below. -->
+    <string name="dataset_delete_description">Διαγραφή: %1$s</string>
+    <string name="dataset_delete_title">Να διαγραφούν αυτά τα δεδομένα;</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">Τα δεδομένα «%1$s» θα σβηστούν και θα ελευθερωθούν %2$s. Θα πρέπει να τα κατεβάσετε ξανά για να δουλέψετε εκτός σύνδεσης.</string>
+    <string name="dataset_imported">Έγινε εγκατάσταση: %1$s</string>
+    <string name="dataset_deleted">Έγινε διαγραφή: %1$s</string>
+
+    <string name="dataset_rejected_empty">Το αρχείο που διαλέξατε είναι κενό.</string>
+    <string name="dataset_rejected_format">Αυτό το αρχείο δεν είναι το αναμενόμενο. Διαλέξτε το αρχείο «%1$s» που παράγουν τα σενάρια δημιουργίας.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">Αυτό το αρχείο δεν είναι ούτε «%1$s» ούτε άλλα δεδομένα που διαβάζει η εφαρμογή. Διαλέξτε το αρχείο «%2$s» που παράγουν τα σενάρια δημιουργίας.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">Αυτό το αρχείο είναι «%1$s», όχι «%2$s». Εισαγάγετέ το στη δική του γραμμή.</string>
+    <string name="dataset_rejected_version">Αυτό το αρχείο είναι σε μορφή έκδοσης %1$d, ενώ αυτή η έκδοση της εφαρμογής διαβάζει την έκδοση %2$d. Ενημερώστε την εφαρμογή.</string>
+    <string name="dataset_rejected_checksum">Το αρχείο δεν ταιριάζει με το άθροισμα ελέγχου του: είναι ελλιπές ή κατεστραμμένο. Κατεβάστε το ξανά.</string>
+    <string name="dataset_rejected_transfer">Η αντιγραφή του αρχείου απέτυχε. Ελέγξτε τον ελεύθερο χώρο και δοκιμάστε ξανά.</string>
+
+    <string name="error_offline">Χωρίς σύνδεση. Η τελευταία γνωστή διαθεσιμότητα μένει στην οθόνη.</string>
+    <string name="error_offline_no_availability">Χωρίς σύνδεση. Δεν έχει ληφθεί ακόμη καμία διαθεσιμότητα, οπότε δεν υπάρχει τίποτα να εμφανιστεί.</string>
+    <!-- The same failures read on the storage screen, where a dataset
+         transfer failed rather than an availability refresh. The server
+         is the one hosting the files, not the bike network's, and those
+         files come down resumably (SPEC §4.4) — which is what each of
+         these says will happen next. -->
+    <string name="error_offline_download">Χωρίς σύνδεση. Μόλις συνδεθείτε, πατήστε «Λήψη» για να συνεχίσει από εκεί που σταμάτησε.</string>
+    <string name="error_timeout_download">Ο διακομιστής δεν απαντά. Πατήστε «Λήψη» αργότερα για να συνεχίσει από εκεί που σταμάτησε.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">Σφάλμα διακομιστή (%1$d). Πατήστε «Λήψη» αργότερα για να συνεχίσει από εκεί που σταμάτησε.</string>
+    <string name="error_untrusted_server_download">Μη έγκυρο πιστοποιητικό ασφαλείας. Μόλις ανανεωθεί, πατήστε «Λήψη» για να συνεχίσει η λήψη.</string>
+    <string name="error_malformed_download">Ελήφθη μη αναγνώσιμο αρχείο. Πατήστε «Λήψη» αργότερα για να συνεχίσει από εκεί που σταμάτησε.</string>
+    <string name="error_local_storage_download">Δεν ήταν δυνατή η αποθήκευση του αρχείου. Αποδεσμεύστε χώρο και πατήστε «Λήψη» για να συνεχίσει.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">Χωρίς σύνδεση. Δεν ελέγχθηκε τίποτα· δοκιμάστε ξανά μόλις συνδεθείτε.</string>
+    <string name="error_timeout_check">Ο διακομιστής δεν απαντά. Δεν ελέγχθηκε τίποτα· δοκιμάστε ξανά σε λίγο.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">Σφάλμα διακομιστή (%1$d). Δεν ελέγχθηκε τίποτα· δοκιμάστε ξανά αργότερα.</string>
+    <string name="error_untrusted_server_check">Μη έγκυρο πιστοποιητικό ασφαλείας. Δεν μπορεί να γίνει έλεγχος ώσπου να ανανεωθεί.</string>
+    <string name="error_malformed_check">Η δημοσιευμένη λίστα δεδομένων δεν διαβάζεται. Δεν ελέγχθηκε τίποτα· δοκιμάστε ξανά αργότερα.</string>
+    <string name="error_local_storage_check">Δεν είναι δυνατή η ανάγνωση των δεδομένων στη συσκευή. Δεν έγινε καμία σύγκριση.</string>
+    <string name="error_timeout">Ο διακομιστής του δικτύου αργεί πολύ να απαντήσει. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="error_server_refused">Ο διακομιστής του δικτύου επέστρεψε σφάλμα (%1$d). Δοκιμάστε ξανά αργότερα.</string>
+    <string name="error_untrusted_server">Ο διακομιστής του δικτύου παρουσίασε μη έγκυρο πιστοποιητικό ασφαλείας. Τα δεδομένα του δεν μπορούν να ληφθούν με ασφάλεια ώσπου να το ανανεώσει ο φορέας του δικτύου.</string>
+    <string name="error_malformed">Τα δεδομένα που ελήφθησαν δεν διαβάζονται. Το σφάλμα είναι της ροής του δικτύου· δοκιμάστε ξανά αργότερα.</string>
+    <string name="error_feed_unavailable">Το δίκτυο δεν δημοσιεύει τη ροή «%1$s».</string>
+    <string name="error_unsupported_version">Αυτό το δίκτυο δημοσιεύει τα δεδομένα του στην έκδοση %1$s, την οποία αυτή η έκδοση της εφαρμογής δεν μπορεί να διαβάσει. Ενημερώστε την εφαρμογή.</string>
+    <string name="error_local_storage">Δεν είναι δυνατή η ανάγνωση των δεδομένων που είναι αποθηκευμένα στη συσκευή.</string>
+    <string name="error_no_city_chosen">Δεν έχει επιλεγεί πόλη. Διαλέξτε μία.</string>
+
+    <!-- Wi-Fi-only downloads -->
+    <!-- The setting names Wi-Fi, left untranslated as Android's Greek leaves
+         it and the word everybody has, while what is read stays the billing;
+         the line under the switch names the two cases where they part ways: a
+         phone's shared connection, which is Wi-Fi and is a mobile plan, and a
+         Wi-Fi with a data cap, which declares itself billed. Android's
+         "Με ογκοχρέωση" stays with the sentences that speak of billing. -->
+    <string name="download_unmetered_only">Λήψη μόνο μέσω Wi-Fi</string>
+    <string name="download_unmetered_only_description">Η κοινόχρηστη σύνδεση ενός τηλεφώνου ή ένα Wi-Fi με όριο δεδομένων μπορεί να χρεωθεί με το megabyte και μετράει ως δίκτυο κινητής τηλεφωνίας.</string>
+    <string name="download_held_back_title">Λήψη σε δίκτυο κινητής τηλεφωνίας</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_held_back_body">Αυτή η σύνδεση μπορεί να χρεώνεται με το megabyte. Συνδεθείτε σε Wi-Fi για να κατεβάσετε %1$s ή κατεβάστε τα δεδομένα έτσι κι αλλιώς τώρα.</string>
+    <string name="download_stopped_title">Η λήψη σταμάτησε</string>
+    <!-- %1$s is a size, "340 MB" for instance. What has already arrived is kept
+         on the device and the transfer picks up from there. -->
+    <string name="download_stopped_body">Αυτή η σύνδεση μπορεί να χρεώνεται με το megabyte, οπότε η λήψη σταμάτησε. Ό,τι έχει έρθει διατηρείται. Συνδεθείτε σε Wi-Fi για να ολοκληρώσετε τα %1$s ή συνεχίστε έτσι κι αλλιώς τώρα.</string>
+    <string name="download_anyway">Λήψη έτσι κι αλλιώς</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_waiting_for_unmetered">Αναμονή Wi-Fi για τη λήψη των %1$s.</string>
+    <string name="download_can_resume">Αυτή η σύνδεση δεν είναι πλέον δίκτυο κινητής τηλεφωνίας. Ξεκινήστε ξανά τη λήψη: συνεχίζει από εκεί που σταμάτησε.</string>
+    <string name="download_connection_back">Η σύνδεση επανήλθε. Πατήστε «Λήψη» για να συνεχίσει η λήψη από εκεί που σταμάτησε.</string>
+    <!-- Opening screen, large numbers, own bike kind -->
+
+    <!-- Greek: named as the screen rather than as a sentence with a dangling
+         «σε» — the two buttons under it are nominative and no preposition can
+         govern them. -->
+    <string name="settings_opening_title">Προεπιλεγμένη οθόνη</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">Η οθόνη στην οποία ανοίγει η εφαρμογή</string>
+    <string name="settings_opening_map">Χάρτης</string>
+    <string name="settings_opening_list">Λίστα σταθμών</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">Δείτε τον χάρτη</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">Πρώτα ο πλησιέστερος σταθμός</string>
+    <string name="stations_location_denied">Χωρίς τοποθεσία, οι σταθμοί μένουν σε αλφαβητική σειρά.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge (SPEC 7.1). -->
+    <string name="settings_map_filters_title">Ποιους σταθμούς δείχνει ο χάρτης</string>
+    <string name="settings_map_filters_hide_out_of_service">Απόκρυψη των σταθμών εκτός υπηρεσίας</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Bikes / Free docks button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">Απόκρυψη των σταθμών που δεν έχουν τίποτα να προσφέρουν</string>
+    <!-- Under the switch, saying what "nothing" is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">Το «τίποτα» ακολουθεί αυτό που μετράει ο χάρτης: κανένα ποδήλατο όσο μετράει ποδήλατα, καμία ελεύθερη θέση όσο μετράει ελεύθερες θέσεις.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">Το «τίποτα» σημαίνει κανένα ποδήλατο: σε αυτό το δίκτυο ο χάρτης μετράει μόνο ποδήλατα.</string>
+    <string name="settings_bikes_past_capacity">Οι γεμάτοι σταθμοί δέχονται ποδήλατα</string>
+    <string name="settings_bikes_past_capacity_automatic">Αυτόματα</string>
+    <string name="settings_bikes_past_capacity_always">Πάντα</string>
+    <string name="settings_bikes_past_capacity_never">Ποτέ</string>
+    <string name="settings_bikes_past_capacity_hint_detected">Αυτόματα: αυτό το δίκτυο αφήνει ποδήλατα δίπλα στους γεμάτους σταθμούς του, οπότε ένας γεμάτος σταθμός θεωρείται σταθμός όπου μπορείτε να επιστρέψετε το ποδήλατό σας.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">Αυτόματα: τίποτα στα δεδομένα αυτού του δικτύου δεν δείχνει ποδήλατα αφημένα δίπλα σε γεμάτους σταθμούς, οπότε ένας γεμάτος σταθμός θεωρείται γεμάτος.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">Αυτόματα: σύμφωνα με τα δεδομένα αυτού του δικτύου, οι σταθμοί του δέχονται ποδήλατα ακόμη και χωρίς ελεύθερη θέση.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">Αυτόματα: αποφασίζεται από τα δεδομένα αυτού του δικτύου μόλις φορτωθούν οι σταθμοί του.</string>
+    <string name="settings_bikes_past_capacity_hint_always">Ένας γεμάτος σταθμός θεωρείται σταθμός όπου μπορείτε να επιστρέψετε το ποδήλατό σας. Αν αυτό το δίκτυο δεν το επιτρέπει, μια διαδρομή μπορεί να καταλήξει σε σταθμό που το αρνείται.</string>
+    <string name="settings_bikes_past_capacity_hint_never">Ένας γεμάτος σταθμός θεωρείται γεμάτος, ό,τι κι αν δείχνουν τα δεδομένα αυτού του δικτύου.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">Ένας σταθμός χωρίς ελεύθερη θέση θεωρείται γεμάτος. Σε αυτό το δίκτυο σχεδόν κανένας σταθμός δεν δείχνει ελεύθερη θέση, οπότε λίγες διαδρομές παραμένουν δυνατές.</string>
+    <!-- Under both switches. The most important rule of the two filters, and
+         the only place it is now written. -->
+    <string name="settings_map_filters_keeps_unknown">Οι σταθμοί για τους οποίους το δίκτυο δεν λέει τίποτα μένουν στον χάρτη: μια μέτρηση που κανείς δεν μπόρεσε να διαβάσει δεν είναι μέτρηση του μηδενός.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">Εμφάνιση της μπαταρίας των ποδηλάτων στους σταθμούς και των ποδηλάτων εκτός σταθμών</string>
+    <string name="settings_street_bikes_description">Αν επιτρέπεται να πάρετε ένα ποδήλατο εκτός σταθμού εκεί που βρίσκεται, το ορίζει το δίκτυο. Αυτό διαβάζει μια ροή πολύ πιο βαριά από εκείνη των σταθμών, και μόνο τα δίκτυα που τη δημοσιεύουν δείχνουν κάτι.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">Ποδήλατα εκτός σταθμών</string>
+    <string name="street_bike_intro_body">Το δίκτυο δηλώνει αυτά τα ποδήλατα μακριά από τους σταθμούς του. Άλλα τα άφησε εκεί κάποιος χρήστης, άλλα περιμένουν στην αποθήκη του φορέα του δικτύου.\n\nΤο Roue Libre δεν γνωρίζει αν επιτρέπεται να πάρετε ένα εκεί που βρίσκεται: αυτό το λένε οι κανόνες του δικτύου, και ορισμένα δίκτυα χρεώνουν πρόστιμο για ποδήλατο που επιστρέφεται εκτός σταθμού.\n\nΗ διαδρομή που προτείνεται από ένα ποδήλατο καταλήγει πάντα σε σταθμό.</string>
+    <string name="street_bike_intro_dismiss">Κατάλαβα</string>
+
+    <string name="bikes_past_capacity_title">%1$s: οι γεμάτοι σταθμοί δέχονται ποδήλατα</string>
+    <string name="bikes_past_capacity_body">Σε πολλούς σταθμούς αυτού του δικτύου υπάρχουν περισσότερα ποδήλατα από θέσεις: οι χρήστες αφήνουν το δικό τους δίπλα σε έναν γεμάτο σταθμό και το δίκτυο το παραλαμβάνει.\n\nΓι’ αυτό το Roue Libre θεωρεί έναν γεμάτο σταθμό ως σταθμό όπου μπορείτε ακόμη να επιστρέψετε το ποδήλατό σας και δεν εμφανίζει πλέον ελεύθερες θέσεις για αυτό το δίκτυο.\n\nΑν ένας γεμάτος σταθμός αρνηθεί το ποδήλατό σας, απενεργοποιήστε αυτή τη ρύθμιση. Μπορείτε να την αλλάξετε οποιαδήποτε στιγμή στις ρυθμίσεις.</string>
+    <string name="bikes_past_capacity_keep">Διατήρηση</string>
+    <string name="bikes_past_capacity_turn_off">Απενεργοποίηση</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">Τι είναι αυτά τα ποδήλατα</string>
+    <string name="street_bike_title">Ποδήλατο εκτός σταθμών</string>
+    <string name="street_bike_kind_mechanical">Μηχανικό ποδήλατο</string>
+    <string name="street_bike_kind_electric">Ηλεκτρικό ποδήλατο</string>
+    <string name="street_bike_kind_cargo">Ποδήλατο φορτίου</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">Μπαταρία %1$d%%</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">Απομένει αυτονομία περίπου %1$s</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">Αυτό το ποδήλατο δεν δηλώνεται πλέον εδώ.</string>
+    <string name="street_bike_journey_from_here">Διαδρομή από αυτό το ποδήλατο</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">Ποδήλατο εκτός σταθμών</string>
+    <string name="street_bike_marker_description_electric">Ηλεκτρικό ποδήλατο εκτός σταθμών</string>
+
+    <!-- The rider's OWN bike, not the network's. Keep the wording clearly
+         about the reader's own equipment: the journey screen carries a
+         separate, similar-looking choice about the bikes the network lends. -->
+    <string name="settings_own_bike_kind_title">Το δικό σας ποδήλατο</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">Το είδος του ποδηλάτου που έχετε</string>
+    <string name="settings_own_bike_kind_mechanical">Μηχανικό</string>
+    <string name="settings_own_bike_kind_electric">Ηλεκτρικό</string>
+    <!-- Under the two buttons. Says what the declaration changes: an electric
+         bike is routed and timed as one, where a mechanical one is not. -->
+    <string name="settings_own_bike_kind_hint">Δηλωμένο ως ηλεκτρικό, το δικό σας ποδήλατο παίρνει τη δική του διαδρομή και τους δικούς του χρόνους.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to be
+         a pedal-assist one. %1$s is a distance, %2$s a climb. -->
+    <string name="journey_own_bike_electric_only">με το δικό σας ηλεκτρικό ποδήλατο, για %1$s.</string>
+    <string name="journey_own_bike_electric_only_climb">με το δικό σας ηλεκτρικό ποδήλατο, για %1$s και %2$s ανάβασης.</string>
+    <!-- Application language -->
+    <string name="settings_language_title">Γλώσσα</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language, which is what it did before this setting existed. The
+         languages themselves are never translated — each is written in its own
+         language, and comes from Android rather than from this file. -->
+    <string name="settings_language_system">Σύστημα</string>
+    <!-- Spoken label of the row, read aloud in place of the language alone.
+         %1$s is the language in service: "English", "Français", or the wording
+         above when the device's own is followed. -->
+    <string name="settings_language_description">Γλώσσα της διεπαφής: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">Οι τοποθεσίες μου</string>
+    <string name="settings_place_home">Σπίτι</string>
+    <string name="settings_place_work">Εργασία</string>
+    <string name="settings_place_none">Δεν έχει οριστεί</string>
+    <string name="settings_place_outside_city">Εκτός της πόλης που καλύπτεται</string>
+    <!-- %1$s is the setting, "Σπίτι" or "Εργασία". -->
+    <string name="settings_place_set">Ορισμός: %1$s</string>
+    <string name="settings_place_change">Αλλαγή: %1$s</string>
+    <string name="settings_place_clear">Διαγραφή: %1$s</string>
+    <string name="settings_place_cleared">Διαγράφηκε: %1$s</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">Εμφάνιση του σπιτιού μου στον χάρτη</string>
+    <string name="map_centre_on_work">Εμφάνιση της δουλειάς μου στον χάρτη</string>
+    <string name="settings_places_markers">Σήμανση των τοποθεσιών μου στον χάρτη</string>
+    <string name="settings_places_buttons">Ένα κουμπί στον χάρτη για κάθε τοποθεσία</string>
+</resources>

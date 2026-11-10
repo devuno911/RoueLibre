@@ -1,0 +1,266 @@
+# City bike profile — Roue Libre
+#
+# Serves the main leg, from station to station (SPEC.md §5). It describes a
+# bike-share bike: heavy, some twenty kilos, upright riding position, narrow
+# tyres, no suspension, often no usable gears. It is neither a road bike nor a
+# mountain bike, and the upstream profiles — fastbike, mtb — would serve it
+# badly.
+#
+# The cost factors multiply distance. A factor of 2 means a detour of up to
+# twice the length will be accepted to avoid that kind of way.
+#
+# Licence: GPLv3, like the rest of the project.
+
+---context:global
+
+assign validForBikes = true
+
+assign turnInstructionMode = 0
+
+# Which side of the road the law puts a rider on. It decides which of the
+# per-side cycleway tags serves which direction of travel, and nothing else.
+# The application injects it from the city's country (SPEC §15); the profile
+# itself assumes the right, so a run without the injection — a desktop
+# measurement, an older caller — reads the side most of the fleet drives on.
+assign leftHandTraffic = false # %leftHandTraffic% | Set true where traffic drives on the left | boolean
+
+# The Lille metropolis is flat — some fifty metres of climb in all. The uphill
+# penalty is therefore not zero, because a bike-share bike is heavy and climbs
+# poorly, but it stays low: it must not cause a detour on terrain that has no
+# real hills.
+assign downhillcost = 0
+assign downhillcutoff = 2.0
+assign uphillcost = 40
+assign uphillcutoff = 2.0
+
+# Left alone, the engine's kinematic model coasts any bike downhill to its
+# default ceiling of 45 km/h — a speed nobody reaches on twenty kilos of
+# upright share bike with drum brakes, least of all in town, so every minute
+# announced on a descent was too few. Capped since 26 August 2026 at the
+# 25 km/h of the assistance cut-off law: a figure a city descent does reach,
+# and past which a share bike's rider brakes. The cap also underwrites the
+# journey algorithm's pruning — its lower bound rides a straight line at
+# 25.2 km/h (see JourneyPlanner), a bound only sound while the engine can
+# trace nothing faster.
+assign maxSpeed = 25
+
+---context:way
+
+# Every change of direction costs: slowing down, looking, and getting a heavy
+# bike moving again. Enough to prefer a simple route at equal length, not
+# enough to lengthen the journey appreciably.
+assign turncost = 60
+
+# Cost of entering a way: discourages chains of short, mismatched sections.
+assign initialcost = 0
+
+# --- wrong ways ----------------------------------------------------------
+
+# Contraflow cycling is very common in Lille's 30 km/h zones: refusing it
+# would rule out half the city centre.
+assign bicycle_may_go_against =
+  or oneway:bicycle=no
+  or cycleway=opposite|opposite_lane|opposite_track
+  highway=living_street|pedestrian
+
+assign is_wrong_way =
+  and reversedirection=yes
+  and oneway=yes|true|1
+  not bicycle_may_go_against
+
+# --- access --------------------------------------------------------------
+
+assign bicycle_refused = bicycle=no|private|use_sidepath
+
+assign closed_to_all =
+  and access=no|private not bicycle=yes|designated|permissive
+
+# Fast roads: forbidden to bikes, and deadly if one strays onto them.
+assign motorway_like = highway=motorway|motorway_link|trunk|trunk_link
+
+assign is_forbidden =
+  or is_wrong_way or bicycle_refused or closed_to_all motorway_like
+
+# --- surface -------------------------------------------------------------
+
+# Cobbles are everywhere in the North, and they are the real comfort question
+# for a bike with no suspension and narrow tyres. Good-quality setts stay
+# rideable; old cobbles shake enough that one would clearly rather go round.
+assign surface_penalty =
+  switch surface=asphalt|paved|concrete|paving_stones|metal|wood 1.0
+  switch surface=sett 1.5
+  switch surface=cobblestone 2.0
+  switch surface=compacted|fine_gravel 1.3
+  switch surface=gravel|ground|dirt|earth|grass|sand|mud 2.4
+  # Surface not stated: in town, it is asphalt nine times out of ten.
+  1.0
+
+# --- cycling provision on the carriageway --------------------------------
+
+# A road carrying a cycle track, a shared bus lane or a painted lane is not
+# the road it would be bare, and until 25 August 2026 it was priced as if it
+# were: no cycleway tag was read, and the router detoured around boulevards
+# whose provision is real. Measured over twelve legs of the Lille graph on
+# that date, reading these tags returns 136 s over the set — including 14 %
+# of one crossing — and moves 3.8 more points of the linear onto equipped
+# ways; the one leg that slows (+42 s) trades residential contraflows and
+# cobbled pedestrian areas for bus corridors and a track.
+#
+# What is read is the side the tag serves. Provision on the with-traffic side
+# serves the forward direction; the against-traffic side serves contraflow.
+# The distinction is measured, not stylistic: reading the tags blind to their
+# side sent one campaign leg down 240 m of street whose lane runs the other
+# way — comfort claimed that is not there. leftHandTraffic says which side is
+# which.
+
+assign track_with_traffic =
+  if leftHandTraffic then cycleway:left=track
+  else cycleway:right=track
+
+# The against-traffic side also answers in its explicit opposite_* spelling.
+assign track_against_traffic =
+  if leftHandTraffic then cycleway:right=track|opposite_track
+  else cycleway:left=track|opposite_track
+
+# A two-way track on the with-traffic side serves contraflow riders as well.
+assign track_both_ways_aside =
+  if leftHandTraffic then and cycleway:left=track cycleway:left:oneway=no|-1
+  else and cycleway:right=track cycleway:right:oneway=no|-1
+
+assign has_track =
+  or and not reversedirection=yes
+    or cycleway=track or cycleway:both=track track_with_traffic
+  and reversedirection=yes
+    or cycleway=opposite_track
+    or cycleway:both=track
+    or track_against_traffic track_both_ways_aside
+
+assign busway_with_traffic =
+  if leftHandTraffic then cycleway:left=share_busway
+  else cycleway:right=share_busway
+
+assign busway_against_traffic =
+  if leftHandTraffic then cycleway:right=share_busway
+  else cycleway:left=share_busway
+
+assign has_busway =
+  or and not reversedirection=yes
+    or cycleway=share_busway or cycleway:both=share_busway busway_with_traffic
+  and reversedirection=yes
+    or cycleway:both=share_busway busway_against_traffic
+
+assign lane_with_traffic =
+  if leftHandTraffic then cycleway:left=lane
+  else cycleway:right=lane
+
+assign lane_against_traffic =
+  if leftHandTraffic then cycleway:right=lane|opposite_lane
+  else cycleway:left=lane|opposite_lane
+
+assign has_lane =
+  or and not reversedirection=yes
+    or cycleway=lane or cycleway:both=lane lane_with_traffic
+  and reversedirection=yes
+    or cycleway=opposite_lane
+    or cycleway:both=lane
+    lane_against_traffic
+
+assign sharrow_with_traffic =
+  if leftHandTraffic then cycleway:left=shared_lane
+  else cycleway:right=shared_lane
+
+assign sharrow_against_traffic =
+  if leftHandTraffic then cycleway:right=shared_lane
+  else cycleway:left=shared_lane
+
+assign has_sharrow =
+  or and not reversedirection=yes
+    or cycleway=shared_lane|unmarked_lane
+    or cycleway:both=shared_lane sharrow_with_traffic
+  and reversedirection=yes
+    or cycleway:both=shared_lane sharrow_against_traffic
+
+# Each figure is a remission on the road's own class, stated against the
+# ladder road_cost lays below (calm 1.2 · tertiary 1.5 · secondary 2.1 ·
+# primary 3.0) so that it reads as a statement rather than a constant:
+#
+#  - track ×0.40 — a protected track along any road rides like a calm street:
+#    every class lands at or under the 1.2 floor. Never like the open
+#    cycleway's 1.0, because every junction still crosses the road's traffic.
+#  - share_busway ×0.50 — a reserved corridor moves the road about two
+#    classes down: primary to tertiary's 1.5, the rest to the floor. Few
+#    vehicles and professional drivers, but buses stop where the rider rides.
+#  - lane ×0.65 — paint that reserves moves the road about one class down:
+#    primary 1.95 ≈ secondary, secondary 1.37 ≈ tertiary, tertiary at the
+#    floor. Space of one's own, nothing between it and the traffic.
+#  - shared_lane ×0.85 — paint that shares reserves nothing: under half a
+#    class. Splitting it from the lane changed no route on the campaign legs;
+#    the tag's meaning requires the split, not the outcome.
+assign provision_discount =
+  switch has_track 0.40
+  switch has_busway 0.50
+  switch has_lane 0.65
+  switch has_sharrow 0.85
+  1.0
+
+# --- kind of way ---------------------------------------------------------
+
+# Infrastructure built for cycling.
+assign cycle_way =
+  or highway=cycleway
+  or cyclestreet=yes
+  or bicycle_road=yes
+  and highway=path|footway bicycle=designated
+
+# Calmed streets where a bike mixes well with cars.
+assign calm_way = highway=living_street|residential|service|unclassified|road
+
+# The class ladder of the roads a bike shares with cars, extracted from
+# base_cost so the provision discount has one thing to multiply. The last
+# line is a road of no recognised class.
+assign road_cost =
+  switch calm_way 1.2
+  switch highway=tertiary|tertiary_link 1.5
+  switch highway=secondary|secondary_link 2.1
+  switch highway=primary|primary_link 3.0
+  2.5
+
+assign base_cost
+
+  switch is_forbidden 100000
+
+  # Steps are taken with the bike in hand. It is possible, never desirable,
+  # and a bike-share bike is too heavy to do it willingly.
+  switch highway=steps 40
+
+  # A pedestrian area is crossed at walking pace. Tolerated, never preferred.
+  switch highway=pedestrian 3.0
+
+  # A pavement with no cycling permission: passable on foot, to be avoided.
+  switch and highway=footway not bicycle=designated|yes 8.0
+
+  switch cycle_way 1.0
+  switch highway=track 1.8
+
+  # The roads, at their class discounted by their provision — floored at the
+  # calm street's 1.2: provision corrects a road, it does not make it better
+  # than the absence of traffic.
+  max 1.2 multiply road_cost provision_discount
+
+# The final cost combines the kind of way with its surface: a cobbled cycle
+# track is not a smooth cycle track.
+assign costfactor
+  switch equal base_cost 100000 100000
+  multiply base_cost surface_penalty
+
+---context:node
+
+# What forces one off the bike, or forbids it outright.
+assign initialcost =
+  switch bicycle=no|private 1000000
+  # A barrier to get round costs the time of putting a foot down.
+  switch barrier=gate|lift_gate|swing_gate|cycle_barrier|block|bollard 400
+  # Traffic lights cost an average wait, which justifies a slight detour by a
+  # route that has fewer of them.
+  switch highway=traffic_signals 120
+  0

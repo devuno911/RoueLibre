@@ -1,0 +1,992 @@
+package io.github.mgdx.rouelibre.ui.stations
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
+import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import io.github.mgdx.rouelibre.R
+import io.github.mgdx.rouelibre.RoueLibreApplication
+import io.github.mgdx.rouelibre.core.DataError
+import io.github.mgdx.rouelibre.core.config.ActiveCity
+import io.github.mgdx.rouelibre.core.config.FleetDescription
+import io.github.mgdx.rouelibre.core.data.DatasetKind
+import io.github.mgdx.rouelibre.core.geo.Coordinates
+import io.github.mgdx.rouelibre.core.message.MessageSubject
+import io.github.mgdx.rouelibre.core.station.StationWithAvailability
+import io.github.mgdx.rouelibre.core.station.freshnessOf
+import io.github.mgdx.rouelibre.data.location.DeviceLocation
+import io.github.mgdx.rouelibre.databinding.FragmentStationListBinding
+import io.github.mgdx.rouelibre.ui.BikeGlyphs
+import io.github.mgdx.rouelibre.ui.MAP_BACK_STACK_ENTRY
+import io.github.mgdx.rouelibre.ui.MainActivity
+import io.github.mgdx.rouelibre.ui.STATION_LIST_BACK_STACK_ENTRY
+import io.github.mgdx.rouelibre.ui.ScreenBehind
+import io.github.mgdx.rouelibre.ui.backStackEntryNames
+import io.github.mgdx.rouelibre.ui.city.CityFragment
+import io.github.mgdx.rouelibre.ui.cityLabel
+import io.github.mgdx.rouelibre.ui.journey.JourneySearchFragment
+import io.github.mgdx.rouelibre.ui.map.MapFragment
+import io.github.mgdx.rouelibre.ui.noLongerServedMessage
+import io.github.mgdx.rouelibre.ui.noLongerServedTitle
+import io.github.mgdx.rouelibre.ui.screenBehind
+import io.github.mgdx.rouelibre.ui.settings.SettingsFragment
+import io.github.mgdx.rouelibre.ui.toStatusLine
+import io.github.mgdx.rouelibre.ui.toUserMessage
+import io.github.mgdx.rouelibre.ui.withBikeFleet
+import io.github.mgdx.rouelibre.ui.withFleet
+import io.github.mgdx.rouelibre.ui.withFreeDocksShown
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.time.Instant
+
+/**
+ * The list of stations and their availability.
+ *
+ * Refreshing only happens while the screen is visible, and never in the
+ * background: that is constraint C3 of SPEC §2 as much as the policy of §4.1. A
+ * loop tied to the lifecycle stops by itself when the screen goes to the
+ * background.
+ */
+class StationListFragment : Fragment() {
+
+    private var binding: FragmentStationListBinding? = null
+
+    /**
+     * Whether the next list committed is to be shown from its first row.
+     *
+     * Raised by the two gestures that hand the reader **another set of
+     * stations** — the press of "nearest station first", and a search that
+     * keeps other stations than the one before it. Not by the order the list
+     * gives itself when it appears, which scrolls nothing (SPEC §7.6), and not
+     * by the availability refreshed every minute, which hands back the same
+     * stations with fresher counts.
+     *
+     * The order is settled by the model, the rows are handed to `ListAdapter`,
+     * and the diff that reorders them runs on another thread: scrolling
+     * straight after asking for the order scrolls the list that is still on
+     * screen, and the reordering that lands a moment later keeps the position
+     * it finds. So the scroll waits for the commit, which is what makes the
+     * nearest station the one actually looked at.
+     */
+    private var showFromTheTop = false
+
+    /**
+     * Whether a conurbation is in service — see [followTheChosenCity].
+     *
+     * Taken as chosen until the setting has been read, which is the state the
+     * screen is built for: the empty list only appears once the cache has been
+     * read, by which time the read below has long answered, and a wrong guess
+     * held for that instant would flash the wrong sentence on every launch.
+     */
+    private var cityChosen = true
+
+    /**
+     * The city chosen, when this build serves it no more (SPEC §15.1) — see
+     * [followTheChosenCity]. The empty list then says so itself, and nothing
+     * here offers to fetch a network that is gone.
+     */
+    private var withdrawnCity: ActiveCity.NoLongerServed? = null
+
+    private val viewModel: StationsViewModel by viewModels {
+        val container = (requireActivity().application as RoueLibreApplication).container
+        StationsViewModel.Factory(
+            container.stationRepository,
+            positionAlreadyKnown = { container.knownPositionInsideActiveCity() },
+            positionForOrdering = { container.positionInsideActiveCity() },
+            readLetterFolds = {
+                withContext(Dispatchers.IO) {
+                    container.addressNormalizers.searchLetterFolds()
+                }
+            },
+            favouriteIds = container.preferences.favouriteStationIds,
+        )
+    }
+
+    /**
+     * Every station of the network, under the favourites when there are any.
+     *
+     * The position the list was scrolled to is kept for these rows to arrive:
+     * after the process has died they come from disk a moment after the
+     * screen, and the first layout of a list still empty would otherwise
+     * spend the position on nothing and show the list from its top.
+     */
+    private val adapter = StationAdapter(::openStation).apply {
+        stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+    }
+
+    /**
+     * The favourites heading the list, in the order the user gave them
+     * (SPEC §7.5, §7.6) — the same rows as the rest of the list, since they
+     * are the same stations.
+     */
+    private val favouritesAdapter = StationAdapter(::openStation)
+
+    /** The heading over the favourites: their name, "Reorder", and folding them. */
+    private val favouritesHeading = StationSectionAdapter(
+        title = R.string.favourites_title,
+        onReorder = ::openFavourites,
+        onFold = ::foldOrUnfoldFavourites,
+    )
+
+    /**
+     * The heading over the whole list, there only under favourites: without
+     * it the last favourite and the first station of the network would read
+     * as one list, a station appearing twice in it.
+     */
+    private val allStationsHeading = StationSectionAdapter(title = R.string.stations_all_title)
+
+    /** Both lists of rows, which every filter and every distance applies to alike. */
+    private val stationAdapters
+        get() = listOf(favouritesAdapter, adapter)
+
+    /** Whether the favourites heading the list are folded away. */
+    private var favouritesFolded = false
+
+    /** The filters the map and this list count the stations through (SPEC §7.1). */
+    private val sharedFilters: SharedStationFilters by sharedStationFilters()
+
+    /**
+     * What the network in service lends, so that the rows can be counted by
+     * kind: `null` until the reading lands, and the kind filter is offered
+     * only once it says both kinds are lent.
+     */
+    private var lentFleet: FleetDescription? = null
+
+    /** The two buttons saying what the stations count, the map's own. */
+    private val filterButtons = StationFilterButtons(
+        modeToggle = { binding?.modeToggle },
+        bikeKindButton = { binding?.bikeKindFilter },
+        controlsUp = { true },
+        lentFleet = { lentFleet },
+        shared = { sharedFilters },
+        onChanged = ::countThroughTheFilters,
+    )
+
+    /** Slides the floating controls away while the list is read downwards. */
+    private var controlsOutOfTheWay: ControlsOutOfTheWay? = null
+
+    private val container
+        get() = (requireActivity().application as RoueLibreApplication).container
+
+    /**
+     * Requests the location permission, and never insists (SPEC §10).
+     *
+     * Launched from the button and from nowhere else: this screen shows no
+     * position of its own, so opening it asks for nothing. A refusal leaves the
+     * list whole, in the alphabet, and the button is what the user has left to
+     * change their mind.
+     */
+    private val requestLocationPermission = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions(),
+    ) { granted ->
+        if (granted.values.any { it }) {
+            orderFromAFreshFix()
+        } else {
+            // Written down for good: a refusal pronounced here must also keep
+            // the map from asking unprompted when it opens next (SPEC §10).
+            viewLifecycleOwner.lifecycleScope.launch {
+                container.automaticLocationRequest.noteRefused()
+            }
+            showMessage(getString(R.string.stations_location_denied))
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        val created = FragmentStationListBinding.inflate(inflater, container, false)
+        binding = created
+        return created.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val views = requireBinding()
+
+        views.stations.layoutManager = LinearLayoutManager(requireContext())
+        // Four parts, each of which comes and goes on its own: the
+        // favourites' heading, the favourites, the heading of the whole list,
+        // the whole list. The two lists of rows keep their own view types, so
+        // neither learns that headings exist.
+        views.stations.adapter =
+            ConcatAdapter(favouritesHeading, favouritesAdapter, allStationsHeading, adapter)
+        views.stations.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL),
+        )
+        // The rows never change size: saying so saves a layout pass on every
+        // refresh, across 268 stations.
+        views.stations.setHasFixedSize(true)
+
+        views.openSettings.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.content, SettingsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        views.locateMe.setOnClickListener { onLocateMeClicked() }
+        showWayToTheMap(views)
+        views.openSearch.setOnClickListener { goToTheSearchField() }
+        views.openJourney.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.content, JourneySearchFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        // The bike of the network served, as on the map's own button: with a
+        // bolt where the network lends pedal-assist bikes (SPEC §15).
+        withBikeFleet { fleet -> binding?.openJourney?.setIconResource(BikeGlyphs.icon(fleet)) }
+        followTheBaseMap()
+        controlsOutOfTheWay = ControlsOutOfTheWay(
+            list = views.stations,
+            controls = ::floatingControls,
+            ground = views.root,
+        ).also { it.attach() }
+        followTheKeyboard(views)
+        views.swipeRefresh.setOnRefreshListener { viewModel.refresh(force = true) }
+
+        // Filtering on every keystroke: a few hundred entries already in
+        // memory, no debounce is warranted here.
+        views.searchInput.doAfterTextChanged { text ->
+            val query = text?.toString().orEmpty()
+            // A search that keeps other stations hands the reader another
+            // list, and it is shown from its first row like the reordered one
+            // — see [showFromTheTop]. Without this the list kept the row it
+            // was anchored on and found it again in the next one: three
+            // matches shown from the one 1.3 km away, and the whole list
+            // brought back by clearing the field still shown from it, the
+            // station 40 m off being somewhere above the top of the screen.
+            //
+            // **Only where the query really changes**, which is what tells
+            // this gesture from the field being written to again as the
+            // screen turns over: the same question asked twice must leave the
+            // reader where they had scrolled to.
+            if (viewModel.state.value.searchWouldChangeTheList(query)) showFromTheTop = true
+            viewModel.onQueryChanged(query)
+        }
+        views.searchInput.setOnEditorActionListener { view, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                // The list is already filtered; all that remains is to give
+                // the screen back to the eye by folding the keyboard away.
+                view.clearFocus()
+                hideKeyboard(view)
+                true
+            } else {
+                false
+            }
+        }
+
+        filterButtons.bind()
+        filterButtons.follow(viewLifecycleOwner)
+        // The kind filter exists only where both kinds are lent, and the
+        // reading that says so arrives after the screen (SPEC §4.1).
+        withFleet { lent ->
+            lentFleet = lent
+            filterButtons.showBikeKindFilter()
+            countThroughTheFilters()
+        }
+        followFavouritesFolded()
+        followFreeDocksShown()
+
+        // The nearest station first, when the position allows it (SPEC §7.6).
+        // What the system holds orders the list at once, then a fix is asked
+        // for and settles it — both without a word and without a prompt. Once
+        // per appearance: an order already settled is kept, so a rotation does
+        // not fetch a second time.
+        viewModel.orderByProximity()
+
+        standClearOfTheBanner()
+        followTheChosenCity()
+        observeState()
+        observeErrors()
+        keepAvailabilityFresh()
+        showCoveredArea()
+    }
+
+    /**
+     * Offers the Bikes / Free docks toggle only where the network's free docks
+     * are worth showing (SPEC §7.1).
+     *
+     * Where most stations take back any bike, the toggle would switch
+     * the list to a column of ∞: it goes, the list goes back to the bikes if
+     * it was counting free docks, and the rows lose their second column. The
+     * list below closes up under the search field.
+     */
+    private fun followFreeDocksShown() {
+        withFreeDocksShown { shown ->
+            filterButtons.showFreeDocks(shown)
+            stationAdapters.forEach { it.freeDocksShown = shown }
+            countThroughTheFilters()
+        }
+    }
+
+    /** Has every row count what the two filters say, wherever they were set. */
+    private fun countThroughTheFilters() {
+        val mode = filterButtons.mode
+        val kind = filterButtons.bikeKindFilter()
+        stationAdapters.forEach {
+            it.mode = mode
+            it.bikeKind = kind
+        }
+    }
+
+    /** Opens a station's sheet, from the favourites as from the whole list. */
+    private fun openStation(entry: StationWithAvailability) {
+        StationDetailSheet.newInstance(entry.station.id)
+            .show(parentFragmentManager, StationDetailSheet.TAG)
+    }
+
+    /**
+     * Opens the favourites' own screen, which is where they are put in order
+     * (SPEC §7.5): rows that move under the finger are no list to choose a
+     * station from, so the dragging is kept there.
+     */
+    private fun openFavourites() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.content, FavouriteStationsFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    /** Folds the favourites away, or brings them back, and remembers which. */
+    private fun foldOrUnfoldFavourites() {
+        val folded = !favouritesFolded
+        lifecycleScope.launch { container.preferences.setFavouritesFolded(folded) }
+    }
+
+    /** Follows whether the favourites are folded, and shows them accordingly. */
+    private fun followFavouritesFolded() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                container.preferences.favouritesFolded.collect { folded ->
+                    favouritesFolded = folded
+                    showFavourites(viewModel.state.value)
+                }
+            }
+        }
+    }
+
+    /**
+     * Puts the favourites at the head of the list, with their heading and the
+     * heading of the whole list, or takes all three away where there is none
+     * to show — no favourite, or a search typed (SPEC §7.6).
+     */
+    private fun showFavourites(state: StationsUiState) {
+        // **A list at its top stays at its top.** Rows inserted above the
+        // first one on screen are inserted above the screen: the list keeps
+        // its eye on the row it was showing, so favourites arriving a moment
+        // after the stations — which is the order they come in at launch —
+        // landed out of sight, the very rows this heading exists to show
+        // first. Read before anything is inserted, since an insertion above
+        // is precisely what makes the list scrollable upwards.
+        val list = binding?.stations
+        val wasAtTheTop = list != null &&
+            listShowsItsTop(
+                laidOutRows = list.childCount,
+                canScrollUp = list.canScrollVertically(-1),
+            )
+        val shown = state.favourites.isNotEmpty()
+        favouritesHeading.shown = shown
+        favouritesHeading.folded = favouritesFolded
+        allStationsHeading.shown = shown
+        favouritesAdapter.submitList(if (favouritesFolded) emptyList() else state.favourites) {
+            if (wasAtTheTop) binding?.stations?.scrollToPosition(0)
+        }
+    }
+
+    /**
+     * Takes the reader to the search field and opens the keyboard on it.
+     *
+     * The field is at the top of the screen, out of the thumb's reach; the
+     * button is where the map keeps its own search. The controls come back
+     * too, for whoever pressed it from a list scrolled halfway down.
+     */
+    private fun goToTheSearchField() {
+        val views = binding ?: return
+        controlsOutOfTheWay?.bringBack()
+        views.searchInput.requestFocus()
+        val manager = requireContext().getSystemService(InputMethodManager::class.java)
+        manager?.showSoftInput(views.searchInput, InputMethodManager.SHOW_IMPLICIT)
+    }
+
+    /**
+     * The controls floating over the rows: the thumb's column, its ring, and
+     * the two filters where they float too — in portrait they stand at the
+     * bottom start, lying down they sit in the header's column, out of the
+     * rows' way, and stay put.
+     */
+    private fun floatingControls(): List<View?> {
+        val views = binding ?: return emptyList()
+        val column = listOf(
+            views.openMap,
+            views.openSearch,
+            views.locateMe,
+            views.locating,
+            views.openJourney,
+        )
+        return if (filtersFloat(views)) column + views.modeToggle + views.bikeKindFilter else column
+    }
+
+    /**
+     * Puts the floating controls away while the keyboard is up.
+     *
+     * Asked at every layout of the screen rather than through an insets
+     * listener: the keyboard resizes the window, so its coming and going is a
+     * layout of this screen, and the insets have already been consumed by the
+     * time a listener here would be told — one was tried, and never heard of
+     * the keyboard. The question is cheap and only acted on when the answer
+     * changes.
+     */
+    private fun followTheKeyboard(views: FragmentStationListBinding) {
+        var keyboardUp = false
+        views.root.addOnLayoutChangeListener { root, _, _, _, _, _, _, _, _ ->
+            val up = ViewCompat.getRootWindowInsets(root)
+                ?.isVisible(WindowInsetsCompat.Type.ime()) == true
+            if (up == keyboardUp) return@addOnLayoutChangeListener
+            keyboardUp = up
+            controlsOutOfTheWay?.followKeyboard(up)
+        }
+    }
+
+    /**
+     * Shows the journey button only once the base map is installed — see
+     * [listOffersTheJourney] — and follows the datasets, so that the button
+     * appears the moment a download started from here ends.
+     *
+     * The first read puts the city's datasets into service, which nothing else
+     * may have done yet on a list the application opened on.
+     */
+    private fun followTheBaseMap() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            binding?.openJourney?.isVisible = listOffersTheJourney(container.hasBaseMap())
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                container.datasetStore.installed
+                    .map { DatasetKind.Tiles in it }
+                    .distinctUntilChanged()
+                    .collect { tiles ->
+                        binding?.openJourney?.isVisible = listOffersTheJourney(hasBaseMap = tiles)
+                    }
+            }
+        }
+    }
+
+    /** Whether the two filters float over the rows rather than sit in a header. */
+    private fun filtersFloat(views: FragmentStationListBinding): Boolean =
+        views.modeToggle.parent === views.root
+
+    /**
+     * Keeps the floating controls clear of the banner, and the last row clear
+     * of the controls (SPEC §7.6).
+     *
+     * The banner belongs to the activity and is laid over the whole window, so
+     * nothing shifts the controls out of its way by themselves — see
+     * `MainActivity.roomTakenByTheBanner`. It stood exactly over "nearest
+     * station first" when that button had the corner, and with no network a
+     * refresh raises one every ten seconds.
+     *
+     * The room under the last row rises with the controls, for the reason it
+     * exists at all: the last station of the network must stay something one
+     * can scroll into view.
+     */
+    private fun standClearOfTheBanner() {
+        val host = activity as? MainActivity ?: return
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                host.roomTakenByTheBanner.collect { room ->
+                    // **Not on the spot.** That figure is read off the banner's
+                    // own layout — `MainActivity` measures it from a layout
+                    // listener — and this collector resumes inside that very
+                    // pass, the two views sharing one window. A margin and a
+                    // padding set there ask for a layout while one is running,
+                    // which Android answers by starting the whole pass again:
+                    // "requestLayout() improperly called ... running second
+                    // layout pass", once for the button and once for the list,
+                    // on every banner. The next message queue turn is outside
+                    // the pass, and lands the same figures a frame later.
+                    binding?.root?.post { makeRoomForTheBanner(room) }
+                }
+            }
+        }
+    }
+
+    /** Lifts the floating controls and the last row by [room], the banner's height. */
+    private fun makeRoomForTheBanner(room: Int) {
+        val views = binding ?: return
+        val roomUnderTheLastRow = R.dimen.list_room_under_the_last_row
+        // The bottom of the thumb's column, which the rest of it stands on,
+        // and the two filters level with it where they float beside it.
+        val bottomRow = if (filtersFloat(views)) {
+            listOf(views.openMap, views.modeToggle, views.bikeKindFilter)
+        } else {
+            listOf(views.openMap)
+        }
+        bottomRow.forEach { control ->
+            control.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                bottomMargin = resources.getDimensionPixelSize(R.dimen.space_m) + room
+            }
+        }
+        views.stations.updatePadding(
+            bottom = resources.getDimensionPixelSize(roomUnderTheLastRow) + room,
+        )
+    }
+
+    /**
+     * Answers the "nearest first" button (SPEC §7.2).
+     *
+     * The list orders itself on what the system already holds when it appears,
+     * and that is nothing at all on a phone where no other application has
+     * asked for a position: the button is what asks for one. Its three
+     * outcomes are the map's, in the same order and with the same words for
+     * two of them — the permission is missing, location is switched off, or
+     * there is a fix to wait for.
+     */
+    private fun onLocateMeClicked() {
+        val location = container.deviceLocation
+        when {
+            !location.isPermitted() ->
+                requestLocationPermission.launch(DeviceLocation.PERMISSIONS)
+
+            !location.isAvailable() -> showMessage(getString(R.string.map_location_unavailable))
+
+            else -> orderFromAFreshFix()
+        }
+    }
+
+    /**
+     * Waits for a position and puts the nearest station at the top.
+     *
+     * **A fix asked for, not the one already known**: the button is pressed by
+     * somebody who has walked somewhere, and a position from two minutes ago
+     * would order the list around the street they set off from. The wait can
+     * run to ten seconds indoors, so the button goes dead meanwhile and
+     * **turns a ring while it waits** — otherwise the press reads as lost and
+     * is made again. The ring shows itself only where the wait is long enough
+     * to need showing, which the layout settles rather than any timing written
+     * here.
+     *
+     * The position serves that single ordering and is written nowhere
+     * (SPEC §2, C3).
+     */
+    private fun orderFromAFreshFix() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            binding?.locateMe?.isEnabled = false
+            binding?.locating?.show()
+            val fix = try {
+                container.deviceLocation.current()
+            } finally {
+                binding?.locating?.hide()
+                binding?.locateMe?.isEnabled = true
+            }
+            val position = fix?.coordinates
+            if (position == null) {
+                showMessage(getString(R.string.map_location_unavailable))
+                return@launch
+            }
+            if (saidWeAreElsewhere(position)) return@launch
+            // Back to the top, where the nearest station now is: an answer
+            // nobody can see reads as a button that does nothing, and the list
+            // may be scrolled halfway down.
+            //
+            // **Whether the order changes or not**, and the two cases are not
+            // answered the same way. A press from the same street as the last
+            // one gives the same position, so the model's state does not
+            // change, nothing is emitted and no list is committed — the
+            // callback that carries the scroll would never run, which is
+            // exactly what left the reader mid-list on the second press.
+            // Nothing is moving there, so the scroll happens on the spot.
+            // Where the order does change, it waits for the reordered rows to
+            // be committed — see [showFromTheTop].
+            if (viewModel.state.value.orderingOrigin == position) {
+                binding?.stations?.scrollToPosition(0)
+            } else {
+                showFromTheTop = true
+            }
+            viewModel.orderFrom(position)
+        }
+    }
+
+    /**
+     * Says so where [position] falls outside the conurbation served, and orders
+     * nothing.
+     *
+     * Distances measured from a hundred kilometres away rank the stations of a
+     * city one is not in by which end of it one is pointing at — an order that
+     * looks like an answer and is arithmetic on an irrelevance. The alphabet is
+     * kept, and the sentence names the network in service so that the button is
+     * not simply silent. Changing city is the map's offer to make, this screen
+     * having no map to be elsewhere on.
+     *
+     * A city whose configuration declares no usable box covers everything as
+     * far as this screen is concerned: there is nothing to be outside of.
+     *
+     * @return true if the user was told, in which case nothing else is to be
+     *   done with this position.
+     */
+    private suspend fun saidWeAreElsewhere(position: Coordinates): Boolean {
+        val city = container.activeCity() ?: return false
+        val area = city.boundingBox?.takeIf { it.isUsable } ?: return false
+        if (position in area) return false
+        showMessage(
+            getString(
+                R.string.map_outside_city_brief,
+                requireContext().cityLabel(city.network.displayName, city.network.city),
+            ),
+        )
+        return true
+    }
+
+    /**
+     * Tells the rows which stations the installed data actually reaches.
+     *
+     * A network is under no obligation to keep its stations inside the box its
+     * data was cut from, and fifteen of them do not (SPEC §4). Read once: the
+     * box belongs to the city in service, and changing city rebuilds the
+     * screen.
+     */
+    private fun showCoveredArea() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val area = (requireActivity().application as RoueLibreApplication)
+                .container
+                .activeCity()
+                ?.boundingBox
+            stationAdapters.forEach { it.coveredArea = area }
+        }
+    }
+
+    override fun onDestroyView() {
+        // The RecyclerView outlives the view through its adapter; detaching it
+        // avoids holding on to the destroyed view.
+        binding?.stations?.adapter = null
+        controlsOutOfTheWay = null
+        binding = null
+        super.onDestroyView()
+    }
+
+    private fun observeState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collectLatest { state ->
+                    val views = binding ?: return@collectLatest
+                    stationAdapters.forEach { it.origin = state.orderingOrigin }
+                    showFavourites(state)
+                    adapter.submitList(state.stations) {
+                        if (!showFromTheTop) return@submitList
+                        showFromTheTop = false
+                        binding?.stations?.scrollToPosition(0)
+                    }
+                    views.swipeRefresh.isRefreshing = state.isRefreshing && withdrawnCity == null
+                    showEmptyState(state)
+                    showFreshness(state)
+                }
+            }
+        }
+    }
+
+    /**
+     * Says why the list could not be refreshed, and offers the way out of it.
+     *
+     * "Try again" is the answer to a failure a second press may well settle — a
+     * feed that timed out, a connection that has come back. It is not the answer
+     * to having chosen no city: nothing is being asked of any network, and every
+     * press can only fail the same way. That one failure is offered the city
+     * chooser instead, which is the gesture the sentence asks for (SPEC §14).
+     *
+     * And on a launch that has not seen the welcome yet, that one failure is
+     * not said at all — see [worthSaying].
+     */
+    private fun observeErrors() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.errors.collect { error ->
+                    val host = activity as? MainActivity ?: return@collect
+                    // Nothing is said under the welcome sequence, which is
+                    // about to cover this list on a first launch and offers
+                    // the city chooser itself — see [worthSaying]. The banner
+                    // belongs to the activity and outlives this screen, so it
+                    // stood over the sequence and hid the button carrying it
+                    // forward, offering an action that could do nothing.
+                    if (!worthSaying(error, container.preferences.lastSeenVersionCode())) {
+                        return@collect
+                    }
+                    // **A failed refresh gives way to an answer already up.**
+                    // Offline is this application's ordinary state, so this is
+                    // the message most apt to arrive at the wrong moment: with
+                    // no network the loop raises one every ten seconds, and it
+                    // wiped the sentence telling the user their position falls
+                    // outside the city they are consulting — within a fraction
+                    // of a second, so that the press of "nearest station
+                    // first" looked answered by nothing at all. It comes back
+                    // at the next tick, and the freshness line meanwhile says
+                    // how old the counters are.
+                    val (label, action) = if (error == DataError.NoCityChosen) {
+                        // "Try again" is no answer to having chosen no city:
+                        // nothing is being asked of any network and every
+                        // press can only fail the same way (SPEC §14).
+                        R.string.city_choose to { showCityChooser() }
+                    } else {
+                        R.string.action_retry to { viewModel.refresh(force = true) }
+                    }
+                    // Served by none may be a city chosen and since withdrawn:
+                    // the empty list says that in full, and a banner repeating
+                    // it at every tick, cut short, would only be noise
+                    // (SPEC §15.1).
+                    if (error == DataError.NoCityChosen &&
+                        container.activeCityState() is ActiveCity.NoLongerServed
+                    ) {
+                        return@collect
+                    }
+                    host.showMessage(
+                        error.toUserMessage(
+                            requireContext(),
+                            hasKnownAvailability = viewModel.state.value.fetchedAt != null,
+                        ),
+                        MessageSubject.Refresh,
+                        actionLabel = label,
+                    ) {
+                        // The banner belongs to the activity and outlives this
+                        // screen: a press landing after it is gone would ask a
+                        // fragment with no manager for a transaction, and its
+                        // own model for a refresh. That was a crash on the
+                        // first screen of the first launch, when the list is
+                        // replaced a frame later by the welcome sequence.
+                        if (isAdded) action()
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Opens the city chooser, the way the map and the settings open it.
+     *
+     * Nothing is named on the back stack: what is put up here is a detour, and
+     * coming back from it is the back gesture's business — unlike the map, which
+     * this list must be able to find again rather than build a second one of.
+     */
+    private fun showCityChooser() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.content, CityFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    /**
+     * Refreshes while the screen is visible, and rewrites the displayed age.
+     *
+     * The repository applies the one-minute minimum delay itself; the loop
+     * comes round more often to keep "12 seconds ago" current, which would
+     * otherwise age on screen with nothing to correct it.
+     */
+    private fun keepAvailabilityFresh() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                while (true) {
+                    viewModel.refresh()
+                    showFreshness(viewModel.state.value)
+                    delay(FRESHNESS_TICK_MILLIS)
+                }
+            }
+        }
+    }
+
+    /**
+     * Follows the conurbation in service, for the words the empty list uses.
+     *
+     * Watched rather than read once when the screen appears: the chooser this
+     * screen now offers comes back to this very list, which must then be
+     * inviting a refresh rather than still asking which city.
+     */
+    private fun followTheChosenCity() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                container.preferences.activeCityIdFlow.collect { identifier ->
+                    cityChosen = identifier != null
+                    withdrawnCity = container.activeCityState() as? ActiveCity.NoLongerServed
+                    // A pull would refresh a feed that no longer exists, and
+                    // only bring back the sentence the list already shows.
+                    binding?.swipeRefresh?.isEnabled = withdrawnCity == null
+                    showEmptyState(viewModel.state.value)
+                }
+            }
+        }
+    }
+
+    /**
+     * Shows, where applicable, why the list holds nothing.
+     *
+     * Three situations, three gestures: an empty cache is refreshed, a
+     * fruitless search is cleared, and a phone serving no conurbation is sent
+     * to the city chooser. Offering "Refresh" to somebody who made a typo would
+     * send them looking for a breakdown that does not exist; offering it to
+     * somebody who has chosen no city offers a gesture that cannot succeed —
+     * see [offerForEmptyList].
+     */
+    private fun showEmptyState(state: StationsUiState) {
+        val views = binding ?: return
+        views.emptyState.isVisible = state.emptiness != Emptiness.None
+        when (
+            offerForEmptyList(
+                state.emptiness,
+                cityChosen,
+                cityWithdrawn = withdrawnCity != null,
+            )
+        ) {
+            EmptyListOffer.None -> Unit
+
+            // The map panel's words, in full: a banner cut them short, and the
+            // list underneath still invited a refresh that could do nothing.
+            EmptyListOffer.ChooseAnotherCity -> {
+                views.emptyTitle.setText(
+                    withdrawnCity?.let(::noLongerServedTitle) ?: R.string.map_city_withdrawn_title,
+                )
+                views.emptyMessage.text =
+                    withdrawnCity?.let { requireContext().noLongerServedMessage(it) }
+                views.emptyAction.setText(R.string.city_choose_another)
+                views.emptyAction.setOnClickListener { showCityChooser() }
+            }
+
+            // The map's own words at the same instant, and its own button: the
+            // two screens are looking at the same phone and must not diagnose
+            // it differently (SPEC §7.1).
+            EmptyListOffer.ChooseCity -> {
+                views.emptyTitle.setText(R.string.map_needs_city_title)
+                views.emptyMessage.setText(R.string.map_needs_city_message)
+                views.emptyAction.setText(R.string.city_choose)
+                views.emptyAction.setOnClickListener { showCityChooser() }
+            }
+
+            EmptyListOffer.Refresh -> {
+                views.emptyTitle.setText(R.string.stations_empty_title)
+                views.emptyMessage.setText(R.string.stations_empty_message)
+                views.emptyAction.setText(R.string.action_refresh)
+                views.emptyAction.setOnClickListener { viewModel.refresh(force = true) }
+            }
+
+            EmptyListOffer.ClearSearch -> {
+                views.emptyTitle.setText(R.string.stations_no_match_title)
+                views.emptyMessage.text =
+                    getString(R.string.stations_no_match_message, state.query)
+                views.emptyAction.setText(R.string.action_clear_search)
+                views.emptyAction.setOnClickListener { views.searchInput.text?.clear() }
+            }
+        }
+    }
+
+    /**
+     * Offers the map, whatever stands behind this list (SPEC §7.6).
+     *
+     * It was offered only where the back stack was empty — where this list was
+     * the screen the application opened on, the map being reachable by the back
+     * gesture otherwise. The map's own way to the list puts a second list up
+     * rather than coming back to the first, so the stack was no longer empty and
+     * the button was gone, with nothing left but repeated back gestures to reach
+     * the map again. A way out that comes and goes with the depth of the stack is
+     * unpredictable to whoever is using it, which is worse than the duplicate
+     * screen that rule was written to avoid.
+     *
+     * Pressed, it **comes back to the map already behind** where there is one, so
+     * that pressing the two buttons in turn cannot stack map over list over map:
+     * every one of these transactions is named, which is what makes an existing
+     * map findable. Only with no map behind at all is one built.
+     */
+    private fun showWayToTheMap(views: FragmentStationListBinding) {
+        views.openMap.setOnClickListener {
+            val manager = parentFragmentManager
+            when (
+                screenBehind(
+                    MAP_BACK_STACK_ENTRY,
+                    STATION_LIST_BACK_STACK_ENTRY,
+                    manager.backStackEntryNames(),
+                )
+            ) {
+                ScreenBehind.Stacked -> manager.popBackStack(MAP_BACK_STACK_ENTRY, 0)
+
+                ScreenBehind.Underneath -> manager.popBackStack(
+                    STATION_LIST_BACK_STACK_ENTRY,
+                    FragmentManager.POP_BACK_STACK_INCLUSIVE,
+                )
+
+                ScreenBehind.Nowhere -> manager.beginTransaction()
+                    .replace(R.id.content, MapFragment())
+                    .addToBackStack(MAP_BACK_STACK_ENTRY)
+                    .commit()
+            }
+        }
+    }
+
+    /**
+     * Says something back about a gesture just made on this screen.
+     *
+     * Handed to the activity, which owns the one banner the screen has: put up
+     * from here it would be taken down by the next failed refresh without
+     * anything weighing the two, and with no network there is one of those
+     * every ten seconds (see `MainActivity.showMessage`).
+     *
+     * Every one of these answers a press of "nearest station first" — the
+     * permission refused, location switched off, no fix obtained, or a
+     * position outside the city being consulted — so they are all
+     * [MessageSubject.Answer], and they replace one another as the later of
+     * two answers should.
+     */
+    private fun showMessage(text: CharSequence) {
+        val host = activity as? MainActivity ?: return
+        host.showMessage(text, MessageSubject.Answer)
+    }
+
+    private fun hideKeyboard(view: View) {
+        val manager = requireContext().getSystemService(InputMethodManager::class.java)
+        manager?.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    /**
+     * Rewrites the age line, staleness included.
+     *
+     * Recomputed on every tick rather than frozen into the state: without that,
+     * a screen left open would go on announcing "updated just now" half an hour
+     * later. Before a network's first availability has arrived, a refresh
+     * under way is said as "loading" instead (SPEC §4.1).
+     */
+    private fun showFreshness(state: StationsUiState) {
+        val views = binding ?: return
+        val freshness = freshnessOf(state.fetchedAt, Instant.now())
+        views.freshness.text =
+            freshness.toStatusLine(requireContext(), freshness.isStale, state.isRefreshing)
+    }
+
+    private fun requireBinding(): FragmentStationListBinding =
+        checkNotNull(binding) { "view not created" }
+
+    private companion object {
+        /**
+         * The loop's cadence. Short enough for the displayed age to stay
+         * truthful, long enough to cost nothing: the repository, for its part,
+         * will only contact the network once a minute.
+         */
+        const val FRESHNESS_TICK_MILLIS = 10_000L
+    }
+}

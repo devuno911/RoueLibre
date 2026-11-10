@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Typographic tokens — SPEC.md §7.
+
+    Two families, each chosen for a precise reason.
+
+    · Bricolage Grotesque (SIL OFL) carries the figures and the titles. Bike
+      counts are the application's central information; they deserve letters
+      with character, and this grotesque has it — wide, open figures,
+      recognisable from a distance.
+
+    · Atkinson Hyperlegible (SIL OFL, Braille Institute of America) carries
+      everything else. It was drawn for low vision: the slashed zero, the
+      serifed "1" and the curved "l" are distinct from one another. For an
+      application read while walking, that is not an ornament.
+
+    Both are embedded in the APK: no font is downloaded, which would go
+    through a third-party service (SPEC §2, C2 and C3).
+
+    Bricolage is distributed as a variable font, but `fontVariationSettings`
+    only exists from API 28 on: on an Android 8 the requested weights would be
+    ignored and the titles would show thin. Two static instances are therefore
+    frozen at generation time, at the only weights used. Together they weigh
+    182 kB against 408 kB for the complete variable font — the compatibility
+    constraint also lightened the APK. See tools/README.md for the
+    regeneration command.
+
+    The figures are set in fixed pitch ("tnum") wherever they line up in a
+    column, so the list does not jitter on every refresh.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
+
+    <!--
+        How tightly a title's letters are set, in ems. A hundredth of an em is
+        the tightening Bricolage's wide, open letterforms ask for at title
+        size, and it belongs to the face: it is a decision about how these
+        drawings sit beside one another.
+
+        It is therefore withdrawn where the face does not draw the letters —
+        see values-ldrtl/type.xml, which explains what letter spacing does to
+        a cursive script and why the title then stopped fitting the width
+        Android had measured for it.
+    -->
+    <item name="title_letter_spacing" format="float" type="dimen">-0.01</item>
+
+    <!-- Screen and section titles. -->
+    <style name="TextAppearance.RoueLibre.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/bricolage_semibold</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:letterSpacing">@dimen/title_letter_spacing</item>
+    </style>
+
+    <!-- Body text, station names. -->
+    <style name="TextAppearance.RoueLibre.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">@font/atkinson</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <!-- Supporting information: distance, postcode, age of the data. -->
+    <style name="TextAppearance.RoueLibre.Secondary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/atkinson</item>
+        <item name="android:textSize">@dimen/text_secondary</item>
+        <item name="android:textColor">@color/ink_soft</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <!--
+        The application's name on the opening screen (SPEC §7.0). The title
+        face, one size above the title: alone on a green field under a 160dp
+        mark, the title size read as a caption. The colour changes too, this
+        text sitting on the identity's green and not on the theme's paper.
+    -->
+    <style name="TextAppearance.RoueLibre.Intro" parent="TextAppearance.RoueLibre.Title">
+        <item name="android:textSize">@dimen/text_intro</item>
+        <item name="android:textColor">@color/identity_ink</item>
+    </style>
+
+    <!-- Short labels, in spaced capitals. -->
+    <style name="TextAppearance.RoueLibre.Label" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">@font/atkinson</item>
+        <item name="android:textSize">@dimen/text_label</item>
+        <item name="android:textColor">@color/ink_soft</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <!--
+        The same label where the line carries a formatted value — a size, a
+        date — and not words alone.
+
+        Capitals are not neutral over a unit symbol. French writes a megabyte
+        "Mo" and a kilobyte "ko", and upper-cased they stop being symbols and
+        start being words: "10,8 MO" on the storage screen, beside a "9,1 Mo à
+        télécharger" set in ordinary text that had it right. English never
+        showed the fault, "MB" and "KB" being capitals already, which is how it
+        shipped.
+
+        The other way out was to cut the value away from the words around it
+        and shout only the words — but "%1$s installed on the device" would
+        then be two views and two strings, and the order of the two is the
+        translator's to choose, not the layout's. So the capitals go, on the
+        lines that carry a value and on no others: a label made of words alone
+        keeps them, the small spaced capitals being a decision of the project
+        rather than an accident.
+
+        Everything else is the parent's, letter spacing included, so a line
+        giving up its capitals keeps the size, the colour and the rhythm of the
+        labels standing beside it.
+    -->
+    <style name="TextAppearance.RoueLibre.Label.Value">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!--
+        Every piece of running text in the application, justified.
+
+        Hung on the theme's `android:textViewStyle` rather than written into
+        each layout: a paragraph that has to remember to ask for the house
+        setting is one that will eventually forget, and the same reasoning
+        already governs the button style below.
+
+        Justification only ever moves lines that have a line after them, so a
+        label, a station name or a figure — anything that fits on one line — is
+        left exactly as it was. What changes is the paragraphs: "about",
+        the welcome pages, the release notes.
+
+        Hyphenation comes with it, and is not decoration. Justifying without
+        it stretches the word spaces of a narrow column until rivers of white
+        run down the page, which on a phone held at arm's length is worse than
+        the ragged edge it replaced. Android turns hyphenation off by default,
+        for speed; here the text is short enough for that not to be a concern.
+    -->
+    <style name="Widget.RoueLibre.Text" parent="Widget.MaterialComponents.TextView">
+        <item name="android:justificationMode">inter_word</item>
+        <item name="android:hyphenationFrequency">normal</item>
+    </style>
+
+    <!--
+        A section title on the settings screen (SPEC §7.6).
+
+        The whole title — its face, its size and the air above it — is held
+        here rather than in the layout, because settings are due to arrive in
+        those sections one at a time and from different hands: placing one must
+        mean adding a view under the right title, never copying five attributes
+        and hoping they match the ones above.
+
+        The title face, not the small capitals a single setting's label is set
+        in: the screen carries two levels now, and a section has to win over
+        the setting it heads.
+
+        What is not here is the heading a screen reader jumps between: the
+        attribute that declares it, `android:accessibilityHeading`, arrived in
+        API 28 and would leave the two releases below that without it.
+        `SettingsSectionTitle`, the view this style dresses, sets it in code
+        instead, for every device the application runs on.
+    -->
+    <style name="Widget.RoueLibre.SettingsSection" parent="Widget.RoueLibre.Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_xl</item>
+        <item name="android:textAppearance">@style/TextAppearance.RoueLibre.Title</item>
+        <!-- Not justified, for the reason given under
+             `Widget.RoueLibre.SettingsLabel`: a heading that takes two lines
+             at the largest text sizes must not have the first of them spread
+             bank to bank. -->
+        <item name="android:justificationMode">none</item>
+    </style>
+
+    <!--
+        The main action button. Material rounds a filled button into a pill
+        through a shape role the theme's global radius override does not
+        reach — the same escape the toggle below had to close. Left alone, the
+        eight buttons that carry a screen's main action would be the only pills
+        in an interface whose one round element is the availability indicator,
+        and the signature would stop being a signature.
+
+        The style is hung on `materialButtonStyle` in the theme rather than
+        quoted screen by screen: a button that has to remember to ask for the
+        house shape is one that will eventually forget.
+    -->
+    <style name="Widget.RoueLibre.Button" parent="Widget.Material3.Button">
+        <item name="shapeAppearance">@style/ShapeAppearance.RoueLibre</item>
+        <item name="android:textAppearance">@style/TextAppearance.RoueLibre.Body</item>
+    </style>
+
+    <!--
+        A disc of the station list's thumb column (SPEC §7.6): the shape, the
+        size and the icon of the map's own, and another fill. The map's discs
+        take the surface because they stand on a map; this column stands on
+        rows of the surface, where a surface disc is no disc at all — an icon
+        floating over a station's name. So it takes the page's ground, one step
+        darker than the rows in both themes, and an outline to close it.
+    -->
+    <style name="Widget.RoueLibre.ListRailButton" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="android:layout_width">@dimen/touch_target_min</item>
+        <item name="android:layout_height">@dimen/touch_target_min</item>
+        <item name="backgroundTint">@color/paper</item>
+        <item name="iconTint">@color/ink</item>
+        <item name="strokeColor">@color/outline</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!--
+        The bikes / docks toggle. The default Material style colours the
+        active state with `colorSecondaryContainer`, a role the project's token
+        set does not use: rather than divert that role for the whole theme, the
+        toggle carries its own state lists.
+    -->
+    <style name="Widget.RoueLibre.Toggle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/toggle_background</item>
+        <item name="strokeColor">@color/toggle_stroke</item>
+        <item name="android:textColor">@color/toggle_text</item>
+        <item name="iconTint">@color/toggle_text</item>
+        <item name="android:textAppearance">@style/TextAppearance.RoueLibre.Body</item>
+        <!-- Material rounds its buttons into pills through a separate shape
+             role, which the global radius override does not reach. Without
+             this, the toggle would be the interface's second round element and
+             would steal the indicator's thunder. -->
+        <item name="shapeAppearance">@style/ShapeAppearance.RoueLibre</item>
+    </style>
+
+    <!--
+        One choice inside a row of choices — theme, units, the screen opened
+        on, one's own bike, the walking pace, the kind of bike wanted, bikes
+        against free docks. It dresses the buttons of `ToggleRow`, which is
+        what keeps their labels whole at every text size (SPEC §7).
+
+        Everything here is room for the label. Material sizes a button for a
+        sentence standing alone: 88dp of minimum width, 24dp of padding on
+        each side and an inset besides. In a row those figures are spent on
+        air — the width is the row's share whatever the button asks for, and
+        what the padding takes comes straight out of the letters. Reduced to
+        one rung of the spacing scale, they leave a three-across row on a
+        411 dp screen some 110 dp of writing instead of 62 dp, which is the
+        difference between "Système" written and "Syst…".
+
+        The layout parameters ride in the style rather than in each button
+        because a row is an all-or-nothing thing: a single button left at its
+        own width would take a share the others do not have, and the row would
+        be measured on a share nobody gets. `ToggleRow` rewrites the width and
+        the weight when it stacks, so what is here is the state it starts in.
+    -->
+    <style name="Widget.RoueLibre.Toggle.Choice">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:paddingStart">@dimen/space_xs</item>
+        <item name="android:paddingEnd">@dimen/space_xs</item>
+    </style>
+
+    <!--
+        The label naming one setting on the settings screen, in the small
+        capitals of `TextAppearance.RoueLibre.Label`.
+
+        What it adds to that face is the refusal of the justification the
+        theme gives every text view. Justifying only shows on a line that has
+        another after it, which a label of two or three words never had — until
+        the system's text size doubled and "WHICH STATIONS THE MAP SHOWS" took
+        two lines. Justified, its first line came out as four words spread bank
+        to bank with a hand's breadth between them, which reads as four labels
+        rather than one. Running text keeps its justification: a paragraph has
+        the lines to absorb it, a heading has not.
+    -->
+    <style name="Widget.RoueLibre.SettingsLabel" parent="Widget.RoueLibre.Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:justificationMode">none</item>
+        <item name="android:textAppearance">@style/TextAppearance.RoueLibre.Label</item>
+    </style>
+
+    <!--
+        A line that names one thing — a station, an address, a place picked on
+        the map, the file being downloaded, the map's attribution — as opposed
+        to a paragraph.
+
+        It refuses the two things the theme gives every text view, and for the
+        same reason `Widget.RoueLibre.SettingsLabel` refuses the first: both
+        only ever show on a line that has another after it, which a name never
+        had until the system's text size made it wrap. Justified, "Metropole
+        Europeenne de" comes out bank to bank with a hand's breadth between the
+        words and reads as three names rather than one. Hyphenated, the name is
+        no longer the name: "Metro-/pole" is not what is written on the station,
+        and station names carry hyphens of their own that a second one would be
+        read against. Running text keeps both — a paragraph has the lines to
+        absorb them.
+
+        It says nothing about the face, the size or the colour: those stay in
+        the layout's `textAppearance`, because these lines are not all set in
+        the same one — a name is body text, the line under it is secondary, the
+        attribution is a label.
+    -->
+    <style name="Widget.RoueLibre.Name" parent="Widget.RoueLibre.Text">
+        <item name="android:justificationMode">none</item>
+        <item name="android:hyphenationFrequency">none</item>
+    </style>
+
+    <!--
+        The search field. Like the toggle, it carries its own colours rather
+        than diverting Material roles for the whole theme.
+    -->
+    <style name="Widget.RoueLibre.SearchField"
+        parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/field_stroke</item>
+        <item name="boxStrokeWidth">@dimen/stroke</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxBackgroundColor">@color/surface</item>
+        <item name="hintTextColor">@color/signal</item>
+        <item name="android:textColorHint">@color/ink_soft</item>
+        <item name="endIconTint">@color/ink_soft</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.RoueLibre</item>
+    </style>
+
+    <!--
+        The availability indicator's figure has no style here: the view that
+        draws it paints straight onto the canvas, without a TextView, and reads
+        its size from @dimen/text_indicator. One more TextAppearance would be a
+        token nothing could apply.
+    -->
+
+</resources>

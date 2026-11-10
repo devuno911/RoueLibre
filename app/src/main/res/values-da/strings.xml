@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Danish translation.
+
+    A translation of `values/strings.xml`, which is the source (SPEC §9). It
+    serves the five Danish networks of the catalogue — Copenhagen, Aarhus,
+    Odense, Aalborg and Ballerup — and, like every other language here, any
+    other city the reader installs. Where Android's own Danish has a word, that
+    word is used; the arbiter is the phone itself.
+
+    Rules, the same as everywhere: positional placeholders, <plurals> for
+    anything that agrees, and the `name` attributes left untouched. Danish
+    distinguishes two plural categories, `one` and `other`.
+
+    The typography is Danish: quotation marks are » «, closing inwards, and
+    the dash that breaks a sentence is – with a space on either side rather
+    than the em dash the English file uses. Nothing needs escaping: no straight
+    apostrophe is written anywhere in the file. Compounds are written as one
+    word, which is what lengthens the labels; where a button could not carry
+    the literal translation it takes the shorter wording Android itself uses.
+    The reader is addressed as `du`, the only address modern Danish has, and
+    the impersonal turns of the English are kept impersonal.
+    See docs/glossary/da.md.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <!-- Main screen: the station list. -->
+    <string name="stations_title">Stationer</string>
+
+    <!-- The number of bikes available to borrow at a station. -->
+    <plurals name="bikes_available">
+        <item quantity="one">%1$d cykel</item>
+        <item quantity="other">%1$d cykler</item>
+    </plurals>
+
+    <!-- The number of free docks to return a bike to. -->
+    <plurals name="docks_available">
+        <item quantity="one">%1$d ledig plads</item>
+        <item quantity="other">%1$d ledige pladser</item>
+    </plurals>
+    <string name="docks_available_unlimited">Ledige pladser: ubegrænset</string>
+
+    <!-- Spoken by screen readers on a station's indicator.
+         Example: "Nørrebrogade, 6 cykler, 26 ledige pladser". -->
+    <string name="station_content_description">%1$s, %2$s, %3$s</string>
+    <string name="station_content_description_bikes_only">%1$s, %2$s</string>
+    <string name="station_out_of_service">Ude af drift</string>
+    <string name="station_out_of_service_since">%1$s · sidst meldt %2$s</string>
+    <string name="station_availability_unknown">Ukendt tilgængelighed</string>
+
+    <!-- What a station is called when its feed publishes no name for it and no
+         street to stand in for one. -->
+    <string name="station_unnamed">Station uden navn</string>
+
+    <!-- Shown for a station the network publishes outside the area its data
+         covers. The short form joins the rest of the row. -->
+    <string name="station_beyond_area_short">uden for kortet</string>
+    <string name="station_beyond_area">Denne station ligger uden for det område, de installerede data dækker. Dens cykler tælles med i realtid, men intet kort og ingen rute når frem til den.</string>
+
+    <string name="search_stations_hint">Søg efter en station</string>
+    <string name="search_stations_clear">Ryd søgningen</string>
+    <string name="stations_no_match_title">Ingen station fundet</string>
+    <string name="stations_no_match_message">Intet svarer til »%1$s«. Tjek stavemåden, eller ryd søgningen.</string>
+    <string name="action_clear_search">Ryd søgningen</string>
+
+    <string name="mode_bikes">Cykler</string>
+    <string name="mode_docks">Ledige pladser</string>
+
+    <!-- Which bikes the markers count, where the network lends both kinds
+         (SPEC §7.1). Named after what is shown, like the toggle beside it. -->
+    <string name="map_bikes_all_kinds">Alle cykler</string>
+    <string name="map_bikes_mechanical">Mekaniske</string>
+    <string name="map_bikes_electric">Elektriske</string>
+    <string name="map_bikes_all_kinds_description">Alle cykler tælles med. Tryk for kun at tælle de mekaniske.</string>
+    <string name="map_bikes_mechanical_description">Mekaniske cykler tælles med. Tryk for kun at tælle de elektriske.</string>
+    <string name="map_bikes_electric_description">Elektriske cykler tælles med. Tryk for at tælle dem alle.</string>
+    <!-- The label beside a count, on a station's sheet and on a list row. No
+         item holds a number, and none ever should: the figure is already
+         painted in the disc these words stand next to. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="one">cykel</item>
+        <item quantity="other">cykler</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="one">ledig plads</item>
+        <item quantity="other">ledige pladser</item>
+    </plurals>
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list. %1$s is the
+         distance to the station, or its postcode when the position is not
+         known. %2$d is the number of docking points. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="one">%1$s · %2$d stativplads</item>
+        <item quantity="other">%1$s · %2$d stativpladser</item>
+    </plurals>
+
+    <!-- What a station's bikes are, shown only where the network lends both
+         kinds side by side. The counts are elliptical: "4 mekaniske" stands
+         for "4 mekaniske cykler", so the adjective is inflected and carries no
+         noun — which is why the two categories differ here where English's do
+         not. -->
+    <string name="station_bikes_split">%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="one">%1$d mekanisk</item>
+        <item quantity="other">%1$d mekaniske</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="one">%1$d elektrisk</item>
+        <item quantity="other">%1$d elektriske</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">%1$d %%</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">Batteri %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">Cirka %1$s rækkevidde tilbage</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">Batteri %1$s til %2$s</string>
+    <string name="station_bikes_range_spread">Cirka %1$s til %2$s rækkevidde tilbage</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">Detaljer om cyklerne ved denne station</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">Netværket udgiver denne liste i sit eget feed, adskilt fra antallet ovenfor, og her modsiger de to hinanden. Roue Libre viser begge, som de er udgivet, i stedet for at vælge mellem dem.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">Reserveret</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="one">%1$d cykel ude af drift</item>
+        <item quantity="other">%1$d cykler ude af drift</item>
+    </plurals>
+
+    <!-- How old the availability is. Lower-cased and carrying its own "for …
+         siden": it is always read inside `freshness_fresh` or `freshness_stale`
+         — "Opdateret lige nu", "Forældede data · for 5 minutter siden". -->
+    <string name="freshness_just_now">lige nu</string>
+    <plurals name="freshness_seconds">
+        <item quantity="one">for %1$d sekund siden</item>
+        <item quantity="other">for %1$d sekunder siden</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="one">for %1$d minut siden</item>
+        <item quantity="other">for %1$d minutter siden</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="one">for %1$d time siden</item>
+        <item quantity="other">for %1$d timer siden</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="one">for %1$d dag siden</item>
+        <item quantity="other">for %1$d dage siden</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="one">for %1$d måned siden</item>
+        <item quantity="other">for %1$d måneder siden</item>
+    </plurals>
+    <string name="freshness_stale">Forældede data · %1$s</string>
+    <string name="freshness_fresh">Opdateret %1$s</string>
+    <string name="freshness_never">Aldrig opdateret</string>
+    <string name="freshness_loading">Indlæser stationer…</string>
+
+    <string name="stations_empty_title">Ingen stationer indlæst</string>
+    <string name="stations_empty_message">Træk listen ned for at hente netværkets stationer.</string>
+    <string name="action_refresh">Opdater</string>
+    <string name="action_retry">Prøv igen</string>
+
+    <string name="map_open_list">Se listen over stationer</string>
+    <string name="map_description">Kort. Træk med to fingre for at flytte det, knib med to fingre for at zoome ind eller ud, drej med to fingre for at rotere det, og før to fingre op eller ned for at vippe det.</string>
+    <string name="map_attribution">© OpenStreetMap-bidragydere</string>
+    <string name="map_locate_me">Find min position</string>
+    <string name="map_locating">Finder din position…</string>
+    <string name="map_location_denied">Uden lokation skal du vælge dit startpunkt på kortet eller ved adresse.</string>
+    <string name="map_location_unavailable">Positionen er ikke tilgængelig. Tjek, at lokation er slået til, og prøv igen.</string>
+    <string name="map_outside_city_title">Du er et andet sted</string>
+    <string name="map_outside_city_message">Din position ligger uden for det område, %1$s dækker, så dette kort kan ikke vise den. Vælg den by, du er i, for at se dens stationer.</string>
+    <string name="map_outside_city_brief">Din position ligger uden for det område, %1$s dækker.</string>
+    <!-- Named after the dataset the storage screen calls "Kortdata", so the
+         title and the screen it sends the reader to say the same word. -->
+    <string name="map_needs_tiles_title">Kortdataene mangler</string>
+    <string name="map_needs_tiles_message">Installer kortdataene fra skærmen Lagerplads. Indtil da er stationslisten stadig brugbar.</string>
+    <string name="map_downloading_title">Kortet downloades</string>
+    <string name="map_downloading_message">Det vises her, så snart det er installeret. Indtil da er stationslisten stadig brugbar.</string>
+    <string name="map_needs_city_title">Hvilken by?</string>
+    <string name="map_needs_city_message">Vælg det byområde, du vil bruge. Dets data hentes bagefter, én gang for alle.</string>
+    <string name="map_city_withdrawn_title">Netværket er ikke længere tilgængeligt</string>
+    <string name="map_city_withdrawn_message">%1$s er ikke længere tilgængeligt, og stationerne vises ikke længere. Vælg en anden by. De data, det har efterladt på denne enhed, kan slettes fra listen over byer.</string>
+    <string name="map_city_withdrawn_message_unnamed">Det netværk, du valgte, er ikke længere tilgængeligt, og stationerne vises ikke længere. Vælg en anden by. De data, det har efterladt på denne enhed, kan slettes fra listen over byer.</string>
+    <string name="map_city_newer_version_message">%1$s er tilgængeligt i en nyere version af appen, og stationerne vises ikke i denne version. Opdater appen, eller vælg en anden by.</string>
+    <string name="city_choose_another">Vælg en anden by</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">Vend mod nord, og læg kortet fladt</string>
+    <plurals name="map_bearing_description">
+        <item quantity="one">Kortet er drejet %1$d grad fra nord.</item>
+        <item quantity="other">Kortet er drejet %1$d grader fra nord.</item>
+    </plurals>
+    <string name="map_tilted_description">Kortet er vippet.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="one">Kortet er drejet %1$d grad fra nord og vippet.</item>
+        <item quantity="other">Kortet er drejet %1$d grader fra nord og vippet.</item>
+    </plurals>
+
+    <!-- The welcome carousel, shown once on first launch. -->
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">Denne app viser delecykler på et kort og beregner en rejse fra dør til dør: gå til en station, cykl, og gå det sidste stykke.\n\nDen er gratis og open source. Ingen konto, ingen reklamer, ingen tracker.</string>
+    <string name="welcome_privacy_title">Intet forlader denne telefon</string>
+    <string name="welcome_privacy_body">Rejser beregnes på denne telefon. De adresser, du slår op, sendes ikke til nogen, heller ikke mens du skriver.\n\nDer gemmes ingen historik: hverken dine rejser, dine positioner eller dine destinationer.\n\nDen eneste forespørgsel, der går ud i daglig brug, spørger, hvor mange cykler der er ledige.</string>
+    <string name="welcome_fleet_title">Hvad cyklen fortæller</string>
+    <string name="welcome_fleet_body">Den tegnede cykel fortæller, hvad din by udlåner.\n\nDet læses fra netværkets eget feed og gættes aldrig.</string>
+    <string name="welcome_fleet_mechanical_only">Netværket udlåner kun mekaniske cykler.</string>
+    <string name="welcome_fleet_electric_only">Netværket udlåner kun elektriske cykler.</string>
+    <string name="welcome_fleet_mixed">Netværket udlåner begge slags.</string>
+
+    <string name="welcome_data_title">Én by, én download</string>
+    <string name="welcome_data_body">Kortet, vejene og ruteberegningen ligger på enheden. Det er det, der får dem til at virke uden internet – og det betyder, at din bys data skal hentes én gang.\n\nSå begynd med at vælge den. Regn med omkring fyrre megabyte for et mellemstort byområde, mere for en hovedstad; størrelsen oplyses, før der hentes.\n\nDu kan også gøre det senere: indtil da er stationslisten og tilgængeligheden stadig brugbar.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">%1$d af %2$d</string>
+    <string name="welcome_continue">Fortsæt</string>
+    <string name="welcome_skip">Spring over</string>
+    <string name="welcome_choose_city">Vælg min by</string>
+    <string name="welcome_later">Senere</string>
+    <string name="welcome_open">Læs introduktionen igen</string>
+
+    <string name="whats_new_title">Nyheder</string>
+    <string name="whats_new_done">Fortsæt</string>
+    <string name="whats_new_nothing">Denne version har ingen udgivelsesnoter.</string>
+    <string name="whats_new_open">Se nyhederne</string>
+
+    <!-- A place handed over by another application. -->
+    <string name="incoming_place_default_label">Modtaget sted</string>
+    <string name="incoming_show_me">Vis</string>
+    <string name="incoming_needs_index">Denne adresse skal slås op i adresseindekset, som ikke er installeret.</string>
+    <string name="incoming_address_not_found">»%1$s« svarer ikke til nogen adresse i det dækkede område.</string>
+    <string name="incoming_address_choices_title">Mente du en af disse adresser?</string>
+    <string name="incoming_address_choice">%1$s\n%2$s</string>
+    <string name="incoming_outside_coverage">Dette sted ligger uden for det område, de installerede data dækker: ingen rejse kan nå dertil.</string>
+    <string name="incoming_unreadable_link">Dette link siger ikke, hvor man skal hen: stedet i det kunne ikke læses.</string>
+
+    <string name="favourites_title">Favoritter</string>
+    <string name="stations_all_title">Alle stationer</string>
+    <string name="stations_favourites_reorder">Omarranger</string>
+    <string name="stations_favourites_fold">Skjul favoritter</string>
+    <string name="stations_favourites_unfold">Vis favoritter</string>
+    <string name="favourites_reorder_hint">Hold en række nede for at flytte den.</string>
+
+    <string name="settings_title">Indstillinger</string>
+    <string name="settings_open">Indstillinger</string>
+    <!-- The section titles of the settings screen (SPEC §7.6), in the order
+         the screen lays them out. -->
+    <string name="settings_section_city">By</string>
+    <string name="settings_section_journey">Rejse</string>
+    <string name="settings_section_display">Skærm</string>
+    <string name="settings_section_data">Offlinedata</string>
+
+    <!-- The walking pace (SPEC §6, §7.6). A pace, never a speed: "tempo" is
+         something one knows about oneself, "hastighed" is a figure nobody has
+         measured about themselves. The three labels are neuter, agreeing with
+         the "tempo" they answer. -->
+    <string name="settings_walking_pace_title">Gangtempo</string>
+    <string name="settings_walking_pace_slow">Langsomt</string>
+    <string name="settings_walking_pace_normal">Normalt</string>
+    <string name="settings_walking_pace_brisk">Raskt</string>
+    <string name="settings_walking_pace_description">Det tempo, gåstrækningerne i en rejse beregnes efter</string>
+
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_theme_light">Lyst</string>
+    <string name="settings_theme_dark">Mørkt</string>
+
+    <!-- Units (SPEC 7.6). The buttons name the units rather than the
+         countries. -->
+    <string name="settings_units_title">Enheder</string>
+    <string name="settings_units_system">System</string>
+    <string name="settings_units_metric">m · km</string>
+    <string name="settings_units_us">ft · mi</string>
+    <string name="settings_units_uk">yd · mi</string>
+    <string name="settings_units_description">Enheder til afstande</string>
+    <string name="settings_units_system_description">Følg den region, enheden er indstillet til</string>
+    <string name="settings_units_metric_description">Meter og kilometer</string>
+    <string name="settings_units_us_description">Fod og miles</string>
+    <string name="settings_units_uk_description">Yard og miles</string>
+
+    <string name="about_title">Om appen</string>
+    <string name="about_open">Om appen</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_privacy_title">Privatliv</string>
+    <string name="about_privacy_body">Ingen konto, ingen reklamer, ingen tracker, intet unikt id. Intet af det, du søger efter eller beregner, forlader denne telefon: adresser, rejser og din position bliver her og gemmes ikke. Den eneste forespørgsel, der går ud i daglig brug, henter cyklernes tilgængelighed. Datasæt hentes kun, når du beder om det.</string>
+    <string name="about_attributions_title">Datakilder</string>
+    <string name="about_attribution_gbfs">Cyklernes tilgængelighed: åbne data fra det netværk, der betjenes, udgivet i GBFS-formatet. I Frankrig er de indekseret på transport.data.gouv.fr.</string>
+    <string name="about_attribution_osm">Kort, ruteberegning og landemærker: © OpenStreetMap-bidragydere, ODbL-licens.</string>
+    <string name="about_attribution_ban">Adresser og husnumre: Base Adresse Nationale, ODbL-licens.</string>
+    <string name="about_attribution_geonames">Kommunenavne: GeoNames, CC BY 4.0-licens.</string>
+    <string name="about_attribution_brouter">Ruteberegning: BRouter, MIT-licens, på OpenStreetMap-data.</string>
+    <string name="about_attribution_maplibre">Kortgengivelse: MapLibre Native, BSD-licens med to klausuler.</string>
+    <string name="about_links_title">Åbning af et sted fra en anden app</string>
+    <string name="about_links_body">»geo:«-links og adresser, der deles som almindelig tekst, kommer direkte hertil: vælg Roue Libre i Androids vælger. Links fra kortwebsteder kræver tilladelse: Indstillinger → Apps → Roue Libre → Åbn som standard → Tilføj link.</string>
+    <string name="about_licence_title">Licens</string>
+    <string name="about_licence_body">Roue Libre er fri software, udgivet under GNU GPL version 3. Du må bruge den, studere den, ændre den og give den videre.</string>
+    <string name="about_open_repository">Se kildekoden</string>
+    <string name="about_open_sources">Kilder by for by</string>
+    <string name="about_open_licences">Komponenternes licenser</string>
+    <string name="donate_open">Donér via Liberapay</string>
+
+    <string name="sources_title">Datakilder</string>
+    <string name="sources_intro">Tilgængeligheden kommer fra hver bys netværk, som åbne data. Her kan du se, hvem der producerer dem, også for de byer, du ikke har installeret.</string>
+    <string name="sources_open">Åbn kilden</string>
+    <string name="about_licences_title">Licenser</string>
+    <string name="about_no_browser">Der er ingen browser installeret på denne enhed.</string>
+
+    <!-- The journey: the whole door-to-door thing, walk then ride then walk.
+         One word throughout, "rejse", the way a Danish travel planner names a
+         door-to-door trip. The bike leg alone is a "cykeltur". -->
+    <string name="journey_title">Rejse</string>
+    <string name="journey_open">Planlæg en rejse</string>
+    <string name="journey_origin_empty">Hvorfra?</string>
+    <string name="journey_destination_empty">Hvorhen?</string>
+    <string name="journey_choose_origin">Hvorfra?</string>
+    <string name="journey_choose_destination">Hvorhen?</string>
+    <string name="journey_swap">Byt om på start og destination</string>
+    <string name="journey_hint">Rejsen beregnes på enheden: gå til en station, cykl, og gå det sidste stykke.</string>
+    <!-- The switch that leaves the network out of the journey, and the sentence
+         that replaces the one above it when it is on (SPEC §7.3). -->
+    <string name="journey_own_bike">På min egen cykel</string>
+    <string name="journey_hint_own_bike">Rejsen beregnes på enheden: én cykeltur fra dør til dør, uden station undervejs.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">Cykel uden for stationerne</string>
+    <string name="journey_origin_street_bike_locked">Rejsen begynder på den cykel, du valgte.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">Rejsen beregnes på enheden: cykl herfra, stil cyklen på en station, og gå det sidste stykke.</string>
+
+    <!-- Which bike one wants to ride (SPEC §7.3). -->
+    <string name="journey_bike_kind_any">Enhver cykel</string>
+    <string name="journey_bike_kind_mechanical">Mekanisk</string>
+    <string name="journey_bike_kind_electric">Elektrisk</string>
+    <string name="journey_bike_kind_any_description">Enhver cykel, uanset slags</string>
+    <string name="journey_bike_kind_mechanical_description">En cykel, jeg selv træder</string>
+    <string name="journey_bike_kind_electric_description">En elcykel med pedalassistance</string>
+    <string name="journey_compute">Beregn rejsen</string>
+    <string name="journey_computing">Beregner den bedste rejse…</string>
+    <!-- Nothing is being chosen here – one route to trace, not a pair of
+         stations to weigh – so the wait does not claim to look for the best of
+         anything. -->
+    <string name="journey_computing_own_bike">Beregner cykelturen…</string>
+    <string name="journey_source_home">Hjem</string>
+    <string name="journey_source_work">Arbejde</string>
+    <string name="journey_source_my_position">Min position</string>
+    <string name="journey_locating">Finder din position…</string>
+    <string name="journey_source_favourite">En favoritstation</string>
+    <string name="journey_source_on_map">Et punkt på kortet</string>
+    <string name="journey_no_favourite">Ingen favoritstation endnu. Åbn en station, og tryk på stjernen for at tilføje den.</string>
+    <string name="journey_pick_crosshair">Markeret punkt</string>
+    <string name="journey_pick_confirm">Vælg dette punkt</string>
+    <string name="journey_picked_point">Punkt på kortet</string>
+    <string name="journey_frame">Vis hele rejsen</string>
+
+    <string name="journey_summary">heraf %1$s til fods og %2$s på cykel · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. -->
+    <string name="journey_climb">%1$s stigning</string>
+    <!-- What waits at the station one sets off from (SPEC §7.4). -->
+    <string name="journey_bikes_at_departure">%1$s på startstationen</string>
+    <!-- The block holding the total time, the summary and the drawing opens
+         the journey in full, announced to a screen reader. -->
+    <string name="journey_detail_open">Vis rejsen i detaljer</string>
+    <string name="journey_detail_title">Rejsen i detaljer</string>
+    <string name="journey_detail_departure_station">Startstation</string>
+    <string name="journey_detail_arrival_station">Ankomststation</string>
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">Cykelturen, op og ned</string>
+    <!-- Read out in place of the drawing. -->
+    <string name="journey_detail_profile_description">Cykelturen stiger %1$s, mellem %2$s og %3$s over havets overflade.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">Cykelturen forløber mellem %1$s og %2$s over havets overflade.</string>
+    <string name="journey_detail_availability_note">Cykler og ledige pladser, som de var, da rejsen blev beregnet.</string>
+    <string name="journey_detail_availability_note_bikes">Cykler, som de var, da rejsen blev beregnet.</string>
+    <!-- Hands one leg of the journey to another application: this one computes
+         journeys, it does not guide along them. -->
+    <string name="journey_navigate">Åbn i en navigationsapp</string>
+    <string name="journey_navigate_which">Hvilken del af rejsen?</string>
+    <string name="journey_step_to_station">Gå til %1$s</string>
+    <string name="journey_step_ride">Cykl til %1$s</string>
+    <string name="journey_step_ride_electric_description">Cykl til %1$s på elcykel</string>
+    <string name="journey_step_ride_mechanical_description">Cykl til %1$s på mekanisk cykel</string>
+    <string name="journey_step_to_destination">Gå til destinationen</string>
+    <string name="journey_step_walk_all">Gå til destinationen</string>
+    <string name="journey_step_ride_all">Cykl til destinationen</string>
+    <!-- The summary of a journey ridden on one's own bike: it sits under the
+         total time and says how far, and how much of it goes up. -->
+    <string name="journey_own_bike_only">på din egen cykel, over %1$s.</string>
+    <string name="journey_own_bike_only_climb">på din egen cykel, over %1$s og %2$s stigning.</string>
+    <string name="journey_walk_only">til fods, over %1$s – det kan ikke lade sig gøre på cykel her.</string>
+    <string name="journey_walk_only_climb">til fods, over %1$s og %2$s stigning – det kan ikke lade sig gøre på cykel her.</string>
+    <string name="journey_walk_is_quicker">til fods, over %1$s – hurtigere end at gå hen og hente en cykel.</string>
+    <string name="journey_walk_is_quicker_climb">til fods, over %1$s og %2$s stigning – hurtigere end at gå hen og hente en cykel.</string>
+    <string name="journey_none_title">Ingen rejse</string>
+    <string name="journey_no_bike_nearby">Ingen station med en cykel i nærheden af starten. Prøv igen senere, eller start et andet sted fra.</string>
+
+    <string name="journey_no_mechanical_nearby">Ingen station i nærheden har en mekanisk cykel lige nu. Vælg »Enhver cykel«, eller prøv igen senere.</string>
+    <string name="journey_no_electric_nearby">Ingen station i nærheden har en elektrisk cykel lige nu. Vælg »Enhver cykel«, eller prøv igen senere.</string>
+    <string name="journey_no_dock_nearby">Ingen station med en ledig plads i nærheden af destinationen. Prøv igen senere, eller vælg en anden destination.</string>
+    <string name="journey_no_return_nearby">Ingen station i nærheden af destinationen tager imod cykler lige nu. Prøv igen senere, eller vælg en anden destination.</string>
+    <!-- The line on the ground, not the planned journey: "rute" and never
+         "rejse". -->
+    <string name="journey_no_route">Ingen farbar rute mellem disse to punkter.</string>
+    <string name="journey_graph_missing">Rutedataene er ikke installeret. Tilføj dem fra skærmen Lagerplads.</string>
+    <string name="journey_outside_coverage">Dette punkt ligger uden for det område, de installerede data dækker.</string>
+    <string name="journey_outside_coverage_start">Startpunktet ligger uden for det område, de installerede data dækker. Start fra et sted inden for det.</string>
+    <string name="journey_outside_coverage_destination">Destinationen ligger uden for det område, de installerede data dækker. Sigt efter et sted inden for det.</string>
+    <string name="journey_outside_coverage_both">Ingen af de to ender ligger inden for det område, de installerede data dækker. Installer data for den by, du rejser i.</string>
+    <string name="journey_no_stations">Ingen station kendt. Opdater stationslisten, og prøv igen.</string>
+
+    <!-- "t" is how Danish abbreviates the hour: "1 t 05". It is the one unit
+         symbol this file changes. -->
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d t %2$02d</string>
+
+    <!-- A station's capacity: the same object as a free dock, counted as a
+         total, and a different word so the two figures cannot be read as one. -->
+    <plurals name="docks_total">
+        <item quantity="one">%1$d stativplads</item>
+        <item quantity="other">%1$d stativpladser</item>
+    </plurals>
+    <string name="station_capacity_and_age">%1$s · %2$s</string>
+    <string name="station_address_nearby">Nær %1$s</string>
+    <string name="station_favourite_add">Føj til favoritter</string>
+    <string name="station_favourite_remove">Fjern fra favoritter</string>
+    <!-- The only two buttons of the application placed side by side on one
+         row: both are kept as short as Danish allows, and as a pair. -->
+    <string name="station_as_origin">Herfra</string>
+    <string name="station_as_destination">Hertil</string>
+    <string name="station_open_in_navigation">Åbn i en navigationsapp</string>
+    <string name="station_no_navigation_app">Der er ingen kort-app installeret på denne enhed.</string>
+
+    <string name="address_search_title">Søg efter en adresse</string>
+    <!-- The Danish order, street before number, which is also the order a
+         Danish address is printed in. No postcode is invited: a Danish one has
+         four digits, and the parser only strips one written as five, so "2200"
+         would be read as a second number and the house number given up
+         (SPEC §4.3). -->
+    <string name="address_search_hint">Vejnavn, nummer, by</string>
+    <string name="address_search_clear">Ryd søgningen</string>
+    <string name="address_search_privacy">Al søgning foregår på enheden. Intet sendes, heller ikke mens du skriver.</string>
+    <!-- The supporting line's place: %1$s is the postcode, %2$s the
+         municipality — "2200 København N", which is the Danish order too. -->
+    <string name="address_locality">%1$s %2$s</string>
+    <string name="address_detail">%1$s · %2$s</string>
+    <string name="address_detail_approximate">%1$s · omtrentlig position</string>
+    <string name="address_content_description">%1$s, %2$s</string>
+    <string name="address_search_prompt_title">Hvor skal du hen?</string>
+    <!-- "Stations" here means railway stations, which Danish has to say in
+         full: a bike-share station is a "station" too. -->
+    <string name="address_search_prompt_message">Skriv et vejnavn, med eller uden nummer. Du kan også søge efter togstationer, universiteter og store torve.</string>
+    <!-- Shown while a search runs and the screen has nothing else to show. -->
+    <string name="address_searching_title">Søger…</string>
+    <string name="address_searching_message">Gennemsøger de adresser, der er installeret på denne enhed.</string>
+    <string name="address_no_match_title">Ingen adresse fundet</string>
+    <string name="address_no_match_message">Intet svarer til »%1$s«. Prøv vejnavnet alene, eller tilføj byen.</string>
+    <string name="address_needs_index_title">Søgningen kræver adresseindekset</string>
+    <string name="address_needs_index_message">Installer indekset fra skærmen Lagerplads. Det bliver på enheden og går aldrig ud på nettet.</string>
+    <string name="address_unreadable_title">Adresseindekset kan ikke læses</string>
+    <string name="map_picked_place_description">%1$s. Tryk for at se, hvad du kan gøre med dette sted.</string>
+
+    <string name="place_sheet_title">Dette sted</string>
+    <string name="place_clear">Ryd dette punkt</string>
+
+    <!-- Distances, formatted through the localisation APIs (SPEC §9). %1$s is
+         a figure already rounded and already written in the interface's
+         language: the translation places the symbol, never the number. -->
+    <string name="distance_metres">%1$s m</string>
+    <string name="distance_kilometres">%1$s km</string>
+    <!-- The symbols of the two imperial systems. Danish writes them as they
+         stand. -->
+    <string name="distance_feet">%1$s ft</string>
+    <string name="distance_yards">%1$s yd</string>
+    <string name="distance_miles">%1$s mi</string>
+    <string name="action_back">Tilbage</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">By</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">Netværk i brug: %1$s</string>
+    <string name="city_choose">Vælg min by</string>
+    <string name="city_intro">Vælg det byområde, du vil bruge. Dets data installeres bagefter, én gang for alle.</string>
+    <string name="city_locate_me">Find min by</string>
+    <string name="city_active">I brug</string>
+    <plurals name="city_detail">
+        <item quantity="one">%1$d station · %2$s at hente</item>
+        <item quantity="other">%1$d stationer · %2$s at hente</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="one">%1$d station</item>
+        <item quantity="other">%1$d stationer</item>
+    </plurals>
+    <string name="city_detail_size_only">%1$s at hente</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="one">%1$d station · størrelsen oplyses før download</item>
+        <item quantity="other">%1$d stationer · størrelsen oplyses før download</item>
+    </plurals>
+    <string name="city_size_unknown">Størrelsen oplyses før download</string>
+    <string name="city_needs_newer_version">Ikke tilgængelig i denne version af appen</string>
+    <string name="city_installed">%1$s installeret på enheden</string>
+    <string name="city_label">%1$s – %2$s</string>
+    <string name="city_delete">Slet</string>
+    <!-- %1$s is the network's name, which is rarely the city's: "Donkey
+         Republic", "nextbike". Nothing here calls it a city. -->
+    <string name="city_delete_description">Slet dataene for %1$s</string>
+    <string name="city_delete_title">Vil du slette disse data?</string>
+    <string name="city_delete_body">Alle offlinedata for %1$s slettes. Du skal hente dem igen for at kunne bruge dem.</string>
+    <string name="city_withdrawn">Ikke længere tilgængelig</string>
+    <string name="city_withdrawn_delete_body">Alle offlinedata for %1$s slettes. Netværket er ikke længere tilgængeligt, så dataene kan ikke længere bruges til noget.</string>
+    <string name="city_delete_confirm">Slet</string>
+    <string name="city_deleted">Data for %1$s slettet</string>
+    <string name="city_search_hint">Søg efter en by</string>
+    <string name="city_search_clear">Ryd søgningen</string>
+    <string name="city_country_filter">Land</string>
+    <string name="city_country_all">Alle lande</string>
+    <string name="city_no_match_title">Ingen by fundet</string>
+    <string name="city_no_match_message">Intet svarer til »%1$s«. Tjek stavemåden, eller ryd søgningen.</string>
+    <string name="city_no_match_in_country">Ingen by i det valgte land, %2$s, svarer til »%1$s«. Andre lande har nogle.</string>
+    <string name="city_proposal_title">Din by</string>
+    <!-- Shown when the position says one is in another served conurbation than the one installed. -->
+    <string name="city_here_title">Du er i en anden by</string>
+    <string name="city_here_body">%1$s betjener det område, du er i. Installer dets data for at se dets stationer og beregne rejser her.</string>
+    <string name="city_here_installed_body">%1$s betjener det område, du er i, og dets data ligger allerede på enheden.</string>
+    <string name="city_here_install">Installer dets data</string>
+    <string name="city_here_use">Brug det</string>
+    <string name="city_proposal_body">Du ser ud til at være i det område, %1$s dækker. Skal vi bruge det?</string>
+    <string name="city_proposal_accept">Ja</string>
+    <string name="city_none_nearby">Intet kendt netværk i nærheden. Vælg en by på listen.</string>
+    <string name="city_location_denied">Uden placering kan du vælge din by på listen eller søge efter den ved navn.</string>
+    <string name="action_cancel">Annuller</string>
+
+    <string name="size_bytes">%1$s B</string>
+    <string name="size_kilobytes">%1$s kB</string>
+    <string name="size_megabytes">%1$s MB</string>
+    <string name="size_gigabytes">%1$s GB</string>
+
+    <string name="storage_title">Lagerplads</string>
+    <string name="storage_open">Administrer offlinedata</string>
+    <string name="storage_intro">Kortet, rejseplanlægningen og adressesøgningen virker uden internet. De har brug for tre datasæt, der installeres én gang.</string>
+    <string name="storage_total">%1$s brugt på denne enhed</string>
+    <string name="storage_nothing_installed">Ingen data installeret</string>
+    <string name="storage_no_city">Ingen by valgt</string>
+    <string name="city_withdrawn_label">%1$s · ikke længere tilgængelig</string>
+    <string name="city_newer_version_label">%1$s · kræver opdatering</string>
+
+    <string name="dataset_tiles">Kortdata</string>
+    <string name="dataset_tiles_purpose">Tegner kortet uden internet</string>
+    <string name="dataset_routing">Rutedata</string>
+    <string name="dataset_routing_purpose">Beregner rejser på enheden</string>
+    <string name="dataset_addresses">Adresseindeks</string>
+    <string name="dataset_addresses_purpose">Søger efter veje uden at sende noget</string>
+
+    <string name="storage_check_updates">Søg efter opdateringer</string>
+    <string name="storage_checking">Læser manifestet…</string>
+    <string name="storage_up_to_date">Alt er opdateret.</string>
+    <string name="storage_download_pending">Hent %1$s</string>
+    <string name="storage_download_starting">Starter downloaden…</string>
+    <string name="storage_downloading">%1$s · %2$s af %3$s</string>
+    <string name="storage_download_failed">%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">De offentliggjorte data tilhører %1$s, ikke %2$s. Der er ikke hentet noget: du ville have fået kort og adresser for en anden by.</string>
+    <string name="storage_wifi_warning">Du er ikke på Wi-Fi. Denne download kan tære hårdt på et mobilabonnement.</string>
+    <string name="dataset_update_available">Opdatering tilgængelig</string>
+    <string name="dataset_download_failed">Download mislykkedes. %1$s</string>
+
+    <string name="dataset_absent">Ikke installeret</string>
+    <string name="dataset_installed">%1$s · %2$s</string>
+    <string name="dataset_import">Importer en fil</string>
+    <string name="dataset_replace">Erstat med en fil</string>
+    <string name="dataset_delete">Slet</string>
+    <string name="dataset_delete_description">Slet %1$s</string>
+    <string name="dataset_delete_title">Vil du slette disse data?</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">Datasættet »%1$s« slettes, hvilket frigør %2$s. Du skal hente det igen for at arbejde offline.</string>
+    <!-- The participle does not agree: "installeret" and "slettet" stand
+         unchanged after each of the three dataset names, which are neuter or
+         plural besides. -->
+    <string name="dataset_imported">%1$s installeret</string>
+    <string name="dataset_deleted">%1$s slettet</string>
+
+    <string name="dataset_rejected_empty">Den valgte fil er tom.</string>
+    <string name="dataset_rejected_format">Dette er ikke den forventede fil. Vælg filen »%1$s«, som genereringsscripterne laver.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">Denne fil er hverken »%1$s« eller andre data, som appen læser. Vælg filen »%2$s«, som genereringsscripterne laver.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">Denne fil er »%1$s«, ikke »%2$s«. Importér den på dens egen linje.</string>
+    <string name="dataset_rejected_version">Denne fil er i formatversion %1$d, og denne version af appen læser version %2$d. Opdater appen.</string>
+    <string name="dataset_rejected_checksum">Filen svarer ikke til sin kontrolsum: den er ufuldstændig eller beskadiget. Hent den igen.</string>
+    <string name="dataset_rejected_transfer">Kopieringen af filen mislykkedes. Tjek den ledige lagerplads, og prøv igen.</string>
+
+    <string name="error_offline">Ingen forbindelse. Den senest kendte tilgængelighed bliver stående på skærmen.</string>
+    <string name="error_offline_no_availability">Ingen forbindelse. Der er endnu ikke modtaget nogen tilgængelighed, så der er intet at vise.</string>
+    <!-- The same failures read on the storage screen, where a dataset transfer
+         failed rather than an availability refresh. Those files come down
+         resumably (SPEC §4.4), which is what each of these says. -->
+    <string name="error_offline_download">Ingen forbindelse. Tryk på »Hent«, når du er online igen, for at fortsætte, hvor downloaden slap.</string>
+    <string name="error_timeout_download">Serveren svarer ikke. Tryk på »Hent« senere for at fortsætte, hvor downloaden slap.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">Serverfejl (%1$d). Tryk på »Hent« senere for at fortsætte, hvor downloaden slap.</string>
+    <string name="error_untrusted_server_download">Ugyldigt sikkerhedscertifikat. Tryk på »Hent«, når det er fornyet, for at fortsætte.</string>
+    <string name="error_malformed_download">Der blev modtaget en ulæselig fil. Tryk på »Hent« senere for at fortsætte, hvor downloaden slap.</string>
+    <string name="error_local_storage_download">Filen kunne ikke gemmes. Frigør plads, og tryk så på »Hent« for at fortsætte.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">Ingen forbindelse. Der blev ikke tjekket noget. Prøv igen, når du er online.</string>
+    <string name="error_timeout_check">Serveren svarer ikke. Der blev ikke tjekket noget. Prøv igen om lidt.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">Serverfejl (%1$d). Der blev ikke tjekket noget. Prøv igen senere.</string>
+    <string name="error_untrusted_server_check">Ugyldigt sikkerhedscertifikat. Der kan ikke tjekkes noget, før det er fornyet.</string>
+    <string name="error_malformed_check">Den offentliggjorte dataliste kan ikke læses. Der blev ikke tjekket noget. Prøv igen senere.</string>
+    <string name="error_local_storage_check">Kan ikke læse de data, der er gemt på enheden. Der var intet at sammenligne med.</string>
+    <string name="error_timeout">Netværkets server er for lang tid om at svare. Prøv igen om lidt.</string>
+    <string name="error_server_refused">Netværkets server returnerede en fejl (%1$d). Prøv igen senere.</string>
+    <string name="error_untrusted_server">Netværkets server viste et ugyldigt sikkerhedscertifikat. Data derfra kan ikke hentes sikkert, før operatøren fornyer det.</string>
+    <string name="error_malformed">De modtagne data kan ikke læses. Fejlen ligger i netværkets feed; prøv igen senere.</string>
+    <string name="error_feed_unavailable">Netværket udgiver ikke feedet »%1$s«.</string>
+    <string name="error_unsupported_version">Dette netværk udgiver sine data i version %1$s, som denne version af appen ikke kan læse. Opdater appen.</string>
+    <string name="error_local_storage">Kan ikke læse de data, der er gemt på enheden.</string>
+    <string name="error_no_city_chosen">Der er ikke valgt nogen by. Vælg en.</string>
+
+    <!-- Wi-Fi-only downloads -->
+    <!-- The setting names Wi-Fi, the word everybody has, while what is read
+         stays the billing; the line under the switch names the two cases
+         where they part ways: a phone's shared connection, which is Wi-Fi and
+         is a mobile plan, and a Wi-Fi with a data cap, which declares itself
+         billed. "Forbrugsafregnet", Android's Danish for a metered
+         connection, stays with the sentences that speak of billing; the
+         switch says Wi-Fi and fits on one line. -->
+    <string name="download_unmetered_only">Hent kun via Wi-Fi</string>
+    <string name="download_unmetered_only_description">En delt telefonforbindelse eller et Wi-Fi med datagrænse kan blive afregnet pr. megabyte og tæller som et mobilnetværk.</string>
+    <string name="download_held_back_title">Download på et mobilnetværk</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_held_back_body">Denne forbindelse kan blive afregnet pr. megabyte. Opret forbindelse til Wi-Fi for at hente %1$s, eller hent det alligevel nu.</string>
+    <string name="download_stopped_title">Download stoppet</string>
+    <!-- %1$s is a size. What has already arrived is kept on the device and the
+         transfer picks up from there. -->
+    <string name="download_stopped_body">Denne forbindelse kan blive afregnet pr. megabyte, så downloaden stoppede. Det, der er kommet ind, er gemt. Opret forbindelse til Wi-Fi for at gøre de %1$s færdige, eller fortsæt alligevel nu.</string>
+    <string name="download_anyway">Hent alligevel</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_waiting_for_unmetered">Venter på Wi-Fi for at hente %1$s.</string>
+    <string name="download_can_resume">Denne forbindelse er ikke længere et mobilnetværk. Start downloaden igen: den fortsætter, hvor den slap.</string>
+    <string name="download_connection_back">Forbindelsen er tilbage. Tryk på »Hent« for at fortsætte, hvor downloaden slap.</string>
+    <!-- Opening screen, large numbers, own bike kind -->
+
+    <string name="settings_opening_title">Åbn appen som standard på</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">Den skærm, appen åbner på</string>
+    <string name="settings_opening_map">Kort</string>
+    <string name="settings_opening_list">Stationsliste</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">Se kortet</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">Nærmeste station først</string>
+    <string name="stations_location_denied">Uden lokation står stationerne i alfabetisk orden.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge (SPEC 7.1). -->
+    <string name="settings_map_filters_title">Hvilke stationer kortet viser</string>
+    <string name="settings_map_filters_hide_out_of_service">Skjul stationer ude af drift</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Cykler / Ledige pladser button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">Skjul stationer, der intet byder på</string>
+    <!-- Under the switch, saying what "intet" is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">»Intet« følger det, kortet tæller: ingen cykel, mens det tæller cykler, ingen ledig plads, mens det tæller ledige pladser.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">»Intet« betyder ingen cykel: på dette netværk tæller kortet kun cykler.</string>
+    <string name="settings_bikes_past_capacity">Fyldte stationer tager imod cykler</string>
+    <string name="settings_bikes_past_capacity_automatic">Automatisk</string>
+    <string name="settings_bikes_past_capacity_always">Altid</string>
+    <string name="settings_bikes_past_capacity_never">Aldrig</string>
+    <string name="settings_bikes_past_capacity_hint_detected">Automatisk: dette netværk lader cykler stå ved siden af sine fyldte stationer, så en fyldt station regnes som en, hvor du kan aflevere din cykel.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">Automatisk: intet i netværkets data viser cykler stillet ved siden af fyldte stationer, så en fyldt station regnes som fyldt.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">Automatisk: ifølge netværkets data tager dets stationer imod cykler, også uden ledig plads.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">Automatisk: afgøres ud fra netværkets data, så snart dets stationer er indlæst.</string>
+    <string name="settings_bikes_past_capacity_hint_always">En fyldt station regnes som en, hvor du kan aflevere din cykel. Hvis netværket ikke tillader det, kan en tur ende ved en station, der afviser den.</string>
+    <string name="settings_bikes_past_capacity_hint_never">En fyldt station regnes som fyldt, uanset hvad netværkets data viser.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">En station uden ledig plads regnes som fyldt. På dette netværk viser næsten ingen stationer ledig plads, så kun få ture er mulige.</string>
+    <!-- Under both switches. The most important rule of the two filters. -->
+    <string name="settings_map_filters_keeps_unknown">Stationer, som netværket intet siger om, bliver på kortet: en optælling, ingen kunne læse, er ikke en optælling af ingenting.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">Vis batteriet i cyklerne på stationerne, og cyklerne uden for stationerne</string>
+    <string name="settings_street_bikes_description">Om du må låne en cykel uden for en station, hvor den står, afhænger af netværket. Der læses et feed, der er langt tungere end stationernes, og kun de netværk, der udgiver det, viser noget.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">Cykler uden for stationerne</string>
+    <string name="street_bike_intro_body">Netværket melder disse cykler langt fra sine stationer. Nogle er efterladt af en bruger, andre venter på operatørens depot.\n\nRoue Libre ved ikke, om du må tage en, hvor den står: det siger netværkets regler, og nogle netværk opkræver et gebyr for en cykel, der afleveres uden for en station.\n\nEn rejse, der foreslås fra en cykel, ender altid ved en station.</string>
+    <string name="street_bike_intro_dismiss">Forstået</string>
+
+    <string name="bikes_past_capacity_title">%1$s tager imod cykler ved fyldte stationer</string>
+    <string name="bikes_past_capacity_body">På mange af netværkets stationer står der flere cykler, end der er stativpladser: brugerne stiller deres ved siden af en fyldt station, og netværket tager den tilbage.\n\nRoue Libre regner derfor en fyldt station som en, hvor du stadig kan aflevere din cykel, og viser ikke længere ledige pladser for dette netværk.\n\nHvis en fyldt station afviser din cykel, så slå dette fra. Du kan ændre det når som helst i indstillingerne.</string>
+    <string name="bikes_past_capacity_keep">Behold</string>
+    <string name="bikes_past_capacity_turn_off">Slå fra</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">Hvad disse cykler er</string>
+    <string name="street_bike_title">Cykel uden for stationerne</string>
+    <string name="street_bike_kind_mechanical">Mekanisk cykel</string>
+    <string name="street_bike_kind_electric">Elcykel</string>
+    <string name="street_bike_kind_cargo">Ladcykel</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">Batteri %1$d %%</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">Cirka %1$s rækkevidde tilbage</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">Denne cykel meldes ikke længere her.</string>
+    <string name="street_bike_journey_from_here">Rejse fra denne cykel</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">Cykel uden for stationerne</string>
+    <string name="street_bike_marker_description_electric">Elcykel uden for stationerne</string>
+
+    <!-- The rider's OWN bike, not the network's. -->
+    <string name="settings_own_bike_kind_title">Din egen cykel</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">Den type cykel, du selv har</string>
+    <string name="settings_own_bike_kind_mechanical">Mekanisk</string>
+    <string name="settings_own_bike_kind_electric">Elektrisk</string>
+    <!-- Under the two buttons. -->
+    <string name="settings_own_bike_kind_hint">Er din egen cykel angivet som elektrisk, får den sin egen rute og sine egne tider.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to be
+         a pedal-assist one. "Elcykel" is the noun Danish has for the object;
+         the adjective "elektrisk" labels the choice that produces it. -->
+    <string name="journey_own_bike_electric_only">på din egen elcykel, over %1$s.</string>
+    <string name="journey_own_bike_electric_only_climb">på din egen elcykel, over %1$s og %2$s stigning.</string>
+    <!-- Application language -->
+    <string name="settings_language_title">Sprog</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language. The languages themselves are never translated. -->
+    <string name="settings_language_system">System</string>
+    <!-- Spoken label of the row. %1$s is the language in service. -->
+    <string name="settings_language_description">Grænsefladens sprog: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">Mine steder</string>
+    <string name="settings_place_home">Hjem</string>
+    <string name="settings_place_work">Arbejde</string>
+    <string name="settings_place_none">Ikke angivet</string>
+    <string name="settings_place_outside_city">Uden for den dækkede by</string>
+    <!-- %1$s is the setting, "Hjem" or "Arbejde". -->
+    <string name="settings_place_set">Angiv %1$s</string>
+    <string name="settings_place_change">Skift %1$s</string>
+    <string name="settings_place_clear">Glem %1$s</string>
+    <string name="settings_place_cleared">%1$s er glemt</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">Vis mit hjem på kortet</string>
+    <string name="map_centre_on_work">Vis mit arbejde på kortet</string>
+    <string name="settings_places_markers">Markér mine steder på kortet</string>
+    <string name="settings_places_buttons">En knap på kortet for hvert sted</string>
+</resources>

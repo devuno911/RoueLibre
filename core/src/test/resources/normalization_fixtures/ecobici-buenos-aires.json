@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "17 De Noviembre",
+      "normalized": "17 de noviembre",
+      "type": null,
+      "name": "17 de noviembre"
+    },
+    {
+      "input": "Isabel La Católica",
+      "normalized": "isabel la catolica",
+      "type": null,
+      "name": "isabel la catolica"
+    },
+    {
+      "input": "Coronel Lacarra",
+      "normalized": "coronel lacarra",
+      "type": null,
+      "name": "coronel lacarra"
+    },
+    {
+      "input": "Calle 5",
+      "normalized": "calle 5",
+      "type": "calle",
+      "name": "5"
+    },
+    {
+      "input": "Alfonsina Storni",
+      "normalized": "alfonsina storni",
+      "type": null,
+      "name": "alfonsina storni"
+    },
+    {
+      "input": "Acceso Lateral A3",
+      "normalized": "acceso lateral a3",
+      "type": null,
+      "name": "acceso lateral a3"
+    },
+    {
+      "input": "Avenida Costanera Rafael Obligado",
+      "normalized": "avenida costanera rafael obligado",
+      "type": "avenida",
+      "name": "costanera rafael obligado"
+    },
+    {
+      "input": "Portugal",
+      "normalized": "portugal",
+      "type": null,
+      "name": "portugal"
+    },
+    {
+      "input": "Aimé Painé",
+      "normalized": "aime paine",
+      "type": null,
+      "name": "aime paine"
+    },
+    {
+      "input": "Andrés Ferreyra",
+      "normalized": "andres ferreyra",
+      "type": null,
+      "name": "andres ferreyra"
+    },
+    {
+      "input": "Avelino Díaz",
+      "normalized": "avelino diaz",
+      "type": null,
+      "name": "avelino diaz"
+    },
+    {
+      "input": "Avenida de los Incas",
+      "normalized": "avenida de los incas",
+      "type": "avenida",
+      "name": "de los incas"
+    },
+    {
+      "input": "Avenida Jujuy",
+      "normalized": "avenida jujuy",
+      "type": "avenida",
+      "name": "jujuy"
+    },
+    {
+      "input": "Avenida Suárez",
+      "normalized": "avenida suarez",
+      "type": "avenida",
+      "name": "suarez"
+    },
+    {
+      "input": "Benjamín Juan Lavaisse",
+      "normalized": "benjamin juan lavaisse",
+      "type": null,
+      "name": "benjamin juan lavaisse"
+    },
+    {
+      "input": "Cajaravilla",
+      "normalized": "cajaravilla",
+      "type": null,
+      "name": "cajaravilla"
+    },
+    {
+      "input": "Casco",
+      "normalized": "casco",
+      "type": null,
+      "name": "casco"
+    },
+    {
+      "input": "Comodoro Martín Rivadavia",
+      "normalized": "comodoro martin rivadavia",
+      "type": null,
+      "name": "comodoro martin rivadavia"
+    },
+    {
+      "input": "Curityba",
+      "normalized": "curityba",
+      "type": null,
+      "name": "curityba"
+    },
+    {
+      "input": "Doctor Eduardo Pittaluga",
+      "normalized": "doctor eduardo pittaluga",
+      "type": null,
+      "name": "doctor eduardo pittaluga"
+    },
+    {
+      "input": "El Cerro",
+      "normalized": "el cerro",
+      "type": null,
+      "name": "el cerro"
+    },
+    {
+      "input": "Escobar",
+      "normalized": "escobar",
+      "type": null,
+      "name": "escobar"
+    },
+    {
+      "input": "Fragata Sarmiento",
+      "normalized": "fragata sarmiento",
+      "type": null,
+      "name": "fragata sarmiento"
+    },
+    {
+      "input": "General Manuel A. Rodríguez",
+      "normalized": "general manuel a rodriguez",
+      "type": null,
+      "name": "general manuel a rodriguez"
+    },
+    {
+      "input": "Hidalgo",
+      "normalized": "hidalgo",
+      "type": null,
+      "name": "hidalgo"
+    },
+    {
+      "input": "Jorge Chávez",
+      "normalized": "jorge chavez",
+      "type": null,
+      "name": "jorge chavez"
+    },
+    {
+      "input": "Juan Ramírez de Velasco",
+      "normalized": "juan ramirez de velasco",
+      "type": null,
+      "name": "juan ramirez de velasco"
+    },
+    {
+      "input": "Lanús",
+      "normalized": "lanus",
+      "type": null,
+      "name": "lanus"
+    },
+    {
+      "input": "Lucio Correa Morales",
+      "normalized": "lucio correa morales",
+      "type": null,
+      "name": "lucio correa morales"
+    },
+    {
+      "input": "Mariquita Sánchez de Thompson",
+      "normalized": "mariquita sanchez de thompson",
+      "type": null,
+      "name": "mariquita sanchez de thompson"
+    },
+    {
+      "input": "Mocoretá",
+      "normalized": "mocoreta",
+      "type": null,
+      "name": "mocoreta"
+    },
+    {
+      "input": "Núñez",
+      "normalized": "nunez",
+      "type": null,
+      "name": "nunez"
+    },
+    {
+      "input": "Pasaje Jáchal",
+      "normalized": "pasaje jachal",
+      "type": "pasaje",
+      "name": "jachal"
+    },
+    {
+      "input": "Pinto",
+      "normalized": "pinto",
+      "type": null,
+      "name": "pinto"
+    },
+    {
+      "input": "Raulíes",
+      "normalized": "raulies",
+      "type": null,
+      "name": "raulies"
+    },
+    {
+      "input": "Ruiz de los Llanos",
+      "normalized": "ruiz de los llanos",
+      "type": null,
+      "name": "ruiz de los llanos"
+    },
+    {
+      "input": "Scalabrini Ortiz",
+      "normalized": "scalabrini ortiz",
+      "type": null,
+      "name": "scalabrini ortiz"
+    },
+    {
+      "input": "Terrada",
+      "normalized": "terrada",
+      "type": null,
+      "name": "terrada"
+    },
+    {
+      "input": "Velázquez",
+      "normalized": "velazquez",
+      "type": null,
+      "name": "velazquez"
+    },
+    {
+      "input": "Zado",
+      "normalized": "zado",
+      "type": null,
+      "name": "zado"
+    },
+    {
+      "input": "Colectora Norte Acceso Oeste",
+      "normalized": "colectora norte acceso oeste",
+      "type": null,
+      "name": "colectora norte acceso oeste"
+    },
+    {
+      "input": "Mujeres Argentinas",
+      "normalized": "mujeres argentinas",
+      "type": null,
+      "name": "mujeres argentinas"
+    },
+    {
+      "input": "Sargento Ponce",
+      "normalized": "sargento ponce",
+      "type": null,
+      "name": "sargento ponce"
+    },
+    {
+      "input": "José de Olavarría",
+      "normalized": "jose de olavarria",
+      "type": null,
+      "name": "jose de olavarria"
+    },
+    {
+      "input": "Santa Rosa",
+      "normalized": "santa rosa",
+      "type": null,
+      "name": "santa rosa"
+    },
+    {
+      "input": "Achupallas",
+      "normalized": "achupallas",
+      "type": null,
+      "name": "achupallas"
+    },
+    {
+      "input": "Presidente Sarmiento",
+      "normalized": "presidente sarmiento",
+      "type": null,
+      "name": "presidente sarmiento"
+    },
+    {
+      "input": "202 - Giuseppe Garibaldi",
+      "normalized": "202 giuseppe garibaldi",
+      "type": null,
+      "name": "202 giuseppe garibaldi"
+    },
+    {
+      "input": "Teniente Mario Luis Valko",
+      "normalized": "teniente mario luis valko",
+      "type": null,
+      "name": "teniente mario luis valko"
+    },
+    {
+      "input": "Gavilán",
+      "normalized": "gavilan",
+      "type": null,
+      "name": "gavilan"
+    },
+    {
+      "input": "Avenida Hipólito Yrigoyen",
+      "normalized": "avenida hipolito yrigoyen",
+      "type": "avenida",
+      "name": "hipolito yrigoyen"
+    },
+    {
+      "input": "Pedro Goyena",
+      "normalized": "pedro goyena",
+      "type": null,
+      "name": "pedro goyena"
+    },
+    {
+      "input": "Luis A. de Herrera",
+      "normalized": "luis a de herrera",
+      "type": null,
+      "name": "luis a de herrera"
+    },
+    {
+      "input": "Salvador Dalí",
+      "normalized": "salvador dali",
+      "type": null,
+      "name": "salvador dali"
+    },
+    {
+      "input": "Castro Barros",
+      "normalized": "castro barros",
+      "type": null,
+      "name": "castro barros"
+    },
+    {
+      "input": "Almirante Augusto Lasserre",
+      "normalized": "almirante augusto lasserre",
+      "type": null,
+      "name": "almirante augusto lasserre"
+    },
+    {
+      "input": "Domingo Faustino Sarmiento",
+      "normalized": "domingo faustino sarmiento",
+      "type": null,
+      "name": "domingo faustino sarmiento"
+    },
+    {
+      "input": "Teatro Municipal Carlos Gardel",
+      "normalized": "teatro municipal carlos gardel",
+      "type": null,
+      "name": "teatro municipal carlos gardel"
+    },
+    {
+      "input": "Centro Rossi - Sede Microcentro",
+      "normalized": "centro rossi sede microcentro",
+      "type": null,
+      "name": "centro rossi sede microcentro"
+    },
+    {
+      "input": "Fundacion Creciendo con los Angeles",
+      "normalized": "fundacion creciendo con los angeles",
+      "type": null,
+      "name": "fundacion creciendo con los angeles"
+    },
+    {
+      "input": "Sede comunal 11",
+      "normalized": "sede comunal 11",
+      "type": null,
+      "name": "sede comunal 11"
+    },
+    {
+      "input": "Coghlan",
+      "normalized": "coghlan",
+      "type": null,
+      "name": "coghlan"
+    },
+    {
+      "input": "9 de Julio",
+      "normalized": "9 de julio",
+      "type": null,
+      "name": "9 de julio"
+    },
+    {
+      "input": "Carretes",
+      "normalized": "carretes",
+      "type": null,
+      "name": "carretes"
+    },
+    {
+      "input": "Escuela Argentina de Actividades de Montaña",
+      "normalized": "escuela argentina de actividades de montana",
+      "type": null,
+      "name": "escuela argentina de actividades de montana"
+    },
+    {
+      "input": "Escuela de Enfermería del Htal. Israelita",
+      "normalized": "escuela de enfermeria del htal israelita",
+      "type": null,
+      "name": "escuela de enfermeria del htal israelita"
+    },
+    {
+      "input": "Centro de Formación Profesional 04 Hospital de Rehabilitación Manuel Rocca",
+      "normalized": "centro de formacion profesional 04 hospital de rehabilitacion manuel rocca",
+      "type": null,
+      "name": "centro de formacion profesional 04 hospital de rehabilitacion manuel rocca"
+    },
+    {
+      "input": "Instituto de Formación Técnica Superior 26",
+      "normalized": "instituto de formacion tecnica superior 26",
+      "type": null,
+      "name": "instituto de formacion tecnica superior 26"
+    },
+    {
+      "input": "Consultorio Espiritual",
+      "normalized": "consultorio espiritual",
+      "type": null,
+      "name": "consultorio espiritual"
+    },
+    {
+      "input": "Residencia Cudes",
+      "normalized": "residencia cudes",
+      "type": null,
+      "name": "residencia cudes"
+    },
+    {
+      "input": "El Teatrito",
+      "normalized": "el teatrito",
+      "type": null,
+      "name": "el teatrito"
+    },
+    {
+      "input": "Microteatro",
+      "normalized": "microteatro",
+      "type": null,
+      "name": "microteatro"
+    },
+    {
+      "input": "Universidad CAECE",
+      "normalized": "universidad caece",
+      "type": null,
+      "name": "universidad caece"
+    },
+    {
+      "input": "Puerta 8",
+      "normalized": "puerta 8",
+      "type": null,
+      "name": "puerta 8"
+    },
+    {
+      "input": "Teniente Primero Roberto Néstor Estévez",
+      "normalized": "teniente primero roberto nestor estevez",
+      "type": null,
+      "name": "teniente primero roberto nestor estevez"
+    },
+    {
+      "input": "Pasaje Esteban Crovara",
+      "normalized": "pasaje esteban crovara",
+      "type": "pasaje",
+      "name": "esteban crovara"
+    },
+    {
+      "input": "Helguera",
+      "normalized": "helguera",
+      "type": null,
+      "name": "helguera"
+    },
+    {
+      "input": "Superí",
+      "normalized": "superi",
+      "type": null,
+      "name": "superi"
+    },
+    {
+      "input": "General Julio Argentino Roca",
+      "normalized": "general julio argentino roca",
+      "type": null,
+      "name": "general julio argentino roca"
+    },
+    {
+      "input": "General Las Heras",
+      "normalized": "general las heras",
+      "type": null,
+      "name": "general las heras"
+    },
+    {
+      "input": "422 - José E. Batallán",
+      "normalized": "422 jose e batallan",
+      "type": null,
+      "name": "422 jose e batallan"
+    },
+    {
+      "input": "87 - Francisco Hué",
+      "normalized": "87 francisco hue",
+      "type": null,
+      "name": "87 francisco hue"
+    },
+    {
+      "input": "Ombú",
+      "normalized": "ombu",
+      "type": null,
+      "name": "ombu"
+    },
+    {
+      "input": "Lisandro de la Torre",
+      "normalized": "lisandro de la torre",
+      "type": null,
+      "name": "lisandro de la torre"
+    },
+    {
+      "input": "Malabia",
+      "normalized": "malabia",
+      "type": null,
+      "name": "malabia"
+    },
+    {
+      "input": "Agüero",
+      "normalized": "aguero",
+      "type": null,
+      "name": "aguero"
+    },
+    {
+      "input": "Habana",
+      "normalized": "habana",
+      "type": null,
+      "name": "habana"
+    },
+    {
+      "input": "Calle 8",
+      "normalized": "calle 8",
+      "type": "calle",
+      "name": "8"
+    },
+    {
+      "input": "Pasaje 6",
+      "normalized": "pasaje 6",
+      "type": "pasaje",
+      "name": "6"
+    },
+    {
+      "input": "Pasaje 11",
+      "normalized": "pasaje 11",
+      "type": "pasaje",
+      "name": "11"
+    },
+    {
+      "input": "Amor Porteño",
+      "normalized": "amor porteno",
+      "type": null,
+      "name": "amor porteno"
+    },
+    {
+      "input": "Yacaré",
+      "normalized": "yacare",
+      "type": null,
+      "name": "yacare"
+    },
+    {
+      "input": "Pasaje 676",
+      "normalized": "pasaje 676",
+      "type": "pasaje",
+      "name": "676"
+    },
+    {
+      "input": "Anatole France",
+      "normalized": "anatole france",
+      "type": null,
+      "name": "anatole france"
+    },
+    {
+      "input": "528 - Dante",
+      "normalized": "528 dante",
+      "type": null,
+      "name": "528 dante"
+    },
+    {
+      "input": "Herminia Brumana",
+      "normalized": "herminia brumana",
+      "type": null,
+      "name": "herminia brumana"
+    },
+    {
+      "input": "25 de Mayo",
+      "normalized": "25 de mayo",
+      "type": null,
+      "name": "25 de mayo"
+    },
+    {
+      "input": "Perito Moreno",
+      "normalized": "perito moreno",
+      "type": null,
+      "name": "perito moreno"
+    },
+    {
+      "input": "Eduardo Madero",
+      "normalized": "eduardo madero",
+      "type": null,
+      "name": "eduardo madero"
+    },
+    {
+      "input": "Lautaro",
+      "normalized": "lautaro",
+      "type": null,
+      "name": "lautaro"
+    },
+    {
+      "input": "Emilio Castro",
+      "normalized": "emilio castro",
+      "type": null,
+      "name": "emilio castro"
+    },
+    {
+      "input": "San Nicolás",
+      "normalized": "san nicolas",
+      "type": null,
+      "name": "san nicolas"
+    },
+    {
+      "input": "Campana",
+      "normalized": "campana",
+      "type": null,
+      "name": "campana"
+    },
+    {
+      "input": "Teniente Coronel Bueras",
+      "normalized": "teniente coronel bueras",
+      "type": null,
+      "name": "teniente coronel bueras"
+    },
+    {
+      "input": "Junin",
+      "normalized": "junin",
+      "type": null,
+      "name": "junin"
+    },
+    {
+      "input": "Entre Ríos",
+      "normalized": "entre rios",
+      "type": null,
+      "name": "entre rios"
+    },
+    {
+      "input": "253 - San Roque",
+      "normalized": "253 san roque",
+      "type": null,
+      "name": "253 san roque"
+    },
+    {
+      "input": "203 - Santa Juana de Arco",
+      "normalized": "203 santa juana de arco",
+      "type": null,
+      "name": "203 santa juana de arco"
+    },
+    {
+      "input": "Pailebot Davison",
+      "normalized": "pailebot davison",
+      "type": null,
+      "name": "pailebot davison"
+    },
+    {
+      "input": "91 - San Martín",
+      "normalized": "91 san martin",
+      "type": null,
+      "name": "91 san martin"
+    },
+    {
+      "input": "50 - Maipú",
+      "normalized": "50 maipu",
+      "type": null,
+      "name": "50 maipu"
+    },
+    {
+      "input": "Gervasio Posadas",
+      "normalized": "gervasio posadas",
+      "type": null,
+      "name": "gervasio posadas"
+    },
+    {
+      "input": "Pasaje El Cedro",
+      "normalized": "pasaje el cedro",
+      "type": "pasaje",
+      "name": "el cedro"
+    },
+    {
+      "input": "618 - Bartolomé Mitre",
+      "normalized": "618 bartolome mitre",
+      "type": null,
+      "name": "618 bartolome mitre"
+    },
+    {
+      "input": "309 - Gregorio Marañón",
+      "normalized": "309 gregorio maranon",
+      "type": null,
+      "name": "309 gregorio maranon"
+    },
+    {
+      "input": "271 - Avenida Militar",
+      "normalized": "271 avenida militar",
+      "type": null,
+      "name": "271 avenida militar"
+    },
+    {
+      "input": "Cevallos",
+      "normalized": "cevallos",
+      "type": null,
+      "name": "cevallos"
+    },
+    {
+      "input": "Pasaje Simón Rodrigues",
+      "normalized": "pasaje simon rodrigues",
+      "type": "pasaje",
+      "name": "simon rodrigues"
+    },
+    {
+      "input": "Calle 1",
+      "normalized": "calle 1",
+      "type": "calle",
+      "name": "1"
+    },
+    {
+      "input": "86 - Guido y Spano",
+      "normalized": "86 guido y spano",
+      "type": null,
+      "name": "86 guido y spano"
+    }
+  ]
+}

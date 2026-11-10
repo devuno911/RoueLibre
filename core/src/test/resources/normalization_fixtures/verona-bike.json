@@ -1,0 +1,797 @@
+{
+  "language": "it",
+  "cases": [
+    {
+      "input": "Via Roma",
+      "normalized": "via roma",
+      "type": "via",
+      "name": "roma"
+    },
+    {
+      "input": "Piazza del Duomo",
+      "normalized": "piazza del duomo",
+      "type": "piazza",
+      "name": "del duomo"
+    },
+    {
+      "input": "Corso Vittorio Emanuele II",
+      "normalized": "corso vittorio emanuele ii",
+      "type": "corso",
+      "name": "vittorio emanuele ii"
+    },
+    {
+      "input": "V.le della Libertà",
+      "normalized": "v le della liberta",
+      "type": null,
+      "name": "v le della liberta"
+    },
+    {
+      "input": "P.zza San Marco",
+      "normalized": "p zza san marco",
+      "type": null,
+      "name": "p zza san marco"
+    },
+    {
+      "input": "Vicolo Stretto",
+      "normalized": "vicolo stretto",
+      "type": "vicolo",
+      "name": "stretto"
+    },
+    {
+      "input": "Lungomare Cristoforo Colombo",
+      "normalized": "lungomare cristoforo colombo",
+      "type": "lungomare",
+      "name": "cristoforo colombo"
+    },
+    {
+      "input": "Calle Larga XXII Marzo",
+      "normalized": "calle larga xxii marzo",
+      "type": "calle",
+      "name": "larga xxii marzo"
+    },
+    {
+      "input": "Fondamenta Nuove",
+      "normalized": "fondamenta nuove",
+      "type": "fondamenta",
+      "name": "nuove"
+    },
+    {
+      "input": "Salita di San Nicola",
+      "normalized": "salita di san nicola",
+      "type": "salita",
+      "name": "di san nicola"
+    },
+    {
+      "input": "Largo Argentina",
+      "normalized": "largo argentina",
+      "type": "largo",
+      "name": "argentina"
+    },
+    {
+      "input": "Contrada Sant'Antonio",
+      "normalized": "contrada sant antonio",
+      "type": "contrada",
+      "name": "sant antonio"
+    },
+    {
+      "input": "Piazzetta Giorgio Peroni",
+      "normalized": "piazzetta giorgio peroni",
+      "type": null,
+      "name": "piazzetta giorgio peroni"
+    },
+    {
+      "input": "Ponte della Vittoria",
+      "normalized": "ponte della vittoria",
+      "type": "ponte",
+      "name": "della vittoria"
+    },
+    {
+      "input": "Ponte Nuovo del Popolo",
+      "normalized": "ponte nuovo del popolo",
+      "type": "ponte",
+      "name": "nuovo del popolo"
+    },
+    {
+      "input": "Via Nassar",
+      "normalized": "via nassar",
+      "type": "via",
+      "name": "nassar"
+    },
+    {
+      "input": "Centro Internazionale di fotografia Scavi Scaligeri",
+      "normalized": "centro internazionale di fotografia scavi scaligeri",
+      "type": null,
+      "name": "centro internazionale di fotografia scavi scaligeri"
+    },
+    {
+      "input": "Università IUSVE - Istituto Salesiano Universitario Venezia",
+      "normalized": "universita iusve istituto salesiano universitario venezia",
+      "type": null,
+      "name": "universita iusve istituto salesiano universitario venezia"
+    },
+    {
+      "input": "Bastione delle Maddalene",
+      "normalized": "bastione delle maddalene",
+      "type": null,
+      "name": "bastione delle maddalene"
+    },
+    {
+      "input": "Loggia di Frà Giocondo",
+      "normalized": "loggia di fra giocondo",
+      "type": null,
+      "name": "loggia di fra giocondo"
+    },
+    {
+      "input": "Antonio Pacinotti",
+      "normalized": "antonio pacinotti",
+      "type": null,
+      "name": "antonio pacinotti"
+    },
+    {
+      "input": "Via Antonio Pacinotti",
+      "normalized": "via antonio pacinotti",
+      "type": "via",
+      "name": "antonio pacinotti"
+    },
+    {
+      "input": "Via Complanare",
+      "normalized": "via complanare",
+      "type": "via",
+      "name": "complanare"
+    },
+    {
+      "input": "Via Fratelli Cairoli",
+      "normalized": "via fratelli cairoli",
+      "type": "via",
+      "name": "fratelli cairoli"
+    },
+    {
+      "input": "Via Lodegario",
+      "normalized": "via lodegario",
+      "type": "via",
+      "name": "lodegario"
+    },
+    {
+      "input": "Via Monte Nero",
+      "normalized": "via monte nero",
+      "type": "via",
+      "name": "monte nero"
+    },
+    {
+      "input": "Via Pontoncello",
+      "normalized": "via pontoncello",
+      "type": "via",
+      "name": "pontoncello"
+    },
+    {
+      "input": "Via Taranto",
+      "normalized": "via taranto",
+      "type": "via",
+      "name": "taranto"
+    },
+    {
+      "input": "Vicolo cieco dall'Oca bianca",
+      "normalized": "vicolo cieco dall oca bianca",
+      "type": "vicolo",
+      "name": "cieco dall oca bianca"
+    },
+    {
+      "input": "Via Vittime Civili di Guerra",
+      "normalized": "via vittime civili di guerra",
+      "type": "via",
+      "name": "vittime civili di guerra"
+    },
+    {
+      "input": "Via Giuseppe Mazzini",
+      "normalized": "via giuseppe mazzini",
+      "type": "via",
+      "name": "giuseppe mazzini"
+    },
+    {
+      "input": "Via Ticino",
+      "normalized": "via ticino",
+      "type": "via",
+      "name": "ticino"
+    },
+    {
+      "input": "Circonvallazione Pietro Maroncelli",
+      "normalized": "circonvallazione pietro maroncelli",
+      "type": "circonvallazione",
+      "name": "pietro maroncelli"
+    },
+    {
+      "input": "Corte Cortalta",
+      "normalized": "corte cortalta",
+      "type": null,
+      "name": "corte cortalta"
+    },
+    {
+      "input": "Corticella San Paolo",
+      "normalized": "corticella san paolo",
+      "type": null,
+      "name": "corticella san paolo"
+    },
+    {
+      "input": "Largo Riccardo Zandonai",
+      "normalized": "largo riccardo zandonai",
+      "type": "largo",
+      "name": "riccardo zandonai"
+    },
+    {
+      "input": "Lungadige Tullio Donatelli",
+      "normalized": "lungadige tullio donatelli",
+      "type": null,
+      "name": "lungadige tullio donatelli"
+    },
+    {
+      "input": "Piazza del Porto",
+      "normalized": "piazza del porto",
+      "type": "piazza",
+      "name": "del porto"
+    },
+    {
+      "input": "Piazza Isotta Nogarola",
+      "normalized": "piazza isotta nogarola",
+      "type": "piazza",
+      "name": "isotta nogarola"
+    },
+    {
+      "input": "Piazza San Tomaso",
+      "normalized": "piazza san tomaso",
+      "type": "piazza",
+      "name": "san tomaso"
+    },
+    {
+      "input": "Piazzale Maestri del Commercio",
+      "normalized": "piazzale maestri del commercio",
+      "type": "piazzale",
+      "name": "maestri del commercio"
+    },
+    {
+      "input": "Piazzetta Navona",
+      "normalized": "piazzetta navona",
+      "type": null,
+      "name": "piazzetta navona"
+    },
+    {
+      "input": "Ponte Castelvecchio",
+      "normalized": "ponte castelvecchio",
+      "type": "ponte",
+      "name": "castelvecchio"
+    },
+    {
+      "input": "Strada Bresciana",
+      "normalized": "strada bresciana",
+      "type": "strada",
+      "name": "bresciana"
+    },
+    {
+      "input": "Strada Le Grazie",
+      "normalized": "strada le grazie",
+      "type": "strada",
+      "name": "le grazie"
+    },
+    {
+      "input": "Stradone Arcidiacono Pacifico",
+      "normalized": "stradone arcidiacono pacifico",
+      "type": null,
+      "name": "stradone arcidiacono pacifico"
+    },
+    {
+      "input": "Via Adria",
+      "normalized": "via adria",
+      "type": "via",
+      "name": "adria"
+    },
+    {
+      "input": "Via Alberto Mario",
+      "normalized": "via alberto mario",
+      "type": "via",
+      "name": "alberto mario"
+    },
+    {
+      "input": "Via Alessandro Tebaldi",
+      "normalized": "via alessandro tebaldi",
+      "type": "via",
+      "name": "alessandro tebaldi"
+    },
+    {
+      "input": "Via Andrea d'Angeli",
+      "normalized": "via andrea d angeli",
+      "type": "via",
+      "name": "andrea d angeli"
+    },
+    {
+      "input": "Via Antonio Ascari",
+      "normalized": "via antonio ascari",
+      "type": "via",
+      "name": "antonio ascari"
+    },
+    {
+      "input": "Via Antonio Milani",
+      "normalized": "via antonio milani",
+      "type": "via",
+      "name": "antonio milani"
+    },
+    {
+      "input": "Via Argenta",
+      "normalized": "via argenta",
+      "type": "via",
+      "name": "argenta"
+    },
+    {
+      "input": "Via Aurelio Nicolodi",
+      "normalized": "via aurelio nicolodi",
+      "type": "via",
+      "name": "aurelio nicolodi"
+    },
+    {
+      "input": "Via Belgio",
+      "normalized": "via belgio",
+      "type": "via",
+      "name": "belgio"
+    },
+    {
+      "input": "Via Berto Barbarani",
+      "normalized": "via berto barbarani",
+      "type": "via",
+      "name": "berto barbarani"
+    },
+    {
+      "input": "Via Brenta",
+      "normalized": "via brenta",
+      "type": "via",
+      "name": "brenta"
+    },
+    {
+      "input": "Via Ca' di Aprili",
+      "normalized": "via ca di aprili",
+      "type": "via",
+      "name": "ca di aprili"
+    },
+    {
+      "input": "Via Campania",
+      "normalized": "via campania",
+      "type": "via",
+      "name": "campania"
+    },
+    {
+      "input": "Via Carlo Anti",
+      "normalized": "via carlo anti",
+      "type": "via",
+      "name": "carlo anti"
+    },
+    {
+      "input": "Via Casaletto",
+      "normalized": "via casaletto",
+      "type": "via",
+      "name": "casaletto"
+    },
+    {
+      "input": "Via Cervino",
+      "normalized": "via cervino",
+      "type": "via",
+      "name": "cervino"
+    },
+    {
+      "input": "Via Claudio Ridolfi",
+      "normalized": "via claudio ridolfi",
+      "type": "via",
+      "name": "claudio ridolfi"
+    },
+    {
+      "input": "Via Cormons",
+      "normalized": "via cormons",
+      "type": "via",
+      "name": "cormons"
+    },
+    {
+      "input": "Via Davide Caprioli",
+      "normalized": "via davide caprioli",
+      "type": "via",
+      "name": "davide caprioli"
+    },
+    {
+      "input": "Via dei Gelsi",
+      "normalized": "via dei gelsi",
+      "type": "via",
+      "name": "dei gelsi"
+    },
+    {
+      "input": "Via del Bersagliere",
+      "normalized": "via del bersagliere",
+      "type": "via",
+      "name": "del bersagliere"
+    },
+    {
+      "input": "Via del Tronchetto",
+      "normalized": "via del tronchetto",
+      "type": "via",
+      "name": "del tronchetto"
+    },
+    {
+      "input": "Via delle Acacie",
+      "normalized": "via delle acacie",
+      "type": "via",
+      "name": "delle acacie"
+    },
+    {
+      "input": "Via di Teodolinda",
+      "normalized": "via di teodolinda",
+      "type": "via",
+      "name": "di teodolinda"
+    },
+    {
+      "input": "Via Domenico Morone",
+      "normalized": "via domenico morone",
+      "type": "via",
+      "name": "domenico morone"
+    },
+    {
+      "input": "Via Don Luigi Bassani",
+      "normalized": "via don luigi bassani",
+      "type": "via",
+      "name": "don luigi bassani"
+    },
+    {
+      "input": "Via Enrico Fermi",
+      "normalized": "via enrico fermi",
+      "type": "via",
+      "name": "enrico fermi"
+    },
+    {
+      "input": "Via Falcona",
+      "normalized": "via falcona",
+      "type": "via",
+      "name": "falcona"
+    },
+    {
+      "input": "Via Flavio Gioia",
+      "normalized": "via flavio gioia",
+      "type": "via",
+      "name": "flavio gioia"
+    },
+    {
+      "input": "Via Francesco Berni",
+      "normalized": "via francesco berni",
+      "type": "via",
+      "name": "francesco berni"
+    },
+    {
+      "input": "Via Francia",
+      "normalized": "via francia",
+      "type": "via",
+      "name": "francia"
+    },
+    {
+      "input": "Via Gabriele de Zerbis",
+      "normalized": "via gabriele de zerbis",
+      "type": "via",
+      "name": "gabriele de zerbis"
+    },
+    {
+      "input": "Via Generale Armando Diaz",
+      "normalized": "via generale armando diaz",
+      "type": "via",
+      "name": "generale armando diaz"
+    },
+    {
+      "input": "Via Gian Battista Malenza",
+      "normalized": "via gian battista malenza",
+      "type": "via",
+      "name": "gian battista malenza"
+    },
+    {
+      "input": "Via Gioacchino Rossini",
+      "normalized": "via gioacchino rossini",
+      "type": "via",
+      "name": "gioacchino rossini"
+    },
+    {
+      "input": "Via Giovanni Battista Cavalcaselle",
+      "normalized": "via giovanni battista cavalcaselle",
+      "type": "via",
+      "name": "giovanni battista cavalcaselle"
+    },
+    {
+      "input": "Via Giovanni Maria Falconetto",
+      "normalized": "via giovanni maria falconetto",
+      "type": "via",
+      "name": "giovanni maria falconetto"
+    },
+    {
+      "input": "Via Girolamo Dai Libri",
+      "normalized": "via girolamo dai libri",
+      "type": "via",
+      "name": "girolamo dai libri"
+    },
+    {
+      "input": "Via Giuseppe Maggi",
+      "normalized": "via giuseppe maggi",
+      "type": "via",
+      "name": "giuseppe maggi"
+    },
+    {
+      "input": "Via Goffredo Mameli",
+      "normalized": "via goffredo mameli",
+      "type": "via",
+      "name": "goffredo mameli"
+    },
+    {
+      "input": "Via Indentro",
+      "normalized": "via indentro",
+      "type": "via",
+      "name": "indentro"
+    },
+    {
+      "input": "Via la Reciproca",
+      "normalized": "via la reciproca",
+      "type": "via",
+      "name": "la reciproca"
+    },
+    {
+      "input": "Via Leoncino",
+      "normalized": "via leoncino",
+      "type": "via",
+      "name": "leoncino"
+    },
+    {
+      "input": "Via Lorenzo Montano",
+      "normalized": "via lorenzo montano",
+      "type": "via",
+      "name": "lorenzo montano"
+    },
+    {
+      "input": "Via Luigi Cherubini",
+      "normalized": "via luigi cherubini",
+      "type": "via",
+      "name": "luigi cherubini"
+    },
+    {
+      "input": "Via Lungolorì",
+      "normalized": "via lungolori",
+      "type": "via",
+      "name": "lungolori"
+    },
+    {
+      "input": "Via Marco Polo",
+      "normalized": "via marco polo",
+      "type": "via",
+      "name": "marco polo"
+    },
+    {
+      "input": "Via Matteo Boiardo",
+      "normalized": "via matteo boiardo",
+      "type": "via",
+      "name": "matteo boiardo"
+    },
+    {
+      "input": "Via Milazzo",
+      "normalized": "via milazzo",
+      "type": "via",
+      "name": "milazzo"
+    },
+    {
+      "input": "Via Monte Canino",
+      "normalized": "via monte canino",
+      "type": "via",
+      "name": "monte canino"
+    },
+    {
+      "input": "Via Montelungo",
+      "normalized": "via montelungo",
+      "type": "via",
+      "name": "montelungo"
+    },
+    {
+      "input": "Via Nicola Mazza",
+      "normalized": "via nicola mazza",
+      "type": "via",
+      "name": "nicola mazza"
+    },
+    {
+      "input": "Via Orazio Pigato",
+      "normalized": "via orazio pigato",
+      "type": "via",
+      "name": "orazio pigato"
+    },
+    {
+      "input": "Via Paradiso",
+      "normalized": "via paradiso",
+      "type": "via",
+      "name": "paradiso"
+    },
+    {
+      "input": "Via Pietro Frattini",
+      "normalized": "via pietro frattini",
+      "type": "via",
+      "name": "pietro frattini"
+    },
+    {
+      "input": "Via Podgora",
+      "normalized": "via podgora",
+      "type": "via",
+      "name": "podgora"
+    },
+    {
+      "input": "Via Pontida",
+      "normalized": "via pontida",
+      "type": "via",
+      "name": "pontida"
+    },
+    {
+      "input": "Via Quarto Ponte",
+      "normalized": "via quarto ponte",
+      "type": "via",
+      "name": "quarto ponte"
+    },
+    {
+      "input": "Via Reno",
+      "normalized": "via reno",
+      "type": "via",
+      "name": "reno"
+    },
+    {
+      "input": "Via Rosalia Serenelli",
+      "normalized": "via rosalia serenelli",
+      "type": "via",
+      "name": "rosalia serenelli"
+    },
+    {
+      "input": "Via San Carlo",
+      "normalized": "via san carlo",
+      "type": "via",
+      "name": "san carlo"
+    },
+    {
+      "input": "Via San Mattia",
+      "normalized": "via san mattia",
+      "type": "via",
+      "name": "san mattia"
+    },
+    {
+      "input": "Via Sant'Alessio",
+      "normalized": "via sant alessio",
+      "type": "via",
+      "name": "sant alessio"
+    },
+    {
+      "input": "Via Santa Marta",
+      "normalized": "via santa marta",
+      "type": "via",
+      "name": "santa marta"
+    },
+    {
+      "input": "Via Scala Santa",
+      "normalized": "via scala santa",
+      "type": "via",
+      "name": "scala santa"
+    },
+    {
+      "input": "Via Silvestrini",
+      "normalized": "via silvestrini",
+      "type": "via",
+      "name": "silvestrini"
+    },
+    {
+      "input": "Via Speziala",
+      "normalized": "via speziala",
+      "type": "via",
+      "name": "speziala"
+    },
+    {
+      "input": "Via Teatro Filarmonico",
+      "normalized": "via teatro filarmonico",
+      "type": "via",
+      "name": "teatro filarmonico"
+    },
+    {
+      "input": "Via Tolosetto Farinati degli Uberti",
+      "normalized": "via tolosetto farinati degli uberti",
+      "type": "via",
+      "name": "tolosetto farinati degli uberti"
+    },
+    {
+      "input": "Via Turandot",
+      "normalized": "via turandot",
+      "type": "via",
+      "name": "turandot"
+    },
+    {
+      "input": "Via Valdonega",
+      "normalized": "via valdonega",
+      "type": "via",
+      "name": "valdonega"
+    },
+    {
+      "input": "Via Villa",
+      "normalized": "via villa",
+      "type": "via",
+      "name": "villa"
+    },
+    {
+      "input": "Via Vittorio della Vittoria",
+      "normalized": "via vittorio della vittoria",
+      "type": "via",
+      "name": "vittorio della vittoria"
+    },
+    {
+      "input": "Viale Colonnello Galliano",
+      "normalized": "viale colonnello galliano",
+      "type": "viale",
+      "name": "colonnello galliano"
+    },
+    {
+      "input": "Viale Spolverini",
+      "normalized": "viale spolverini",
+      "type": "viale",
+      "name": "spolverini"
+    },
+    {
+      "input": "Vicoletto Cieco Storione",
+      "normalized": "vicoletto cieco storione",
+      "type": null,
+      "name": "vicoletto cieco storione"
+    },
+    {
+      "input": "Vicolo Bacola",
+      "normalized": "vicolo bacola",
+      "type": "vicolo",
+      "name": "bacola"
+    },
+    {
+      "input": "Vicolo Case Rotte",
+      "normalized": "vicolo case rotte",
+      "type": "vicolo",
+      "name": "case rotte"
+    },
+    {
+      "input": "Vicolo Cieco Moise",
+      "normalized": "vicolo cieco moise",
+      "type": "vicolo",
+      "name": "cieco moise"
+    },
+    {
+      "input": "Vicolo Cortili",
+      "normalized": "vicolo cortili",
+      "type": "vicolo",
+      "name": "cortili"
+    },
+    {
+      "input": "Vicolo Gatto",
+      "normalized": "vicolo gatto",
+      "type": "vicolo",
+      "name": "gatto"
+    },
+    {
+      "input": "Vicolo Ostie",
+      "normalized": "vicolo ostie",
+      "type": "vicolo",
+      "name": "ostie"
+    },
+    {
+      "input": "Vicolo Salici",
+      "normalized": "vicolo salici",
+      "type": "vicolo",
+      "name": "salici"
+    },
+    {
+      "input": "Vicolo San Salvatore Vecchio",
+      "normalized": "vicolo san salvatore vecchio",
+      "type": "vicolo",
+      "name": "san salvatore vecchio"
+    },
+    {
+      "input": "Vicolo Sorte",
+      "normalized": "vicolo sorte",
+      "type": "vicolo",
+      "name": "sorte"
+    },
+    {
+      "input": "Vo' Filippini",
+      "normalized": "vo filippini",
+      "type": null,
+      "name": "vo filippini"
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "language": "en",
+  "cases": [
+    {
+      "input": "Abbey Rd",
+      "normalized": "abbey road",
+      "type": null,
+      "name": "abbey road"
+    },
+    {
+      "input": "Baker Street",
+      "normalized": "baker street",
+      "type": null,
+      "name": "baker street"
+    },
+    {
+      "input": "St James's Park",
+      "normalized": "saint james south park",
+      "type": null,
+      "name": "saint james south park"
+    },
+    {
+      "input": "Queen's Crescent",
+      "normalized": "queen south crescent",
+      "type": null,
+      "name": "queen south crescent"
+    },
+    {
+      "input": "Kensington High St",
+      "normalized": "kensington high st",
+      "type": null,
+      "name": "kensington high st"
+    },
+    {
+      "input": "Dr Martin Luther King Jr Blvd",
+      "normalized": "doctor martin luther king jr boulevard",
+      "type": null,
+      "name": "doctor martin luther king jr boulevard"
+    },
+    {
+      "input": "N Michigan Ave",
+      "normalized": "north michigan avenue",
+      "type": null,
+      "name": "north michigan avenue"
+    },
+    {
+      "input": "The Mall",
+      "normalized": "the mall",
+      "type": null,
+      "name": "the mall"
+    },
+    {
+      "input": "Hyde Park Corner",
+      "normalized": "hyde park corner",
+      "type": null,
+      "name": "hyde park corner"
+    },
+    {
+      "input": "Cherry Ln",
+      "normalized": "cherry lane",
+      "type": null,
+      "name": "cherry lane"
+    },
+    {
+      "input": "Mt Pleasant Ter",
+      "normalized": "mount pleasant terrace",
+      "type": null,
+      "name": "mount pleasant terrace"
+    },
+    {
+      "input": "Fifth Avenue",
+      "normalized": "fifth avenue",
+      "type": null,
+      "name": "fifth avenue"
+    },
+    {
+      "input": "AABC Trail",
+      "normalized": "aabc trail",
+      "type": null,
+      "name": "aabc trail"
+    },
+    {
+      "input": "Ardmore Drive",
+      "normalized": "ardmore drive",
+      "type": null,
+      "name": "ardmore drive"
+    },
+    {
+      "input": "Aspen Oak Drive",
+      "normalized": "aspen oak drive",
+      "type": null,
+      "name": "aspen oak drive"
+    },
+    {
+      "input": "Brenden Court",
+      "normalized": "brenden court",
+      "type": null,
+      "name": "brenden court"
+    },
+    {
+      "input": "Buttermilk Road",
+      "normalized": "buttermilk road",
+      "type": null,
+      "name": "buttermilk road"
+    },
+    {
+      "input": "Chatfield Road",
+      "normalized": "chatfield road",
+      "type": null,
+      "name": "chatfield road"
+    },
+    {
+      "input": "Cowenhoven Court",
+      "normalized": "cowenhoven court",
+      "type": null,
+      "name": "cowenhoven court"
+    },
+    {
+      "input": "East Cooper Avenue",
+      "normalized": "east cooper avenue",
+      "type": null,
+      "name": "east cooper avenue"
+    },
+    {
+      "input": "East of Aspen Trail",
+      "normalized": "east of aspen trail",
+      "type": null,
+      "name": "east of aspen trail"
+    },
+    {
+      "input": "Four Corners Road",
+      "normalized": "four corners road",
+      "type": null,
+      "name": "four corners road"
+    },
+    {
+      "input": "Grey Talon Court",
+      "normalized": "grey talon court",
+      "type": null,
+      "name": "grey talon court"
+    },
+    {
+      "input": "High School Trail;Marolt",
+      "normalized": "high school trail marolt",
+      "type": null,
+      "name": "high school trail marolt"
+    },
+    {
+      "input": "Isabella Hay Road",
+      "normalized": "isabella hay road",
+      "type": null,
+      "name": "isabella hay road"
+    },
+    {
+      "input": "Lacet Lane",
+      "normalized": "lacet lane",
+      "type": null,
+      "name": "lacet lane"
+    },
+    {
+      "input": "Luke Short Court",
+      "normalized": "luke short court",
+      "type": null,
+      "name": "luke short court"
+    },
+    {
+      "input": "Maroon Drive",
+      "normalized": "maroon drive",
+      "type": null,
+      "name": "maroon drive"
+    },
+    {
+      "input": "Midland Avenue",
+      "normalized": "midland avenue",
+      "type": null,
+      "name": "midland avenue"
+    },
+    {
+      "input": "Mountain View Drive",
+      "normalized": "mountain view drive",
+      "type": null,
+      "name": "mountain view drive"
+    },
+    {
+      "input": "North 4th Street",
+      "normalized": "north 4th street",
+      "type": null,
+      "name": "north 4th street"
+    },
+    {
+      "input": "North Monarch Street",
+      "normalized": "north monarch street",
+      "type": null,
+      "name": "north monarch street"
+    },
+    {
+      "input": "Oregon Trail",
+      "normalized": "oregon trail",
+      "type": null,
+      "name": "oregon trail"
+    },
+    {
+      "input": "Post Office Trail",
+      "normalized": "post office trail",
+      "type": null,
+      "name": "post office trail"
+    },
+    {
+      "input": "Ranch Road",
+      "normalized": "ranch road",
+      "type": null,
+      "name": "ranch road"
+    },
+    {
+      "input": "Riverdown Drive",
+      "normalized": "riverdown drive",
+      "type": null,
+      "name": "riverdown drive"
+    },
+    {
+      "input": "Saw Mill Court",
+      "normalized": "saw mill court",
+      "type": null,
+      "name": "saw mill court"
+    },
+    {
+      "input": "Smith Hill Way",
+      "normalized": "smith hill way",
+      "type": null,
+      "name": "smith hill way"
+    },
+    {
+      "input": "South 5th Street",
+      "normalized": "south 5th street",
+      "type": null,
+      "name": "south 5th street"
+    },
+    {
+      "input": "South Monarch Street",
+      "normalized": "south monarch street",
+      "type": null,
+      "name": "south monarch street"
+    },
+    {
+      "input": "Stillwater Drive",
+      "normalized": "stillwater drive",
+      "type": null,
+      "name": "stillwater drive"
+    },
+    {
+      "input": "Ute Avenue",
+      "normalized": "ute avenue",
+      "type": null,
+      "name": "ute avenue"
+    },
+    {
+      "input": "West Buttermilk Road",
+      "normalized": "west buttermilk road",
+      "type": null,
+      "name": "west buttermilk road"
+    },
+    {
+      "input": "West North Street",
+      "normalized": "west north street",
+      "type": null,
+      "name": "west north street"
+    },
+    {
+      "input": "Winter Way",
+      "normalized": "winter way",
+      "type": null,
+      "name": "winter way"
+    },
+    {
+      "input": "Basalt Avenue",
+      "normalized": "basalt avenue",
+      "type": null,
+      "name": "basalt avenue"
+    },
+    {
+      "input": "Damselfly Lane",
+      "normalized": "damselfly lane",
+      "type": null,
+      "name": "damselfly lane"
+    },
+    {
+      "input": "Emma Path",
+      "normalized": "emma path",
+      "type": null,
+      "name": "emma path"
+    },
+    {
+      "input": "Kestrel Court",
+      "normalized": "kestrel court",
+      "type": null,
+      "name": "kestrel court"
+    },
+    {
+      "input": "Mockingbird Lane",
+      "normalized": "mockingbird lane",
+      "type": null,
+      "name": "mockingbird lane"
+    },
+    {
+      "input": "Riversedge Court",
+      "normalized": "riversedge court",
+      "type": null,
+      "name": "riversedge court"
+    },
+    {
+      "input": "Swinging Bridge",
+      "normalized": "swinging bridge",
+      "type": null,
+      "name": "swinging bridge"
+    },
+    {
+      "input": "Wilderness Road",
+      "normalized": "wilderness road",
+      "type": null,
+      "name": "wilderness road"
+    },
+    {
+      "input": "7th Street",
+      "normalized": "7th street",
+      "type": null,
+      "name": "7th street"
+    },
+    {
+      "input": "Boyd Drive",
+      "normalized": "boyd drive",
+      "type": null,
+      "name": "boyd drive"
+    },
+    {
+      "input": "Cedar Creek Drive",
+      "normalized": "cedar creek drive",
+      "type": null,
+      "name": "cedar creek drive"
+    },
+    {
+      "input": "Cowen Drive",
+      "normalized": "cowen drive",
+      "type": null,
+      "name": "cowen drive"
+    },
+    {
+      "input": "Crown Drive",
+      "normalized": "crown drive",
+      "type": null,
+      "name": "crown drive"
+    },
+    {
+      "input": "Dolores Way",
+      "normalized": "dolores way",
+      "type": null,
+      "name": "dolores way"
+    },
+    {
+      "input": "Goose Creek Lane",
+      "normalized": "goose creek lane",
+      "type": null,
+      "name": "goose creek lane"
+    },
+    {
+      "input": "Highway 133",
+      "normalized": "highway 133",
+      "type": null,
+      "name": "highway 133"
+    },
+    {
+      "input": "Lamprecht Drive",
+      "normalized": "lamprecht drive",
+      "type": null,
+      "name": "lamprecht drive"
+    },
+    {
+      "input": "Maroon Drive",
+      "normalized": "maroon drive",
+      "type": null,
+      "name": "maroon drive"
+    },
+    {
+      "input": "Mount Sopris Ranch Road",
+      "normalized": "mount sopris ranch road",
+      "type": null,
+      "name": "mount sopris ranch road"
+    },
+    {
+      "input": "North 6th Street",
+      "normalized": "north 6th street",
+      "type": null,
+      "name": "north 6th street"
+    },
+    {
+      "input": "Pabst Drive",
+      "normalized": "pabst drive",
+      "type": null,
+      "name": "pabst drive"
+    },
+    {
+      "input": "Red Dog Road",
+      "normalized": "red dog road",
+      "type": null,
+      "name": "red dog road"
+    },
+    {
+      "input": "Settlement Lane",
+      "normalized": "settlement lane",
+      "type": null,
+      "name": "settlement lane"
+    },
+    {
+      "input": "South 8th Street",
+      "normalized": "south 8th street",
+      "type": null,
+      "name": "south 8th street"
+    },
+    {
+      "input": "Wald Circle",
+      "normalized": "wald circle",
+      "type": null,
+      "name": "wald circle"
+    },
+    {
+      "input": "Willow Lane",
+      "normalized": "willow lane",
+      "type": null,
+      "name": "willow lane"
+    },
+    {
+      "input": "Clipper Place",
+      "normalized": "clipper place",
+      "type": null,
+      "name": "clipper place"
+    },
+    {
+      "input": "Fender Lane",
+      "normalized": "fender lane",
+      "type": null,
+      "name": "fender lane"
+    },
+    {
+      "input": "Kings Row Avenue",
+      "normalized": "kings row avenue",
+      "type": null,
+      "name": "kings row avenue"
+    },
+    {
+      "input": "Ronce Lane",
+      "normalized": "ronce lane",
+      "type": null,
+      "name": "ronce lane"
+    },
+    {
+      "input": "Vaquero Road",
+      "normalized": "vaquero road",
+      "type": null,
+      "name": "vaquero road"
+    },
+    {
+      "input": "Basalt Mountain Road",
+      "normalized": "basalt mountain road",
+      "type": null,
+      "name": "basalt mountain road"
+    },
+    {
+      "input": "Crown Mountain Park",
+      "normalized": "crown mountain park",
+      "type": null,
+      "name": "crown mountain park"
+    },
+    {
+      "input": "Elk Range Drive",
+      "normalized": "elk range drive",
+      "type": null,
+      "name": "elk range drive"
+    },
+    {
+      "input": "Lane Road 2",
+      "normalized": "lane road 2",
+      "type": null,
+      "name": "lane road 2"
+    },
+    {
+      "input": "Prentice Trail",
+      "normalized": "prentice trail",
+      "type": null,
+      "name": "prentice trail"
+    },
+    {
+      "input": "Steve Path",
+      "normalized": "steve path",
+      "type": null,
+      "name": "steve path"
+    },
+    {
+      "input": "Cherry Lane",
+      "normalized": "cherry lane",
+      "type": null,
+      "name": "cherry lane"
+    },
+    {
+      "input": "Old Heron Road",
+      "normalized": "old heron road",
+      "type": null,
+      "name": "old heron road"
+    },
+    {
+      "input": "Vagneur Lane",
+      "normalized": "vagneur lane",
+      "type": null,
+      "name": "vagneur lane"
+    },
+    {
+      "input": "CR 100",
+      "normalized": "cr 100",
+      "type": null,
+      "name": "cr 100"
+    },
+    {
+      "input": "Gamble Oak Way",
+      "normalized": "gamble oak way",
+      "type": null,
+      "name": "gamble oak way"
+    },
+    {
+      "input": "Ranch Creek Road",
+      "normalized": "ranch creek road",
+      "type": null,
+      "name": "ranch creek road"
+    },
+    {
+      "input": "Surrey Street",
+      "normalized": "surrey street",
+      "type": null,
+      "name": "surrey street"
+    },
+    {
+      "input": "Breathtaker",
+      "normalized": "breathtaker",
+      "type": null,
+      "name": "breathtaker"
+    },
+    {
+      "input": "Bobcat Lane",
+      "normalized": "bobcat lane",
+      "type": null,
+      "name": "bobcat lane"
+    },
+    {
+      "input": "Elk Lane",
+      "normalized": "elk lane",
+      "type": null,
+      "name": "elk lane"
+    },
+    {
+      "input": "Ute Trail",
+      "normalized": "ute trail",
+      "type": null,
+      "name": "ute trail"
+    },
+    {
+      "input": "Cowen Drive",
+      "normalized": "cowen drive",
+      "type": null,
+      "name": "cowen drive"
+    },
+    {
+      "input": "East Dolores Way",
+      "normalized": "east dolores way",
+      "type": null,
+      "name": "east dolores way"
+    },
+    {
+      "input": "Latigo Court",
+      "normalized": "latigo court",
+      "type": null,
+      "name": "latigo court"
+    },
+    {
+      "input": "Pine Street",
+      "normalized": "pine street",
+      "type": null,
+      "name": "pine street"
+    },
+    {
+      "input": "Seeburg Circle",
+      "normalized": "seeburg circle",
+      "type": null,
+      "name": "seeburg circle"
+    },
+    {
+      "input": "Sweetgrass",
+      "normalized": "sweetgrass",
+      "type": null,
+      "name": "sweetgrass"
+    },
+    {
+      "input": "Alpine Springs Access Road",
+      "normalized": "alpine springs access road",
+      "type": null,
+      "name": "alpine springs access road"
+    },
+    {
+      "input": "Branding Lane",
+      "normalized": "branding lane",
+      "type": null,
+      "name": "branding lane"
+    },
+    {
+      "input": "Burnt Mountain Drive",
+      "normalized": "burnt mountain drive",
+      "type": null,
+      "name": "burnt mountain drive"
+    },
+    {
+      "input": "Clubhouse Dr",
+      "normalized": "clubhouse dr",
+      "type": null,
+      "name": "clubhouse dr"
+    },
+    {
+      "input": "Divide Road",
+      "normalized": "divide road",
+      "type": null,
+      "name": "divide road"
+    },
+    {
+      "input": "Faraway Road",
+      "normalized": "faraway road",
+      "type": null,
+      "name": "faraway road"
+    },
+    {
+      "input": "Hidden Lane",
+      "normalized": "hidden lane",
+      "type": null,
+      "name": "hidden lane"
+    },
+    {
+      "input": "Lower Capital Trail",
+      "normalized": "lower capital trail",
+      "type": null,
+      "name": "lower capital trail"
+    },
+    {
+      "input": "Mountain Crest Lane",
+      "normalized": "mountain crest lane",
+      "type": null,
+      "name": "mountain crest lane"
+    },
+    {
+      "input": "Pine Crest Drive",
+      "normalized": "pine crest drive",
+      "type": null,
+      "name": "pine crest drive"
+    },
+    {
+      "input": "Saint Andrew's Court",
+      "normalized": "saint andrew south court",
+      "type": null,
+      "name": "saint andrew south court"
+    },
+    {
+      "input": "Snowmass Mall",
+      "normalized": "snowmass mall",
+      "type": null,
+      "name": "snowmass mall"
+    },
+    {
+      "input": "Terrace Drive",
+      "normalized": "terrace drive",
+      "type": null,
+      "name": "terrace drive"
+    },
+    {
+      "input": "View Ridge Lane",
+      "normalized": "view ridge lane",
+      "type": null,
+      "name": "view ridge lane"
+    },
+    {
+      "input": "Ziegler Divide Way",
+      "normalized": "ziegler divide way",
+      "type": null,
+      "name": "ziegler divide way"
+    },
+    {
+      "input": "East Soris Creek Road",
+      "normalized": "east soris creek road",
+      "type": null,
+      "name": "east soris creek road"
+    },
+    {
+      "input": "Katie Park Lane",
+      "normalized": "katie park lane",
+      "type": null,
+      "name": "katie park lane"
+    },
+    {
+      "input": "Mule Deer Run Road",
+      "normalized": "mule deer run road",
+      "type": null,
+      "name": "mule deer run road"
+    },
+    {
+      "input": "Red Rim #4",
+      "normalized": "red rim 4",
+      "type": null,
+      "name": "red rim 4"
+    },
+    {
+      "input": "Taylor Creek Road",
+      "normalized": "taylor creek road",
+      "type": null,
+      "name": "taylor creek road"
+    },
+    {
+      "input": "East Valley Trail",
+      "normalized": "east valley trail",
+      "type": null,
+      "name": "east valley trail"
+    },
+    {
+      "input": "Kelly Lake Spur",
+      "normalized": "kelly lake spur",
+      "type": null,
+      "name": "kelly lake spur"
+    },
+    {
+      "input": "Pioneer Street",
+      "normalized": "pioneer street",
+      "type": null,
+      "name": "pioneer street"
+    },
+    {
+      "input": "Valley Court",
+      "normalized": "valley court",
+      "type": null,
+      "name": "valley court"
+    },
+    {
+      "input": "Crossland Lane",
+      "normalized": "crossland lane",
+      "type": null,
+      "name": "crossland lane"
+    },
+    {
+      "input": "Rio Grande Trail Soft Surface",
+      "normalized": "rio grande trail soft surface",
+      "type": null,
+      "name": "rio grande trail soft surface"
+    },
+    {
+      "input": "Bear Bottom",
+      "normalized": "bear bottom",
+      "type": null,
+      "name": "bear bottom"
+    },
+    {
+      "input": "Chaparral Dr",
+      "normalized": "chaparral dr",
+      "type": null,
+      "name": "chaparral dr"
+    },
+    {
+      "input": "Freeman Road",
+      "normalized": "freeman road",
+      "type": null,
+      "name": "freeman road"
+    },
+    {
+      "input": "Kessler Road",
+      "normalized": "kessler road",
+      "type": null,
+      "name": "kessler road"
+    },
+    {
+      "input": "Lower Red Canyon Road",
+      "normalized": "lower red canyon road",
+      "type": null,
+      "name": "lower red canyon road"
+    },
+    {
+      "input": "Pitkin Iron Rd",
+      "normalized": "pitkin iron road",
+      "type": null,
+      "name": "pitkin iron road"
+    },
+    {
+      "input": "Rocky Fork Creek Road",
+      "normalized": "rocky fork creek road",
+      "type": null,
+      "name": "rocky fork creek road"
+    }
+  ]
+}

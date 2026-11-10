@@ -1,0 +1,779 @@
+{
+  "language": "el",
+  "cases": [
+    {
+      "input": "Οδός Ερμού",
+      "normalized": "οδοσ ερμου",
+      "type": "οδοσ",
+      "name": "ερμου"
+    },
+    {
+      "input": "Ερμού",
+      "normalized": "ερμου",
+      "type": null,
+      "name": "ερμου"
+    },
+    {
+      "input": "Λεωφόρος Συγγρού",
+      "normalized": "λεωφοροσ συγγρου",
+      "type": "λεωφοροσ",
+      "name": "συγγρου"
+    },
+    {
+      "input": "Λεωφ. Αλεξάνδρας",
+      "normalized": "λεωφοροσ αλεξανδρασ",
+      "type": "λεωφοροσ",
+      "name": "αλεξανδρασ"
+    },
+    {
+      "input": "Πλατεία Συντάγματος",
+      "normalized": "πλατεια συνταγματοσ",
+      "type": "πλατεια",
+      "name": "συνταγματοσ"
+    },
+    {
+      "input": "Πλ. Ομονοίας",
+      "normalized": "πλατεια ομονοιασ",
+      "type": "πλατεια",
+      "name": "ομονοιασ"
+    },
+    {
+      "input": "Αγίου Κωνσταντίνου",
+      "normalized": "αγιου κωνσταντινου",
+      "type": null,
+      "name": "αγιου κωνσταντινου"
+    },
+    {
+      "input": "Ακτή Μιαούλη",
+      "normalized": "ακτη μιαουλη",
+      "type": "ακτη",
+      "name": "μιαουλη"
+    },
+    {
+      "input": "ΟΔΟΣ ΑΘΗΝΑΣ",
+      "normalized": "οδοσ αθηνασ",
+      "type": "οδοσ",
+      "name": "αθηνασ"
+    },
+    {
+      "input": "Andrea Ioanou",
+      "normalized": "andrea ioanou",
+      "type": null,
+      "name": "andrea ioanou"
+    },
+    {
+      "input": "Kyriakou Simopoulou",
+      "normalized": "kyriakou simopoulou",
+      "type": null,
+      "name": "kyriakou simopoulou"
+    },
+    {
+      "input": "Papamoysi",
+      "normalized": "papamoysi",
+      "type": null,
+      "name": "papamoysi"
+    },
+    {
+      "input": "Hasan Ziya Sokak",
+      "normalized": "hasan ziya sokak",
+      "type": null,
+      "name": "hasan ziya sokak"
+    },
+    {
+      "input": "Morsalkım Sokak",
+      "normalized": "morsalkım sokak",
+      "type": null,
+      "name": "morsalkım sokak"
+    },
+    {
+      "input": "28th October Avenue",
+      "normalized": "28th october avenue",
+      "type": null,
+      "name": "28th october avenue"
+    },
+    {
+      "input": "Hasan Ilgaz Sokak",
+      "normalized": "hasan ilgaz sokak",
+      "type": null,
+      "name": "hasan ilgaz sokak"
+    },
+    {
+      "input": "Yiğitler Sokak",
+      "normalized": "yigitler sokak",
+      "type": null,
+      "name": "yigitler sokak"
+    },
+    {
+      "input": "Reyhan Sokak",
+      "normalized": "reyhan sokak",
+      "type": null,
+      "name": "reyhan sokak"
+    },
+    {
+      "input": "Saltuk Sokak",
+      "normalized": "saltuk sokak",
+      "type": null,
+      "name": "saltuk sokak"
+    },
+    {
+      "input": "Hemşire Sokak",
+      "normalized": "hemsire sokak",
+      "type": null,
+      "name": "hemsire sokak"
+    },
+    {
+      "input": "Agion Annis kai Stylianou",
+      "normalized": "agion annis kai stylianou",
+      "type": null,
+      "name": "agion annis kai stylianou"
+    },
+    {
+      "input": "Iliodorou",
+      "normalized": "iliodorou",
+      "type": null,
+      "name": "iliodorou"
+    },
+    {
+      "input": "Theofilou",
+      "normalized": "theofilou",
+      "type": null,
+      "name": "theofilou"
+    },
+    {
+      "input": "Eleutherias Ave.",
+      "normalized": "eleutherias ave",
+      "type": null,
+      "name": "eleutherias ave"
+    },
+    {
+      "input": "Niyazi Uludag Sokak",
+      "normalized": "niyazi uludag sokak",
+      "type": null,
+      "name": "niyazi uludag sokak"
+    },
+    {
+      "input": "Amathountos",
+      "normalized": "amathountos",
+      "type": null,
+      "name": "amathountos"
+    },
+    {
+      "input": "Şehit Haydar Kaya Sokak",
+      "normalized": "sehit haydar kaya sokak",
+      "type": null,
+      "name": "sehit haydar kaya sokak"
+    },
+    {
+      "input": "Ιατρικό Μουσείο Κυριαζή",
+      "normalized": "ιατρικο μουσειο κυριαζη",
+      "type": null,
+      "name": "ιατρικο μουσειο κυριαζη"
+    },
+    {
+      "input": "Agia Napa Promenade",
+      "normalized": "agia napa promenade",
+      "type": null,
+      "name": "agia napa promenade"
+    },
+    {
+      "input": "Karditsas",
+      "normalized": "karditsas",
+      "type": null,
+      "name": "karditsas"
+    },
+    {
+      "input": "Nikolaou Ellina",
+      "normalized": "nikolaou ellina",
+      "type": null,
+      "name": "nikolaou ellina"
+    },
+    {
+      "input": "Işıklı Sokak",
+      "normalized": "isıklı sokak",
+      "type": null,
+      "name": "isıklı sokak"
+    },
+    {
+      "input": "Mimar Sinan Sokak",
+      "normalized": "mimar sinan sokak",
+      "type": null,
+      "name": "mimar sinan sokak"
+    },
+    {
+      "input": "Elpidos",
+      "normalized": "elpidos",
+      "type": null,
+      "name": "elpidos"
+    },
+    {
+      "input": "Eftalophou",
+      "normalized": "eftalophou",
+      "type": null,
+      "name": "eftalophou"
+    },
+    {
+      "input": "Ouilliam Gladstonos",
+      "normalized": "ouilliam gladstonos",
+      "type": null,
+      "name": "ouilliam gladstonos"
+    },
+    {
+      "input": "Piyale Paşa Sokak",
+      "normalized": "piyale pasa sokak",
+      "type": null,
+      "name": "piyale pasa sokak"
+    },
+    {
+      "input": "Serçe Sokak",
+      "normalized": "serce sokak",
+      "type": null,
+      "name": "serce sokak"
+    },
+    {
+      "input": "Ülkü Sokak",
+      "normalized": "ulku sokak",
+      "type": null,
+      "name": "ulku sokak"
+    },
+    {
+      "input": "Parmak Sokak",
+      "normalized": "parmak sokak",
+      "type": null,
+      "name": "parmak sokak"
+    },
+    {
+      "input": "Ipeirou",
+      "normalized": "ipeirou",
+      "type": null,
+      "name": "ipeirou"
+    },
+    {
+      "input": "Selefkidon",
+      "normalized": "selefkidon",
+      "type": null,
+      "name": "selefkidon"
+    },
+    {
+      "input": "Onoufriou Iasonidi",
+      "normalized": "onoufriou iasonidi",
+      "type": null,
+      "name": "onoufriou iasonidi"
+    },
+    {
+      "input": "Agamemnonos",
+      "normalized": "agamemnonos",
+      "type": null,
+      "name": "agamemnonos"
+    },
+    {
+      "input": "Aristofani",
+      "normalized": "aristofani",
+      "type": null,
+      "name": "aristofani"
+    },
+    {
+      "input": "Vienna",
+      "normalized": "vienna",
+      "type": null,
+      "name": "vienna"
+    },
+    {
+      "input": "Andrea Paphiti",
+      "normalized": "andrea paphiti",
+      "type": null,
+      "name": "andrea paphiti"
+    },
+    {
+      "input": "Ναυαρίνου",
+      "normalized": "ναυαρινου",
+      "type": null,
+      "name": "ναυαρινου"
+    },
+    {
+      "input": "Monis Kykkou",
+      "normalized": "monis kykkou",
+      "type": null,
+      "name": "monis kykkou"
+    },
+    {
+      "input": "Persefonis",
+      "normalized": "persefonis",
+      "type": null,
+      "name": "persefonis"
+    },
+    {
+      "input": "Ioanni Tsimiski",
+      "normalized": "ioanni tsimiski",
+      "type": null,
+      "name": "ioanni tsimiski"
+    },
+    {
+      "input": "Miki Theodoraki",
+      "normalized": "miki theodoraki",
+      "type": null,
+      "name": "miki theodoraki"
+    },
+    {
+      "input": "Pafsaniou",
+      "normalized": "pafsaniou",
+      "type": null,
+      "name": "pafsaniou"
+    },
+    {
+      "input": "Oratiou",
+      "normalized": "oratiou",
+      "type": null,
+      "name": "oratiou"
+    },
+    {
+      "input": "Pavlou Mela",
+      "normalized": "pavlou mela",
+      "type": null,
+      "name": "pavlou mela"
+    },
+    {
+      "input": "Θεσσαλιας",
+      "normalized": "θεσσαλιασ",
+      "type": null,
+      "name": "θεσσαλιασ"
+    },
+    {
+      "input": "Morfou",
+      "normalized": "morfou",
+      "type": null,
+      "name": "morfou"
+    },
+    {
+      "input": "Makedonias",
+      "normalized": "makedonias",
+      "type": null,
+      "name": "makedonias"
+    },
+    {
+      "input": "Kosma",
+      "normalized": "kosma",
+      "type": null,
+      "name": "kosma"
+    },
+    {
+      "input": "Διογένους",
+      "normalized": "διογενουσ",
+      "type": null,
+      "name": "διογενουσ"
+    },
+    {
+      "input": "Linopetra Junction",
+      "normalized": "linopetra junction",
+      "type": null,
+      "name": "linopetra junction"
+    },
+    {
+      "input": "Ammochostou Avenue",
+      "normalized": "ammochostou avenue",
+      "type": null,
+      "name": "ammochostou avenue"
+    },
+    {
+      "input": "Amerikis",
+      "normalized": "amerikis",
+      "type": null,
+      "name": "amerikis"
+    },
+    {
+      "input": "Christou Vasou Tziamma",
+      "normalized": "christou vasou tziamma",
+      "type": null,
+      "name": "christou vasou tziamma"
+    },
+    {
+      "input": "Δωδεκανήσου",
+      "normalized": "δωδεκανησου",
+      "type": null,
+      "name": "δωδεκανησου"
+    },
+    {
+      "input": "Γρηγορίου Παπαφλέσσα",
+      "normalized": "γρηγοριου παπαφλεσσα",
+      "type": null,
+      "name": "γρηγοριου παπαφλεσσα"
+    },
+    {
+      "input": "Eleftheriou Evangelou",
+      "normalized": "eleftheriou evangelou",
+      "type": null,
+      "name": "eleftheriou evangelou"
+    },
+    {
+      "input": "Zaloggou",
+      "normalized": "zaloggou",
+      "type": null,
+      "name": "zaloggou"
+    },
+    {
+      "input": "Alamanas",
+      "normalized": "alamanas",
+      "type": null,
+      "name": "alamanas"
+    },
+    {
+      "input": "Estiadon",
+      "normalized": "estiadon",
+      "type": null,
+      "name": "estiadon"
+    },
+    {
+      "input": "Atalantis",
+      "normalized": "atalantis",
+      "type": null,
+      "name": "atalantis"
+    },
+    {
+      "input": "Michail Giorgalla",
+      "normalized": "michail giorgalla",
+      "type": null,
+      "name": "michail giorgalla"
+    },
+    {
+      "input": "Νεοκλή Χαραλάμπους",
+      "normalized": "νεοκλη χαραλαμπουσ",
+      "type": null,
+      "name": "νεοκλη χαραλαμπουσ"
+    },
+    {
+      "input": "Palaiokastrou",
+      "normalized": "palaiokastrou",
+      "type": null,
+      "name": "palaiokastrou"
+    },
+    {
+      "input": "Dimitri Chorn",
+      "normalized": "dimitri chorn",
+      "type": null,
+      "name": "dimitri chorn"
+    },
+    {
+      "input": "Christaki Tourapi",
+      "normalized": "christaki tourapi",
+      "type": null,
+      "name": "christaki tourapi"
+    },
+    {
+      "input": "Ag Georgiou",
+      "normalized": "ag georgiou",
+      "type": null,
+      "name": "ag georgiou"
+    },
+    {
+      "input": "Leoforos Melissovounou",
+      "normalized": "leoforos melissovounou",
+      "type": null,
+      "name": "leoforos melissovounou"
+    },
+    {
+      "input": "Aginoros",
+      "normalized": "aginoros",
+      "type": null,
+      "name": "aginoros"
+    },
+    {
+      "input": "Virytou",
+      "normalized": "virytou",
+      "type": null,
+      "name": "virytou"
+    },
+    {
+      "input": "Savva Rotsidi",
+      "normalized": "savva rotsidi",
+      "type": null,
+      "name": "savva rotsidi"
+    },
+    {
+      "input": "Ethnikis Antistaseos",
+      "normalized": "ethnikis antistaseos",
+      "type": null,
+      "name": "ethnikis antistaseos"
+    },
+    {
+      "input": "Koupanou",
+      "normalized": "koupanou",
+      "type": null,
+      "name": "koupanou"
+    },
+    {
+      "input": "Lydas",
+      "normalized": "lydas",
+      "type": null,
+      "name": "lydas"
+    },
+    {
+      "input": "Ermippou",
+      "normalized": "ermippou",
+      "type": null,
+      "name": "ermippou"
+    },
+    {
+      "input": "Pentadaktylou",
+      "normalized": "pentadaktylou",
+      "type": null,
+      "name": "pentadaktylou"
+    },
+    {
+      "input": "Agamemnonos",
+      "normalized": "agamemnonos",
+      "type": null,
+      "name": "agamemnonos"
+    },
+    {
+      "input": "Alsous",
+      "normalized": "alsous",
+      "type": null,
+      "name": "alsous"
+    },
+    {
+      "input": "Lapithou",
+      "normalized": "lapithou",
+      "type": null,
+      "name": "lapithou"
+    },
+    {
+      "input": "Defkalonia Iakovoi",
+      "normalized": "defkalonia iakovoi",
+      "type": null,
+      "name": "defkalonia iakovoi"
+    },
+    {
+      "input": "Köroğ Sokak",
+      "normalized": "korog sokak",
+      "type": null,
+      "name": "korog sokak"
+    },
+    {
+      "input": "Ελπινίκης",
+      "normalized": "ελπινικησ",
+      "type": null,
+      "name": "ελπινικησ"
+    },
+    {
+      "input": "Galileou Galilei",
+      "normalized": "galileou galilei",
+      "type": null,
+      "name": "galileou galilei"
+    },
+    {
+      "input": "Ευαγγελισμου",
+      "normalized": "ευαγγελισμου",
+      "type": null,
+      "name": "ευαγγελισμου"
+    },
+    {
+      "input": "Tevkrou Anthia",
+      "normalized": "tevkrou anthia",
+      "type": null,
+      "name": "tevkrou anthia"
+    },
+    {
+      "input": "Marias Synglitikis",
+      "normalized": "marias synglitikis",
+      "type": null,
+      "name": "marias synglitikis"
+    },
+    {
+      "input": "Φωτη Πιττα Παροδος",
+      "normalized": "φωτη πιττα παροδοσ",
+      "type": null,
+      "name": "φωτη πιττα παροδοσ"
+    },
+    {
+      "input": "Andrea Nikolaou",
+      "normalized": "andrea nikolaou",
+      "type": null,
+      "name": "andrea nikolaou"
+    },
+    {
+      "input": "Kerynias",
+      "normalized": "kerynias",
+      "type": null,
+      "name": "kerynias"
+    },
+    {
+      "input": "Ματθαίου Ζαυλομηνά",
+      "normalized": "ματθαιου ζαυλομηνα",
+      "type": null,
+      "name": "ματθαιου ζαυλομηνα"
+    },
+    {
+      "input": "Poseidonos",
+      "normalized": "poseidonos",
+      "type": null,
+      "name": "poseidonos"
+    },
+    {
+      "input": "Küre Sokak",
+      "normalized": "kure sokak",
+      "type": null,
+      "name": "kure sokak"
+    },
+    {
+      "input": "Dervis Kavazoglou",
+      "normalized": "dervis kavazoglou",
+      "type": null,
+      "name": "dervis kavazoglou"
+    },
+    {
+      "input": "Spartis Street",
+      "normalized": "spartis street",
+      "type": null,
+      "name": "spartis street"
+    },
+    {
+      "input": "Iona Nikolaou",
+      "normalized": "iona nikolaou",
+      "type": null,
+      "name": "iona nikolaou"
+    },
+    {
+      "input": "Chytron",
+      "normalized": "chytron",
+      "type": null,
+      "name": "chytron"
+    },
+    {
+      "input": "Dimitras",
+      "normalized": "dimitras",
+      "type": null,
+      "name": "dimitras"
+    },
+    {
+      "input": "Parodos Karmiou",
+      "normalized": "parodos karmiou",
+      "type": null,
+      "name": "parodos karmiou"
+    },
+    {
+      "input": "Thessalias",
+      "normalized": "thessalias",
+      "type": null,
+      "name": "thessalias"
+    },
+    {
+      "input": "Misiaouli & Kavazoglou",
+      "normalized": "misiaouli kavazoglou",
+      "type": null,
+      "name": "misiaouli kavazoglou"
+    },
+    {
+      "input": "Ιωάννη Γκούρα",
+      "normalized": "ιωαννη γκουρα",
+      "type": null,
+      "name": "ιωαννη γκουρα"
+    },
+    {
+      "input": "Agiou Alexandrou",
+      "normalized": "agiou alexandrou",
+      "type": null,
+      "name": "agiou alexandrou"
+    },
+    {
+      "input": "Ploutonos",
+      "normalized": "ploutonos",
+      "type": null,
+      "name": "ploutonos"
+    },
+    {
+      "input": "Enoseos",
+      "normalized": "enoseos",
+      "type": null,
+      "name": "enoseos"
+    },
+    {
+      "input": "Κοτζά Τεπέ",
+      "normalized": "κοτζα τεπε",
+      "type": null,
+      "name": "κοτζα τεπε"
+    },
+    {
+      "input": "Gianni Psychari",
+      "normalized": "gianni psychari",
+      "type": null,
+      "name": "gianni psychari"
+    },
+    {
+      "input": "Λεωφόρος Κωνσταντινουπόλεως",
+      "normalized": "λεωφοροσ κωνσταντινουπολεωσ",
+      "type": "λεωφοροσ",
+      "name": "κωνσταντινουπολεωσ"
+    },
+    {
+      "input": "Madaris",
+      "normalized": "madaris",
+      "type": null,
+      "name": "madaris"
+    },
+    {
+      "input": "Άρτας",
+      "normalized": "αρτασ",
+      "type": null,
+      "name": "αρτασ"
+    },
+    {
+      "input": "Ονασαγόρου",
+      "normalized": "ονασαγορου",
+      "type": null,
+      "name": "ονασαγορου"
+    },
+    {
+      "input": "Εκάβης",
+      "normalized": "εκαβησ",
+      "type": null,
+      "name": "εκαβησ"
+    },
+    {
+      "input": "Ammochostou",
+      "normalized": "ammochostou",
+      "type": null,
+      "name": "ammochostou"
+    },
+    {
+      "input": "Athinon",
+      "normalized": "athinon",
+      "type": null,
+      "name": "athinon"
+    },
+    {
+      "input": "Armonias",
+      "normalized": "armonias",
+      "type": null,
+      "name": "armonias"
+    },
+    {
+      "input": "Λαπήθου",
+      "normalized": "λαπηθου",
+      "type": null,
+      "name": "λαπηθου"
+    },
+    {
+      "input": "Erechtheiou",
+      "normalized": "erechtheiou",
+      "type": null,
+      "name": "erechtheiou"
+    },
+    {
+      "input": "Pinadrou",
+      "normalized": "pinadrou",
+      "type": null,
+      "name": "pinadrou"
+    },
+    {
+      "input": "Louki Akrita",
+      "normalized": "louki akrita",
+      "type": null,
+      "name": "louki akrita"
+    },
+    {
+      "input": "Th. Tooulia",
+      "normalized": "th tooulia",
+      "type": null,
+      "name": "th tooulia"
+    }
+  ]
+}

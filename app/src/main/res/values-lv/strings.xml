@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Latvian translation.
+
+    English, in `values/`, is the source (SPEC §9) and this file follows it
+    string for string. Translate the contents of the tags, never their `name`
+    attribute; placeholders keep their number and their kind.
+
+    Typography. Quotation marks are „ … “. The apostrophe a network's name may
+    carry — Vélib’, Vélo’v, V’lille — is ’ (U+2019) and never the straight
+    quote, which is why nothing here is escaped. The dash that breaks a
+    sentence is — with a space on either side, as the English file writes it.
+
+    The three plural categories are real, and none is a copy of another:
+    `one` is 1, 21, 31 … and takes the nominative singular („1 velosipēds“);
+    `zero` is 0, 10, 11–19, 20, 30 … and takes the genitive plural
+    („0 velosipēdu“, „11 velosipēdu“, „20 velosipēdu“); `other` is the rest and
+    takes the nominative plural („2 velosipēdi“). The one exception is the
+    three `freshness_*` plurals, where *pirms* governs the dative plural for
+    `zero` and `other` alike — that is the language, not a line left
+    unfinished. See docs/glossary/lv.md.
+
+    Cases are suffixes, so no sentence hangs an ending on a placeholder: what
+    arrives is always a nominative — a station name, a network label, a size —
+    and it is held in apposition or behind a colon. The register is Android's
+    own: the infinitive on buttons (*Atcelt*, *Dzēst*, *Turpināt*), the polite
+    plural imperative in prose (*Pieskarieties*, *Izvēlieties*, *Pārbaudiet*).
+    See docs/glossary/lv.md and CONTRIBUTING.md.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <!-- Main screen: the station list. -->
+    <string name="stations_title">Stacijas</string>
+
+    <!-- The number of bikes available to borrow at a station. -->
+    <plurals name="bikes_available">
+        <item quantity="one">%1$d velosipēds</item>
+        <item quantity="zero">%1$d velosipēdu</item>
+        <item quantity="other">%1$d velosipēdi</item>
+    </plurals>
+
+    <!-- The number of free docks to return a bike to. -->
+    <plurals name="docks_available">
+        <item quantity="one">%1$d brīva vieta</item>
+        <item quantity="zero">%1$d brīvu vietu</item>
+        <item quantity="other">%1$d brīvas vietas</item>
+    </plurals>
+    <string name="docks_available_unlimited">Brīvas vietas: neierobežoti</string>
+
+    <!-- Spoken by screen readers on a station's indicator.
+         The third figure is `docks_available`, the FREE docks, not the
+         capacity (`StationAdapter.kt:184`).
+         Example: „Brīvības iela, 6 velosipēdi, 26 brīvas vietas“. -->
+    <string name="station_content_description">%1$s, %2$s, %3$s</string>
+    <string name="station_content_description_bikes_only">%1$s, %2$s</string>
+    <string name="station_out_of_service">Nedarbojas</string>
+    <string name="station_out_of_service_since">%1$s · pēdējie dati %2$s</string>
+    <string name="station_availability_unknown">Pieejamība nav zināma</string>
+
+    <!-- What a station is called when its feed publishes no name for it and no
+         street to stand in for one. -->
+    <string name="station_unnamed">Stacija bez nosaukuma</string>
+
+    <!-- Shown for a station the network publishes outside the area its data
+         covers. The short form joins the rest of the row. -->
+    <string name="station_beyond_area_short">ārpus kartes</string>
+    <string name="station_beyond_area">Šī stacija atrodas ārpus apgabala, ko aptver instalētie dati. Tās velosipēdi tiek skaitīti reāllaikā, taču ne karte, ne maršruts to nesasniedz.</string>
+
+    <string name="search_stations_hint">Meklēt staciju</string>
+    <string name="search_stations_clear">Notīrīt meklējumu</string>
+    <string name="stations_no_match_title">Neviena stacija nav atrasta</string>
+    <string name="stations_no_match_message">Vaicājumam „%1$s“ nekas neatbilst. Pārbaudiet rakstību vai notīriet meklējumu.</string>
+    <string name="action_clear_search">Notīrīt meklējumu</string>
+
+    <string name="mode_bikes">Velosipēdi</string>
+    <string name="mode_docks">Brīvās vietas</string>
+
+    <!-- Which bikes the markers count, where the network lends both kinds
+         (SPEC §7.1). Named after what is shown, like the toggle beside it. -->
+    <string name="map_bikes_all_kinds">Visi velosipēdi</string>
+    <string name="map_bikes_mechanical">Parastie</string>
+    <string name="map_bikes_electric">Elektriskie</string>
+    <string name="map_bikes_all_kinds_description">Tiek skaitīti visi velosipēdi. Pieskarieties, lai skaitītu tikai parastos.</string>
+    <string name="map_bikes_mechanical_description">Tiek skaitīti parastie velosipēdi. Pieskarieties, lai skaitītu tikai elektriskos.</string>
+    <string name="map_bikes_electric_description">Tiek skaitīti elektriskie velosipēdi. Pieskarieties, lai skaitītu visus.</string>
+    <!-- The label under, or beside, a count. No item holds a number: the
+         figure is written next to these words already.
+         **Latvian departs from the English note here, and on purpose.** The
+         English treats these as labels rather than as the tail of the phrase
+         the count makes, because a language whose grammar reaches across the
+         gap can be caught out by it. Latvian marks the case on the noun and
+         nowhere else, so the agreed form IS the label: „14“ over VELOSIPĒDU
+         reads right, where a nominative plural over the same figure would be
+         plain wrong. Nothing is added at the head of the line, so the capitals
+         and the line break cost nothing.
+         The one case this leaves crooked is known: `StationAdapter.kt:167`
+         resolves the category with `counterpart ?: 0`, so a station whose
+         availability the network does not publish shows „—“ over BRĪVU VIETU,
+         a genitive plural with no figure to govern. It is the least bad of the
+         three forms there and it is accepted, but it is written down. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="one">velosipēds</item>
+        <item quantity="zero">velosipēdu</item>
+        <item quantity="other">velosipēdi</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="one">brīva vieta</item>
+        <item quantity="zero">brīvu vietu</item>
+        <item quantity="other">brīvas vietas</item>
+    </plurals>
+    <!-- Shown instead of the count when the station does not provide the service. -->
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list. %1$s is the
+         distance to the station, or its postcode when the position is
+         unknown; %2$d is the number of docking points. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="one">%1$s · %2$d statīvs</item>
+        <item quantity="zero">%1$s · %2$d statīvu</item>
+        <item quantity="other">%1$s · %2$d statīvi</item>
+    </plurals>
+
+    <!-- What a station's bikes are, shown only where the network lends both
+         kinds. %1$s is the mechanical count, %2$s the electric one. -->
+    <string name="station_bikes_split">%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="one">%1$d parastais</item>
+        <item quantity="zero">%1$d parasto</item>
+        <item quantity="other">%1$d parastie</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="one">%1$d elektriskais</item>
+        <item quantity="zero">%1$d elektrisko</item>
+        <item quantity="other">%1$d elektriskie</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">%1$d %%</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">Akumulators %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">Vēl aptuveni %1$s nobraukuma</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">Akumulators no %1$s līdz %2$s</string>
+    <string name="station_bikes_range_spread">Vēl aptuveni no %1$s līdz %2$s nobraukuma</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">Sīkāka informācija par velosipēdiem šajā stacijā</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">Tīkls publicē šo sarakstu savā datu plūsmā, atsevišķi no skaita augstāk, un šeit abi ir pretrunā. Roue Libre rāda abus tādus, kādi tie publicēti, nevis izvēlas vienu.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">Rezervēts</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="one">%1$d velosipēds nedarbojas</item>
+        <item quantity="zero">%1$d velosipēdu nedarbojas</item>
+        <item quantity="other">%1$d velosipēdi nedarbojas</item>
+    </plurals>
+
+    <!-- The age of the availability figures. The preposition *pirms* is built
+         into the plural so that both „Dati atjaunināti pirms 5 minūtēm“ and
+         „Dati atjaunināti tikko“ come out right from one template. It governs the
+         dative plural, which is one form for 5 as for 20, so `zero` and
+         `other` read alike here and nowhere else in the file. -->
+    <string name="freshness_just_now">tikko</string>
+    <plurals name="freshness_seconds">
+        <item quantity="one">pirms %1$d sekundes</item>
+        <item quantity="zero">pirms %1$d sekundēm</item>
+        <item quantity="other">pirms %1$d sekundēm</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="one">pirms %1$d minūtes</item>
+        <item quantity="zero">pirms %1$d minūtēm</item>
+        <item quantity="other">pirms %1$d minūtēm</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="one">pirms %1$d stundas</item>
+        <item quantity="zero">pirms %1$d stundām</item>
+        <item quantity="other">pirms %1$d stundām</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="zero">pirms %1$d dienām</item>
+        <item quantity="one">pirms %1$d dienas</item>
+        <item quantity="other">pirms %1$d dienām</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="zero">pirms %1$d mēnešiem</item>
+        <item quantity="one">pirms %1$d mēneša</item>
+        <item quantity="other">pirms %1$d mēnešiem</item>
+    </plurals>
+    <string name="freshness_stale">Novecojuši dati · %1$s</string>
+    <string name="freshness_fresh">Dati atjaunināti %1$s</string>
+    <string name="freshness_never">Dati nekad nav atjaunināti</string>
+    <string name="freshness_loading">Notiek staciju ielāde…</string>
+
+    <string name="stations_empty_title">Nav ielādēta neviena stacija</string>
+    <string name="stations_empty_message">Pavelciet sarakstu uz leju, lai ielādētu tīkla stacijas.</string>
+    <string name="action_refresh">Atsvaidzināt</string>
+    <string name="action_retry">Mēģināt vēlreiz</string>
+
+    <string name="map_open_list">Skatīt staciju sarakstu</string>
+    <string name="map_description">Karte. Velciet ar diviem pirkstiem, lai to pārvietotu, savelciet vai izpletiet divus pirkstus, lai tuvinātu vai tālinātu, pagrieziet divus pirkstus, lai mainītu tās virzienu, un velciet divus pirkstus uz augšu vai uz leju, lai to sasvērtu.</string>
+    <string name="map_attribution">© OpenStreetMap veidotāji</string>
+    <string name="map_locate_me">Noteikt manu atrašanās vietu</string>
+    <string name="map_locating">Notiek jūsu atrašanās vietas noteikšana…</string>
+    <string name="map_location_denied">Bez atrašanās vietas izvēlieties sākumpunktu kartē vai pēc adreses.</string>
+    <string name="map_location_unavailable">Atrašanās vieta nav pieejama. Pārbaudiet, vai atrašanās vieta ir ieslēgta, un mēģiniet vēlreiz.</string>
+    <string name="map_outside_city_title">Jūs esat citur</string>
+    <string name="map_outside_city_message">Jūsu atrašanās vieta ir ārpus apgabala, ko aptver %1$s, tāpēc šī karte to nevar parādīt. Izvēlieties pilsētu, kurā atrodaties, lai redzētu tās stacijas.</string>
+    <string name="map_outside_city_brief">Jūsu atrašanās vieta ir ārpus apgabala, ko aptver %1$s.</string>
+    <string name="map_needs_tiles_title">Kartei ir nepieciešami tās bezsaistes dati</string>
+    <string name="map_needs_tiles_message">Instalējiet kartes datus krātuves ekrānā. Pa to laiku staciju saraksts paliek lietojams.</string>
+    <string name="map_downloading_title">Notiek kartes lejupielāde</string>
+    <string name="map_downloading_message">Tā parādīsies šeit, tiklīdz būs instalēta. Pa to laiku staciju saraksts paliek lietojams.</string>
+    <string name="map_needs_city_title">Kura pilsēta?</string>
+    <string name="map_needs_city_message">Izvēlieties aglomerāciju, kuru vēlaties lietot. Tās dati tiek lejupielādēti pēc tam, vienu reizi uz visiem laikiem.</string>
+    <string name="map_city_withdrawn_title">Tīkls vairs nav pieejams</string>
+    <string name="map_city_withdrawn_message">Tīkls „%1$s“ vairs nav pieejams, un tā stacijas vairs netiek rādītas. Izvēlieties citu pilsētu. Šajā ierīcē palikušos datus var izdzēst pilsētu sarakstā.</string>
+    <string name="map_city_withdrawn_message_unnamed">Jūsu izvēlētais tīkls vairs nav pieejams, un tā stacijas vairs netiek rādītas. Izvēlieties citu pilsētu. Šajā ierīcē palikušos datus var izdzēst pilsētu sarakstā.</string>
+    <string name="map_city_newer_version_message">Tīkls „%1$s“ ir pieejams jaunākā lietotnes versijā, un tā stacijas šajā versijā netiek rādītas. Atjauniniet lietotni vai izvēlieties citu pilsētu.</string>
+    <string name="city_choose_another">Izvēlēties citu pilsētu</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">Pagriezt uz ziemeļiem un izlīdzināt karti</string>
+    <plurals name="map_bearing_description">
+        <item quantity="one">Kartes pagrieziens no ziemeļiem: %1$d grāds.</item>
+        <item quantity="zero">Kartes pagrieziens no ziemeļiem: %1$d grādu.</item>
+        <item quantity="other">Kartes pagrieziens no ziemeļiem: %1$d grādi.</item>
+    </plurals>
+    <string name="map_tilted_description">Karte ir sasvērta.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="one">Karte ir sasvērta, un tās pagrieziens no ziemeļiem ir %1$d grāds.</item>
+        <item quantity="zero">Karte ir sasvērta, un tās pagrieziens no ziemeļiem ir %1$d grādu.</item>
+        <item quantity="other">Karte ir sasvērta, un tās pagrieziens no ziemeļiem ir %1$d grādi.</item>
+    </plurals>
+
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">Šī lietotne rāda koplietošanas velosipēdus kartē un aprēķina maršrutu no durvīm līdz durvīm: ar kājām līdz stacijai, ar velosipēdu, tad pārējo ceļu ar kājām.\n\nTā ir bezmaksas un atvērtā pirmkoda lietotne. Bez konta, bez reklāmām, bez izsekotājiem.</string>
+    <string name="welcome_privacy_title">Nekas neaiziet no šī tālruņa</string>
+    <string name="welcome_privacy_body">Maršruti tiek aprēķināti šajā tālrunī. Meklētās adreses netiek nosūtītas nevienam, pat rakstīšanas laikā.\n\nVēsture netiek saglabāta: ne maršruti, ne atrašanās vietas, ne galamērķi.\n\nVienīgais pieprasījums, kas ikdienas lietošanā aiziet uz tīklu, jautā, cik velosipēdu ir pieejami.</string>
+    <string name="welcome_fleet_title">Ko stāsta velosipēds</string>
+    <string name="welcome_fleet_body">Attēlotais velosipēds rāda, ko izsniedz jūsu pilsēta.\n\nTas tiek nolasīts no paša tīkla datiem, nekad nav uzminēts.</string>
+    <string name="welcome_fleet_mechanical_only">Tīkls izsniedz tikai parastos velosipēdus.</string>
+    <string name="welcome_fleet_electric_only">Tīkls izsniedz tikai elektriskos velosipēdus.</string>
+    <string name="welcome_fleet_mixed">Tīkls izsniedz abu veidu velosipēdus.</string>
+
+    <string name="welcome_data_title">Viena pilsēta, viena lejupielāde</string>
+    <string name="welcome_data_body">Karte, ielas un maršrutu aprēķins atrodas pašā ierīcē. Tieši tāpēc tie darbojas bez tīkla — un tāpēc pilsētas dati ir vienreiz jālejupielādē.\n\nTādēļ sāciet ar tās izvēli. Vidēji lielai aglomerācijai rēķinieties ar aptuveni četrdesmit megabaitiem, galvaspilsētai ar vairāk; lielums tiek paziņots pirms lejupielādes.\n\nTo var izdarīt arī vēlāk: pa to laiku staciju saraksts un to pieejamība paliek lietojami.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">%1$d no %2$d</string>
+    <string name="welcome_continue">Turpināt</string>
+    <string name="welcome_skip">Izlaist</string>
+    <string name="welcome_choose_city">Izvēlēties manu pilsētu</string>
+    <string name="welcome_later">Vēlāk</string>
+    <string name="welcome_open">Izlasīt ievadu vēlreiz</string>
+
+    <string name="whats_new_title">Kas jauns</string>
+    <string name="whats_new_done">Turpināt</string>
+    <string name="whats_new_nothing">Šai versijai nav laidiena piezīmju.</string>
+    <string name="whats_new_open">Skatīt, kas jauns</string>
+
+    <string name="incoming_place_default_label">Saņemtā vieta</string>
+    <string name="incoming_show_me">Rādīt</string>
+    <string name="incoming_needs_index">Šī adrese ir jāmeklē bezsaistes rādītājā, kurš nav instalēts.</string>
+    <string name="incoming_address_not_found">„%1$s“ neatbilst nevienai adresei aptvertajā apgabalā.</string>
+    <string name="incoming_address_choices_title">Vai domājāt kādu no šīm adresēm?</string>
+    <string name="incoming_address_choice">%1$s\n%2$s</string>
+    <string name="incoming_outside_coverage">Šī vieta atrodas ārpus apgabala, ko aptver instalētie dati: neviens maršruts to nesasniedz.</string>
+    <string name="incoming_unreadable_link">Šī saite nenorāda, kurp doties: tajā minēto vietu neizdevās nolasīt.</string>
+
+    <string name="favourites_title">Izlase</string>
+    <string name="stations_all_title">Visas stacijas</string>
+    <string name="stations_favourites_reorder">Pārkārtot</string>
+    <string name="stations_favourites_fold">Paslēpt izlasi</string>
+    <string name="stations_favourites_unfold">Rādīt izlasi</string>
+    <string name="favourites_reorder_hint">Turiet rindu nospiestu, lai to pārvietotu.</string>
+
+    <string name="settings_title">Iestatījumi</string>
+    <string name="settings_open">Iestatījumi</string>
+    <!-- The section titles of the settings screen (SPEC §7.6), in the order
+         the screen lays them out. -->
+    <string name="settings_section_city">Pilsēta</string>
+    <string name="settings_section_journey">Maršruts</string>
+    <string name="settings_section_display">Attēlojums</string>
+    <string name="settings_section_data">Bezsaistes dati</string>
+
+    <!-- The walking pace (SPEC §6, §7.6). Named in words and never in km/h: a
+         pace is something one knows about oneself. -->
+    <string name="settings_walking_pace_title">Gaitas temps</string>
+    <string name="settings_walking_pace_slow">Lēns</string>
+    <string name="settings_walking_pace_normal">Normāls</string>
+    <string name="settings_walking_pace_brisk">Raits</string>
+    <string name="settings_walking_pace_description">Temps, kādā tiek aprēķinātas maršruta kājām veicamās daļas</string>
+
+    <string name="settings_theme_title">Motīvs</string>
+    <string name="settings_theme_system">Sistēmas</string>
+    <string name="settings_theme_light">Gaišais</string>
+    <string name="settings_theme_dark">Tumšais</string>
+
+    <!-- Units (SPEC 7.6). The buttons name the units rather than the
+         countries. -->
+    <string name="settings_units_title">Mērvienības</string>
+    <string name="settings_units_system">Sistēmas</string>
+    <string name="settings_units_metric">m · km</string>
+    <string name="settings_units_us">ft · mi</string>
+    <string name="settings_units_uk">yd · mi</string>
+    <string name="settings_units_description">Attālumiem izmantotās mērvienības</string>
+    <string name="settings_units_system_description">Sekot reģionam, kas iestatīts ierīcē</string>
+    <string name="settings_units_metric_description">Metri un kilometri</string>
+    <string name="settings_units_us_description">Pēdas un jūdzes</string>
+    <string name="settings_units_uk_description">Jardi un jūdzes</string>
+
+    <string name="about_title">Par lietotni</string>
+    <string name="about_open">Par lietotni</string>
+    <string name="about_version">Versija %1$s</string>
+    <string name="about_privacy_title">Konfidencialitāte</string>
+    <string name="about_privacy_body">Bez konta, bez reklāmām, bez izsekotājiem, bez unikāla identifikatora. Nekas no meklētā vai aprēķinātā neaiziet no šī tālruņa: adreses, maršruti un jūsu atrašanās vieta paliek šeit un netiek saglabāti. Vienīgais pieprasījums, kas ikdienas lietošanā aiziet uz tīklu, saņem velosipēdu pieejamību. Datu kopas tiek lejupielādētas tikai pēc pieprasījuma.</string>
+    <string name="about_attributions_title">Datu avoti</string>
+    <string name="about_attribution_gbfs">Velosipēdu pieejamība: apkalpotā tīkla atvērtie dati, publicēti GBFS formātā. Francijā tie ir indeksēti vietnē transport.data.gouv.fr.</string>
+    <string name="about_attribution_osm">Karte, maršrutēšana un orientieri: © OpenStreetMap veidotāji, ODbL licence.</string>
+    <string name="about_attribution_ban">Adreses un māju numuri: Base Adresse Nationale, ODbL licence.</string>
+    <string name="about_attribution_geonames">Pašvaldību nosaukumi: GeoNames, CC BY 4.0 licence.</string>
+    <string name="about_attribution_brouter">Maršrutēšana: BRouter, MIT licence, uz OpenStreetMap datu pamata.</string>
+    <string name="about_attribution_maplibre">Kartes attēlošana: MapLibre Native, divu klauzulu BSD licence.</string>
+    <string name="about_links_title">Vietas atvēršana no citas lietotnes</string>
+    <string name="about_links_body">„geo:“ saites un kā vienkāršs teksts kopīgotas adreses nonāk tieši šeit: Android izvēlnē izvēlieties Roue Libre. Saitēm no karšu vietnēm ir nepieciešama atļauja: Iestatījumi → Lietotnes → Roue Libre → Atvērt pēc noklusējuma → Pievienot saiti.</string>
+    <string name="about_licence_title">Licence</string>
+    <string name="about_licence_body">Roue Libre ir brīvā programmatūra, izlaista ar GNU GPL 3. versijas licenci. To drīkst lietot, pētīt, pārveidot un nodot tālāk.</string>
+    <string name="about_open_repository">Skatīt pirmkodu</string>
+    <string name="about_open_sources">Avoti pa pilsētām</string>
+    <string name="about_open_licences">Komponentu licences</string>
+    <string name="donate_open">Ziedot Liberapay</string>
+
+    <string name="sources_title">Datu avoti</string>
+    <string name="sources_intro">Pieejamība nāk no katras pilsētas tīkla kā atvērtie dati. Šeit ir redzams, kas tos veido, arī tajās pilsētās, kuras nav instalētas.</string>
+    <string name="sources_open">Atvērt avotu</string>
+    <string name="about_licences_title">Licences</string>
+    <string name="about_no_browser">Šajā ierīcē nav instalēta neviena pārlūkprogramma.</string>
+
+    <string name="journey_title">Maršruts</string>
+    <string name="journey_open">Plānot maršrutu</string>
+    <string name="journey_origin_empty">No kurienes?</string>
+    <string name="journey_destination_empty">Uz kurieni?</string>
+    <string name="journey_choose_origin">No kurienes?</string>
+    <string name="journey_choose_destination">Uz kurieni?</string>
+    <string name="journey_swap">Samainīt sākumu un galamērķi</string>
+    <string name="journey_hint">Maršruts tiek aprēķināts ierīcē: ar kājām līdz stacijai, ar velosipēdu, tad pārējo ceļu ar kājām.</string>
+    <!-- The switch that leaves the network out of the journey, and the sentence
+         that replaces the one above it when it is on (SPEC §7.3). -->
+    <string name="journey_own_bike">Braukt ar savu velosipēdu</string>
+    <string name="journey_hint_own_bike">Maršruts tiek aprēķināts ierīcē: viens brauciens no durvīm līdz durvīm, bez stacijām pa ceļam.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">Velosipēds ārpus stacijām</string>
+    <string name="journey_origin_street_bike_locked">Maršruts sākas pie izvēlētā velosipēda.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">Maršruts tiek aprēķināts ierīcē: ar velosipēdu no šejienes, atstāt to stacijā, pārējo ceļu ar kājām.</string>
+
+    <!-- Which bike one wants to ride (SPEC §7.3). The first asks for nothing,
+         which is what the application does at rest. -->
+    <string name="journey_bike_kind_any">Jebkurš</string>
+    <string name="journey_bike_kind_mechanical">Parastais</string>
+    <string name="journey_bike_kind_electric">Elektriskais</string>
+    <string name="journey_bike_kind_any_description">Jebkurš velosipēds, vienalga kāda veida</string>
+    <string name="journey_bike_kind_mechanical_description">Velosipēds bez pedāļu mīšanas atbalsta</string>
+    <string name="journey_bike_kind_electric_description">Velosipēds ar pedāļu mīšanas atbalstu</string>
+    <string name="journey_compute">Aprēķināt maršrutu</string>
+    <string name="journey_computing">Notiek labākā maršruta aprēķināšana…</string>
+    <!-- Nothing is being chosen here, so the wait does not claim to be looking
+         for the best of anything. -->
+    <string name="journey_computing_own_bike">Notiek brauciena aprēķināšana…</string>
+    <string name="journey_source_home">Mājas</string>
+    <string name="journey_source_work">Darbs</string>
+    <string name="journey_source_my_position">Mana atrašanās vieta</string>
+    <string name="journey_locating">Notiek jūsu atrašanās vietas noteikšana…</string>
+    <string name="journey_source_favourite">Stacija no izlases</string>
+    <string name="journey_source_on_map">Punkts kartē</string>
+    <string name="journey_no_favourite">Izlasē vēl nav nevienas stacijas. Atveriet staciju un pieskarieties zvaigznītei, lai to pievienotu.</string>
+    <string name="journey_pick_crosshair">Mērķa punkts</string>
+    <string name="journey_pick_confirm">Izvēlēties šo punktu</string>
+    <string name="journey_picked_point">Punkts kartē</string>
+    <string name="journey_frame">Rādīt visu maršrutu</string>
+
+    <string name="journey_summary">no tā %1$s ar kājām un %2$s ar velosipēdu · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. -->
+    <string name="journey_climb">%1$s kāpuma</string>
+    <!-- What waits at the station one sets off from (SPEC §7.4). %1$s is the
+         two counts, mechanical and electric, each already agreed in number. -->
+    <string name="journey_bikes_at_departure">%1$s izbraukšanas stacijā</string>
+    <!-- Announced to a screen reader on the block that opens the journey in
+         full. -->
+    <string name="journey_detail_open">Rādīt maršrutu detalizēti</string>
+    <string name="journey_detail_title">Maršruts detalizēti</string>
+    <string name="journey_detail_departure_station">Izbraukšanas stacija</string>
+    <string name="journey_detail_arrival_station">Ierašanās stacija</string>
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">Brauciens: kāpumi un kritumi</string>
+    <!-- Read out in place of the drawing. %1$s is the climb of the ride, %2$s
+         its lowest point above sea level and %3$s its highest. -->
+    <string name="journey_detail_profile_description">Brauciena kāpums ir %1$s, no %2$s līdz %3$s virs jūras līmeņa.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">Brauciens norit no %1$s līdz %2$s virs jūras līmeņa.</string>
+    <string name="journey_detail_availability_note">Velosipēdu un brīvo vietu skaits ir tāds, kāds tas bija maršruta aprēķināšanas brīdī.</string>
+    <string name="journey_detail_availability_note_bikes">Velosipēdu skaits ir tāds, kāds tas bija maršruta aprēķināšanas brīdī.</string>
+    <!-- Hands one leg of the journey to another application: this one computes
+         journeys, it does not guide along them. -->
+    <string name="journey_navigate">Atvērt navigācijas lietotnē</string>
+    <string name="journey_navigate_which">Kura maršruta daļa?</string>
+    <!-- The station's name arrives in the nominative and stands in apposition:
+         the case falls on *stacijai*, never on the placeholder. -->
+    <string name="journey_step_to_station">Ar kājām līdz stacijai %1$s</string>
+    <string name="journey_step_ride">Ar velosipēdu līdz stacijai %1$s</string>
+    <string name="journey_step_ride_electric_description">Ar elektrisko velosipēdu līdz stacijai %1$s</string>
+    <string name="journey_step_ride_mechanical_description">Ar parasto velosipēdu līdz stacijai %1$s</string>
+    <string name="journey_step_to_destination">Ar kājām līdz galamērķim</string>
+    <string name="journey_step_walk_all">Ar kājām līdz galamērķim</string>
+    <string name="journey_step_ride_all">Ar velosipēdu līdz galamērķim</string>
+    <!-- The summary of a journey ridden on one's own bike: it sits under the
+         total time and says how far, and how much of it goes up. -->
+    <string name="journey_own_bike_only">ar savu velosipēdu, %1$s garumā.</string>
+    <string name="journey_own_bike_only_climb">ar savu velosipēdu, %1$s garumā un %2$s kāpuma.</string>
+    <string name="journey_walk_only">ar kājām, %1$s garumā — ar velosipēdu šeit maršruts nav iespējams.</string>
+    <string name="journey_walk_only_climb">ar kājām, %1$s garumā un %2$s kāpuma — ar velosipēdu šeit maršruts nav iespējams.</string>
+    <string name="journey_walk_is_quicker">ar kājām, %1$s garumā — ātrāk nekā doties pēc velosipēda.</string>
+    <string name="journey_walk_is_quicker_climb">ar kājām, %1$s garumā un %2$s kāpuma — ātrāk nekā doties pēc velosipēda.</string>
+    <string name="journey_none_title">Maršruta nav</string>
+    <string name="journey_no_bike_nearby">Netālu no sākuma nav stacijas ar velosipēdu. Mēģiniet vēlāk vai sāciet no citas vietas.</string>
+
+    <string name="journey_no_mechanical_nearby">Nevienā tuvējā stacijā pašlaik nav parastā velosipēda. Meklējiet jebkuru velosipēdu vai mēģiniet vēlāk.</string>
+    <string name="journey_no_electric_nearby">Nevienā tuvējā stacijā pašlaik nav elektriskā velosipēda. Meklējiet jebkuru velosipēdu vai mēģiniet vēlāk.</string>
+    <string name="journey_no_dock_nearby">Netālu no galamērķa nav stacijas ar brīvu vietu. Mēģiniet vēlāk vai izvēlieties citu galamērķi.</string>
+    <string name="journey_no_return_nearby">Neviena stacija netālu no galamērķa šobrīd nepieņem velosipēdus. Mēģiniet vēlāk vai izvēlieties citu galamērķi.</string>
+    <string name="journey_no_route">Starp šiem diviem punktiem nav izbraucama ceļa.</string>
+    <string name="journey_graph_missing">Maršrutēšanas dati nav instalēti. Pievienojiet tos krātuves ekrānā.</string>
+    <string name="journey_outside_coverage">Šis punkts atrodas ārpus apgabala, ko aptver instalētie dati.</string>
+    <string name="journey_outside_coverage_start">Sākumpunkts atrodas ārpus apgabala, ko aptver instalētie dati. Sāciet no punkta, kas ir tā iekšpusē.</string>
+    <string name="journey_outside_coverage_destination">Galamērķis atrodas ārpus apgabala, ko aptver instalētie dati. Izvēlieties galamērķi tā iekšpusē.</string>
+    <string name="journey_outside_coverage_both">Neviens no abiem punktiem neatrodas apgabalā, ko aptver instalētie dati. Instalējiet tās pilsētas datus, kurā ceļojat.</string>
+    <string name="journey_no_stations">Nav zināma neviena stacija. Atsvaidziniet staciju sarakstu un mēģiniet vēlreiz.</string>
+
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$02d</string>
+
+    <!-- The docking points a station holds in all, where `docks_available`
+         counts the free ones. Two words, because the sheet shows both figures
+         side by side. -->
+    <plurals name="docks_total">
+        <item quantity="one">%1$d statīvs</item>
+        <item quantity="zero">%1$d statīvu</item>
+        <item quantity="other">%1$d statīvi</item>
+    </plurals>
+    <!-- %1$s is the number of docking points, %2$s the age of the data. -->
+    <string name="station_capacity_and_age">%1$s · %2$s</string>
+    <string name="station_address_nearby">Netālu: %1$s</string>
+    <string name="station_favourite_add">Pievienot izlasei</string>
+    <string name="station_favourite_remove">Noņemt no izlases</string>
+    <string name="station_as_origin">Sākt šeit</string>
+    <string name="station_as_destination">Doties šurp</string>
+    <string name="station_open_in_navigation">Atvērt navigācijas lietotnē</string>
+    <string name="station_no_navigation_app">Šajā ierīcē nav instalēta neviena karšu lietotne.</string>
+
+    <string name="address_search_title">Meklēt adresi</string>
+    <!-- The order Latvia writes an address in: Brīvības iela 12, Rīga. The
+         parser reads a house number standing between the street and the town,
+         which is what lets this line be written in that order. No postcode is
+         invited: Latvia's is LV-1050, not a bare group of five digits. -->
+    <string name="address_search_hint">Iela, numurs, pilsēta</string>
+    <string name="address_search_clear">Notīrīt meklējumu</string>
+    <string name="address_search_privacy">Viss tiek meklēts ierīcē. Nekas netiek nosūtīts, pat rakstīšanas laikā.</string>
+    <string name="address_locality">%1$s %2$s</string>
+    <string name="address_detail">%1$s · %2$s</string>
+    <string name="address_detail_approximate">%1$s · aptuvena atrašanās vieta</string>
+    <string name="address_content_description">%1$s, %2$s</string>
+    <string name="address_search_prompt_title">Uz kurieni dodaties?</string>
+    <!-- The „stacijas“ meant here are railway stations, not bike-share ones. -->
+    <string name="address_search_prompt_message">Ierakstiet ielas nosaukumu ar numuru vai bez tā. Var meklēt arī dzelzceļa stacijas, augstskolas un lielākos laukumus.</string>
+    <!-- Shown while a search runs and the screen has nothing else to show. -->
+    <string name="address_searching_title">Notiek meklēšana…</string>
+    <string name="address_searching_message">Notiek meklēšana šajā ierīcē instalētajās adresēs.</string>
+    <string name="address_no_match_title">Neviena adrese nav atrasta</string>
+    <string name="address_no_match_message">Vaicājumam „%1$s“ nekas neatbilst. Mēģiniet tikai ielas nosaukumu vai pievienojiet pilsētu.</string>
+    <string name="address_needs_index_title">Meklēšanai ir nepieciešams adrešu rādītājs</string>
+    <string name="address_needs_index_message">Instalējiet rādītāju krātuves ekrānā. Tas paliek ierīcē un nekad neaiziet uz tīklu.</string>
+    <string name="address_unreadable_title">Adrešu rādītājs nav nolasāms</string>
+    <string name="map_picked_place_description">%1$s. Pieskarieties, lai redzētu, ko var darīt ar šo vietu.</string>
+
+    <string name="place_sheet_title">Šī vieta</string>
+    <string name="place_clear">Notīrīt šo punktu</string>
+
+    <!-- Distances, formatted through the localisation APIs (SPEC §9). %1$s is
+         a figure already rounded and already written in the interface's
+         language: the translation places the symbol, never the number. -->
+    <string name="distance_metres">%1$s m</string>
+    <string name="distance_kilometres">%1$s km</string>
+    <!-- The symbols of the two imperial systems, written as Latvian writes
+         them, which is as everyone writes them. -->
+    <string name="distance_feet">%1$s ft</string>
+    <string name="distance_yards">%1$s yd</string>
+    <string name="distance_miles">%1$s mi</string>
+    <string name="action_back">Atpakaļ</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">Pilsēta</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">Izmantotais tīkls: %1$s</string>
+    <string name="city_choose">Izvēlēties manu pilsētu</string>
+    <string name="city_intro">Izvēlieties aglomerāciju, kuru vēlaties lietot. Tās dati tiek instalēti pēc tam, vienu reizi uz visiem laikiem.</string>
+    <string name="city_locate_me">Atrast manu pilsētu</string>
+    <string name="city_active">Tiek lietota</string>
+    <plurals name="city_detail">
+        <item quantity="one">%1$d stacija · %2$s lejupielādei</item>
+        <item quantity="zero">%1$d staciju · %2$s lejupielādei</item>
+        <item quantity="other">%1$d stacijas · %2$s lejupielādei</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="one">%1$d stacija</item>
+        <item quantity="zero">%1$d staciju</item>
+        <item quantity="other">%1$d stacijas</item>
+    </plurals>
+    <string name="city_detail_size_only">%1$s lejupielādei</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="one">%1$d stacija · lielums tiks paziņots pirms lejupielādes</item>
+        <item quantity="zero">%1$d staciju · lielums tiks paziņots pirms lejupielādes</item>
+        <item quantity="other">%1$d stacijas · lielums tiks paziņots pirms lejupielādes</item>
+    </plurals>
+    <string name="city_size_unknown">Lielums tiks paziņots pirms lejupielādes</string>
+    <string name="city_needs_newer_version">Nav pieejama šajā lietotnes versijā</string>
+    <!-- %1$s is a size, and a quantified phrase carries its own agreement: the
+         colon holds it at arm's length. -->
+    <string name="city_installed">Ierīcē instalēts: %1$s</string>
+    <string name="city_label">%1$s — %2$s</string>
+    <string name="city_delete">Dzēst</string>
+    <!-- These three are handed the NETWORK's name, not the city's — „nextbike
+         LV“ is what serves Riga — so not one of them says „the city %1$s“. The
+         colon and the quotation marks hold the name in the nominative it
+         arrives in. -->
+    <string name="city_delete_description">Dzēst datus: %1$s</string>
+    <string name="city_delete_title">Vai dzēst šos datus?</string>
+    <string name="city_delete_body">Visi tīkla „%1$s“ bezsaistes dati tiks izdzēsti. Lai tos atkal lietotu, tie būs jālejupielādē no jauna.</string>
+    <string name="city_withdrawn">Vairs nav pieejama</string>
+    <string name="city_withdrawn_delete_body">Visi tīkla „%1$s“ bezsaistes dati tiks izdzēsti. Tīkls vairs nav pieejams, tāpēc šie dati vairs nav nekam noderīgi.</string>
+    <string name="city_delete_confirm">Dzēst</string>
+    <string name="city_deleted">Dati izdzēsti: %1$s</string>
+    <string name="city_search_hint">Meklēt pilsētu</string>
+    <string name="city_search_clear">Notīrīt meklējumu</string>
+    <string name="city_country_filter">Valsts</string>
+    <string name="city_country_all">Visas valstis</string>
+    <string name="city_no_match_title">Neviena pilsēta nav atrasta</string>
+    <string name="city_no_match_message">Vaicājumam „%1$s“ nekas neatbilst. Pārbaudiet rakstību vai notīriet meklējumu.</string>
+    <string name="city_no_match_in_country">Izvēlētajā valstī, %2$s, vaicājumam „%1$s“ neatbilst neviena pilsēta. Citās valstīs tādas ir.</string>
+    <string name="city_proposal_title">Jūsu pilsēta</string>
+    <!-- Shown when the position says one is in another served conurbation than
+         the one installed. The placeholder is the subject of *apkalpo* and
+         stays in the nominative; what follows leans on *tīkls* rather than on
+         a pronoun that would have to agree with it. -->
+    <string name="city_here_title">Jūs esat citā pilsētā</string>
+    <string name="city_here_body">%1$s apkalpo apgabalu, kurā atrodaties. Instalējiet šī tīkla datus, lai redzētu tā stacijas un aprēķinātu maršrutus šeit.</string>
+    <string name="city_here_installed_body">%1$s apkalpo apgabalu, kurā atrodaties, un šī tīkla dati jau ir ierīcē.</string>
+    <string name="city_here_install">Instalēt tā datus</string>
+    <string name="city_here_use">Lietot to</string>
+    <string name="city_proposal_body">Šķiet, ka atrodaties apgabalā, ko aptver %1$s. Vai turpināt ar to?</string>
+    <string name="city_proposal_accept">Jā</string>
+    <string name="city_none_nearby">Šeit tuvumā nav neviena zināma tīkla. Izvēlieties pilsētu no saraksta.</string>
+    <string name="city_location_denied">Bez atrašanās vietas izvēlieties savu pilsētu no saraksta vai meklējiet to pēc nosaukuma.</string>
+    <string name="action_cancel">Atcelt</string>
+
+    <string name="size_bytes">%1$s B</string>
+    <string name="size_kilobytes">%1$s kB</string>
+    <string name="size_megabytes">%1$s MB</string>
+    <string name="size_gigabytes">%1$s GB</string>
+
+    <string name="storage_title">Krātuve</string>
+    <string name="storage_open">Pārvaldīt bezsaistes datus</string>
+    <string name="storage_intro">Karte, maršrutu plānotājs un adrešu meklēšana darbojas bez tīkla. Tiem ir nepieciešamas trīs datu kopas, kas tiek instalētas vienu reizi.</string>
+    <string name="storage_total">Šajā ierīcē izmantotā krātuve: %1$s</string>
+    <string name="storage_nothing_installed">Nav instalētu datu</string>
+    <string name="storage_no_city">Nav izvēlēta pilsēta</string>
+    <string name="city_withdrawn_label">„%1$s“ · vairs nav pieejama</string>
+    <string name="city_newer_version_label">„%1$s“ · nepieciešams atjauninājums</string>
+
+    <string name="dataset_tiles">Kartes dati</string>
+    <string name="dataset_tiles_purpose">Zīmē karti bez tīkla</string>
+    <string name="dataset_routing">Maršrutēšanas dati</string>
+    <string name="dataset_routing_purpose">Aprēķina maršrutus ierīcē</string>
+    <string name="dataset_addresses">Adrešu rādītājs</string>
+    <string name="dataset_addresses_purpose">Meklē ielas, neko nenosūtot</string>
+
+    <string name="storage_check_updates">Meklēt atjauninājumus</string>
+    <string name="storage_checking">Notiek manifesta nolasīšana…</string>
+    <string name="storage_up_to_date">Viss ir aktuāls.</string>
+    <!-- A dataset's name is a plural in two cases („Kartes dati“) and a
+         singular in the third („Adrešu rādītājs“), so no verb agrees with all
+         three: the colon agrees with nothing. -->
+    <string name="storage_download_pending">Lejupielādēt: %1$s</string>
+    <string name="storage_download_starting">Sākas lejupielāde…</string>
+    <string name="storage_downloading">%1$s · %2$s no %3$s</string>
+    <string name="storage_download_failed">%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">Publicētie dati pieder tīklam %1$s, nevis %2$s. Nekas netika lejupielādēts: jūs saņemtu citas pilsētas karti un adreses.</string>
+    <string name="storage_wifi_warning">Nav Wi-Fi savienojuma. Šī lejupielāde var būtiski noslogot mobilo datu plānu.</string>
+    <string name="dataset_update_available">Ir pieejams atjauninājums</string>
+    <string name="dataset_download_failed">Lejupielāde neizdevās. %1$s</string>
+
+    <!-- The three lines below are read straight under, or beside, a set's
+         own name — a masculine plural in two cases („Kartes dati“,
+         „Maršrutēšanas dati“) and a masculine singular in the third
+         („Adrešu rādītājs“) — so no participle agreeing with that name can
+         be right all three times. The first is invariable; the other two
+         agree with *datu kopa*, a feminine noun this file supplies itself. -->
+    <string name="dataset_absent">Nav ierīcē</string>
+    <string name="dataset_installed">%1$s · %2$s</string>
+    <string name="dataset_import">Importēt failu</string>
+    <string name="dataset_replace">Aizstāt ar failu</string>
+    <string name="dataset_delete">Dzēst</string>
+    <string name="dataset_delete_description">Dzēst: %1$s</string>
+    <string name="dataset_delete_title">Vai dzēst šos datus?</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">Datu kopa „%1$s“ tiks izdzēsta, atbrīvojot %2$s. Lai strādātu bezsaistē, tā būs jālejupielādē no jauna.</string>
+    <string name="dataset_imported">Datu kopa instalēta: %1$s</string>
+    <string name="dataset_deleted">Datu kopa izdzēsta: %1$s</string>
+
+    <string name="dataset_rejected_empty">Izvēlētais fails ir tukšs.</string>
+    <string name="dataset_rejected_format">Šis nav gaidītais fails. Izvēlieties failu „%1$s“, ko izveido ģenerēšanas skripti.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">Šis fails nav ne „%1$s“, ne citi dati, ko lietotne lasa. Izvēlieties failu „%2$s“, ko izveido ģenerēšanas skripti.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">Šis fails ir „%1$s“, nevis „%2$s“. Importējiet to savā rindā.</string>
+    <string name="dataset_rejected_version">Šis fails ir formāta %1$d. versijā, bet šī lietotnes versija nolasa %2$d. versiju. Atjauniniet lietotni.</string>
+    <string name="dataset_rejected_checksum">Fails neatbilst savai kontrolsummai: tas ir nepilnīgs vai bojāts. Lejupielādējiet to vēlreiz.</string>
+    <string name="dataset_rejected_transfer">Faila kopēšana neizdevās. Pārbaudiet brīvo vietu un mēģiniet vēlreiz.</string>
+
+    <string name="error_offline">Nav savienojuma. Ekrānā paliek pēdējā zināmā pieejamība.</string>
+    <string name="error_offline_no_availability">Nav savienojuma. Pieejamība vēl nav saņemta, tāpēc nav ko rādīt.</string>
+    <!-- The same failures read on the storage screen, where a dataset
+         transfer failed rather than an availability refresh. Those files come
+         down resumably (SPEC §4.4). -->
+    <string name="error_offline_download">Nav savienojuma. Kad atkal būsiet tiešsaistē, pieskarieties „Lejupielādēt“, un lejupielāde turpināsies no vietas, kur apstājās.</string>
+    <string name="error_timeout_download">Serveris neatbild. Vēlāk pieskarieties „Lejupielādēt“, un lejupielāde turpināsies no vietas, kur apstājās.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">Servera kļūda (%1$d). Vēlāk pieskarieties „Lejupielādēt“, un lejupielāde turpināsies no vietas, kur apstājās.</string>
+    <string name="error_untrusted_server_download">Nederīgs drošības sertifikāts. Kad tas būs atjaunots, pieskarieties „Lejupielādēt“, un lejupielāde turpināsies.</string>
+    <string name="error_malformed_download">Saņemts nenolasāms fails. Vēlāk pieskarieties „Lejupielādēt“, un lejupielāde turpināsies no vietas, kur apstājās.</string>
+    <string name="error_local_storage_download">Failu neizdevās saglabāt. Atbrīvojiet vietu un pieskarieties „Lejupielādēt“, lai turpinātu.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">Nav savienojuma. Nekas netika pārbaudīts; mēģiniet vēlreiz, kad būs savienojums.</string>
+    <string name="error_timeout_check">Serveris neatbild. Nekas netika pārbaudīts; mēģiniet vēlreiz pēc brīža.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">Servera kļūda (%1$d). Nekas netika pārbaudīts; mēģiniet vēlāk.</string>
+    <string name="error_untrusted_server_check">Nederīgs drošības sertifikāts. Neko nevar pārbaudīt, kamēr tas nav atjaunots.</string>
+    <string name="error_malformed_check">Publicētais datu saraksts nav nolasāms. Nekas netika pārbaudīts; mēģiniet vēlāk.</string>
+    <string name="error_local_storage_check">Nevar nolasīt ierīcē saglabātos datus. Nebija ar ko salīdzināt.</string>
+    <string name="error_timeout">Tīkla serveris atbild pārāk ilgi. Mēģiniet vēlreiz pēc brīža.</string>
+    <string name="error_server_refused">Tīkla serveris atgrieza kļūdu (%1$d). Mēģiniet vēlāk.</string>
+    <string name="error_untrusted_server">Tīkla serveris uzrādīja nederīgu drošības sertifikātu. Tā datus nevar droši saņemt, kamēr operators to nav atjaunojis.</string>
+    <string name="error_malformed">Saņemtie dati nav nolasāmi. Vaina ir tīkla datu plūsmā; mēģiniet vēlāk.</string>
+    <string name="error_feed_unavailable">Tīkls nepublicē datu plūsmu „%1$s“.</string>
+    <string name="error_unsupported_version">Šis tīkls publicē savus datus %1$s versijā, ko šī lietotnes versija nevar nolasīt. Atjauniniet lietotni.</string>
+    <string name="error_local_storage">Nevar nolasīt ierīcē saglabātos datus.</string>
+    <string name="error_no_city_chosen">Nav izvēlēta neviena pilsēta. Izvēlieties kādu.</string>
+
+    <!-- Wi-Fi-only downloads -->
+    <!-- The setting names Wi-Fi, which is the word everybody has, while what is
+         read stays the billing (SPEC §4.4): a phone's shared connection is
+         Wi-Fi and is a mobile plan, and a capped hotspot declares itself
+         billed. The line under the switch says as much in ordinary words,
+         drawing on *Maksas*, which is what Android calls a metered connection
+         (settings:wifi_metered_label, settings:wifi_unmetered_label gives
+         *Bezmaksas* for the other). -->
+    <string name="download_unmetered_only">Lejupielādēt tikai Wi-Fi tīklā</string>
+    <string name="download_unmetered_only_description">Kopīgots tālruņa savienojums vai Wi-Fi ar datu ierobežojumu var būt maksas savienojums, ko uzskaita pa megabaitiem, un skaitās mobilais tīkls.</string>
+    <string name="download_held_back_title">Lejupielāde mobilajā tīklā</string>
+    <!-- %1$s is a size, „340 MB“ for instance. -->
+    <string name="download_held_back_body">Šis var būt maksas savienojums, ko uzskaita pa megabaitiem. Pieslēdzieties Wi-Fi, lai lejupielādētu %1$s, vai lejupielādējiet tāpat tagad.</string>
+    <string name="download_stopped_title">Lejupielāde apturēta</string>
+    <!-- %1$s is a size. What has already arrived is kept on the device and the
+         transfer picks up from there. -->
+    <string name="download_stopped_body">Šis var būt maksas savienojums, ko uzskaita pa megabaitiem, tāpēc lejupielāde apstājās. Saņemtais ir saglabāts. Pieslēdzieties Wi-Fi, lai pabeigtu %1$s, vai turpiniet tāpat tagad.</string>
+    <string name="download_anyway">Lejupielādēt tāpat</string>
+    <!-- %1$s is a size. -->
+    <string name="download_waiting_for_unmetered">Gaida Wi-Fi, lai lejupielādētu %1$s.</string>
+    <string name="download_can_resume">Šis savienojums vairs nav mobilais tīkls. Sāciet lejupielādi vēlreiz: tā turpināsies no vietas, kur apstājās.</string>
+    <string name="download_connection_back">Savienojums ir atjaunots. Pieskarieties „Lejupielādēt“, un lejupielāde turpināsies no vietas, kur apstājās.</string>
+    <!-- Opening screen, large numbers, own bike kind -->
+
+    <!-- The English governs its two buttons — „open on the map“ — where
+         Latvian would have to decline them. The title names the screen
+         instead, so the buttons stay in the nominative. -->
+    <string name="settings_opening_title">Lietotnes sākuma ekrāns</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">Ekrāns, ar kuru lietotne tiek atvērta</string>
+    <string name="settings_opening_map">Karte</string>
+    <string name="settings_opening_list">Staciju saraksts</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">Skatīt karti</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">Vistuvākā stacija pirmā</string>
+    <string name="stations_location_denied">Bez atrašanās vietas stacijas paliek sakārtotas alfabēta secībā.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge (SPEC 7.1). -->
+    <string name="settings_map_filters_title">Kuras stacijas rāda karte</string>
+    <string name="settings_map_filters_hide_out_of_service">Slēpt stacijas, kas nedarbojas</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Velosipēdi / Brīvās vietas button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">Slēpt stacijas, kurām nav ko piedāvāt</string>
+    <!-- Under the switch, saying what „nothing“ is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">To, kas skaitās „nekas“, nosaka tas, ko karte skaita: neviena velosipēda, kamēr tā skaita velosipēdus, un nevienas brīvas vietas, kamēr tā skaita brīvās vietas.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">„Nekas“ nozīmē neviena velosipēda: šajā tīklā karte skaita tikai velosipēdus.</string>
+    <string name="settings_bikes_past_capacity">Pilnas stacijas pieņem velosipēdus</string>
+    <string name="settings_bikes_past_capacity_automatic">Automātiski</string>
+    <string name="settings_bikes_past_capacity_always">Vienmēr</string>
+    <string name="settings_bikes_past_capacity_never">Nekad</string>
+    <string name="settings_bikes_past_capacity_hint_detected">Automātiski: šis tīkls atstāj velosipēdus blakus savām pilnajām stacijām, tāpēc pilna stacija tiek uzskatīta par tādu, kur varat atdot velosipēdu.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">Automātiski: nekas šī tīkla datos neliecina par velosipēdiem, kas atstāti blakus pilnām stacijām, tāpēc pilna stacija tiek uzskatīta par pilnu.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">Automātiski: saskaņā ar šī tīkla datiem tā stacijas pieņem velosipēdus pat bez brīvas vietas.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">Automātiski: tiek noteikts pēc šī tīkla datiem, tiklīdz tā stacijas ir ielādētas.</string>
+    <string name="settings_bikes_past_capacity_hint_always">Pilna stacija tiek uzskatīta par tādu, kur varat atdot velosipēdu. Ja šis tīkls to neatļauj, brauciens var beigties stacijā, kas velosipēdu nepieņem.</string>
+    <string name="settings_bikes_past_capacity_hint_never">Pilna stacija tiek uzskatīta par pilnu neatkarīgi no tā, ko rāda šī tīkla dati.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">Stacija bez brīvas vietas tiek uzskatīta par pilnu. Šajā tīklā gandrīz neviena stacija nerāda brīvas vietas, tāpēc iespējamo braucienu paliek maz.</string>
+    <!-- Under both switches. The most important rule of the two filters, and
+         the only place it is now written. -->
+    <string name="settings_map_filters_keeps_unknown">Stacijas, par kurām tīkls neko nesaka, paliek kartē: skaits, ko neviens nevarēja nolasīt, nav nulle.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">Rādīt stacijās novietoto velosipēdu akumulatoru un velosipēdus ārpus stacijām</string>
+    <string name="settings_street_bikes_description">Vai velosipēdu ārpus stacijas drīkst aizņemties turpat, kur tas stāv, nosaka tīkls. Šim tiek nolasīta datu plūsma, kas ir daudz smagāka par staciju plūsmu, un kaut ko rāda tikai tie tīkli, kas to publicē.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">Velosipēdi ārpus stacijām</string>
+    <string name="street_bike_intro_body">Tīkls ziņo par šiem velosipēdiem tālu no savām stacijām. Dažus tur atstājis lietotājs, citi gaida operatora noliktavā.\n\nRoue Libre nezina, vai drīkstat paņemt velosipēdu turpat, kur tas stāv: to nosaka tīkla noteikumi, un daži tīkli piemēro soda maksu par velosipēdu, kas atdots ārpus stacijas.\n\nNo velosipēda piedāvātais maršruts vienmēr beidzas stacijā.</string>
+    <string name="street_bike_intro_dismiss">Sapratu</string>
+
+    <string name="bikes_past_capacity_title">%1$s pieņem velosipēdus arī pilnās stacijās</string>
+    <string name="bikes_past_capacity_body">Daudzās šī tīkla stacijās stāv vairāk velosipēdu, nekā ir statīvu: lietotāji atstāj savu velosipēdu blakus pilnai stacijai, un tīkls to pieņem.\n\nTāpēc Roue Libre pilnu staciju uzskata par tādu, kur joprojām varat atdot velosipēdu, un šim tīklam vairs nerāda brīvās vietas.\n\nJa pilna stacija jūsu velosipēdu nepieņem, izslēdziet šo. To var jebkurā laikā mainīt iestatījumos.</string>
+    <string name="bikes_past_capacity_keep">Paturēt</string>
+    <string name="bikes_past_capacity_turn_off">Izslēgt</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">Kas ir šie velosipēdi</string>
+    <string name="street_bike_title">Velosipēds ārpus stacijām</string>
+    <string name="street_bike_kind_mechanical">Parastais velosipēds</string>
+    <string name="street_bike_kind_electric">Elektriskais velosipēds</string>
+    <string name="street_bike_kind_cargo">Kravas velosipēds</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">Akumulators %1$d %%</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">Vēl aptuveni %1$s nobraukuma</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">Par šo velosipēdu šeit vairs netiek ziņots.</string>
+    <string name="street_bike_journey_from_here">Maršruts no šī velosipēda</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">Velosipēds ārpus stacijām</string>
+    <string name="street_bike_marker_description_electric">Elektriskais velosipēds ārpus stacijām</string>
+
+    <!-- The rider's OWN bike, not the network's. The journey screen carries a
+         separate, similar-looking choice about the bikes the network lends. -->
+    <string name="settings_own_bike_kind_title">Jūsu velosipēds</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">Jums piederošā velosipēda veids</string>
+    <string name="settings_own_bike_kind_mechanical">Parastais</string>
+    <string name="settings_own_bike_kind_electric">Elektriskais</string>
+    <!-- Under the two buttons. Says what the declaration changes. -->
+    <string name="settings_own_bike_kind_hint">Ja velosipēds ir norādīts kā elektrisks, tam tiek aprēķināts savs maršruts un savi laiki.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to be
+         a pedal-assist one. %1$s is a distance, %2$s a climb. -->
+    <string name="journey_own_bike_electric_only">ar savu elektrisko velosipēdu, %1$s garumā.</string>
+    <string name="journey_own_bike_electric_only_climb">ar savu elektrisko velosipēdu, %1$s garumā un %2$s kāpuma.</string>
+    <!-- Application language -->
+    <string name="settings_language_title">Valoda</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language. The languages themselves are never translated. -->
+    <string name="settings_language_system">Sistēmas</string>
+    <!-- Spoken label of the row, read aloud in place of the language alone.
+         %1$s is the language in service: „English“, „Latviešu“, or the wording
+         above when the device's own is followed. -->
+    <string name="settings_language_description">Saskarnes valoda: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">Manas vietas</string>
+    <string name="settings_place_home">Mājas</string>
+    <string name="settings_place_work">Darbs</string>
+    <string name="settings_place_none">Nav iestatīts</string>
+    <string name="settings_place_outside_city">Ārpus apkalpotās pilsētas</string>
+    <!-- %1$s is the setting, "Mājas" or "Darbs". -->
+    <string name="settings_place_set">Iestatīt: %1$s</string>
+    <string name="settings_place_change">Mainīt: %1$s</string>
+    <string name="settings_place_clear">Aizmirst: %1$s</string>
+    <string name="settings_place_cleared">Vieta aizmirsta: %1$s</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">Rādīt manas mājas kartē</string>
+    <string name="map_centre_on_work">Rādīt manu darbu kartē</string>
+    <string name="settings_places_markers">Atzīmēt manas vietas kartē</string>
+    <string name="settings_places_buttons">Poga kartē katrai vietai</string>
+</resources>

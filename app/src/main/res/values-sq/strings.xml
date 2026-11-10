@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Albanian translation.
+
+    English, in `values/`, is the source language (SPEC §9); this file is a
+    translation of it and is kept complete. The rules are the ones that hold
+    everywhere: positional placeholders, <plurals> for anything that agrees in
+    number, and the `name` attributes left untouched.
+
+    The typography is Albanian: quotation marks are „ … “, and the diacritics
+    ë and ç are written in full — a bare e in place of an ë makes another word
+    (mëso / meso, të / te). The dash that breaks a sentence is – with a space
+    on either side, not the em dash the English file uses; it replaces that
+    dash inside sentences (`welcome_data_body`, the four `journey_walk_*`
+    lines) as well as inside `city_label`, the one format-only string that
+    carries one. The only em dash left is `counterpart_none`, a glyph standing
+    in for an absent figure rather than punctuation. The apostrophe, where the
+    language needs one (t’i, ta, s’ka) or a network's name carries one
+    (Vélib’), is ’ (U+2019) and never the straight quote, which is why nothing
+    here is escaped.
+
+    The reader is addressed in the second person singular, which is what
+    Android's own Albanian does: of the 5 900 system strings extracted from a
+    phone's `framework-res.apk` and `Settings.apk`, over two hundred use it —
+    Provo përsëri, Kontrollo lidhjen dhe provo përsëri, Zgjidh një llogari,
+    Trokit për ta ndryshuar — against a single line in the polite plural.
+    Buttons take the same imperative: Vazhdo, Anulo, Fshi, Kapërce, Shfaq,
+    Zëvendëso. Where the English is impersonal — "No history is kept", "It is
+    read from the feed" — Albanian keeps it impersonal with the non-active
+    voice (nuk ruhet, lexohet), and never says "we".
+
+    The definite article is a suffix here, so a sentence built around a
+    placeholder cannot control how the placeholder ends. Several lines are
+    turned around rather than given an ending they could not answer for: what
+    arrives follows a colon (`city_installed`, `storage_total`,
+    `dataset_delete_description`, `station_address_nearby`), or a noun this
+    file owns carries the article while the placeholder stands beside it
+    (`city_here_body`, `city_proposal_body`). The three dataset names are all
+    singular for the same reason, since `dataset_imported`, `dataset_deleted`
+    and `dataset_delete_body` conjugate a verb with them.
+
+    Plural categories are Albanian's two: `one` is the number 1 and nothing
+    else, `other` is everything else, 0 included.
+
+    See docs/glossary/sq.md for the words this file holds to, and
+    CONTRIBUTING.md to submit a translation.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <!-- Main screen: the station list. -->
+    <string name="stations_title">Stacionet</string>
+
+    <!-- The number of bikes available to borrow at a station. -->
+    <plurals name="bikes_available">
+        <item quantity="one">%1$d biçikletë</item>
+        <item quantity="other">%1$d biçikleta</item>
+    </plurals>
+
+    <!-- The number of free docks to return a bike to. -->
+    <plurals name="docks_available">
+        <item quantity="one">%1$d vend i lirë</item>
+        <item quantity="other">%1$d vende të lira</item>
+    </plurals>
+    <string name="docks_available_unlimited">Vende të lira: pa kufi</string>
+
+    <!-- Spoken by screen readers on a station's indicator.
+         Example: "Rruga B, 6 biçikleta, 26 vende të lira". -->
+    <string name="station_content_description">%1$s, %2$s, %3$s</string>
+    <string name="station_content_description_bikes_only">%1$s, %2$s</string>
+    <string name="station_out_of_service">Jashtë shërbimit</string>
+    <string name="station_out_of_service_since">%1$s · të dhënat e fundit %2$s</string>
+    <string name="station_availability_unknown">Disponueshmëria nuk dihet</string>
+
+    <!-- What a station is called when its feed publishes no name for it and no
+         street to stand in for one. -->
+    <string name="station_unnamed">Stacion pa emër</string>
+
+    <!-- Shown for a station the network publishes outside the area its data
+         covers. The short form joins the rest of the row. -->
+    <string name="station_beyond_area_short">jashtë hartës</string>
+    <string name="station_beyond_area">Ky stacion ndodhet jashtë zonës që mbulojnë të dhënat e instaluara. Biçikletat e tij numërohen në kohë reale, por asnjë hartë dhe asnjë itinerar nuk arrin deri tek ai.</string>
+
+    <string name="search_stations_hint">Kërko një stacion</string>
+    <string name="search_stations_clear">Pastro kërkimin</string>
+    <string name="stations_no_match_title">Nuk u gjet asnjë stacion</string>
+    <string name="stations_no_match_message">Asgjë nuk përputhet me „%1$s“. Kontrollo shkrimin ose pastro kërkimin.</string>
+    <string name="action_clear_search">Pastro kërkimin</string>
+
+    <string name="mode_bikes">Biçikleta</string>
+    <string name="mode_docks">Vende të lira</string>
+
+    <!-- Which bikes the markers count, where the network lends both kinds
+         (SPEC §7.1). Named after what is shown, like the toggle beside it. -->
+    <string name="map_bikes_all_kinds">Të gjitha</string>
+    <string name="map_bikes_mechanical">Mekanike</string>
+    <string name="map_bikes_electric">Elektrike</string>
+    <string name="map_bikes_all_kinds_description">Numërohen të gjitha biçikletat. Trokit për të numëruar vetëm ato mekanike.</string>
+    <string name="map_bikes_mechanical_description">Numërohen biçikletat mekanike. Trokit për të numëruar vetëm ato elektrike.</string>
+    <string name="map_bikes_electric_description">Numërohen biçikletat elektrike. Trokit për t’i numëruar të gjitha.</string>
+
+    <!-- The label under, or beside, a count. No item holds a number, and none
+         ever should: the figure is written next to these words already. The
+         word alone agrees, which is why these are plurals resolved with the
+         count and formatted with nothing. On a list row the label is set in
+         capitals, on its own line under the figure, so it has to read as a
+         word standing alone and not as the tail of a phrase — which is what
+         "vende të lira" does. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="one">biçikletë</item>
+        <item quantity="other">biçikleta</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="one">vend i lirë</item>
+        <item quantity="other">vende të lira</item>
+    </plurals>
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list. %1$s is the
+         distance to the station, or its postcode when the position is not
+         known. %2$d is the number of docking points, counted as a total: the
+         parking place itself, not the free spot a bike goes into. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="one">%1$s · %2$d vend parkimi</item>
+        <item quantity="other">%1$s · %2$d vende parkimi</item>
+    </plurals>
+
+    <!-- What a station's bikes are, shown only where the network lends both
+         kinds side by side. %1$s is the mechanical count, %2$s the electric
+         one, each already agreed in number. -->
+    <string name="station_bikes_split">%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="one">%1$d mekanike</item>
+        <item quantity="other">%1$d mekanike</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="one">%1$d elektrike</item>
+        <item quantity="other">%1$d elektrike</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">%1$d%%</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">Bateria %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">Rreth %1$s autonomi e mbetur</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">Bateria nga %1$s deri në %2$s</string>
+    <string name="station_bikes_range_spread">Rreth %1$s deri në %2$s autonomi e mbetur</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">Hollësi për biçikletat në këtë stacion</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">Rrjeti e publikon këtë listë në një burim të vetin, veçmas nga numri më sipër, dhe këtu të dyja kundërshtojnë njëra-tjetrën. Roue Libre i tregon të dyja ashtu siç janë publikuar, në vend që të zgjedhë mes tyre.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">E rezervuar</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="one">%1$d biçikletë jashtë shërbimit</item>
+        <item quantity="other">%1$d biçikleta jashtë shërbimit</item>
+    </plurals>
+
+    <!-- How old the availability is. All of these are read inside another
+         sentence — "Përditësuar %1$s" — so they start in lower case. -->
+    <string name="freshness_just_now">pikërisht tani</string>
+    <plurals name="freshness_seconds">
+        <item quantity="one">%1$d sekondë më parë</item>
+        <item quantity="other">%1$d sekonda më parë</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="one">%1$d minutë më parë</item>
+        <item quantity="other">%1$d minuta më parë</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="one">%1$d orë më parë</item>
+        <item quantity="other">%1$d orë më parë</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="one">%1$d ditë më parë</item>
+        <item quantity="other">%1$d ditë më parë</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="one">%1$d muaj më parë</item>
+        <item quantity="other">%1$d muaj më parë</item>
+    </plurals>
+    <string name="freshness_stale">Të dhëna të ngrira · %1$s</string>
+    <string name="freshness_fresh">Përditësuar %1$s</string>
+    <string name="freshness_never">Nuk është përditësuar kurrë</string>
+    <string name="freshness_loading">Po ngarkohen stacionet…</string>
+
+    <string name="stations_empty_title">Asnjë stacion i ngarkuar</string>
+    <string name="stations_empty_message">Tërhiq listën poshtë për të marrë stacionet e rrjetit.</string>
+    <string name="action_refresh">Rifresko</string>
+    <string name="action_retry">Provo përsëri</string>
+
+    <string name="map_open_list">Shih listën e stacioneve</string>
+    <string name="map_description">Hartë. Rrëshqite me dy gishta që ta lëvizësh, bashko ose ndaj dy gishtat për ta zmadhuar ose zvogëluar, rrotullo dy gishtat për ta kthyer, rrëshqit dy gishtat lart ose poshtë që ta pjerrësosh.</string>
+    <string name="map_attribution">© kontribuuesit e OpenStreetMap</string>
+    <string name="map_locate_me">Gjej vendndodhjen time</string>
+    <string name="map_locating">Po gjendet pozicioni yt…</string>
+    <string name="map_location_denied">Pa vendndodhje, zgjidh pikënisjen në hartë ose me adresë.</string>
+    <string name="map_location_unavailable">Pozicioni nuk merret dot. Kontrollo që vendndodhja të jetë e aktivizuar, pastaj provo përsëri.</string>
+    <string name="map_outside_city_title">Ndodhesh diku tjetër</string>
+    <string name="map_outside_city_message">Pozicioni yt bie jashtë zonës që mbulon %1$s, prandaj kjo hartë nuk mund ta tregojë. Zgjidh qytetin ku ndodhesh për të parë stacionet e tij.</string>
+    <string name="map_outside_city_brief">Pozicioni yt bie jashtë zonës që mbulon %1$s.</string>
+    <string name="map_needs_tiles_title">Mungon harta bazë</string>
+    <string name="map_needs_tiles_message">Instalo hartën bazë nga ekrani i hapësirës ruajtëse. Ndërkohë, lista e stacioneve mbetet e përdorshme.</string>
+    <string name="map_downloading_title">Harta po shkarkohet</string>
+    <string name="map_downloading_message">Do të shfaqet këtu sapo të instalohet. Ndërkohë, lista e stacioneve mbetet e përdorshme.</string>
+    <string name="map_needs_city_title">Cili qytet?</string>
+    <string name="map_needs_city_message">Zgjidh zonën urbane që do të përdorësh. Të dhënat e saj shkarkohen më pas, një herë e përgjithmonë.</string>
+    <string name="map_city_withdrawn_title">Rrjeti nuk është më i disponueshëm</string>
+    <string name="map_city_withdrawn_message">%1$s nuk është më i disponueshëm dhe stacionet e tij nuk shfaqen më. Zgjidh një qytet tjetër. Të dhënat që la në këtë pajisje mund të fshihen nga lista e qyteteve.</string>
+    <string name="map_city_withdrawn_message_unnamed">Rrjeti që zgjodhe nuk është më i disponueshëm dhe stacionet e tij nuk shfaqen më. Zgjidh një qytet tjetër. Të dhënat që la në këtë pajisje mund të fshihen nga lista e qyteteve.</string>
+    <string name="map_city_newer_version_message">%1$s është i disponueshëm në një version më të ri të aplikacionit, dhe stacionet e tij nuk shfaqen në këtë. Përditëso aplikacionin ose zgjidh një qytet tjetër.</string>
+    <string name="city_choose_another">Zgjidh një qytet tjetër</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">Drejtoje nga veriu dhe rrafshoje hartën</string>
+    <plurals name="map_bearing_description">
+        <item quantity="one">Harta është kthyer %1$d gradë nga veriu.</item>
+        <item quantity="other">Harta është kthyer %1$d gradë nga veriu.</item>
+    </plurals>
+    <string name="map_tilted_description">Harta është e pjerrët.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="one">Harta është kthyer %1$d gradë nga veriu dhe është e pjerrët.</item>
+        <item quantity="other">Harta është kthyer %1$d gradë nga veriu dhe është e pjerrët.</item>
+    </plurals>
+
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">Ky aplikacion tregon biçikletat e përbashkëta në hartë dhe llogarit një udhëtim derë më derë: në këmbë deri te një stacion, pastaj me biçikletë dhe në këmbë pjesën tjetër të rrugës.\n\nËshtë falas dhe me kod të hapur. Pa llogari, pa reklama, pa gjurmues.</string>
+    <string name="welcome_privacy_title">Asgjë nuk del nga ky telefon</string>
+    <string name="welcome_privacy_body">Udhëtimet llogariten në këtë telefon. Adresat që kërkon nuk i dërgohen askujt, as ndërsa i shkruan.\n\nNuk ruhet asnjë historik: as udhëtimet, as pozicionet, as destinacionet.\n\nE vetmja kërkesë që del në përdorimin e përditshëm pyet sa biçikleta ka.</string>
+    <string name="welcome_fleet_title">Çfarë thotë biçikleta</string>
+    <string name="welcome_fleet_body">Biçikleta e vizatuar tregon çfarë ofron qyteti yt.\n\nLexohet nga burimi i vetë rrjetit, kurrë nuk merret me hamendje.</string>
+    <string name="welcome_fleet_mechanical_only">Rrjeti ofron vetëm biçikleta mekanike.</string>
+    <string name="welcome_fleet_electric_only">Rrjeti ofron vetëm biçikleta elektrike.</string>
+    <string name="welcome_fleet_mixed">Rrjeti ofron të dyja llojet.</string>
+
+    <string name="welcome_data_title">Një qytet, një shkarkim</string>
+    <string name="welcome_data_body">Harta, rrugët dhe llogaritja e itinerarit qëndrojnë në pajisje. Kjo është ajo që i bën të punojnë pa rrjet – dhe kjo do të thotë se të dhënat e qytetit tënd shkarkohen një herë.\n\nPrandaj fillo duke e zgjedhur. Prit rreth dyzet megabajt për një zonë urbane mesatare, më shumë për një kryeqytet; madhësia njoftohet para shkarkimit.\n\nMund ta bësh edhe më vonë: ndërkohë, lista e stacioneve dhe disponueshmëria e tyre mbeten të përdorshme.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">%1$d nga %2$d</string>
+    <string name="welcome_continue">Vazhdo</string>
+    <string name="welcome_skip">Kapërce</string>
+    <string name="welcome_choose_city">Zgjidh qytetin tim</string>
+    <string name="welcome_later">Më vonë</string>
+    <string name="welcome_open">Lexo sërish hyrjen</string>
+
+    <string name="whats_new_title">Çfarë ka të re</string>
+    <string name="whats_new_done">Vazhdo</string>
+    <string name="whats_new_nothing">Ky version nuk ka shënime publikimi.</string>
+    <string name="whats_new_open">Shih çfarë ka të re</string>
+
+    <string name="incoming_place_default_label">Vend i pranuar</string>
+    <string name="incoming_show_me">Shfaq</string>
+    <string name="incoming_needs_index">Kjo adresë duhet kërkuar në indeksin jashtë linje, i cili nuk është i instaluar.</string>
+    <string name="incoming_address_not_found">„%1$s“ nuk përputhet me asnjë adresë në zonën e mbuluar.</string>
+    <string name="incoming_address_choices_title">Mos doje të thoshe një nga këto adresa?</string>
+    <string name="incoming_address_choice">%1$s\n%2$s</string>
+    <string name="incoming_outside_coverage">Ky vend ndodhet jashtë zonës që mbulojnë të dhënat e instaluara: asnjë udhëtim nuk arrin deri atje.</string>
+    <string name="incoming_unreadable_link">Kjo lidhje nuk thotë ku të shkosh: vendi i saj nuk u lexua dot.</string>
+
+    <string name="favourites_title">Të preferuarat</string>
+    <string name="stations_all_title">Të gjitha stacionet</string>
+    <string name="stations_favourites_reorder">Rirendit</string>
+    <string name="stations_favourites_fold">Fshih të preferuarat</string>
+    <string name="stations_favourites_unfold">Shfaq të preferuarat</string>
+    <string name="favourites_reorder_hint">Shtyp dhe mbaj një rresht për ta zhvendosur.</string>
+
+    <string name="settings_title">Cilësimet</string>
+    <string name="settings_open">Cilësimet</string>
+    <!-- The section titles of the settings screen (SPEC §7.6), in the order
+         the screen lays them out. -->
+    <string name="settings_section_city">Qyteti</string>
+    <string name="settings_section_journey">Udhëtimi</string>
+    <string name="settings_section_display">Ekrani</string>
+    <string name="settings_section_data">Të dhënat jashtë linje</string>
+
+    <!-- The walking pace (SPEC §6, §7.6). Named in words and never in km/h: a
+         pace is something one knows about oneself. "Ritmi" is the pace, and
+         the three values agree with it in the masculine. -->
+    <string name="settings_walking_pace_title">Ritmi i ecjes</string>
+    <string name="settings_walking_pace_slow">I ngadaltë</string>
+    <string name="settings_walking_pace_normal">Normal</string>
+    <string name="settings_walking_pace_brisk">I shpejtë</string>
+    <string name="settings_walking_pace_description">Ritmi me të cilin llogariten pjesët në këmbë të një udhëtimi</string>
+
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_system">Sistemi</string>
+    <string name="settings_theme_light">E çelët</string>
+    <string name="settings_theme_dark">E errët</string>
+
+    <!-- Units (SPEC 7.6). The buttons name the units rather than the
+         countries. -->
+    <string name="settings_units_title">Njësitë</string>
+    <string name="settings_units_system">Sistemi</string>
+    <string name="settings_units_metric">m · km</string>
+    <string name="settings_units_us">ft · mi</string>
+    <string name="settings_units_uk">yd · mi</string>
+    <string name="settings_units_description">Njësitë e përdorura për distancat</string>
+    <string name="settings_units_system_description">Ndiq rajonin në të cilin është vendosur pajisja</string>
+    <string name="settings_units_metric_description">Metra dhe kilometra</string>
+    <string name="settings_units_us_description">Këmbë dhe milje</string>
+    <string name="settings_units_uk_description">Jardë dhe milje</string>
+
+    <string name="about_title">Rreth aplikacionit</string>
+    <string name="about_open">Rreth aplikacionit</string>
+    <string name="about_version">Versioni %1$s</string>
+    <string name="about_privacy_title">Privatësia</string>
+    <string name="about_privacy_body">Pa llogari, pa reklama, pa gjurmues, pa identifikues unik. Asgjë nga ajo që kërkohet ose llogaritet nuk del nga ky telefon: adresat, udhëtimet dhe pozicioni yt qëndrojnë këtu dhe nuk ruhen. E vetmja kërkesë që del në përdorimin e përditshëm merr disponueshmërinë e biçikletave. Grupet e të dhënave shkarkohen vetëm kur ti e kërkon.</string>
+    <string name="about_attributions_title">Burimet e të dhënave</string>
+    <string name="about_attribution_gbfs">Disponueshmëria e biçikletave: të dhënat e hapura të rrjetit të shërbyer, të publikuara në formatin GBFS. Në Francë ato indeksohen në transport.data.gouv.fr.</string>
+    <string name="about_attribution_osm">Harta, itineraret dhe pikat e interesit: © kontribuuesit e OpenStreetMap, licenca ODbL.</string>
+    <string name="about_attribution_ban">Adresat dhe numrat e shtëpive: Base Adresse Nationale, licenca ODbL.</string>
+    <string name="about_attribution_geonames">Emrat e bashkive: GeoNames, licenca CC BY 4.0.</string>
+    <string name="about_attribution_brouter">Llogaritja e itinerarëve: BRouter, licenca MIT, mbi të dhënat e OpenStreetMap.</string>
+    <string name="about_attribution_maplibre">Vizatimi i hartës: MapLibre Native, licenca BSD me dy klauzola.</string>
+    <string name="about_links_title">Hapja e një vendi nga një aplikacion tjetër</string>
+    <string name="about_links_body">Lidhjet „geo:“ dhe adresat e ndara si tekst i thjeshtë vijnë drejt këtu: zgjidh Roue Libre kur Android të pyet me çfarë ta hapësh. Lidhjet nga faqet e hartave kërkojnë leje: Cilësimet → Aplikacionet → Roue Libre → Hap me parazgjedhje → Shto lidhje.</string>
+    <string name="about_licence_title">Licenca</string>
+    <string name="about_licence_body">Roue Libre është softuer i lirë, i publikuar nën licencën GNU GPL versioni 3. Mund ta përdorësh, ta studiosh, ta ndryshosh dhe ta shpërndash.</string>
+    <string name="about_open_repository">Shih kodin burimor</string>
+    <string name="about_open_sources">Burimet qytet për qytet</string>
+    <string name="about_open_licences">Licencat e komponentëve</string>
+    <string name="donate_open">Dhuro në Liberapay</string>
+
+    <string name="sources_title">Burimet e të dhënave</string>
+    <string name="sources_intro">Disponueshmëria vjen nga rrjeti i secilit qytet, si të dhëna të hapura. Ja kush i prodhon, përfshirë për qytetet që nuk i ke instaluar.</string>
+    <string name="sources_open">Hap burimin</string>
+    <string name="about_licences_title">Licencat</string>
+    <string name="about_no_browser">Në këtë pajisje nuk ka asnjë shfletues të instaluar.</string>
+
+    <string name="journey_title">Udhëtimi</string>
+    <string name="journey_open">Planifiko një udhëtim</string>
+    <string name="journey_origin_empty">Nga ku nisesh?</string>
+    <string name="journey_destination_empty">Ku po shkon?</string>
+    <string name="journey_choose_origin">Nga ku nisesh?</string>
+    <string name="journey_choose_destination">Ku po shkon?</string>
+    <string name="journey_swap">Këmbe nisjen me destinacionin</string>
+    <string name="journey_hint">Udhëtimi llogaritet në pajisje: në këmbë deri te një stacion, pastaj me biçikletë dhe në këmbë pjesën tjetër të rrugës.</string>
+    <!-- The switch that leaves the network out of the journey, and the sentence
+         that replaces the one above it when it is on (SPEC §7.3). -->
+    <string name="journey_own_bike">Me biçikletën time</string>
+    <string name="journey_hint_own_bike">Udhëtimi llogaritet në pajisje: një ngasje e vetme derë më derë, pa asnjë stacion në mes.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">Biçikletë jashtë stacioneve</string>
+    <string name="journey_origin_street_bike_locked">Udhëtimi nis nga biçikleta që zgjodhe.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">Udhëtimi llogaritet në pajisje: me biçikletë që nga këtu, e lë në një stacion dhe pjesën tjetër të rrugës në këmbë.</string>
+
+    <!-- Which bike one wants to ride (SPEC §7.3). The first asks for nothing,
+         which is what the application does at rest. -->
+    <string name="journey_bike_kind_any">Çfarëdo</string>
+    <string name="journey_bike_kind_mechanical">Mekanike</string>
+    <string name="journey_bike_kind_electric">Elektrike</string>
+    <string name="journey_bike_kind_any_description">Çfarëdo biçiklete, të çfarëdo lloji</string>
+    <string name="journey_bike_kind_mechanical_description">Një biçikletë që e pedaloj vetë</string>
+    <string name="journey_bike_kind_electric_description">Një biçikletë me ndihmë në pedale</string>
+    <string name="journey_compute">Llogarit udhëtimin</string>
+    <string name="journey_computing">Po llogaritet udhëtimi më i mirë…</string>
+    <!-- Nothing is being chosen here — one route to trace, not a pair of
+         stations to weigh — so the wait does not claim to be looking for the
+         best of anything. -->
+    <string name="journey_computing_own_bike">Po llogaritet ngasja…</string>
+    <string name="journey_source_home">Shtëpia</string>
+    <string name="journey_source_work">Puna</string>
+    <string name="journey_source_my_position">Pozicioni im</string>
+    <string name="journey_locating">Po gjendet pozicioni yt…</string>
+    <string name="journey_source_favourite">Një stacion i preferuar</string>
+    <string name="journey_source_on_map">Një pikë në hartë</string>
+    <string name="journey_no_favourite">Ende asnjë stacion i preferuar. Hap një stacion dhe trokit yllin për ta shtuar.</string>
+    <string name="journey_pick_crosshair">Pika e shënjestruar</string>
+    <string name="journey_pick_confirm">Zgjidh këtë pikë</string>
+    <string name="journey_picked_point">Pikë në hartë</string>
+    <string name="journey_frame">Shfaq gjithë udhëtimin</string>
+
+    <string name="journey_summary">nga të cilat %1$s në këmbë dhe %2$s me biçikletë · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. -->
+    <string name="journey_climb">%1$s ngjitje</string>
+    <!-- What waits at the station one sets off from, hung at the end of the
+         journey summary (SPEC §7.4). %1$s is the two counts, mechanical and
+         electric, each already agreed in number. -->
+    <string name="journey_bikes_at_departure">%1$s në stacionin e nisjes</string>
+    <!-- The block holding the total time, the summary and the drawing opens
+         the journey in full: this is what the press does, announced to a
+         screen reader that would otherwise say only "activate". -->
+    <string name="journey_detail_open">Shfaq udhëtimin në hollësi</string>
+    <string name="journey_detail_title">Udhëtimi në hollësi</string>
+    <string name="journey_detail_departure_station">Stacioni i nisjes</string>
+    <string name="journey_detail_arrival_station">Stacioni i mbërritjes</string>
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">Ngasja, në ngjitje e në zbritje</string>
+    <!-- Read out in place of the drawing. %1$s is the climb of the ride, %2$s
+         its lowest point above sea level and %3$s its highest. -->
+    <string name="journey_detail_profile_description">Ngasja ngjitet %1$s, mes %2$s dhe %3$s mbi nivelin e detit.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">Ngasja zhvillohet mes %1$s dhe %2$s mbi nivelin e detit.</string>
+    <string name="journey_detail_availability_note">Biçikletat dhe vendet e lira ashtu siç ishin kur u llogarit udhëtimi.</string>
+    <string name="journey_detail_availability_note_bikes">Biçikletat ashtu siç ishin kur u llogarit udhëtimi.</string>
+    <!-- Hands one leg of the journey to another application: this one computes
+         journeys, it does not guide along them. -->
+    <string name="journey_navigate">Hap në një aplikacion navigimi</string>
+    <string name="journey_navigate_which">Cila pjesë e udhëtimit?</string>
+    <string name="journey_step_to_station">Në këmbë deri te stacioni %1$s</string>
+    <string name="journey_step_ride">Me biçikletë deri te stacioni %1$s</string>
+    <string name="journey_step_ride_electric_description">Me biçikletë elektrike deri te stacioni %1$s</string>
+    <string name="journey_step_ride_mechanical_description">Me biçikletë mekanike deri te stacioni %1$s</string>
+    <string name="journey_step_to_destination">Në këmbë deri te destinacioni</string>
+    <string name="journey_step_walk_all">Në këmbë deri te destinacioni</string>
+    <string name="journey_step_ride_all">Me biçikletë deri te destinacioni</string>
+    <!-- The summary of a journey ridden on one's own bike: it sits under the
+         total time, where the walk's own summary sits, and says the same two
+         things — how far, and how much of it goes up. -->
+    <string name="journey_own_bike_only">me biçikletën tënde, përgjatë %1$s.</string>
+    <string name="journey_own_bike_only_climb">me biçikletën tënde, përgjatë %1$s dhe me %2$s ngjitje.</string>
+    <string name="journey_walk_only">në këmbë, përgjatë %1$s – këtu nuk është i mundur asnjë udhëtim me biçikletë.</string>
+    <string name="journey_walk_only_climb">në këmbë, përgjatë %1$s dhe me %2$s ngjitje – këtu nuk është i mundur asnjë udhëtim me biçikletë.</string>
+    <string name="journey_walk_is_quicker">në këmbë, përgjatë %1$s – më shpejt sesa të shkosh e të marrësh një biçikletë.</string>
+    <string name="journey_walk_is_quicker_climb">në këmbë, përgjatë %1$s dhe me %2$s ngjitje – më shpejt sesa të shkosh e të marrësh një biçikletë.</string>
+    <string name="journey_none_title">Asnjë udhëtim</string>
+    <string name="journey_no_bike_nearby">Asnjë stacion me biçikletë pranë nisjes. Provo më vonë ose nisu nga një vend tjetër.</string>
+
+    <string name="journey_no_mechanical_nearby">Asnjë stacion këtu afër nuk ka biçikletë mekanike tani. Kërko çfarëdo biçiklete ose provo më vonë.</string>
+    <string name="journey_no_electric_nearby">Asnjë stacion këtu afër nuk ka biçikletë elektrike tani. Kërko çfarëdo biçiklete ose provo më vonë.</string>
+    <string name="journey_no_dock_nearby">Asnjë stacion me vend të lirë pranë destinacionit. Provo më vonë ose zgjidh një destinacion tjetër.</string>
+    <string name="journey_no_return_nearby">Asnjë stacion pranë destinacionit nuk po pranon biçikleta tani. Provo më vonë ose zgjidh një destinacion tjetër.</string>
+    <string name="journey_no_route">Nuk ka rrugë të kalueshme mes këtyre dy pikave.</string>
+    <string name="journey_graph_missing">Grafi i itinerarëve nuk është i instaluar. Shtoje nga ekrani i hapësirës ruajtëse.</string>
+    <string name="journey_outside_coverage">Kjo pikë ndodhet jashtë zonës që mbulojnë të dhënat e instaluara.</string>
+    <string name="journey_outside_coverage_start">Pika e nisjes ndodhet jashtë zonës që mbulojnë të dhënat e instaluara. Nisu nga një pikë brenda saj.</string>
+    <string name="journey_outside_coverage_destination">Destinacioni ndodhet jashtë zonës që mbulojnë të dhënat e instaluara. Zgjidh një destinacion brenda saj.</string>
+    <string name="journey_outside_coverage_both">Asnjëri nga të dy skajet nuk ndodhet brenda zonës që mbulojnë të dhënat e instaluara. Instalo të dhënat e qytetit ku po udhëton.</string>
+    <string name="journey_no_stations">Nuk njihet asnjë stacion. Rifresko listën e stacioneve, pastaj provo përsëri.</string>
+
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$02d</string>
+
+    <!-- The docking points a station has in all, the rack rather than the free
+         spot: shown beside the free ones, "12 vende të lira · 30 vende
+         parkimi". -->
+    <plurals name="docks_total">
+        <item quantity="one">%1$d vend parkimi</item>
+        <item quantity="other">%1$d vende parkimi</item>
+    </plurals>
+    <string name="station_capacity_and_age">%1$s · %2$s</string>
+    <string name="station_address_nearby">Afër: %1$s</string>
+    <string name="station_favourite_add">Shto te të preferuarat</string>
+    <string name="station_favourite_remove">Hiq nga të preferuarat</string>
+    <string name="station_as_origin">Nisu nga këtu</string>
+    <string name="station_as_destination">Shko këtu</string>
+    <string name="station_open_in_navigation">Hap në një aplikacion navigimi</string>
+    <string name="station_no_navigation_app">Në këtë pajisje nuk ka asnjë aplikacion hartash të instaluar.</string>
+
+    <string name="address_search_title">Kërko një adresë</string>
+    <!-- The order an address is typed in here, which is the order Kosovo and
+         Albania write one: street, then number, then town. `parseQuery` reads
+         a number in that middle position (SPEC §4.3). No postcode is invited:
+         it is written apart from the street line and would be a second number
+         in the query. -->
+    <string name="address_search_hint">Rrugë, numër, qytet</string>
+    <string name="address_search_clear">Pastro kërkimin</string>
+    <string name="address_search_privacy">Gjithçka kërkohet në pajisje. Asgjë nuk dërgohet, as ndërsa shkruan.</string>
+    <string name="address_locality">%1$s %2$s</string>
+    <string name="address_detail">%1$s · %2$s</string>
+    <string name="address_detail_approximate">%1$s · pozicion i përafërt</string>
+    <string name="address_content_description">%1$s, %2$s</string>
+    <string name="address_search_prompt_title">Ku po shkon?</string>
+    <!-- "Stacionet e transportit" are railway and bus stations, the landmarks
+         the index holds — never the bike stations this application counts,
+         which is why they are named with what they belong to. -->
+    <string name="address_search_prompt_message">Shkruaj emrin e një rruge, me numër ose pa numër. Mund të kërkohen edhe stacionet e transportit, universitetet dhe sheshet kryesore.</string>
+    <!-- Shown while a search runs and the screen has nothing else to show. -->
+    <string name="address_searching_title">Po kërkon…</string>
+    <string name="address_searching_message">Po shfletohen adresat e instaluara në këtë pajisje.</string>
+    <string name="address_no_match_title">Nuk u gjet asnjë adresë</string>
+    <string name="address_no_match_message">Asgjë nuk përputhet me „%1$s“. Provo vetëm emrin e rrugës ose shto qytetin.</string>
+    <string name="address_needs_index_title">Kërkimit i duhet indeksi i adresave</string>
+    <string name="address_needs_index_message">Instalo indeksin nga ekrani i hapësirës ruajtëse. Ai qëndron në pajisje dhe nuk del kurrë në rrjet.</string>
+    <string name="address_unreadable_title">Indeksi i adresave nuk lexohet</string>
+    <string name="map_picked_place_description">%1$s. Trokit për të parë çfarë mund të bësh me këtë vend.</string>
+
+    <string name="place_sheet_title">Ky vend</string>
+    <string name="place_clear">Hiqe këtë pikë</string>
+
+    <!-- Distances, formatted through the localisation APIs (SPEC §9). In all
+         five, %1$s is a figure already rounded and already written in the
+         interface's language: the translation places the symbol, never the
+         number. -->
+    <string name="distance_metres">%1$s m</string>
+    <string name="distance_kilometres">%1$s km</string>
+    <string name="distance_feet">%1$s ft</string>
+    <string name="distance_yards">%1$s yd</string>
+    <string name="distance_miles">%1$s mi</string>
+    <string name="action_back">Prapa</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">Qyteti</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">Rrjeti në përdorim: %1$s</string>
+    <string name="city_choose">Zgjidh qytetin tim</string>
+    <string name="city_intro">Zgjidh zonën urbane që do të përdorësh. Të dhënat e saj instalohen më pas, një herë e përgjithmonë.</string>
+    <string name="city_locate_me">Gjej qytetin tim</string>
+    <string name="city_active">Në përdorim</string>
+    <plurals name="city_detail">
+        <item quantity="one">%1$d stacion · %2$s për shkarkim</item>
+        <item quantity="other">%1$d stacione · %2$s për shkarkim</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="one">%1$d stacion</item>
+        <item quantity="other">%1$d stacione</item>
+    </plurals>
+    <string name="city_detail_size_only">%1$s për shkarkim</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="one">%1$d stacion · madhësia njoftohet para shkarkimit</item>
+        <item quantity="other">%1$d stacione · madhësia njoftohet para shkarkimit</item>
+    </plurals>
+    <string name="city_size_unknown">Madhësia njoftohet para shkarkimit</string>
+    <string name="city_needs_newer_version">Jo e disponueshme në këtë version të aplikacionit</string>
+    <!-- %1$s is a size. The label is turned around so that no ending has to
+         agree with a figure this file never sees. -->
+    <string name="city_installed">Instaluar në pajisje: %1$s</string>
+    <string name="city_label">%1$s – %2$s</string>
+    <string name="city_delete">Fshi</string>
+    <!-- In these three, %1$s is the network's name and not the city's: most
+         networks are called something other than the town they serve. -->
+    <string name="city_delete_description">Fshi të dhënat për %1$s</string>
+    <string name="city_delete_title">Të fshihen këto të dhëna?</string>
+    <string name="city_delete_body">Të gjitha të dhënat jashtë linje për %1$s do të fshihen. Do të duhet t’i shkarkosh sërish për t’i përdorur.</string>
+    <string name="city_withdrawn">Jo më e disponueshme</string>
+    <string name="city_withdrawn_delete_body">Të gjitha të dhënat jashtë linje për %1$s do të fshihen. Rrjeti nuk është më i disponueshëm, prandaj këto të dhëna nuk shërbejnë më për asgjë.</string>
+    <string name="city_delete_confirm">Fshi</string>
+    <string name="city_deleted">Të dhënat për %1$s u fshinë</string>
+    <string name="city_search_hint">Kërko një qytet</string>
+    <string name="city_search_clear">Pastro kërkimin</string>
+    <string name="city_country_filter">Shteti</string>
+    <string name="city_country_all">Të gjitha shtetet</string>
+    <string name="city_no_match_title">Nuk u gjet asnjë qytet</string>
+    <string name="city_no_match_message">Asgjë nuk përputhet me „%1$s“. Kontrollo shkrimin ose pastro kërkimin.</string>
+    <string name="city_no_match_in_country">Asnjë qytet në shtetin e zgjedhur, %2$s, nuk përputhet me „%1$s“. Shtete të tjera kanë.</string>
+    <string name="city_proposal_title">Qyteti yt</string>
+    <!-- Shown when the position says one is in another served conurbation than
+         the one installed. %1$s is the network, followed by its city. -->
+    <string name="city_here_title">Ndodhesh në një qytet tjetër</string>
+    <string name="city_here_body">%1$s mbulon zonën ku ndodhesh. Instalo të dhënat e këtij rrjeti për të parë stacionet dhe për të llogaritur udhëtime këtu.</string>
+    <string name="city_here_installed_body">%1$s mbulon zonën ku ndodhesh dhe të dhënat e këtij rrjeti janë tashmë në pajisje.</string>
+    <string name="city_here_install">Instalo të dhënat</string>
+    <string name="city_here_use">Përdore</string>
+    <string name="city_proposal_body">Duket se ndodhesh në zonën që mbulon %1$s. Të përdoret ky rrjet?</string>
+    <string name="city_proposal_accept">Po</string>
+    <string name="city_none_nearby">Asnjë rrjet i njohur këtu afër. Zgjidh një qytet nga lista.</string>
+    <string name="city_location_denied">Pa vendndodhje, zgjidh qytetin tënd nga lista ose kërkoje sipas emrit.</string>
+    <string name="action_cancel">Anulo</string>
+
+    <string name="size_bytes">%1$s B</string>
+    <string name="size_kilobytes">%1$s kB</string>
+    <string name="size_megabytes">%1$s MB</string>
+    <string name="size_gigabytes">%1$s GB</string>
+
+    <string name="storage_title">Hapësira ruajtëse</string>
+    <string name="storage_open">Menaxho të dhënat jashtë linje</string>
+    <string name="storage_intro">Harta, planifikimi i udhëtimeve dhe kërkimi i adresave punojnë pa rrjet. Atyre u duhen tre grupe të dhënash, të instaluara një herë të vetme.</string>
+    <!-- %1$s is a size; the label is turned around for the same reason as
+         `city_installed`. -->
+    <string name="storage_total">Hapësirë e përdorur në këtë pajisje: %1$s</string>
+    <string name="storage_nothing_installed">Nuk ka të dhëna të instaluara</string>
+    <string name="storage_no_city">Nuk është zgjedhur asnjë qytet</string>
+    <string name="city_withdrawn_label">%1$s · jo më e disponueshme</string>
+    <string name="city_newer_version_label">%1$s · kërkon përditësim</string>
+
+    <!-- The three datasets. All three names are singular, so that the verb of
+         `dataset_imported`, `dataset_deleted` and `dataset_delete_body` agrees
+         with any of them. -->
+    <string name="dataset_tiles">Harta bazë</string>
+    <string name="dataset_tiles_purpose">Vizaton hartën pa rrjet</string>
+    <string name="dataset_routing">Grafi i itinerarëve</string>
+    <string name="dataset_routing_purpose">Llogarit udhëtimet në pajisje</string>
+    <string name="dataset_addresses">Indeksi i adresave</string>
+    <string name="dataset_addresses_purpose">Kërkon rrugët pa dërguar asgjë</string>
+
+    <string name="storage_check_updates">Kontrollo për përditësime</string>
+    <string name="storage_checking">Po lexohet manifesti…</string>
+    <string name="storage_up_to_date">Gjithçka është e përditësuar.</string>
+    <string name="storage_download_pending">Shkarko %1$s</string>
+    <string name="storage_download_starting">Po niset shkarkimi…</string>
+    <string name="storage_downloading">%1$s · %2$s nga %3$s</string>
+    <string name="storage_download_failed">%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">Të dhënat e publikuara janë të %1$s, jo të %2$s. Nuk u shkarkua asgjë: do të kishe marrë hartën dhe adresat e një qyteti tjetër.</string>
+    <string name="storage_wifi_warning">Nuk je në Wi-Fi. Ky shkarkim mund të rëndojë shumë mbi një plan celular.</string>
+    <string name="dataset_update_available">Ofrohet përditësim</string>
+    <string name="dataset_download_failed">Shkarkimi dështoi. %1$s</string>
+
+    <string name="dataset_absent">Nuk është instaluar</string>
+    <string name="dataset_installed">%1$s · %2$s</string>
+    <string name="dataset_import">Importo një skedar</string>
+    <string name="dataset_replace">Zëvendëso me një skedar</string>
+    <string name="dataset_delete">Fshi</string>
+    <string name="dataset_delete_description">Fshi: %1$s</string>
+    <string name="dataset_delete_title">Të fshihen këto të dhëna?</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">„%1$s“ do të fshihet dhe do të lirojë %2$s. Do të duhet ta shkarkosh sërish për të punuar jashtë linje.</string>
+    <string name="dataset_imported">%1$s u instalua</string>
+    <string name="dataset_deleted">%1$s u fshi</string>
+
+    <string name="dataset_rejected_empty">Skedari i zgjedhur është bosh.</string>
+    <!-- %1$s is a file name, not the name of the dataset. -->
+    <string name="dataset_rejected_format">Ky skedar nuk është ai që pritej. Zgjidh skedarin „%1$s“ që prodhojnë skriptet e gjenerimit.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">Ky skedar nuk është „%1$s“ dhe as ndonjë e dhënë tjetër që aplikacioni lexon. Zgjidh skedarin „%2$s“ që prodhojnë skriptet e gjenerimit.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">Ky skedar është „%1$s“, jo „%2$s“. Importoje në rreshtin e vet.</string>
+    <string name="dataset_rejected_version">Ky skedar është në versionin %1$d të formatit, ndërsa ky version i aplikacionit lexon versionin %2$d. Përditëso aplikacionin.</string>
+    <string name="dataset_rejected_checksum">Skedari nuk përputhet me shumën e kontrollit: është i paplotë ose i dëmtuar. Shkarkoje sërish.</string>
+    <string name="dataset_rejected_transfer">Kopjimi i skedarit dështoi. Kontrollo hapësirën e lirë dhe provo përsëri.</string>
+
+    <string name="error_offline">Nuk ka lidhje. Në ekran mbetet disponueshmëria e fundit e njohur.</string>
+    <string name="error_offline_no_availability">Nuk ka lidhje. Nuk është marrë ende asnjë disponueshmëri, prandaj nuk ka asgjë për të shfaqur.</string>
+    <!-- The same failures read on the storage screen, where a dataset transfer
+         failed rather than an availability refresh. Those files come down
+         resumably (SPEC §4.4), which is what each of these says. -->
+    <string name="error_offline_download">Nuk ka lidhje. Kur të jesh sërish në linjë, prek „Shkarko“ që shkarkimi të vazhdojë aty ku ndaloi.</string>
+    <string name="error_timeout_download">Serveri nuk po përgjigjet. Më vonë prek „Shkarko“ që shkarkimi të vazhdojë aty ku ndaloi.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">Gabim serveri (%1$d). Më vonë prek „Shkarko“ që shkarkimi të vazhdojë aty ku ndaloi.</string>
+    <string name="error_untrusted_server_download">Certifikatë sigurie e pavlefshme. Pasi të rinovohet, prek „Shkarko“ që shkarkimi të vazhdojë.</string>
+    <string name="error_malformed_download">U mor një skedar i palexueshëm. Më vonë prek „Shkarko“ që shkarkimi të vazhdojë aty ku ndaloi.</string>
+    <string name="error_local_storage_download">Skedari nuk u ruajt dot. Liro pak hapësirë dhe prek „Shkarko“ që shkarkimi të vazhdojë.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">Nuk ka lidhje. Nuk u kontrollua asgjë; provo përsëri kur të kthehet lidhja.</string>
+    <string name="error_timeout_check">Serveri nuk po përgjigjet. Nuk u kontrollua asgjë; provo përsëri pas pak.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">Gabim serveri (%1$d). Nuk u kontrollua asgjë; provo përsëri më vonë.</string>
+    <string name="error_untrusted_server_check">Certifikatë sigurie e pavlefshme. Nuk kontrollohet dot asgjë derisa ajo të rinovohet.</string>
+    <string name="error_malformed_check">Lista e publikuar e të dhënave është e palexueshme. Nuk u kontrollua asgjë; provo përsëri më vonë.</string>
+    <string name="error_local_storage_check">Të dhënat e ruajtura në pajisje nuk lexohen dot. Nuk u krahasua asgjë.</string>
+    <string name="error_timeout">Serveri i rrjetit po vonon shumë për t’u përgjigjur. Provo përsëri pas pak.</string>
+    <string name="error_server_refused">Serveri i rrjetit ktheu një gabim (%1$d). Provo përsëri më vonë.</string>
+    <string name="error_untrusted_server">Serveri i rrjetit paraqiti një certifikatë sigurie të pavlefshme. Të dhënat e tij nuk merren dot në mënyrë të sigurt derisa operatori ta rinovojë.</string>
+    <string name="error_malformed">Të dhënat e marra janë të palexueshme. Fajin e ka burimi i rrjetit; provo përsëri më vonë.</string>
+    <string name="error_feed_unavailable">Rrjeti nuk e publikon burimin „%1$s“.</string>
+    <string name="error_unsupported_version">Ky rrjet i publikon të dhënat në versionin %1$s, të cilin ky version i aplikacionit nuk e lexon dot. Përditëso aplikacionin.</string>
+    <string name="error_local_storage">Të dhënat e ruajtura në pajisje nuk lexohen dot.</string>
+    <string name="error_no_city_chosen">Nuk është zgjedhur asnjë qytet. Zgjidh një qytet.</string>
+
+    <!-- Wi-Fi-only downloads. The setting names Wi-Fi, which is the word
+         everybody has, while what is read stays the billing (SPEC §4.4): a
+         phone's shared connection is Wi-Fi and is a mobile plan, and a capped
+         hotspot declares itself billed. The line under the switch names those
+         two cases in ordinary words. Android's own pair, me matje / pa matje,
+         still names a metered network, and so belongs to those explaining
+         lines rather than to the switch. -->
+    <string name="download_unmetered_only">Shkarko vetëm në Wi-Fi</string>
+    <string name="download_unmetered_only_description">Një lidhje e ndarë nga telefoni ose një Wi-Fi me kufi trafiku mund të faturohet me megabajt dhe llogaritet si rrjet celular.</string>
+    <string name="download_held_back_title">Shkarkim në rrjet celular</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_held_back_body">Kjo lidhje mund të faturohet me megabajt. Lidhu në Wi-Fi për të shkarkuar %1$s ose shkarkoje gjithsesi tani.</string>
+    <string name="download_stopped_title">Shkarkimi u ndal</string>
+    <!-- %1$s is a size. What has already arrived is kept on the device and the
+         transfer picks up from there. -->
+    <string name="download_stopped_body">Kjo lidhje mund të faturohet me megabajt, prandaj shkarkimi u ndal. Ajo që ka mbërritur ruhet. Lidhu në Wi-Fi për të përfunduar %1$s ose vazhdo gjithsesi tani.</string>
+    <string name="download_anyway">Shkarko gjithsesi</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_waiting_for_unmetered">Në pritje të Wi-Fi për të shkarkuar %1$s.</string>
+    <string name="download_can_resume">Kjo lidhje nuk është më rrjet celular. Nise sërish shkarkimin: ai vazhdon aty ku ndaloi.</string>
+    <string name="download_connection_back">Lidhja u rikthye. Prek „Shkarko“ që shkarkimi të vazhdojë aty ku ndaloi.</string>
+
+    <!-- Opening screen, large numbers, own bike kind -->
+    <string name="settings_opening_title">Aplikacioni hapet te</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">Ekrani me të cilin hapet aplikacioni</string>
+    <string name="settings_opening_map">Harta</string>
+    <string name="settings_opening_list">Lista e stacioneve</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">Shih hartën</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">Stacioni më i afërt i pari</string>
+    <string name="stations_location_denied">Pa vendndodhje, stacionet mbeten sipas rendit alfabetik.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge (SPEC 7.1). -->
+    <string name="settings_map_filters_title">Cilat stacione shfaq harta</string>
+    <string name="settings_map_filters_hide_out_of_service">Fshih stacionet jashtë shërbimit</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Biçikleta / Vende të lira button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">Fshih stacionet që nuk kanë çfarë të ofrojnë</string>
+    <!-- Under the switch, saying what "nothing" is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">„Asgjë“ ndjek atë që numëron harta: asnjë biçikletë kur numërohen biçikletat, asnjë vend i lirë kur numërohen vendet e lira.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">„Asgjë“ do të thotë asnjë biçikletë: në këtë rrjet harta numëron vetëm biçikletat.</string>
+    <string name="settings_bikes_past_capacity">Stacionet plot i pranojnë biçikletat</string>
+    <string name="settings_bikes_past_capacity_automatic">Automatik</string>
+    <string name="settings_bikes_past_capacity_always">Gjithmonë</string>
+    <string name="settings_bikes_past_capacity_never">Asnjëherë</string>
+    <string name="settings_bikes_past_capacity_hint_detected">Automatik: ky rrjet lë biçikleta pranë stacioneve të veta plot, prandaj një stacion plot llogaritet si stacion ku mund ta kthesh biçikletën.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">Automatik: asgjë në të dhënat e këtij rrjeti nuk tregon biçikleta të lëna pranë stacioneve plot, prandaj një stacion plot llogaritet si plot.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">Automatik: sipas të dhënave të këtij rrjeti, stacionet e tij i pranojnë biçikletat edhe pa asnjë vend të lirë.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">Automatik: vendoset nga të dhënat e këtij rrjeti sapo të ngarkohen stacionet e tij.</string>
+    <string name="settings_bikes_past_capacity_hint_always">Një stacion plot llogaritet si stacion ku mund ta kthesh biçikletën. Nëse ky rrjet nuk e lejon, një udhëtim mund të përfundojë në një stacion që e refuzon.</string>
+    <string name="settings_bikes_past_capacity_hint_never">Një stacion plot llogaritet si plot, çfarëdo që të tregojnë të dhënat e këtij rrjeti.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">Një stacion pa asnjë vend të lirë llogaritet si plot. Në këtë rrjet pothuajse asnjë stacion nuk tregon vende të lira, prandaj mbeten të mundshme pak udhëtime.</string>
+    <!-- Under both switches. The most important rule of the two filters. -->
+    <string name="settings_map_filters_keeps_unknown">Stacionet për të cilat rrjeti nuk thotë asgjë mbeten në hartë: një numër që askush nuk mund ta lexojë nuk do të thotë zero.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">Shfaq baterinë e biçikletave në stacione dhe biçikletat jashtë stacioneve</string>
+    <string name="settings_street_bikes_description">Nëse mund të marrësh një biçikletë jashtë stacionit aty ku është, e vendos rrjeti. Kjo lexon një burim shumë më të rëndë se ai i stacioneve, dhe vetëm rrjetet që e publikojnë tregojnë diçka.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">Biçikleta jashtë stacioneve</string>
+    <string name="street_bike_intro_body">Rrjeti i raporton këto biçikleta larg stacioneve të veta. Disa i ka lënë aty një përdorues, të tjerat presin në depon e operatorit.\n\nRoue Libre nuk e di nëse ke të drejtë ta marrësh një aty ku është: këtë e thonë rregullat e rrjetit, dhe disa rrjete vendosin gjobë për një biçikletë të kthyer jashtë stacionit.\n\nUdhëtimi i propozuar nga një biçikletë përfundon gjithmonë në një stacion.</string>
+    <string name="street_bike_intro_dismiss">E kuptova</string>
+
+    <string name="bikes_past_capacity_title">%1$s i pranon biçikletat edhe në stacionet plot</string>
+    <string name="bikes_past_capacity_body">Në shumë stacione të këtij rrjeti qëndrojnë më shumë biçikleta se vende parkimi: përdoruesit e lënë të tyren pranë një stacioni plot, dhe rrjeti e merr.\n\nPrandaj Roue Libre e llogarit një stacion plot si një stacion ku mund ta kthesh ende biçikletën, dhe nuk shfaq më vende të lira për këtë rrjet.\n\nNëse një stacion plot ta refuzon biçikletën, çaktivizoje këtë. Mund ta ndryshosh në çdo kohë te cilësimet.</string>
+    <string name="bikes_past_capacity_keep">Mbaje</string>
+    <string name="bikes_past_capacity_turn_off">Çaktivizo</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">Çfarë janë këto biçikleta</string>
+    <string name="street_bike_title">Biçikletë jashtë stacioneve</string>
+    <string name="street_bike_kind_mechanical">Biçikletë mekanike</string>
+    <string name="street_bike_kind_electric">Biçikletë elektrike</string>
+    <string name="street_bike_kind_cargo">Biçikletë ngarkese</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">Bateria %1$d%%</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">Rreth %1$s autonomi e mbetur</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">Kjo biçikletë nuk raportohet më këtu.</string>
+    <string name="street_bike_journey_from_here">Udhëtim nga kjo biçikletë</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">Biçikletë jashtë stacioneve</string>
+    <string name="street_bike_marker_description_electric">Biçikletë elektrike jashtë stacioneve</string>
+
+    <!-- The rider's OWN bike, not the network's. -->
+    <string name="settings_own_bike_kind_title">Biçikleta jote</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">Lloji i biçikletës që ke</string>
+    <string name="settings_own_bike_kind_mechanical">Mekanike</string>
+    <string name="settings_own_bike_kind_electric">Elektrike</string>
+    <!-- Under the two buttons. Says what the declaration changes. -->
+    <string name="settings_own_bike_kind_hint">E deklaruar elektrike, biçikleta jote merr itinerarin e vet dhe kohët e veta.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to
+         be a pedal-assist one. %1$s is a distance, %2$s a climb. -->
+    <string name="journey_own_bike_electric_only">me biçikletën tënde elektrike, përgjatë %1$s.</string>
+    <string name="journey_own_bike_electric_only_climb">me biçikletën tënde elektrike, përgjatë %1$s dhe me %2$s ngjitje.</string>
+
+    <!-- Application language -->
+    <string name="settings_language_title">Gjuha</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language. The languages themselves are never translated. -->
+    <string name="settings_language_system">Sistemi</string>
+    <!-- Spoken label of the row. %1$s is the language in service: "English",
+         "Shqip", or the wording above when the device's own is followed. -->
+    <string name="settings_language_description">Gjuha e ndërfaqes: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">Vendet e mia</string>
+    <string name="settings_place_home">Shtëpia</string>
+    <string name="settings_place_work">Puna</string>
+    <string name="settings_place_none">Nuk është caktuar</string>
+    <string name="settings_place_outside_city">Jashtë qytetit të mbuluar</string>
+    <!-- %1$s is the setting, "Shtëpia" or "Puna". -->
+    <string name="settings_place_set">Cakto: %1$s</string>
+    <string name="settings_place_change">Ndrysho: %1$s</string>
+    <string name="settings_place_clear">Hiq: %1$s</string>
+    <string name="settings_place_cleared">U hoq: %1$s</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">Shfaq shtëpinë time në hartë</string>
+    <string name="map_centre_on_work">Shfaq punën time në hartë</string>
+    <string name="settings_places_markers">Shëno vendet e mia në hartë</string>
+    <string name="settings_places_buttons">Një buton në hartë për çdo vend</string>
+</resources>

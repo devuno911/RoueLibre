@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The toggle buttons' background: filled when the mode is active,
+    transparent otherwise. Material offers its own colour roles for that state,
+    but they would bring back a hue foreign to the project's token set.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/signal" android:state_checked="true" />
+    <item android:color="@android:color/transparent" />
+</selector>

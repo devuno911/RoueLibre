@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "Avenida Portales",
+      "normalized": "avenida portales",
+      "type": "avenida",
+      "name": "portales"
+    },
+    {
+      "input": "Pasaje El Olivillo",
+      "normalized": "pasaje el olivillo",
+      "type": "pasaje",
+      "name": "el olivillo"
+    },
+    {
+      "input": "Australia",
+      "normalized": "australia",
+      "type": null,
+      "name": "australia"
+    },
+    {
+      "input": "Camarico",
+      "normalized": "camarico",
+      "type": null,
+      "name": "camarico"
+    },
+    {
+      "input": "Eibar",
+      "normalized": "eibar",
+      "type": null,
+      "name": "eibar"
+    },
+    {
+      "input": "Helsinki",
+      "normalized": "helsinki",
+      "type": null,
+      "name": "helsinki"
+    },
+    {
+      "input": "Lequena",
+      "normalized": "lequena",
+      "type": null,
+      "name": "lequena"
+    },
+    {
+      "input": "Mar de los Sargazos",
+      "normalized": "mar de los sargazos",
+      "type": null,
+      "name": "mar de los sargazos"
+    },
+    {
+      "input": "Pan de Azúcar",
+      "normalized": "pan de azucar",
+      "type": null,
+      "name": "pan de azucar"
+    },
+    {
+      "input": "Pasaje Barnechea",
+      "normalized": "pasaje barnechea",
+      "type": "pasaje",
+      "name": "barnechea"
+    },
+    {
+      "input": "Pasaje El Parron",
+      "normalized": "pasaje el parron",
+      "type": "pasaje",
+      "name": "el parron"
+    },
+    {
+      "input": "Pasaje Los Queltehues",
+      "normalized": "pasaje los queltehues",
+      "type": "pasaje",
+      "name": "los queltehues"
+    },
+    {
+      "input": "Pasaje Riñihue",
+      "normalized": "pasaje rinihue",
+      "type": "pasaje",
+      "name": "rinihue"
+    },
+    {
+      "input": "Perailillo",
+      "normalized": "perailillo",
+      "type": null,
+      "name": "perailillo"
+    },
+    {
+      "input": "Séul",
+      "normalized": "seul",
+      "type": null,
+      "name": "seul"
+    },
+    {
+      "input": "El Remanso",
+      "normalized": "el remanso",
+      "type": null,
+      "name": "el remanso"
+    },
+    {
+      "input": "Coronel Souper",
+      "normalized": "coronel souper",
+      "type": null,
+      "name": "coronel souper"
+    },
+    {
+      "input": "Maquinista Gentoso",
+      "normalized": "maquinista gentoso",
+      "type": null,
+      "name": "maquinista gentoso"
+    },
+    {
+      "input": "Pasaje Elisa Clarck",
+      "normalized": "pasaje elisa clarck",
+      "type": "pasaje",
+      "name": "elisa clarck"
+    },
+    {
+      "input": "Vicuña",
+      "normalized": "vicuna",
+      "type": null,
+      "name": "vicuna"
+    },
+    {
+      "input": "Camino de la Colina",
+      "normalized": "camino de la colina",
+      "type": "camino",
+      "name": "de la colina"
+    },
+    {
+      "input": "Génesis",
+      "normalized": "genesis",
+      "type": null,
+      "name": "genesis"
+    },
+    {
+      "input": "Los Ciruelos",
+      "normalized": "los ciruelos",
+      "type": null,
+      "name": "los ciruelos"
+    },
+    {
+      "input": "Pasaje Farellones",
+      "normalized": "pasaje farellones",
+      "type": "pasaje",
+      "name": "farellones"
+    },
+    {
+      "input": "Pelantaro",
+      "normalized": "pelantaro",
+      "type": null,
+      "name": "pelantaro"
+    },
+    {
+      "input": "Arriarán",
+      "normalized": "arriaran",
+      "type": null,
+      "name": "arriaran"
+    },
+    {
+      "input": "El Lirio",
+      "normalized": "el lirio",
+      "type": null,
+      "name": "el lirio"
+    },
+    {
+      "input": "Olivos",
+      "normalized": "olivos",
+      "type": null,
+      "name": "olivos"
+    },
+    {
+      "input": "San Luis",
+      "normalized": "san luis",
+      "type": null,
+      "name": "san luis"
+    },
+    {
+      "input": "Canto del Agua",
+      "normalized": "canto del agua",
+      "type": null,
+      "name": "canto del agua"
+    },
+    {
+      "input": "Pasaje El Almendral",
+      "normalized": "pasaje el almendral",
+      "type": "pasaje",
+      "name": "el almendral"
+    },
+    {
+      "input": "Azul",
+      "normalized": "azul",
+      "type": null,
+      "name": "azul"
+    },
+    {
+      "input": "Doctor Axel Munthe",
+      "normalized": "doctor axel munthe",
+      "type": null,
+      "name": "doctor axel munthe"
+    },
+    {
+      "input": "Inspector Gaete",
+      "normalized": "inspector gaete",
+      "type": null,
+      "name": "inspector gaete"
+    },
+    {
+      "input": "Milna",
+      "normalized": "milna",
+      "type": null,
+      "name": "milna"
+    },
+    {
+      "input": "Pasaje Javiera Carrera Sur",
+      "normalized": "pasaje javiera carrera sur",
+      "type": "pasaje",
+      "name": "javiera carrera sur"
+    },
+    {
+      "input": "Pintor Pacheco Altamirano",
+      "normalized": "pintor pacheco altamirano",
+      "type": null,
+      "name": "pintor pacheco altamirano"
+    },
+    {
+      "input": "Acapulco",
+      "normalized": "acapulco",
+      "type": null,
+      "name": "acapulco"
+    },
+    {
+      "input": "Badajoz",
+      "normalized": "badajoz",
+      "type": null,
+      "name": "badajoz"
+    },
+    {
+      "input": "Ciclovía Avenida Padre Hurtado Sur",
+      "normalized": "ciclovia avenida padre hurtado sur",
+      "type": null,
+      "name": "ciclovia avenida padre hurtado sur"
+    },
+    {
+      "input": "Escocia",
+      "normalized": "escocia",
+      "type": null,
+      "name": "escocia"
+    },
+    {
+      "input": "Jaen",
+      "normalized": "jaen",
+      "type": null,
+      "name": "jaen"
+    },
+    {
+      "input": "Lorenzo de Medici",
+      "normalized": "lorenzo de medici",
+      "type": null,
+      "name": "lorenzo de medici"
+    },
+    {
+      "input": "Narvik",
+      "normalized": "narvik",
+      "type": null,
+      "name": "narvik"
+    },
+    {
+      "input": "Pasaje La Castellana",
+      "normalized": "pasaje la castellana",
+      "type": "pasaje",
+      "name": "la castellana"
+    },
+    {
+      "input": "Presidente Riesco",
+      "normalized": "presidente riesco",
+      "type": null,
+      "name": "presidente riesco"
+    },
+    {
+      "input": "Saturno",
+      "normalized": "saturno",
+      "type": null,
+      "name": "saturno"
+    },
+    {
+      "input": "Alberto Le Blanc",
+      "normalized": "alberto le blanc",
+      "type": null,
+      "name": "alberto le blanc"
+    },
+    {
+      "input": "Ciclovia Hamilton",
+      "normalized": "ciclovia hamilton",
+      "type": null,
+      "name": "ciclovia hamilton"
+    },
+    {
+      "input": "Joe",
+      "normalized": "joe",
+      "type": null,
+      "name": "joe"
+    },
+    {
+      "input": "Pasaje Camino El Alba",
+      "normalized": "pasaje camino el alba",
+      "type": "pasaje",
+      "name": "camino el alba"
+    },
+    {
+      "input": "Santa Inés Sur",
+      "normalized": "santa ines sur",
+      "type": null,
+      "name": "santa ines sur"
+    },
+    {
+      "input": "Bilbao",
+      "normalized": "bilbao",
+      "type": null,
+      "name": "bilbao"
+    },
+    {
+      "input": "Emilio Rodríguez",
+      "normalized": "emilio rodriguez",
+      "type": null,
+      "name": "emilio rodriguez"
+    },
+    {
+      "input": "Los Satélites",
+      "normalized": "los satelites",
+      "type": null,
+      "name": "los satelites"
+    },
+    {
+      "input": "Pasaje Lamar",
+      "normalized": "pasaje lamar",
+      "type": "pasaje",
+      "name": "lamar"
+    },
+    {
+      "input": "Santa María",
+      "normalized": "santa maria",
+      "type": null,
+      "name": "santa maria"
+    },
+    {
+      "input": "Avenida Echeñique",
+      "normalized": "avenida echenique",
+      "type": "avenida",
+      "name": "echenique"
+    },
+    {
+      "input": "Corredor Transantiago Grecia",
+      "normalized": "corredor transantiago grecia",
+      "type": null,
+      "name": "corredor transantiago grecia"
+    },
+    {
+      "input": "Helsinski",
+      "normalized": "helsinski",
+      "type": null,
+      "name": "helsinski"
+    },
+    {
+      "input": "Los Veleros",
+      "normalized": "los veleros",
+      "type": null,
+      "name": "los veleros"
+    },
+    {
+      "input": "Pasaje Egaña",
+      "normalized": "pasaje egana",
+      "type": "pasaje",
+      "name": "egana"
+    },
+    {
+      "input": "Pasaje Sarmiento",
+      "normalized": "pasaje sarmiento",
+      "type": "pasaje",
+      "name": "sarmiento"
+    },
+    {
+      "input": "Tamaya",
+      "normalized": "tamaya",
+      "type": null,
+      "name": "tamaya"
+    },
+    {
+      "input": "Biblioteca Harald Edelstam",
+      "normalized": "biblioteca harald edelstam",
+      "type": null,
+      "name": "biblioteca harald edelstam"
+    },
+    {
+      "input": "STGO",
+      "normalized": "stgo",
+      "type": null,
+      "name": "stgo"
+    },
+    {
+      "input": "Museo Militar",
+      "normalized": "museo militar",
+      "type": null,
+      "name": "museo militar"
+    },
+    {
+      "input": "Patronato",
+      "normalized": "patronato",
+      "type": null,
+      "name": "patronato"
+    },
+    {
+      "input": "Capilla de La Hacienda Centro",
+      "normalized": "capilla de la hacienda centro",
+      "type": null,
+      "name": "capilla de la hacienda centro"
+    },
+    {
+      "input": "La Llavería Sur",
+      "normalized": "la llaveria sur",
+      "type": null,
+      "name": "la llaveria sur"
+    },
+    {
+      "input": "Parque de la Hacienda Norte",
+      "normalized": "parque de la hacienda norte",
+      "type": "parque",
+      "name": "de la hacienda norte"
+    },
+    {
+      "input": "Pasaje Diecisiete",
+      "normalized": "pasaje diecisiete",
+      "type": "pasaje",
+      "name": "diecisiete"
+    },
+    {
+      "input": "Pasaje Pucón",
+      "normalized": "pasaje pucon",
+      "type": "pasaje",
+      "name": "pucon"
+    },
+    {
+      "input": "Río Tolten",
+      "normalized": "rio tolten",
+      "type": null,
+      "name": "rio tolten"
+    },
+    {
+      "input": "A. Fernández",
+      "normalized": "avenida fernandez",
+      "type": "avenida",
+      "name": "fernandez"
+    },
+    {
+      "input": "Haití",
+      "normalized": "haiti",
+      "type": null,
+      "name": "haiti"
+    },
+    {
+      "input": "Pasaje C",
+      "normalized": "pasaje c",
+      "type": "pasaje",
+      "name": "c"
+    },
+    {
+      "input": "Trece Sur",
+      "normalized": "trece sur",
+      "type": null,
+      "name": "trece sur"
+    },
+    {
+      "input": "Calle 1 A",
+      "normalized": "calle 1 a",
+      "type": "calle",
+      "name": "1 a"
+    },
+    {
+      "input": "Calle 74",
+      "normalized": "calle 74",
+      "type": "calle",
+      "name": "74"
+    },
+    {
+      "input": "El Jordán",
+      "normalized": "el jordan",
+      "type": null,
+      "name": "el jordan"
+    },
+    {
+      "input": "Las Taguas",
+      "normalized": "las taguas",
+      "type": null,
+      "name": "las taguas"
+    },
+    {
+      "input": "Pasaje 10",
+      "normalized": "pasaje 10",
+      "type": "pasaje",
+      "name": "10"
+    },
+    {
+      "input": "Pasaje Antofagasta",
+      "normalized": "pasaje antofagasta",
+      "type": "pasaje",
+      "name": "antofagasta"
+    },
+    {
+      "input": "Pasaje Los Canales",
+      "normalized": "pasaje los canales",
+      "type": "pasaje",
+      "name": "los canales"
+    },
+    {
+      "input": "Puente Oriental",
+      "normalized": "puente oriental",
+      "type": "puente",
+      "name": "oriental"
+    },
+    {
+      "input": "Volcán Puyehue",
+      "normalized": "volcan puyehue",
+      "type": null,
+      "name": "volcan puyehue"
+    },
+    {
+      "input": "Avenida José Manuel Infante",
+      "normalized": "avenida jose manuel infante",
+      "type": "avenida",
+      "name": "jose manuel infante"
+    },
+    {
+      "input": "Coyancura",
+      "normalized": "coyancura",
+      "type": null,
+      "name": "coyancura"
+    },
+    {
+      "input": "General Holley",
+      "normalized": "general holley",
+      "type": null,
+      "name": "general holley"
+    },
+    {
+      "input": "Lo Contador",
+      "normalized": "lo contador",
+      "type": null,
+      "name": "lo contador"
+    },
+    {
+      "input": "Pasaje Alberto",
+      "normalized": "pasaje alberto",
+      "type": "pasaje",
+      "name": "alberto"
+    },
+    {
+      "input": "Sancho Panza",
+      "normalized": "sancho panza",
+      "type": null,
+      "name": "sancho panza"
+    },
+    {
+      "input": "Avenida José Joaquín Pérez",
+      "normalized": "avenida jose joaquin perez",
+      "type": "avenida",
+      "name": "jose joaquin perez"
+    },
+    {
+      "input": "Los Pimientos",
+      "normalized": "los pimientos",
+      "type": null,
+      "name": "los pimientos"
+    },
+    {
+      "input": "Santo Domingo",
+      "normalized": "santo domingo",
+      "type": null,
+      "name": "santo domingo"
+    },
+    {
+      "input": "Bernardo Salas",
+      "normalized": "bernardo salas",
+      "type": null,
+      "name": "bernardo salas"
+    },
+    {
+      "input": "El Hogar",
+      "normalized": "el hogar",
+      "type": null,
+      "name": "el hogar"
+    },
+    {
+      "input": "Héroe Manuel Riveros",
+      "normalized": "heroe manuel riveros",
+      "type": null,
+      "name": "heroe manuel riveros"
+    },
+    {
+      "input": "Los Mineros",
+      "normalized": "los mineros",
+      "type": null,
+      "name": "los mineros"
+    },
+    {
+      "input": "Pasaje Caracas",
+      "normalized": "pasaje caracas",
+      "type": "pasaje",
+      "name": "caracas"
+    },
+    {
+      "input": "Ranquíl",
+      "normalized": "ranquil",
+      "type": null,
+      "name": "ranquil"
+    },
+    {
+      "input": "Uruguay",
+      "normalized": "uruguay",
+      "type": null,
+      "name": "uruguay"
+    },
+    {
+      "input": "Avenida Carlos Silva Vildósola",
+      "normalized": "avenida carlos silva vildosola",
+      "type": "avenida",
+      "name": "carlos silva vildosola"
+    },
+    {
+      "input": "Fernando Lazcano",
+      "normalized": "fernando lazcano",
+      "type": null,
+      "name": "fernando lazcano"
+    },
+    {
+      "input": "Manuel Lezaeta",
+      "normalized": "manuel lezaeta",
+      "type": null,
+      "name": "manuel lezaeta"
+    },
+    {
+      "input": "Pasaje Hanga Roa",
+      "normalized": "pasaje hanga roa",
+      "type": "pasaje",
+      "name": "hanga roa"
+    },
+    {
+      "input": "Ravel",
+      "normalized": "ravel",
+      "type": null,
+      "name": "ravel"
+    },
+    {
+      "input": "Almirante Grau",
+      "normalized": "almirante grau",
+      "type": null,
+      "name": "almirante grau"
+    },
+    {
+      "input": "Carlos Humberto Contreras Maluje",
+      "normalized": "carlos humberto contreras maluje",
+      "type": null,
+      "name": "carlos humberto contreras maluje"
+    },
+    {
+      "input": "Fray Andresito",
+      "normalized": "fray andresito",
+      "type": null,
+      "name": "fray andresito"
+    },
+    {
+      "input": "Lourdes",
+      "normalized": "lourdes",
+      "type": null,
+      "name": "lourdes"
+    },
+    {
+      "input": "Pasaje Credito",
+      "normalized": "pasaje credito",
+      "type": "pasaje",
+      "name": "credito"
+    },
+    {
+      "input": "Portal Bulnes",
+      "normalized": "portal bulnes",
+      "type": null,
+      "name": "portal bulnes"
+    },
+    {
+      "input": "Trento",
+      "normalized": "trento",
+      "type": null,
+      "name": "trento"
+    },
+    {
+      "input": "Arturo Matte",
+      "normalized": "arturo matte",
+      "type": null,
+      "name": "arturo matte"
+    },
+    {
+      "input": "Chinquihue",
+      "normalized": "chinquihue",
+      "type": null,
+      "name": "chinquihue"
+    },
+    {
+      "input": "García de Torres",
+      "normalized": "garcia de torres",
+      "type": null,
+      "name": "garcia de torres"
+    },
+    {
+      "input": "Licanray",
+      "normalized": "licanray",
+      "type": null,
+      "name": "licanray"
+    },
+    {
+      "input": "Obispo Sierra",
+      "normalized": "obispo sierra",
+      "type": null,
+      "name": "obispo sierra"
+    }
+  ]
+}

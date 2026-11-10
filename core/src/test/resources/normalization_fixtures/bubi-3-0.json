@@ -1,0 +1,779 @@
+{
+  "language": "hu",
+  "cases": [
+    {
+      "input": "Andrássy út",
+      "normalized": "andrassy ut",
+      "type": null,
+      "name": "andrassy ut"
+    },
+    {
+      "input": "Deák Ferenc tér",
+      "normalized": "deak ferenc ter",
+      "type": null,
+      "name": "deak ferenc ter"
+    },
+    {
+      "input": "Váci u.",
+      "normalized": "vaci utca",
+      "type": null,
+      "name": "vaci utca"
+    },
+    {
+      "input": "Váci utca",
+      "normalized": "vaci utca",
+      "type": null,
+      "name": "vaci utca"
+    },
+    {
+      "input": "Nagykörút",
+      "normalized": "nagykorut",
+      "type": null,
+      "name": "nagykorut"
+    },
+    {
+      "input": "Szent István körút",
+      "normalized": "szent istvan korut",
+      "type": null,
+      "name": "szent istvan korut"
+    },
+    {
+      "input": "Bartók Béla út",
+      "normalized": "bartok bela ut",
+      "type": null,
+      "name": "bartok bela ut"
+    },
+    {
+      "input": "Kossuth Lajos tér",
+      "normalized": "kossuth lajos ter",
+      "type": null,
+      "name": "kossuth lajos ter"
+    },
+    {
+      "input": "Dr. Szabó Ferenc utca",
+      "normalized": "doktor szabo ferenc utca",
+      "type": null,
+      "name": "doktor szabo ferenc utca"
+    },
+    {
+      "input": "500. utca",
+      "normalized": "500 utca",
+      "type": null,
+      "name": "500 utca"
+    },
+    {
+      "input": "28. sor",
+      "normalized": "28 sor",
+      "type": null,
+      "name": "28 sor"
+    },
+    {
+      "input": "Csévéző utca",
+      "normalized": "csevezo utca",
+      "type": null,
+      "name": "csevezo utca"
+    },
+    {
+      "input": "Agancs utca",
+      "normalized": "agancs utca",
+      "type": null,
+      "name": "agancs utca"
+    },
+    {
+      "input": "Forrás utca",
+      "normalized": "forras utca",
+      "type": null,
+      "name": "forras utca"
+    },
+    {
+      "input": "Máriavölgy utca",
+      "normalized": "mariavolgy utca",
+      "type": null,
+      "name": "mariavolgy utca"
+    },
+    {
+      "input": "Szépkilátó utca",
+      "normalized": "szepkilato utca",
+      "type": null,
+      "name": "szepkilato utca"
+    },
+    {
+      "input": "Abigél utca",
+      "normalized": "abigel utca",
+      "type": null,
+      "name": "abigel utca"
+    },
+    {
+      "input": "Alíz utca",
+      "normalized": "aliz utca",
+      "type": null,
+      "name": "aliz utca"
+    },
+    {
+      "input": "Antónia köz",
+      "normalized": "antonia koz",
+      "type": null,
+      "name": "antonia koz"
+    },
+    {
+      "input": "Ászok utca",
+      "normalized": "aszok utca",
+      "type": null,
+      "name": "aszok utca"
+    },
+    {
+      "input": "Balogvár utca",
+      "normalized": "balogvar utca",
+      "type": null,
+      "name": "balogvar utca"
+    },
+    {
+      "input": "Batthyány Ilona utca",
+      "normalized": "batthyany ilona utca",
+      "type": null,
+      "name": "batthyany ilona utca"
+    },
+    {
+      "input": "Berlini utca",
+      "normalized": "berlini utca",
+      "type": null,
+      "name": "berlini utca"
+    },
+    {
+      "input": "Bojtos utca",
+      "normalized": "bojtos utca",
+      "type": null,
+      "name": "bojtos utca"
+    },
+    {
+      "input": "Buda-part tér",
+      "normalized": "buda part ter",
+      "type": null,
+      "name": "buda part ter"
+    },
+    {
+      "input": "Csákány utca",
+      "normalized": "csakany utca",
+      "type": null,
+      "name": "csakany utca"
+    },
+    {
+      "input": "Csibor utca",
+      "normalized": "csibor utca",
+      "type": null,
+      "name": "csibor utca"
+    },
+    {
+      "input": "Czimra Gyula utca",
+      "normalized": "czimra gyula utca",
+      "type": null,
+      "name": "czimra gyula utca"
+    },
+    {
+      "input": "Dessewffy utca",
+      "normalized": "dessewffy utca",
+      "type": null,
+      "name": "dessewffy utca"
+    },
+    {
+      "input": "Duna utca",
+      "normalized": "duna utca",
+      "type": null,
+      "name": "duna utca"
+    },
+    {
+      "input": "Erdőalja köz",
+      "normalized": "erdoalja koz",
+      "type": null,
+      "name": "erdoalja koz"
+    },
+    {
+      "input": "Farkastorki lejtő",
+      "normalized": "farkastorki lejto",
+      "type": null,
+      "name": "farkastorki lejto"
+    },
+    {
+      "input": "Ferenchegyi lépcső",
+      "normalized": "ferenchegyi lepcso",
+      "type": null,
+      "name": "ferenchegyi lepcso"
+    },
+    {
+      "input": "Frankel Leó út",
+      "normalized": "frankel leo ut",
+      "type": null,
+      "name": "frankel leo ut"
+    },
+    {
+      "input": "Garibaldi utca",
+      "normalized": "garibaldi utca",
+      "type": null,
+      "name": "garibaldi utca"
+    },
+    {
+      "input": "Görgényi út",
+      "normalized": "gorgenyi ut",
+      "type": null,
+      "name": "gorgenyi ut"
+    },
+    {
+      "input": "Gyöngyvirág út",
+      "normalized": "gyongyvirag ut",
+      "type": null,
+      "name": "gyongyvirag ut"
+    },
+    {
+      "input": "Harangvirág utca",
+      "normalized": "harangvirag utca",
+      "type": null,
+      "name": "harangvirag utca"
+    },
+    {
+      "input": "Hengermű utca",
+      "normalized": "hengermu utca",
+      "type": null,
+      "name": "hengermu utca"
+    },
+    {
+      "input": "Horzsakő utca",
+      "normalized": "horzsako utca",
+      "type": null,
+      "name": "horzsako utca"
+    },
+    {
+      "input": "Ilosvai Selymes tér",
+      "normalized": "ilosvai selymes ter",
+      "type": null,
+      "name": "ilosvai selymes ter"
+    },
+    {
+      "input": "Jávor utca",
+      "normalized": "javor utca",
+      "type": null,
+      "name": "javor utca"
+    },
+    {
+      "input": "Kalmár utca",
+      "normalized": "kalmar utca",
+      "type": null,
+      "name": "kalmar utca"
+    },
+    {
+      "input": "Kármán utca",
+      "normalized": "karman utca",
+      "type": null,
+      "name": "karman utca"
+    },
+    {
+      "input": "Keltike lejtő",
+      "normalized": "keltike lejto",
+      "type": null,
+      "name": "keltike lejto"
+    },
+    {
+      "input": "Királyhágó utca",
+      "normalized": "kiralyhago utca",
+      "type": null,
+      "name": "kiralyhago utca"
+    },
+    {
+      "input": "Knézits utca",
+      "normalized": "knezits utca",
+      "type": null,
+      "name": "knezits utca"
+    },
+    {
+      "input": "Kópházi utca",
+      "normalized": "kophazi utca",
+      "type": null,
+      "name": "kophazi utca"
+    },
+    {
+      "input": "Közdűlő út",
+      "normalized": "kozdulo ut",
+      "type": null,
+      "name": "kozdulo ut"
+    },
+    {
+      "input": "Laktanya utca",
+      "normalized": "laktanya utca",
+      "type": null,
+      "name": "laktanya utca"
+    },
+    {
+      "input": "Liget utca",
+      "normalized": "liget utca",
+      "type": null,
+      "name": "liget utca"
+    },
+    {
+      "input": "Lukács utca",
+      "normalized": "lukacs utca",
+      "type": null,
+      "name": "lukacs utca"
+    },
+    {
+      "input": "Marcell utca",
+      "normalized": "marcell utca",
+      "type": null,
+      "name": "marcell utca"
+    },
+    {
+      "input": "Meggyes utca",
+      "normalized": "meggyes utca",
+      "type": null,
+      "name": "meggyes utca"
+    },
+    {
+      "input": "Miskolci utca",
+      "normalized": "miskolci utca",
+      "type": null,
+      "name": "miskolci utca"
+    },
+    {
+      "input": "Nagy Diófa utca",
+      "normalized": "nagy diofa utca",
+      "type": null,
+      "name": "nagy diofa utca"
+    },
+    {
+      "input": "Násznagy utca",
+      "normalized": "nasznagy utca",
+      "type": null,
+      "name": "nasznagy utca"
+    },
+    {
+      "input": "Óbester utca",
+      "normalized": "obester utca",
+      "type": null,
+      "name": "obester utca"
+    },
+    {
+      "input": "Orom utca",
+      "normalized": "orom utca",
+      "type": null,
+      "name": "orom utca"
+    },
+    {
+      "input": "Pajtás utca",
+      "normalized": "pajtas utca",
+      "type": null,
+      "name": "pajtas utca"
+    },
+    {
+      "input": "Péceli út",
+      "normalized": "peceli ut",
+      "type": null,
+      "name": "peceli ut"
+    },
+    {
+      "input": "Pillangó utca",
+      "normalized": "pillango utca",
+      "type": null,
+      "name": "pillango utca"
+    },
+    {
+      "input": "Puskás Tivadar utca",
+      "normalized": "puskas tivadar utca",
+      "type": null,
+      "name": "puskas tivadar utca"
+    },
+    {
+      "input": "Regina köz",
+      "normalized": "regina koz",
+      "type": null,
+      "name": "regina koz"
+    },
+    {
+      "input": "Rohonc utca",
+      "normalized": "rohonc utca",
+      "type": null,
+      "name": "rohonc utca"
+    },
+    {
+      "input": "Salgótarjáni utca",
+      "normalized": "salgotarjani utca",
+      "type": null,
+      "name": "salgotarjani utca"
+    },
+    {
+      "input": "Sió utca",
+      "normalized": "sio utca",
+      "type": null,
+      "name": "sio utca"
+    },
+    {
+      "input": "Sütöde utca",
+      "normalized": "sutode utca",
+      "type": null,
+      "name": "sutode utca"
+    },
+    {
+      "input": "Széchenyi-emlék út",
+      "normalized": "szechenyi emlek ut",
+      "type": null,
+      "name": "szechenyi emlek ut"
+    },
+    {
+      "input": "Szent László tér",
+      "normalized": "szent laszlo ter",
+      "type": null,
+      "name": "szent laszlo ter"
+    },
+    {
+      "input": "Szilágysomlyó utca",
+      "normalized": "szilagysomlyo utca",
+      "type": null,
+      "name": "szilagysomlyo utca"
+    },
+    {
+      "input": "Szunyogh út",
+      "normalized": "szunyogh ut",
+      "type": null,
+      "name": "szunyogh ut"
+    },
+    {
+      "input": "Táska utca",
+      "normalized": "taska utca",
+      "type": null,
+      "name": "taska utca"
+    },
+    {
+      "input": "Tibor utca",
+      "normalized": "tibor utca",
+      "type": null,
+      "name": "tibor utca"
+    },
+    {
+      "input": "Tornavár utca",
+      "normalized": "tornavar utca",
+      "type": null,
+      "name": "tornavar utca"
+    },
+    {
+      "input": "Tusnádi köz",
+      "normalized": "tusnadi koz",
+      "type": null,
+      "name": "tusnadi koz"
+    },
+    {
+      "input": "Vadrózsa utca",
+      "normalized": "vadrozsa utca",
+      "type": null,
+      "name": "vadrozsa utca"
+    },
+    {
+      "input": "Vasgolyó utca",
+      "normalized": "vasgolyo utca",
+      "type": null,
+      "name": "vasgolyo utca"
+    },
+    {
+      "input": "Vezekény utca",
+      "normalized": "vezekeny utca",
+      "type": null,
+      "name": "vezekeny utca"
+    },
+    {
+      "input": "Vöröskő utca",
+      "normalized": "vorosko utca",
+      "type": null,
+      "name": "vorosko utca"
+    },
+    {
+      "input": "Zichy Mihály út",
+      "normalized": "zichy mihaly ut",
+      "type": null,
+      "name": "zichy mihaly ut"
+    },
+    {
+      "input": "Beregszászi utca",
+      "normalized": "beregszaszi utca",
+      "type": null,
+      "name": "beregszaszi utca"
+    },
+    {
+      "input": "Nagykalapács utca",
+      "normalized": "nagykalapacs utca",
+      "type": null,
+      "name": "nagykalapacs utca"
+    },
+    {
+      "input": "Horgonyos dűlő",
+      "normalized": "horgonyos dulo",
+      "type": null,
+      "name": "horgonyos dulo"
+    },
+    {
+      "input": "Orgona ösvény",
+      "normalized": "orgona osveny",
+      "type": null,
+      "name": "orgona osveny"
+    },
+    {
+      "input": "Patak köz",
+      "normalized": "patak koz",
+      "type": null,
+      "name": "patak koz"
+    },
+    {
+      "input": "Thököly utca",
+      "normalized": "thokoly utca",
+      "type": null,
+      "name": "thokoly utca"
+    },
+    {
+      "input": "Víztorony utca",
+      "normalized": "viztorony utca",
+      "type": null,
+      "name": "viztorony utca"
+    },
+    {
+      "input": "Airport Business park",
+      "normalized": "airport business park",
+      "type": null,
+      "name": "airport business park"
+    },
+    {
+      "input": "Kmety utca",
+      "normalized": "kmety utca",
+      "type": null,
+      "name": "kmety utca"
+    },
+    {
+      "input": "Szervét Mihály tér",
+      "normalized": "szervet mihaly ter",
+      "type": null,
+      "name": "szervet mihaly ter"
+    },
+    {
+      "input": "Dr. Horváth Mihály út",
+      "normalized": "doktor horvath mihaly ut",
+      "type": null,
+      "name": "doktor horvath mihaly ut"
+    },
+    {
+      "input": "Benedek utca",
+      "normalized": "benedek utca",
+      "type": null,
+      "name": "benedek utca"
+    },
+    {
+      "input": "Bartók Béla utca",
+      "normalized": "bartok bela utca",
+      "type": null,
+      "name": "bartok bela utca"
+    },
+    {
+      "input": "Tv út",
+      "normalized": "tv ut",
+      "type": null,
+      "name": "tv ut"
+    },
+    {
+      "input": "Pozsonyi utca",
+      "normalized": "pozsonyi utca",
+      "type": null,
+      "name": "pozsonyi utca"
+    },
+    {
+      "input": "Knipfer Tibor utca",
+      "normalized": "knipfer tibor utca",
+      "type": null,
+      "name": "knipfer tibor utca"
+    },
+    {
+      "input": "Jósika Miklós utca",
+      "normalized": "josika miklos utca",
+      "type": null,
+      "name": "josika miklos utca"
+    },
+    {
+      "input": "Kubinyi Imre utca",
+      "normalized": "kubinyi imre utca",
+      "type": null,
+      "name": "kubinyi imre utca"
+    },
+    {
+      "input": "Hangos utca",
+      "normalized": "hangos utca",
+      "type": null,
+      "name": "hangos utca"
+    },
+    {
+      "input": "Désháza utca",
+      "normalized": "deshaza utca",
+      "type": null,
+      "name": "deshaza utca"
+    },
+    {
+      "input": "Gerle utca",
+      "normalized": "gerle utca",
+      "type": null,
+      "name": "gerle utca"
+    },
+    {
+      "input": "Váltó utca",
+      "normalized": "valto utca",
+      "type": null,
+      "name": "valto utca"
+    },
+    {
+      "input": "Erdőalja lépcső",
+      "normalized": "erdoalja lepcso",
+      "type": null,
+      "name": "erdoalja lepcso"
+    },
+    {
+      "input": "Zelk Zoltán út",
+      "normalized": "zelk zoltan ut",
+      "type": null,
+      "name": "zelk zoltan ut"
+    },
+    {
+      "input": "Királyi váróterem",
+      "normalized": "kiralyi varoterem",
+      "type": null,
+      "name": "kiralyi varoterem"
+    },
+    {
+      "input": "Magyar Meteorológiai Gyűjtemény",
+      "normalized": "magyar meteorologiai gyujtemeny",
+      "type": null,
+      "name": "magyar meteorologiai gyujtemeny"
+    },
+    {
+      "input": "Népliget",
+      "normalized": "nepliget",
+      "type": null,
+      "name": "nepliget"
+    },
+    {
+      "input": "Kolibri Gyermek- és Ifjúsági Színház",
+      "normalized": "kolibri gyermek es ifjusagi szinhaz",
+      "type": null,
+      "name": "kolibri gyermek es ifjusagi szinhaz"
+    },
+    {
+      "input": "Rákos",
+      "normalized": "rakos",
+      "type": null,
+      "name": "rakos"
+    },
+    {
+      "input": "Fonyód utca",
+      "normalized": "fonyod utca",
+      "type": null,
+      "name": "fonyod utca"
+    },
+    {
+      "input": "Magyarországi Szerb Színház",
+      "normalized": "magyarorszagi szerb szinhaz",
+      "type": null,
+      "name": "magyarorszagi szerb szinhaz"
+    },
+    {
+      "input": "I. Rákóczi György",
+      "normalized": "i rakoczi gyorgy",
+      "type": null,
+      "name": "i rakoczi gyorgy"
+    },
+    {
+      "input": "Belvárosi Színház",
+      "normalized": "belvarosi szinhaz",
+      "type": null,
+      "name": "belvarosi szinhaz"
+    },
+    {
+      "input": "Kálvária",
+      "normalized": "kalvaria",
+      "type": null,
+      "name": "kalvaria"
+    },
+    {
+      "input": "Hektár utca",
+      "normalized": "hektar utca",
+      "type": null,
+      "name": "hektar utca"
+    },
+    {
+      "input": "Lantos utca",
+      "normalized": "lantos utca",
+      "type": null,
+      "name": "lantos utca"
+    },
+    {
+      "input": "Erdődűlő út",
+      "normalized": "erdodulo ut",
+      "type": null,
+      "name": "erdodulo ut"
+    },
+    {
+      "input": "Strázsahegyi dűlő",
+      "normalized": "strazsahegyi dulo",
+      "type": null,
+      "name": "strazsahegyi dulo"
+    },
+    {
+      "input": "Háromszéki utca",
+      "normalized": "haromszeki utca",
+      "type": null,
+      "name": "haromszeki utca"
+    },
+    {
+      "input": "Aranycsillag utca",
+      "normalized": "aranycsillag utca",
+      "type": null,
+      "name": "aranycsillag utca"
+    },
+    {
+      "input": "Huszka Mihály utca",
+      "normalized": "huszka mihaly utca",
+      "type": null,
+      "name": "huszka mihaly utca"
+    },
+    {
+      "input": "Gyulafehérvár utca",
+      "normalized": "gyulafehervar utca",
+      "type": null,
+      "name": "gyulafehervar utca"
+    },
+    {
+      "input": "Kecskehegyi út",
+      "normalized": "kecskehegyi ut",
+      "type": null,
+      "name": "kecskehegyi ut"
+    },
+    {
+      "input": "Venyige utca",
+      "normalized": "venyige utca",
+      "type": null,
+      "name": "venyige utca"
+    },
+    {
+      "input": "Juhar utca",
+      "normalized": "juhar utca",
+      "type": null,
+      "name": "juhar utca"
+    },
+    {
+      "input": "Lev Tolsztoj sétány",
+      "normalized": "lev tolsztoj setany",
+      "type": null,
+      "name": "lev tolsztoj setany"
+    },
+    {
+      "input": "Psota Irén utca",
+      "normalized": "psota iren utca",
+      "type": null,
+      "name": "psota iren utca"
+    },
+    {
+      "input": "Ágas utca",
+      "normalized": "agas utca",
+      "type": null,
+      "name": "agas utca"
+    }
+  ]
+}

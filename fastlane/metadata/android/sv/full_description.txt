@@ -1,0 +1,34 @@
+Roue Libre visar lånecykelstationer på en karta och beräknar den bästa resan från dörr till dörr: gång, cykel, gång.
+
+Allt sker på telefonen: kartan, adressökningen och ruttberäkningen behöver ingen anslutning alls. Bara cyklarnas tillgänglighet i realtid går över nätet, läst direkt från operatörens server.
+
+<b>Den bästa resan, inte den närmaste stationen</b>
+
+• Start- och ankomststationen väljs tillsammans, utifrån tillgängligheten just nu: cyklar att ta i ena änden, lediga platser att lämna den på i den andra.
+• En nästan tom station väger lättare, eftersom den kan tömmas medan du går dit.
+• Där nätverket lånar ut både mekaniska cyklar och elcyklar väljer du vilken du vill ha, och bara de stationer som faktiskt har en räknas.
+• Resan följer cykelbanorna och räknar med stigningen.
+
+<b>En karta gjord för cykling</b>
+
+Cykelbanor ritade åtskilda från gatorna, offentliga byggnader och landmärken att orientera sig efter, och vid varje station det som nätverket lånar ut: mekaniska cyklar, elcyklar eller båda.
+
+<b>Ingenting spårar dig</b>
+
+• Ingen Google-tjänst: inga Play Services, ingen Firebase, ingen Maps SDK.
+• Ingen telemetri, ingen spårning, inget id, inget konto.
+• Ingen historik: inga positioner, inga destinationer. Det du söker efter lämnar inte telefonen.
+
+<b>Städerna som betjänas</b>
+
+Fler än 350 nätverk i närmare 40 länder, från Vélib’ i Paris till Citi Bike i New York, via Montréal, Prag, Barcelona, Dubai och Buenos Aires. Ingen stad påtvingas dig: appen föreslår din egen utifrån din position, och du kan behålla flera.
+
+Roue Libre betjänar bara nätverk som publicerar sina stationer i GBFS, den öppna standarden för lånecyklar, i ett offentligt flöde utan nyckel. Saknas din stad beror det på att dess nätverk inte publicerar något sådant flöde: det är nätverket självt eller kollektivtrafikmyndigheten du får be om det.
+
+<b>Värt att veta innan du installerar</b>
+
+Kartan, ruttgrafen och adressindexet finns inte i appen: de laddas ned en gång för alla, när du bestämmer det, och storleken anges i förväg (ett tiotal megabyte för en medelstor stad, mer för en huvudstad). Det är datafiler och ingenting annat, som du också kan ta fram själv med kodförrådets skript.
+
+Roue Libre är en oberoende app utan koppling till de nätverk den betjänar eller till deras operatörer.
+
+Fri programvara under licensen GNU GPL v3.

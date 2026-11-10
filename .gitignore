@@ -1,0 +1,52 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Generated datasets and downloaded sources (see tools/README.md). None of it
+# belongs in the repository: the scripts reproduce them.
+/data/
+__pycache__/
+*.pyc
+/core/build
+/tools/node_modules
+
+# Tracks computed while trying the router out. Their two ends are places
+# somebody chose, and a track kept in the repository publishes them.
+/*.gpx
+
+# Signing key for hand-installed trial builds. Never in the repository: a
+# versioned key is no longer a key (see app/build.gradle.kts).
+keystore.properties
+*.jks
+*.keystore
+
+# Working documents that are not the project: prompts, reports, notes. The name
+# says what the folder is for, and this line is what holds it.
+/do-not-commit/
+
+# The agent worktrees opened under `.claude/`, and the local tooling settings
+# beside them. A worktree is a checkout of this very repository, which has no
+# business inside its own history; the settings describe one contributor's
+# tooling, not the project.
+.claude/
+
+# Builds dropped at the root to be installed by hand. The APK is rebuilt from
+# the sources in one command, it weighs more than the whole history, and the
+# one thing a released binary must never be is a file somebody edits.
+/*.apk
+
+# The Kotlin compiler's own scratch directory — build errors and session
+# markers, written per machine and per run.
+.kotlin/

@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "Polígono Industrial La Red, Calle de la Red Dos",
+      "normalized": "poligono industrial la red calle de la red dos",
+      "type": null,
+      "name": "poligono industrial la red calle de la red dos"
+    },
+    {
+      "input": "Calle E",
+      "normalized": "calle e",
+      "type": "calle",
+      "name": "e"
+    },
+    {
+      "input": "Calle Mauricio",
+      "normalized": "calle mauricio",
+      "type": "calle",
+      "name": "mauricio"
+    },
+    {
+      "input": "Glorieta de Chequia",
+      "normalized": "glorieta de chequia",
+      "type": "glorieta",
+      "name": "de chequia"
+    },
+    {
+      "input": "Calle Calvario",
+      "normalized": "calle calvario",
+      "type": "calle",
+      "name": "calvario"
+    },
+    {
+      "input": "Calle Haza del Pozo",
+      "normalized": "calle haza del pozo",
+      "type": "calle",
+      "name": "haza del pozo"
+    },
+    {
+      "input": "Calle Paco de Lucía",
+      "normalized": "calle paco de lucia",
+      "type": "calle",
+      "name": "paco de lucia"
+    },
+    {
+      "input": "Calle Virgen del Pilar",
+      "normalized": "calle virgen del pilar",
+      "type": "calle",
+      "name": "virgen del pilar"
+    },
+    {
+      "input": "Calle Barca",
+      "normalized": "calle barca",
+      "type": "calle",
+      "name": "barca"
+    },
+    {
+      "input": "Calle Esperanza Elena Caro",
+      "normalized": "calle esperanza elena caro",
+      "type": "calle",
+      "name": "esperanza elena caro"
+    },
+    {
+      "input": "Calle Locomotora",
+      "normalized": "calle locomotora",
+      "type": "calle",
+      "name": "locomotora"
+    },
+    {
+      "input": "Calle Sales y Ferré",
+      "normalized": "calle sales y ferre",
+      "type": "calle",
+      "name": "sales y ferre"
+    },
+    {
+      "input": "Glorieta de Isla Mágica",
+      "normalized": "glorieta de isla magica",
+      "type": "glorieta",
+      "name": "de isla magica"
+    },
+    {
+      "input": "Calle Afecto",
+      "normalized": "calle afecto",
+      "type": "calle",
+      "name": "afecto"
+    },
+    {
+      "input": "Calle Candelón",
+      "normalized": "calle candelon",
+      "type": "calle",
+      "name": "candelon"
+    },
+    {
+      "input": "Calle Dílar",
+      "normalized": "calle dilar",
+      "type": "calle",
+      "name": "dilar"
+    },
+    {
+      "input": "Calle Galileo",
+      "normalized": "calle galileo",
+      "type": "calle",
+      "name": "galileo"
+    },
+    {
+      "input": "Calle la Red Treinta y Nueve",
+      "normalized": "calle la red treinta y nueve",
+      "type": "calle",
+      "name": "la red treinta y nueve"
+    },
+    {
+      "input": "Calle Modesto Abín",
+      "normalized": "calle modesto abin",
+      "type": "calle",
+      "name": "modesto abin"
+    },
+    {
+      "input": "Calle Pingüino",
+      "normalized": "calle pinguino",
+      "type": "calle",
+      "name": "pinguino"
+    },
+    {
+      "input": "Calle Puente Genil",
+      "normalized": "calle puente genil",
+      "type": "calle",
+      "name": "puente genil"
+    },
+    {
+      "input": "Calle Sinceridad",
+      "normalized": "calle sinceridad",
+      "type": "calle",
+      "name": "sinceridad"
+    },
+    {
+      "input": "Calle Zorzal",
+      "normalized": "calle zorzal",
+      "type": "calle",
+      "name": "zorzal"
+    },
+    {
+      "input": "Calle Cerro de Mairena",
+      "normalized": "calle cerro de mairena",
+      "type": "calle",
+      "name": "cerro de mairena"
+    },
+    {
+      "input": "Calle Veleta",
+      "normalized": "calle veleta",
+      "type": "calle",
+      "name": "veleta"
+    },
+    {
+      "input": "Calle Cordel de Tomares",
+      "normalized": "calle cordel de tomares",
+      "type": "calle",
+      "name": "cordel de tomares"
+    },
+    {
+      "input": "Calle Tomares",
+      "normalized": "calle tomares",
+      "type": "calle",
+      "name": "tomares"
+    },
+    {
+      "input": "Avenida Pan de Alcalá",
+      "normalized": "avenida pan de alcala",
+      "type": "avenida",
+      "name": "pan de alcala"
+    },
+    {
+      "input": "Calle Bastia",
+      "normalized": "calle bastia",
+      "type": "calle",
+      "name": "bastia"
+    },
+    {
+      "input": "Calle Coimbra",
+      "normalized": "calle coimbra",
+      "type": "calle",
+      "name": "coimbra"
+    },
+    {
+      "input": "Calle Espliego",
+      "normalized": "calle espliego",
+      "type": "calle",
+      "name": "espliego"
+    },
+    {
+      "input": "Calle Ibiza",
+      "normalized": "calle ibiza",
+      "type": "calle",
+      "name": "ibiza"
+    },
+    {
+      "input": "Calle Los Palillos Cuatro",
+      "normalized": "calle los palillos cuatro",
+      "type": "calle",
+      "name": "los palillos cuatro"
+    },
+    {
+      "input": "Calle Nerva",
+      "normalized": "calle nerva",
+      "type": "calle",
+      "name": "nerva"
+    },
+    {
+      "input": "Calle Siena",
+      "normalized": "calle siena",
+      "type": "calle",
+      "name": "siena"
+    },
+    {
+      "input": "Glorieta Viriato",
+      "normalized": "glorieta viriato",
+      "type": "glorieta",
+      "name": "viriato"
+    },
+    {
+      "input": "Calle 1",
+      "normalized": "calle 1",
+      "type": "calle",
+      "name": "1"
+    },
+    {
+      "input": "Calle Carteros",
+      "normalized": "calle carteros",
+      "type": "calle",
+      "name": "carteros"
+    },
+    {
+      "input": "Calle F. (Polígono Industrial San Jerónimo)",
+      "normalized": "calle f poligono industrial san jeronimo",
+      "type": "calle",
+      "name": "f poligono industrial san jeronimo"
+    },
+    {
+      "input": "Calle Miguel Romero Martínez",
+      "normalized": "calle miguel romero martinez",
+      "type": "calle",
+      "name": "miguel romero martinez"
+    },
+    {
+      "input": "Calle San Justo",
+      "normalized": "calle san justo",
+      "type": "calle",
+      "name": "san justo"
+    },
+    {
+      "input": "Parque Comercial San Jerónimo. calle B",
+      "normalized": "parque comercial san jeronimo calle b",
+      "type": "parque",
+      "name": "comercial san jeronimo calle b"
+    },
+    {
+      "input": "Calle Collaut Valera",
+      "normalized": "calle collaut valera",
+      "type": "calle",
+      "name": "collaut valera"
+    },
+    {
+      "input": "Calle Naranco",
+      "normalized": "calle naranco",
+      "type": "calle",
+      "name": "naranco"
+    },
+    {
+      "input": "Glorieta de Haití",
+      "normalized": "glorieta de haiti",
+      "type": "glorieta",
+      "name": "de haiti"
+    },
+    {
+      "input": "Calle Ajedrez",
+      "normalized": "calle ajedrez",
+      "type": "calle",
+      "name": "ajedrez"
+    },
+    {
+      "input": "Calle Cal",
+      "normalized": "calle cal",
+      "type": "calle",
+      "name": "cal"
+    },
+    {
+      "input": "Calle Ciudad de Gandía",
+      "normalized": "calle ciudad de gandia",
+      "type": "calle",
+      "name": "ciudad de gandia"
+    },
+    {
+      "input": "Calle El Rubio",
+      "normalized": "calle el rubio",
+      "type": "calle",
+      "name": "el rubio"
+    },
+    {
+      "input": "Calle Guayabo",
+      "normalized": "calle guayabo",
+      "type": "calle",
+      "name": "guayabo"
+    },
+    {
+      "input": "Calle Laguna Larga Seis",
+      "normalized": "calle laguna larga seis",
+      "type": "calle",
+      "name": "laguna larga seis"
+    },
+    {
+      "input": "Calle Naoin",
+      "normalized": "calle naoin",
+      "type": "calle",
+      "name": "naoin"
+    },
+    {
+      "input": "Calle Profesor Heliodoro Sancho Corbacho",
+      "normalized": "calle profesor heliodoro sancho corbacho",
+      "type": "calle",
+      "name": "profesor heliodoro sancho corbacho"
+    },
+    {
+      "input": "Calle Torre Albas",
+      "normalized": "calle torre albas",
+      "type": "calle",
+      "name": "torre albas"
+    },
+    {
+      "input": "Calle Torreroncillo",
+      "normalized": "calle torreroncillo",
+      "type": "calle",
+      "name": "torreroncillo"
+    },
+    {
+      "input": "Camino Huerta Basilio",
+      "normalized": "camino huerta basilio",
+      "type": "camino",
+      "name": "huerta basilio"
+    },
+    {
+      "input": "Calle Álamo Carolino",
+      "normalized": "calle alamo carolino",
+      "type": "calle",
+      "name": "alamo carolino"
+    },
+    {
+      "input": "Calle Juan de Timoneda",
+      "normalized": "calle juan de timoneda",
+      "type": "calle",
+      "name": "juan de timoneda"
+    },
+    {
+      "input": "Pasaje Areca",
+      "normalized": "pasaje areca",
+      "type": "pasaje",
+      "name": "areca"
+    },
+    {
+      "input": "Calle Huerta Charlo",
+      "normalized": "calle huerta charlo",
+      "type": "calle",
+      "name": "huerta charlo"
+    },
+    {
+      "input": "Avenida Uruguay",
+      "normalized": "avenida uruguay",
+      "type": "avenida",
+      "name": "uruguay"
+    },
+    {
+      "input": "virgen de la cinta",
+      "normalized": "virgen de la cinta",
+      "type": null,
+      "name": "virgen de la cinta"
+    },
+    {
+      "input": "Calle Arce",
+      "normalized": "calle arce",
+      "type": "calle",
+      "name": "arce"
+    },
+    {
+      "input": "Calle Diego Pesquera",
+      "normalized": "calle diego pesquera",
+      "type": "calle",
+      "name": "diego pesquera"
+    },
+    {
+      "input": "Calle Fray Luis Sotelo",
+      "normalized": "calle fray luis sotelo",
+      "type": "calle",
+      "name": "fray luis sotelo"
+    },
+    {
+      "input": "Calle Linde",
+      "normalized": "calle linde",
+      "type": "calle",
+      "name": "linde"
+    },
+    {
+      "input": "Calle Pacheco y Núñez del Prado",
+      "normalized": "calle pacheco y nunez del prado",
+      "type": "calle",
+      "name": "pacheco y nunez del prado"
+    },
+    {
+      "input": "Calle San Teófilo",
+      "normalized": "calle san teofilo",
+      "type": "calle",
+      "name": "san teofilo"
+    },
+    {
+      "input": "Comunidad Asturiana",
+      "normalized": "comunidad asturiana",
+      "type": null,
+      "name": "comunidad asturiana"
+    },
+    {
+      "input": "Calle Ciaurriz",
+      "normalized": "calle ciaurriz",
+      "type": "calle",
+      "name": "ciaurriz"
+    },
+    {
+      "input": "Calle Deva",
+      "normalized": "calle deva",
+      "type": "calle",
+      "name": "deva"
+    },
+    {
+      "input": "Calle Lebrija",
+      "normalized": "calle lebrija",
+      "type": "calle",
+      "name": "lebrija"
+    },
+    {
+      "input": "Calle Sevilla Futbol Club",
+      "normalized": "calle sevilla futbol club",
+      "type": "calle",
+      "name": "sevilla futbol club"
+    },
+    {
+      "input": "Pablo de Olavide",
+      "normalized": "pablo de olavide",
+      "type": null,
+      "name": "pablo de olavide"
+    },
+    {
+      "input": "San Lázaro",
+      "normalized": "san lazaro",
+      "type": null,
+      "name": "san lazaro"
+    },
+    {
+      "input": "Muralla islámica (s.XI-XII)",
+      "normalized": "muralla islamica s xi xii",
+      "type": null,
+      "name": "muralla islamica s xi xii"
+    },
+    {
+      "input": "Calle La Cornisa",
+      "normalized": "calle la cornisa",
+      "type": "calle",
+      "name": "la cornisa"
+    },
+    {
+      "input": "Calle Casa de oro",
+      "normalized": "calle casa de oro",
+      "type": "calle",
+      "name": "casa de oro"
+    },
+    {
+      "input": "Calle José Manuel Caballero Bonald",
+      "normalized": "calle jose manuel caballero bonald",
+      "type": "calle",
+      "name": "jose manuel caballero bonald"
+    },
+    {
+      "input": "Calle Piel de Toro",
+      "normalized": "calle piel de toro",
+      "type": "calle",
+      "name": "piel de toro"
+    },
+    {
+      "input": "Glorieta del Bizco Amate",
+      "normalized": "glorieta del bizco amate",
+      "type": "glorieta",
+      "name": "del bizco amate"
+    },
+    {
+      "input": "Calle Burgos",
+      "normalized": "calle burgos",
+      "type": "calle",
+      "name": "burgos"
+    },
+    {
+      "input": "Calle José Payán Garrido",
+      "normalized": "calle jose payan garrido",
+      "type": "calle",
+      "name": "jose payan garrido"
+    },
+    {
+      "input": "Calle Ramón y Cajal",
+      "normalized": "calle ramon y cajal",
+      "type": "calle",
+      "name": "ramon y cajal"
+    },
+    {
+      "input": "Plaza López Domínguez",
+      "normalized": "plaza lopez dominguez",
+      "type": "plaza",
+      "name": "lopez dominguez"
+    },
+    {
+      "input": "Calle Bulería",
+      "normalized": "calle buleria",
+      "type": "calle",
+      "name": "buleria"
+    },
+    {
+      "input": "Calle Formón",
+      "normalized": "calle formon",
+      "type": "calle",
+      "name": "formon"
+    },
+    {
+      "input": "Calle La Taranta",
+      "normalized": "calle la taranta",
+      "type": "calle",
+      "name": "la taranta"
+    },
+    {
+      "input": "Calle Rafael González Romero",
+      "normalized": "calle rafael gonzalez romero",
+      "type": "calle",
+      "name": "rafael gonzalez romero"
+    },
+    {
+      "input": "Plaza Francisco Muñoz Kirri",
+      "normalized": "plaza francisco munoz kirri",
+      "type": "plaza",
+      "name": "francisco munoz kirri"
+    },
+    {
+      "input": "Calle Don Pelayo",
+      "normalized": "calle don pelayo",
+      "type": "calle",
+      "name": "don pelayo"
+    },
+    {
+      "input": "Calle Nuestra Señora del Rosario",
+      "normalized": "calle nuestra senora del rosario",
+      "type": "calle",
+      "name": "nuestra senora del rosario"
+    },
+    {
+      "input": "Calle Zorrilla",
+      "normalized": "calle zorrilla",
+      "type": "calle",
+      "name": "zorrilla"
+    },
+    {
+      "input": "Avenida de las Ciencias, Edificio Portasevilla, portal",
+      "normalized": "avenida de las ciencias edificio portasevilla portal",
+      "type": "avenida",
+      "name": "de las ciencias edificio portasevilla portal"
+    },
+    {
+      "input": "Calle Abedul",
+      "normalized": "calle abedul",
+      "type": "calle",
+      "name": "abedul"
+    },
+    {
+      "input": "Calle Antón de la Cerda",
+      "normalized": "calle anton de la cerda",
+      "type": "calle",
+      "name": "anton de la cerda"
+    },
+    {
+      "input": "Calle Bamberg",
+      "normalized": "calle bamberg",
+      "type": "calle",
+      "name": "bamberg"
+    },
+    {
+      "input": "Calle Carlos Cañal",
+      "normalized": "calle carlos canal",
+      "type": "calle",
+      "name": "carlos canal"
+    },
+    {
+      "input": "Calle CR",
+      "normalized": "calle cr",
+      "type": "calle",
+      "name": "cr"
+    },
+    {
+      "input": "Calle Dueñas",
+      "normalized": "calle duenas",
+      "type": "calle",
+      "name": "duenas"
+    },
+    {
+      "input": "Calle Feria",
+      "normalized": "calle feria",
+      "type": "calle",
+      "name": "feria"
+    },
+    {
+      "input": "Calle Goles",
+      "normalized": "calle goles",
+      "type": "calle",
+      "name": "goles"
+    },
+    {
+      "input": "Calle Jimios",
+      "normalized": "calle jimios",
+      "type": "calle",
+      "name": "jimios"
+    },
+    {
+      "input": "C/Leonardo Da Vinci, 20. Parque Científico y Tecnológico Isla de la Cartuja",
+      "normalized": "calle leonardo da vinci 20 parque cientifico y tecnologico isla de la cartuja",
+      "type": "calle",
+      "name": "leonardo da vinci 20 parque cientifico y tecnologico isla de la cartuja"
+    },
+    {
+      "input": "Calle Manuel Ródenas",
+      "normalized": "calle manuel rodenas",
+      "type": "calle",
+      "name": "manuel rodenas"
+    },
+    {
+      "input": "Calle Muñoz Olivé",
+      "normalized": "calle munoz olive",
+      "type": "calle",
+      "name": "munoz olive"
+    },
+    {
+      "input": "Calle Pedro de Mendoza",
+      "normalized": "calle pedro de mendoza",
+      "type": "calle",
+      "name": "pedro de mendoza"
+    },
+    {
+      "input": "Calle Rafael González Abreu",
+      "normalized": "calle rafael gonzalez abreu",
+      "type": "calle",
+      "name": "rafael gonzalez abreu"
+    },
+    {
+      "input": "Calle San José de Calasanz",
+      "normalized": "calle san jose de calasanz",
+      "type": "calle",
+      "name": "san jose de calasanz"
+    },
+    {
+      "input": "Calle Tharsis",
+      "normalized": "calle tharsis",
+      "type": "calle",
+      "name": "tharsis"
+    },
+    {
+      "input": "Calle Virgen de Belén",
+      "normalized": "calle virgen de belen",
+      "type": "calle",
+      "name": "virgen de belen"
+    },
+    {
+      "input": "Eduardo Dato",
+      "normalized": "eduardo dato",
+      "type": null,
+      "name": "eduardo dato"
+    },
+    {
+      "input": "Paseo de las Delicias",
+      "normalized": "paseo de las delicias",
+      "type": "paseo",
+      "name": "de las delicias"
+    },
+    {
+      "input": "Plaza del Pelícano",
+      "normalized": "plaza del pelicano",
+      "type": "plaza",
+      "name": "del pelicano"
+    },
+    {
+      "input": "Vicente Alanís",
+      "normalized": "vicente alanis",
+      "type": null,
+      "name": "vicente alanis"
+    },
+    {
+      "input": "Calle Italia",
+      "normalized": "calle italia",
+      "type": "calle",
+      "name": "italia"
+    },
+    {
+      "input": "Calle Arcos",
+      "normalized": "calle arcos",
+      "type": "calle",
+      "name": "arcos"
+    },
+    {
+      "input": "Calle María Moliner",
+      "normalized": "calle maria moliner",
+      "type": "calle",
+      "name": "maria moliner"
+    },
+    {
+      "input": "Calle Arcipreste de Hita",
+      "normalized": "calle arcipreste de hita",
+      "type": "calle",
+      "name": "arcipreste de hita"
+    },
+    {
+      "input": "Calle Marianillo",
+      "normalized": "calle marianillo",
+      "type": "calle",
+      "name": "marianillo"
+    }
+  ]
+}

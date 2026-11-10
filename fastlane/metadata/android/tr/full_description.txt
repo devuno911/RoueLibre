@@ -1,0 +1,34 @@
+Roue Libre, paylaşımlı bisiklet istasyonlarını haritada gösterir ve kapıdan kapıya en iyi yolculuğu hesaplar: yürüyüş, bisiklet, yürüyüş.
+
+Her şey telefonda olur: harita, adres araması ve rota hesabı hiçbir bağlantı istemez. İnternete çıkan tek şey anlık bisiklet durumudur ve doğrudan işletmecinin sunucusundan okunur.
+
+<b>En yakın istasyon değil, en iyi yolculuk</b>
+
+• Kalkış ve varış istasyonları anlık duruma göre birlikte seçilir: bir yanda alınacak bisiklet, öbür yanda onu bırakacak boş yuva olmalı.
+• Neredeyse boş bir istasyona daha az ağırlık verilir, çünkü sen ona yürürken boşalabilir.
+• Ağın hem klasik hem elektrikli bisiklet sunduğu yerlerde hangisini istediğini sen seçersin; yalnızca o bisikletten gerçekten bulunan istasyonlar hesaba katılır.
+• Rota bisiklet yollarını izler ve yükseklik farkını hesaba katar.
+
+<b>Bisiklet için yapılmış bir harita</b>
+
+Sokaklardan ayrı çizilmiş bisiklet yolları, kamu binaları ve gözle yön bulmaya yarayan önemli noktalar; her istasyonda da ağın sunduğu bisikletler: klasik, elektrikli ya da ikisi birden.
+
+<b>Seni hiçbir şey izlemez</b>
+
+• Google hizmeti yok: Play Services yok, Firebase yok, Maps SDK yok.
+• Telemetri yok, izleyici yok, tanımlayıcı yok, hesap yok.
+• Geçmiş yok: ne konum ne hedef. Aradığın şey telefondan çıkmaz.
+
+<b>Hizmet verilen şehirler</b>
+
+40’a yakın ülkede 350’den fazla ağ: Paris’teki Vélib’den New York’taki Citi Bike’a, Montreal, Prag, Barselona, Dubai ve Buenos Aires de dahil. Hiçbir şehir dayatılmaz: uygulama konumuna göre seninkini önerir ve birden çok şehri tutabilirsin.
+
+Roue Libre yalnızca istasyonlarını paylaşımlı bisikletlerin açık standardı GBFS biçiminde, herkese açık ve anahtarsız bir akışla yayımlayan ağlara hizmet verir. Şehrin yoksa, ağı böyle bir akış yayımlamıyor demektir: bunu ağın kendisinden ya da ulaşım idaresinden istemen gerekir.
+
+<b>Kurmadan önce bilinmesi gerekenler</b>
+
+Harita, rota çizgesi ve adres dizini uygulamanın içinde değildir: sen karar verdiğinde bir kez indirilir ve boyutları önceden bildirilir (orta büyüklükte bir şehir için on megabayt kadar, bir başkent için daha fazlası). Bunlar yalnızca veri dosyalarıdır, başka bir şey değil; deponun betikleriyle kendin de üretebilirsin.
+
+Roue Libre bağımsız bir uygulamadır; hizmet verdiği ağlarla da onların işletmecileriyle de hiçbir bağı yoktur.
+
+GNU GPL v3 lisansı altında özgür yazılım.

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Colour tokens — dark theme. SPEC.md §7.
+
+    The same names as in the light theme, with redefined values. This is not an
+    inversion: the background is a greened slate rather than black, the signal
+    hue is the icon's green lightened until it holds on a dark background, and
+    the availability scale inverts in luminance — on a dark background, "more
+    ink" becomes "more light".
+
+    Contrasts verified: the lowest in the set is 5.04:1.
+-->
+<resources>
+
+    <color name="paper">#0D1512</color>
+    <color name="surface">#16211C</color>
+    <color name="ink">#E6EEEA</color>
+    <color name="ink_soft">#94A69E</color>
+    <color name="signal">#3FB68F</color>
+    <color name="alert">#E0913F</color>
+
+    <color name="availability_low">#17392E</color>
+    <color name="availability_medium">#1E7159</color>
+    <color name="availability_good">#3FB68F</color>
+    <color name="availability_low_ink">#E6EEEA</color>
+    <color name="availability_medium_ink">#E6EEEA</color>
+    <color name="availability_good_ink">#0D1512</color>
+
+    <!-- Ink laid on a flat of the signal hue. -->
+    <color name="surface_on_signal">#0D1512</color>
+
+    <color name="outline">#29352F</color>
+
+    <!-- The signal hue darkened, for inverted surfaces: the icon's green
+         itself, which is the one that holds on a light background. -->
+    <color name="signal_inverse">#0F6E56</color>
+
+    <!-- The background of inverted surfaces. -->
+    <color name="surface_inverse">#E6EEEA</color>
+
+    <!-- Ink laid on an inverted surface. -->
+    <color name="ink_inverse">#0D1512</color>
+
+    <!-- The base map's palette, dark theme. The same desaturation with
+         inverted values: the map stays scenery under the markers, and the
+         water keeps the blue cast that tells it apart from the parks.
+
+         One thing does not mirror the light theme: which of a road's two
+         strokes carries it. On a pale ground the road is white and its casing
+         draws the line; on a dark ground the road is the lighter of the two,
+         so the fill carries it and the casing only opens a gap between two
+         streets running side by side. The style is the same, the roles swap. -->
+    <color name="map_land">#101613</color>
+    <color name="map_water">#17303A</color>
+    <color name="map_greenery">#17241A</color>
+    <color name="map_wood">#1D2E1E</color>
+    <color name="map_building">#1B241F</color>
+    <color name="map_building_edge">#2B352E</color>
+    <color name="map_road_major">#4B5A52</color>
+    <color name="map_road_major_edge">#29332D</color>
+    <color name="map_road_minor">#38443D</color>
+    <color name="map_road_minor_edge">#222C27</color>
+    <color name="map_path">#4A5A51</color>
+    <color name="map_cycleway">#2F9268</color>
+    <color name="map_rail">#46554D</color>
+    <color name="map_boundary">#3A4A42</color>
+    <color name="map_label">#A3B5AC</color>
+    <color name="map_label_strong">#D8E6DE</color>
+    <color name="map_label_halo">#101613</color>
+    <color name="map_marker_minor">#677C71</color>
+    <color name="map_water_label">#79A9B4</color>
+    <color name="map_greenery_label">#86AE80</color>
+
+</resources>

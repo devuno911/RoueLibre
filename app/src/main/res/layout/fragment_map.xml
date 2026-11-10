@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The main screen: the map (SPEC §7.1).
+
+    The controls are at the bottom, within thumb reach: SPEC §7 asks for an
+    interface usable one-handed.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <io.github.mgdx.rouelibre.ui.map.DescribedMapView
+        android:id="@+id/map"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+        Attribution, mandatory and visible on the map itself (SPEC §4.5).
+        Text rather than an info button: "visible" means read without having to
+        open anything.
+    -->
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/attribution"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/map_label_halo"
+        android:paddingStart="@dimen/space_s"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/space_s"
+        android:paddingBottom="2dp"
+        android:text="@string/map_attribution"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- The data's age, required by SPEC §4.1, laid over the map. It stops
+         where the controls of the top row begin: the buttons are declared
+         after it and are drawn over it, so an age spelt out at a large text
+         size used to slide under them and lose its last words. Held to the
+         start rather than centred between its two constraints, which is what
+         a constrained wrap would otherwise do.
+
+         Not justified, for the reason `Widget.RoueLibre.Name` gives: at
+         twice the system text size the age takes two lines, and the theme's
+         justification spread the first of them bank to bank, "Updated" and
+         "ago" a hand's breadth apart. -->
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/freshness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_m"
+        android:background="@drawable/pill_surface"
+        android:paddingStart="@dimen/space_m"
+        android:paddingTop="@dimen/space_s"
+        android:paddingEnd="@dimen/space_m"
+        android:paddingBottom="@dimen/space_s"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/face_north"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mis à jour il y a 12 secondes" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_settings"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_margin="@dimen/space_m"
+        android:contentDescription="@string/settings_open"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_settings"
+        app:iconTint="@color/ink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_list"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_m"
+        android:contentDescription="@string/map_open_list"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_list"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/attribution"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Journey search (SPEC §7.3), the function the application exists to
+         provide: it is therefore the largest of the controls. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_journey"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/journey_open"
+        app:backgroundTint="@color/signal"
+        app:icon="@drawable/ic_bike"
+        app:iconTint="@color/surface_on_signal"
+        app:layout_constraintBottom_toTopOf="@id/locate_me"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        The places the user has named (SPEC §7.1, §7.6): one press brings the
+        camera onto each. At the head of the thumb's column, over the journey
+        button, so that a button which comes and goes with the settings never
+        pushes the ones below it out of the place the thumb knows. Home
+        nearest the others, being the one pressed most.
+
+        Lying down, the column has no room for them: they stand in a second
+        column beside it instead, home level with "locate me" and work level
+        with the journey button. Both arrangements are one set of constraints
+        on "locate me", which is up whenever these are, moved by
+        `saved_place_button_shift` and `saved_place_button_lift` — see
+        values/dimens.xml and values-land/dimens.xml for why.
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/centre_on_home"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/saved_place_button_shift"
+        android:layout_marginBottom="@dimen/saved_place_button_lift"
+        android:contentDescription="@string/map_centre_on_home"
+        android:visibility="gone"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_home"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toBottomOf="@id/locate_me"
+        app:layout_constraintEnd_toEndOf="@id/locate_me"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/centre_on_work"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/map_centre_on_work"
+        android:visibility="gone"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_work"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/centre_on_home"
+        app:layout_constraintEnd_toEndOf="@id/centre_on_home"
+        app:layout_goneMarginBottom="@dimen/saved_place_button_lift"
+        app:layout_goneMarginEnd="@dimen/saved_place_button_shift"
+        tools:visibility="visible" />
+
+    <!--
+        Face north (SPEC §7.1), on the top row and to the left of the settings.
+        It appears only once the map has been turned, and a button that comes
+        and goes must not push about the ones that stay: on this row there is
+        nothing under it to push, where in the thumb's column every button
+        below it would have shifted a place each time the map left north.
+
+        It takes its top and bottom edges from the settings button rather than
+        margins of its own, so the room the status bar and a display cutout
+        ask for — laid on the settings button by `applySystemInsets` — carries
+        it along without a second measurement to keep in step.
+
+        Ours and not MapLibre's own compass, though the library offers one.
+        MapLibre describes its views in its own languages, not in the
+        application's — the reason DescribedMapView exists — so its compass
+        would speak English under an Arabic interface, and it would look like
+        nothing else on this screen.
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/face_north"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/space_s"
+        android:contentDescription="@string/map_face_north"
+        android:visibility="gone"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_compass"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toBottomOf="@id/open_settings"
+        app:layout_constraintEnd_toStartOf="@id/open_settings"
+        app:layout_constraintTop_toTopOf="@id/open_settings"
+        tools:visibility="visible" />
+
+    <!-- Locate me (SPEC §7.1). The permission is requested here alone, at
+         the moment the user understands why (SPEC §10). -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/locate_me"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/map_locate_me"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_my_location"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/locate_me_floor"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        What "locate me" stands on: the search button while browsing, the
+        confirm bar while picking (SPEC §7.3) — the only two roles it serves,
+        and never both at once. Gone widgets are left out of the barrier, so
+        it is the top of whichever of the two is up. Hung on the search button
+        alone, the button followed the collapsed column down to the
+        attribution while picking and sat under the confirm bar, a press on it
+        confirming the point. While browsing the bar is gone and the barrier is
+        the search button's top, the very edge it hung from before.
+    -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/locate_me_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="false"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="open_search,pick_confirm" />
+
+    <!-- Address search (SPEC §4.3), within thumb reach like the other main
+         controls. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_search"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_s"
+        android:contentDescription="@string/address_search_title"
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_search"
+        app:iconTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/open_list"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        The point found by the search. It carries its label rather than its
+        coordinates: "12 bis Rue Nationale" reads back, "50.63 / 3.06" does
+        not. A tap clears it.
+    -->
+    <TextView
+        style="@style/Widget.RoueLibre.Name"
+        android:id="@+id/picked_place"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_m"
+        android:layout_marginEnd="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_m"
+        android:background="@drawable/pill_surface"
+        android:drawablePadding="@dimen/space_s"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/touch_target_min"
+        android:paddingStart="@dimen/space_m"
+        android:paddingEnd="@dimen/space_m"
+        android:textAppearance="@style/TextAppearance.RoueLibre.Body"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_place"
+        app:drawableTint="@color/ink"
+        app:layout_constraintBottom_toTopOf="@id/filters_top"
+        app:layout_constraintEnd_toStartOf="@id/open_search"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="12 bis Rue Nationale"
+        tools:visibility="visible" />
+
+    <!--
+        What the searched point stands on: the row of the two filters, whichever
+        of them is up, and the attribution when neither is. The toggle is gone
+        while a point is designated, and since 22 October 2026 in a network
+        whose free docks are not worth showing (SPEC §7.1), where the kind
+        filter may still be up on its own. Hung on the toggle alone, the pill
+        followed it down to the attribution and lay over the kind filter.
+        Gone widgets are left out of the barrier; the attribution is always
+        there and always lowest, so it only counts when the row is empty — the
+        very place the pill reached when the toggle was gone before.
+    -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/filters_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="false"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="mode_toggle,bike_kind_filter,attribution" />
+
+    <!--
+        Bikes against free docks (SPEC §7.1). Its height is a floor and not a
+        measurement: the label is written in `sp` and grows with the system
+        text size, while 48 dp is only what the finger needs. Fixed, that
+        figure cut the bottom off "Free docks" at ×2.0 — SPEC §7 has the height
+        give way, never the letters.
+
+        It fills its outline with the theme's surface, which `Widget.RoueLibre.
+        Toggle` leaves transparent everywhere else. A toggle on a settings
+        screen stands on that surface already; this one stands on the map, and
+        the map is drawn behind the word — a station's disc crossed the middle
+        of "Bikes", and streets and parks ran through the rest of it. The five
+        icon buttons of this screen are filled for the same reason, and the
+        freshness label beside them carries `pill_surface`, which is this same
+        colour under another name. The token holds in both themes, the map
+        being very pale in one and very dark in the other.
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mode_toggle"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_m"
+        android:layout_marginBottom="@dimen/space_m"
+        android:minHeight="@dimen/touch_target_min"
+        app:backgroundTint="@color/surface"
+        app:layout_constraintBottom_toTopOf="@id/attribution"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Vélos" />
+
+    <!--
+        Which bikes the markers count (SPEC §7.1), beside the toggle that says
+        whether they count bikes at all. It is its own control: what is filtered
+        here changes nothing about the journey screen, and the other way round.
+        Shown only where the network lends both kinds, and only while bikes are
+        being counted — a kind has nothing to say about a free dock.
+
+        Filled like the toggle it stands beside, and for that toggle's reason:
+        the two are one row over the map, and one of them left see-through
+        would read as the broken half of a pair.
+
+        It stands on the attribution as the toggle does, rather than being
+        centred on the toggle, and takes the toggle's margin from the edge when
+        that one is gone: in a network whose free docks are not worth showing
+        (SPEC §7.1) it is the only button of the row, and centred on a gone
+        toggle it sat astride the attribution.
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bike_kind_filter"
+        style="@style/Widget.RoueLibre.Toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_s"
+        android:layout_marginBottom="@dimen/space_m"
+        android:minHeight="@dimen/touch_target_min"
+        android:visibility="gone"
+        app:backgroundTint="@color/surface"
+        app:layout_constraintBottom_toTopOf="@id/attribution"
+        app:layout_constraintStart_toEndOf="@id/mode_toggle"
+        app:layout_goneMarginStart="@dimen/space_m"
+        tools:text="Électriques"
+        tools:visibility="visible" />
+
+    <!--
+        The "pick a point" mode (SPEC §7.3): the map moves under a fixed
+        crosshair, rather than waiting for a precise tap. One aims by moving the
+        map, which leaves what is being aimed at visible.
+    -->
+    <ImageView
+        android:id="@+id/pick_crosshair"
+        android:layout_width="@dimen/space_xxl"
+        android:layout_height="@dimen/space_xxl"
+        android:contentDescription="@string/journey_pick_crosshair"
+        android:src="@drawable/ic_crosshair"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pick_confirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_min"
+        android:layout_marginStart="@dimen/space_l"
+        android:layout_marginEnd="@dimen/space_l"
+        android:layout_marginBottom="@dimen/space_l"
+        android:text="@string/journey_pick_confirm"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/attribution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <!--
+        Without a base map installed, the screen explains and offers the two
+        ways on: install, or make do with the list. SPEC §4.4 makes it an
+        accepted degraded mode, not a breakdown.
+    -->
+    <LinearLayout
+        android:id="@+id/missing_tiles"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/colorBackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_xxl"
+        android:paddingEnd="@dimen/space_xxl"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <!-- A heading, set as a name for the reason the freshness label is:
+             wrapped at a large text size, its first line must not be spread
+             bank to bank. The message under it is running text and keeps
+             the theme's justification. -->
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/missing_tiles_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/map_needs_tiles_title"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Title" />
+
+        <TextView
+            android:id="@+id/missing_tiles_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:gravity="center"
+            android:text="@string/map_needs_tiles_message"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/missing_tiles_storage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:minHeight="@dimen/touch_target_min"
+            android:text="@string/storage_open" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/missing_tiles_list"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:minHeight="@dimen/touch_target_min"
+            android:text="@string/map_open_list"
+            android:textColor="@color/signal" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

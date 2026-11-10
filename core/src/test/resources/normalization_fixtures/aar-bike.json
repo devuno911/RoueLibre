@@ -1,0 +1,767 @@
+{
+  "language": "tr",
+  "cases": [
+    {
+      "input": "Atatürk Caddesi",
+      "normalized": "ataturk caddesi",
+      "type": null,
+      "name": "ataturk caddesi"
+    },
+    {
+      "input": "İstiklal Cd.",
+      "normalized": "istiklal caddesi",
+      "type": null,
+      "name": "istiklal caddesi"
+    },
+    {
+      "input": "Bağdat Caddesi",
+      "normalized": "bagdat caddesi",
+      "type": null,
+      "name": "bagdat caddesi"
+    },
+    {
+      "input": "Cumhuriyet Bulv.",
+      "normalized": "cumhuriyet bulvari",
+      "type": null,
+      "name": "cumhuriyet bulvari"
+    },
+    {
+      "input": "Moda Sk.",
+      "normalized": "moda sokak",
+      "type": null,
+      "name": "moda sokak"
+    },
+    {
+      "input": "Barbaros Bulvarı",
+      "normalized": "barbaros bulvari",
+      "type": null,
+      "name": "barbaros bulvari"
+    },
+    {
+      "input": "Kadıköy Mah.",
+      "normalized": "kadikoy mahallesi",
+      "type": null,
+      "name": "kadikoy mahallesi"
+    },
+    {
+      "input": "Bakırcıbey Sokak",
+      "normalized": "bakircibey sokak",
+      "type": null,
+      "name": "bakircibey sokak"
+    },
+    {
+      "input": "Kılınçvuran Sokağı",
+      "normalized": "kilincvuran sokagi",
+      "type": null,
+      "name": "kilincvuran sokagi"
+    },
+    {
+      "input": "Veterinerlik Dönüşü",
+      "normalized": "veterinerlik donusu",
+      "type": null,
+      "name": "veterinerlik donusu"
+    },
+    {
+      "input": "Şehit Ahmet Caddesi",
+      "normalized": "sehit ahmet caddesi",
+      "type": null,
+      "name": "sehit ahmet caddesi"
+    },
+    {
+      "input": "Camicem Sokak",
+      "normalized": "camicem sokak",
+      "type": null,
+      "name": "camicem sokak"
+    },
+    {
+      "input": "Laden Sokak",
+      "normalized": "laden sokak",
+      "type": null,
+      "name": "laden sokak"
+    },
+    {
+      "input": "Yiğitbaşı Sokak",
+      "normalized": "yigitbasi sokak",
+      "type": null,
+      "name": "yigitbasi sokak"
+    },
+    {
+      "input": "Gerçekler Sokak",
+      "normalized": "gercekler sokak",
+      "type": null,
+      "name": "gercekler sokak"
+    },
+    {
+      "input": "Ulukonak Sokak",
+      "normalized": "ulukonak sokak",
+      "type": null,
+      "name": "ulukonak sokak"
+    },
+    {
+      "input": "Konaklar Sokak",
+      "normalized": "konaklar sokak",
+      "type": null,
+      "name": "konaklar sokak"
+    },
+    {
+      "input": "Emet Sokağı",
+      "normalized": "emet sokagi",
+      "type": null,
+      "name": "emet sokagi"
+    },
+    {
+      "input": "Suluk Sokağı",
+      "normalized": "suluk sokagi",
+      "type": null,
+      "name": "suluk sokagi"
+    },
+    {
+      "input": "Handan Sokağı",
+      "normalized": "handan sokagi",
+      "type": null,
+      "name": "handan sokagi"
+    },
+    {
+      "input": "Çelebi Hanı Sokak",
+      "normalized": "celebi hani sokak",
+      "type": null,
+      "name": "celebi hani sokak"
+    },
+    {
+      "input": "Çarık Sokak",
+      "normalized": "carik sokak",
+      "type": null,
+      "name": "carik sokak"
+    },
+    {
+      "input": "Dr. Mustafa Akın Caddesi",
+      "normalized": "dr mustafa akin caddesi",
+      "type": null,
+      "name": "dr mustafa akin caddesi"
+    },
+    {
+      "input": "Dr. Sadık Ahmet Caddesi",
+      "normalized": "dr sadik ahmet caddesi",
+      "type": null,
+      "name": "dr sadik ahmet caddesi"
+    },
+    {
+      "input": "Ala Sokak",
+      "normalized": "ala sokak",
+      "type": null,
+      "name": "ala sokak"
+    },
+    {
+      "input": "Duyum Sokağı",
+      "normalized": "duyum sokagi",
+      "type": null,
+      "name": "duyum sokagi"
+    },
+    {
+      "input": "Hicran Sokak",
+      "normalized": "hicran sokak",
+      "type": null,
+      "name": "hicran sokak"
+    },
+    {
+      "input": "Nizam Sokak",
+      "normalized": "nizam sokak",
+      "type": null,
+      "name": "nizam sokak"
+    },
+    {
+      "input": "Senay Sokak",
+      "normalized": "senay sokak",
+      "type": null,
+      "name": "senay sokak"
+    },
+    {
+      "input": "Yaldız Sokak",
+      "normalized": "yaldiz sokak",
+      "type": null,
+      "name": "yaldiz sokak"
+    },
+    {
+      "input": "1 Nolu Sokak",
+      "normalized": "1 nolu sokak",
+      "type": null,
+      "name": "1 nolu sokak"
+    },
+    {
+      "input": "406 Nolu Sokak",
+      "normalized": "406 nolu sokak",
+      "type": null,
+      "name": "406 nolu sokak"
+    },
+    {
+      "input": "518 Nolu Sokak",
+      "normalized": "518 nolu sokak",
+      "type": null,
+      "name": "518 nolu sokak"
+    },
+    {
+      "input": "Küçük Yıldız Sokak",
+      "normalized": "kucuk yildiz sokak",
+      "type": null,
+      "name": "kucuk yildiz sokak"
+    },
+    {
+      "input": "Nabi Sokak",
+      "normalized": "nabi sokak",
+      "type": null,
+      "name": "nabi sokak"
+    },
+    {
+      "input": "Dağbayır Sokak",
+      "normalized": "dagbayir sokak",
+      "type": null,
+      "name": "dagbayir sokak"
+    },
+    {
+      "input": "Sürekli Sokak",
+      "normalized": "surekli sokak",
+      "type": null,
+      "name": "surekli sokak"
+    },
+    {
+      "input": "Antalya - Seydişehir - Konya Yolu",
+      "normalized": "antalya seydisehir konya yolu",
+      "type": null,
+      "name": "antalya seydisehir konya yolu"
+    },
+    {
+      "input": "Ömür Sokak",
+      "normalized": "omur sokak",
+      "type": null,
+      "name": "omur sokak"
+    },
+    {
+      "input": "Şehit Muzaffer Ulutaş Sokak",
+      "normalized": "sehit muzaffer ulutas sokak",
+      "type": null,
+      "name": "sehit muzaffer ulutas sokak"
+    },
+    {
+      "input": "İkmal Sokak",
+      "normalized": "ikmal sokak",
+      "type": null,
+      "name": "ikmal sokak"
+    },
+    {
+      "input": "10461. Sokak",
+      "normalized": "10461 sokak",
+      "type": null,
+      "name": "10461 sokak"
+    },
+    {
+      "input": "Erenler Sokak",
+      "normalized": "erenler sokak",
+      "type": null,
+      "name": "erenler sokak"
+    },
+    {
+      "input": "Çıkış Sokak",
+      "normalized": "cikis sokak",
+      "type": null,
+      "name": "cikis sokak"
+    },
+    {
+      "input": "Başarabey Sokağı",
+      "normalized": "basarabey sokagi",
+      "type": null,
+      "name": "basarabey sokagi"
+    },
+    {
+      "input": "Karapınar-Ereğli Yolu Kavşağı",
+      "normalized": "karapinar eregli yolu kavsagi",
+      "type": null,
+      "name": "karapinar eregli yolu kavsagi"
+    },
+    {
+      "input": "10550. Sokak",
+      "normalized": "10550 sokak",
+      "type": null,
+      "name": "10550 sokak"
+    },
+    {
+      "input": "10644. Sokak",
+      "normalized": "10644 sokak",
+      "type": null,
+      "name": "10644 sokak"
+    },
+    {
+      "input": "10723. Sokak",
+      "normalized": "10723 sokak",
+      "type": null,
+      "name": "10723 sokak"
+    },
+    {
+      "input": "Sanayi Caddesi",
+      "normalized": "sanayi caddesi",
+      "type": null,
+      "name": "sanayi caddesi"
+    },
+    {
+      "input": "Altın Yunus Sokak",
+      "normalized": "altin yunus sokak",
+      "type": null,
+      "name": "altin yunus sokak"
+    },
+    {
+      "input": "Özbal Sokak",
+      "normalized": "ozbal sokak",
+      "type": null,
+      "name": "ozbal sokak"
+    },
+    {
+      "input": "Güneydere Sokak",
+      "normalized": "guneydere sokak",
+      "type": null,
+      "name": "guneydere sokak"
+    },
+    {
+      "input": "Büyükada Sokağı",
+      "normalized": "buyukada sokagi",
+      "type": null,
+      "name": "buyukada sokagi"
+    },
+    {
+      "input": "Cihan Caddesi",
+      "normalized": "cihan caddesi",
+      "type": null,
+      "name": "cihan caddesi"
+    },
+    {
+      "input": "10673. Sokak",
+      "normalized": "10673 sokak",
+      "type": null,
+      "name": "10673 sokak"
+    },
+    {
+      "input": "10696. Sokak",
+      "normalized": "10696 sokak",
+      "type": null,
+      "name": "10696 sokak"
+    },
+    {
+      "input": "10718. Sokak",
+      "normalized": "10718 sokak",
+      "type": null,
+      "name": "10718 sokak"
+    },
+    {
+      "input": "Aykent Kavşağı",
+      "normalized": "aykent kavsagi",
+      "type": null,
+      "name": "aykent kavsagi"
+    },
+    {
+      "input": "Bağcı Sokak",
+      "normalized": "bagci sokak",
+      "type": null,
+      "name": "bagci sokak"
+    },
+    {
+      "input": "Gürses Sokak",
+      "normalized": "gurses sokak",
+      "type": null,
+      "name": "gurses sokak"
+    },
+    {
+      "input": "Sarıkemer Sokak",
+      "normalized": "sarikemer sokak",
+      "type": null,
+      "name": "sarikemer sokak"
+    },
+    {
+      "input": "Kale Öncü Sokak",
+      "normalized": "kale oncu sokak",
+      "type": null,
+      "name": "kale oncu sokak"
+    },
+    {
+      "input": "Ankaralı Sokak",
+      "normalized": "ankarali sokak",
+      "type": null,
+      "name": "ankarali sokak"
+    },
+    {
+      "input": "Muttalip Sokak",
+      "normalized": "muttalip sokak",
+      "type": null,
+      "name": "muttalip sokak"
+    },
+    {
+      "input": "Şair Senihi Sokak",
+      "normalized": "sair senihi sokak",
+      "type": null,
+      "name": "sair senihi sokak"
+    },
+    {
+      "input": "Taburcular Sokak",
+      "normalized": "taburcular sokak",
+      "type": null,
+      "name": "taburcular sokak"
+    },
+    {
+      "input": "Gerçeksöz Sokak",
+      "normalized": "gerceksoz sokak",
+      "type": null,
+      "name": "gerceksoz sokak"
+    },
+    {
+      "input": "Solmaz Sokak",
+      "normalized": "solmaz sokak",
+      "type": null,
+      "name": "solmaz sokak"
+    },
+    {
+      "input": "Sultan Veled Caddesi",
+      "normalized": "sultan veled caddesi",
+      "type": null,
+      "name": "sultan veled caddesi"
+    },
+    {
+      "input": "Fakih Sokak",
+      "normalized": "fakih sokak",
+      "type": null,
+      "name": "fakih sokak"
+    },
+    {
+      "input": "Sandıkcılar Sokak",
+      "normalized": "sandikcilar sokak",
+      "type": null,
+      "name": "sandikcilar sokak"
+    },
+    {
+      "input": "Halvet Sokak",
+      "normalized": "halvet sokak",
+      "type": null,
+      "name": "halvet sokak"
+    },
+    {
+      "input": "Hoca Fakih Alt Geçidi",
+      "normalized": "hoca fakih alt gecidi",
+      "type": null,
+      "name": "hoca fakih alt gecidi"
+    },
+    {
+      "input": "10551.Sokak",
+      "normalized": "10551 sokak",
+      "type": null,
+      "name": "10551 sokak"
+    },
+    {
+      "input": "Abidinpaşa Sokak",
+      "normalized": "abidinpasa sokak",
+      "type": null,
+      "name": "abidinpasa sokak"
+    },
+    {
+      "input": "Atatürk Caddesi",
+      "normalized": "ataturk caddesi",
+      "type": null,
+      "name": "ataturk caddesi"
+    },
+    {
+      "input": "Çayüstü Sokak",
+      "normalized": "cayustu sokak",
+      "type": null,
+      "name": "cayustu sokak"
+    },
+    {
+      "input": "Dikenli Sokak",
+      "normalized": "dikenli sokak",
+      "type": null,
+      "name": "dikenli sokak"
+    },
+    {
+      "input": "Ferit Paşa Caddesi",
+      "normalized": "ferit pasa caddesi",
+      "type": null,
+      "name": "ferit pasa caddesi"
+    },
+    {
+      "input": "Hilal Caddesi",
+      "normalized": "hilal caddesi",
+      "type": null,
+      "name": "hilal caddesi"
+    },
+    {
+      "input": "Karşehir Caddesi",
+      "normalized": "karsehir caddesi",
+      "type": null,
+      "name": "karsehir caddesi"
+    },
+    {
+      "input": "Küçük Hasan Hoca Sokak",
+      "normalized": "kucuk hasan hoca sokak",
+      "type": null,
+      "name": "kucuk hasan hoca sokak"
+    },
+    {
+      "input": "Muhliskoner Caddesi",
+      "normalized": "muhliskoner caddesi",
+      "type": null,
+      "name": "muhliskoner caddesi"
+    },
+    {
+      "input": "Şanlı Sokak",
+      "normalized": "sanli sokak",
+      "type": null,
+      "name": "sanli sokak"
+    },
+    {
+      "input": "Şemsi Tebrizi Mahallesi - Sultan Veled Caddesi",
+      "normalized": "semsi tebrizi mahallesi sultan veled caddesi",
+      "type": null,
+      "name": "semsi tebrizi mahallesi sultan veled caddesi"
+    },
+    {
+      "input": "Taşra Karaaslan Caddesi",
+      "normalized": "tasra karaaslan caddesi",
+      "type": null,
+      "name": "tasra karaaslan caddesi"
+    },
+    {
+      "input": "Veysel Karani Caddesi",
+      "normalized": "veysel karani caddesi",
+      "type": null,
+      "name": "veysel karani caddesi"
+    },
+    {
+      "input": "Bostan Sokak",
+      "normalized": "bostan sokak",
+      "type": null,
+      "name": "bostan sokak"
+    },
+    {
+      "input": "Karakoçlar Sokağı",
+      "normalized": "karakoclar sokagi",
+      "type": null,
+      "name": "karakoclar sokagi"
+    },
+    {
+      "input": "Kantemiz Sokak",
+      "normalized": "kantemiz sokak",
+      "type": null,
+      "name": "kantemiz sokak"
+    },
+    {
+      "input": "Kalemci Sokak",
+      "normalized": "kalemci sokak",
+      "type": null,
+      "name": "kalemci sokak"
+    },
+    {
+      "input": "Mehtap Caddesi",
+      "normalized": "mehtap caddesi",
+      "type": null,
+      "name": "mehtap caddesi"
+    },
+    {
+      "input": "Pirireis Sokak",
+      "normalized": "pirireis sokak",
+      "type": null,
+      "name": "pirireis sokak"
+    },
+    {
+      "input": "Ebabil Sokak",
+      "normalized": "ebabil sokak",
+      "type": null,
+      "name": "ebabil sokak"
+    },
+    {
+      "input": "Miğfer Sokak",
+      "normalized": "migfer sokak",
+      "type": null,
+      "name": "migfer sokak"
+    },
+    {
+      "input": "Zuhal Sokak",
+      "normalized": "zuhal sokak",
+      "type": null,
+      "name": "zuhal sokak"
+    },
+    {
+      "input": "Kazazbendi Sokak",
+      "normalized": "kazazbendi sokak",
+      "type": null,
+      "name": "kazazbendi sokak"
+    },
+    {
+      "input": "Çoruh Sokak",
+      "normalized": "coruh sokak",
+      "type": null,
+      "name": "coruh sokak"
+    },
+    {
+      "input": "Adnan Menderes Caddesi",
+      "normalized": "adnan menderes caddesi",
+      "type": null,
+      "name": "adnan menderes caddesi"
+    },
+    {
+      "input": "Anafartalar Sokak",
+      "normalized": "anafartalar sokak",
+      "type": null,
+      "name": "anafartalar sokak"
+    },
+    {
+      "input": "Akyalı Sokak",
+      "normalized": "akyali sokak",
+      "type": null,
+      "name": "akyali sokak"
+    },
+    {
+      "input": "Şeytan Köprüsü",
+      "normalized": "seytan koprusu",
+      "type": null,
+      "name": "seytan koprusu"
+    },
+    {
+      "input": "Kunduracılar",
+      "normalized": "kunduracilar",
+      "type": null,
+      "name": "kunduracilar"
+    },
+    {
+      "input": "Bosna Hersek",
+      "normalized": "bosna hersek",
+      "type": null,
+      "name": "bosna hersek"
+    },
+    {
+      "input": "Dünyagöz Hastanesi",
+      "normalized": "dunyagoz hastanesi",
+      "type": null,
+      "name": "dunyagoz hastanesi"
+    },
+    {
+      "input": "Esmekaya Sokak",
+      "normalized": "esmekaya sokak",
+      "type": null,
+      "name": "esmekaya sokak"
+    },
+    {
+      "input": "Tatlıdil Sokak",
+      "normalized": "tatlidil sokak",
+      "type": null,
+      "name": "tatlidil sokak"
+    },
+    {
+      "input": "Sırçalı Medrese Caddesi",
+      "normalized": "sircali medrese caddesi",
+      "type": null,
+      "name": "sircali medrese caddesi"
+    },
+    {
+      "input": "Birgül Sokak",
+      "normalized": "birgul sokak",
+      "type": null,
+      "name": "birgul sokak"
+    },
+    {
+      "input": "Hoşeda Sokak",
+      "normalized": "hoseda sokak",
+      "type": null,
+      "name": "hoseda sokak"
+    },
+    {
+      "input": "Pak Sokak",
+      "normalized": "pak sokak",
+      "type": null,
+      "name": "pak sokak"
+    },
+    {
+      "input": "Akif Sokak",
+      "normalized": "akif sokak",
+      "type": null,
+      "name": "akif sokak"
+    },
+    {
+      "input": "Şehit Mehmet Remzi Yersel Caddesi",
+      "normalized": "sehit mehmet remzi yersel caddesi",
+      "type": null,
+      "name": "sehit mehmet remzi yersel caddesi"
+    },
+    {
+      "input": "13193. Sokak",
+      "normalized": "13193 sokak",
+      "type": null,
+      "name": "13193 sokak"
+    },
+    {
+      "input": "Tabariye sokak",
+      "normalized": "tabariye sokak",
+      "type": null,
+      "name": "tabariye sokak"
+    },
+    {
+      "input": "İhsan Sokak",
+      "normalized": "ihsan sokak",
+      "type": null,
+      "name": "ihsan sokak"
+    },
+    {
+      "input": "Beyçam Sokak",
+      "normalized": "beycam sokak",
+      "type": null,
+      "name": "beycam sokak"
+    },
+    {
+      "input": "Şener Sokak",
+      "normalized": "sener sokak",
+      "type": null,
+      "name": "sener sokak"
+    },
+    {
+      "input": "Şahinağa Sokağı",
+      "normalized": "sahinaga sokagi",
+      "type": null,
+      "name": "sahinaga sokagi"
+    },
+    {
+      "input": "Ziyalı Sokak",
+      "normalized": "ziyali sokak",
+      "type": null,
+      "name": "ziyali sokak"
+    },
+    {
+      "input": "Kurşuncular Caddesi",
+      "normalized": "kursuncular caddesi",
+      "type": null,
+      "name": "kursuncular caddesi"
+    },
+    {
+      "input": "Gazi Caddesi",
+      "normalized": "gazi caddesi",
+      "type": null,
+      "name": "gazi caddesi"
+    },
+    {
+      "input": "Eryavuz Sokak",
+      "normalized": "eryavuz sokak",
+      "type": null,
+      "name": "eryavuz sokak"
+    },
+    {
+      "input": "Mahperi Sokak",
+      "normalized": "mahperi sokak",
+      "type": null,
+      "name": "mahperi sokak"
+    },
+    {
+      "input": "Beypınarı Sokak",
+      "normalized": "beypinari sokak",
+      "type": null,
+      "name": "beypinari sokak"
+    },
+    {
+      "input": "Kelebek Sokak",
+      "normalized": "kelebek sokak",
+      "type": null,
+      "name": "kelebek sokak"
+    }
+  ]
+}

@@ -1,0 +1,785 @@
+{
+  "language": "cs",
+  "cases": [
+    {
+      "input": "Národní",
+      "normalized": "narodni",
+      "type": null,
+      "name": "narodni"
+    },
+    {
+      "input": "Vinohradská",
+      "normalized": "vinohradska",
+      "type": null,
+      "name": "vinohradska"
+    },
+    {
+      "input": "nám. Míru",
+      "normalized": "namesti miru",
+      "type": "namesti",
+      "name": "miru"
+    },
+    {
+      "input": "náměstí Republiky",
+      "normalized": "namesti republiky",
+      "type": "namesti",
+      "name": "republiky"
+    },
+    {
+      "input": "Václavské náměstí",
+      "normalized": "vaclavske namesti",
+      "type": null,
+      "name": "vaclavske namesti"
+    },
+    {
+      "input": "tř. Kpt. Jaroše",
+      "normalized": "trida kpt jarose",
+      "type": "trida",
+      "name": "kpt jarose"
+    },
+    {
+      "input": "Nábřeží Kapitána Jaroše",
+      "normalized": "nabrezi kapitana jarose",
+      "type": "nabrezi",
+      "name": "kapitana jarose"
+    },
+    {
+      "input": "Sady Pětatřicátníků",
+      "normalized": "sady petatricatniku",
+      "type": "sady",
+      "name": "petatricatniku"
+    },
+    {
+      "input": "U Zvonařky",
+      "normalized": "u zvonarky",
+      "type": null,
+      "name": "u zvonarky"
+    },
+    {
+      "input": "Karlův most",
+      "normalized": "karluv most",
+      "type": null,
+      "name": "karluv most"
+    },
+    {
+      "input": "Budějovické Předměstí",
+      "normalized": "budejovicke predmesti",
+      "type": null,
+      "name": "budejovicke predmesti"
+    },
+    {
+      "input": "Luční",
+      "normalized": "lucni",
+      "type": null,
+      "name": "lucni"
+    },
+    {
+      "input": "Průběžná",
+      "normalized": "prubezna",
+      "type": null,
+      "name": "prubezna"
+    },
+    {
+      "input": "Chlaponice",
+      "normalized": "chlaponice",
+      "type": null,
+      "name": "chlaponice"
+    },
+    {
+      "input": "Borečnice",
+      "normalized": "borecnice",
+      "type": null,
+      "name": "borecnice"
+    },
+    {
+      "input": "Čížová",
+      "normalized": "cizova",
+      "type": null,
+      "name": "cizova"
+    },
+    {
+      "input": "Nová Ves",
+      "normalized": "nova ves",
+      "type": null,
+      "name": "nova ves"
+    },
+    {
+      "input": "Zlivice",
+      "normalized": "zlivice",
+      "type": null,
+      "name": "zlivice"
+    },
+    {
+      "input": "Oldřichov",
+      "normalized": "oldrichov",
+      "type": null,
+      "name": "oldrichov"
+    },
+    {
+      "input": "Chrastiny",
+      "normalized": "chrastiny",
+      "type": null,
+      "name": "chrastiny"
+    },
+    {
+      "input": "Horní Novosedly",
+      "normalized": "horni novosedly",
+      "type": null,
+      "name": "horni novosedly"
+    },
+    {
+      "input": "Budějovické Předměstí",
+      "normalized": "budejovicke predmesti",
+      "type": null,
+      "name": "budejovicke predmesti"
+    },
+    {
+      "input": "Cihlářská",
+      "normalized": "cihlarska",
+      "type": null,
+      "name": "cihlarska"
+    },
+    {
+      "input": "Habrová",
+      "normalized": "habrova",
+      "type": null,
+      "name": "habrova"
+    },
+    {
+      "input": "Ke Kalčáku",
+      "normalized": "ke kalcaku",
+      "type": null,
+      "name": "ke kalcaku"
+    },
+    {
+      "input": "Na Mlakách",
+      "normalized": "na mlakach",
+      "type": null,
+      "name": "na mlakach"
+    },
+    {
+      "input": "Zátavský most",
+      "normalized": "zatavsky most",
+      "type": null,
+      "name": "zatavsky most"
+    },
+    {
+      "input": "Lhota u Kestřan",
+      "normalized": "lhota u kestran",
+      "type": null,
+      "name": "lhota u kestran"
+    },
+    {
+      "input": "Dobešice",
+      "normalized": "dobesice",
+      "type": null,
+      "name": "dobesice"
+    },
+    {
+      "input": "Císadlovice - Krašovice",
+      "normalized": "cisadlovice krasovice",
+      "type": null,
+      "name": "cisadlovice krasovice"
+    },
+    {
+      "input": "Čížová",
+      "normalized": "cizova",
+      "type": null,
+      "name": "cizova"
+    },
+    {
+      "input": "Obecní úřad Putim",
+      "normalized": "obecni urad putim",
+      "type": null,
+      "name": "obecni urad putim"
+    },
+    {
+      "input": "Luštírna",
+      "normalized": "lustirna",
+      "type": null,
+      "name": "lustirna"
+    },
+    {
+      "input": "Podatelna Městského úřadu Písek",
+      "normalized": "podatelna mestskeho uradu pisek",
+      "type": null,
+      "name": "podatelna mestskeho uradu pisek"
+    },
+    {
+      "input": "Obecní úřad Vrcovice",
+      "normalized": "obecni urad vrcovice",
+      "type": null,
+      "name": "obecni urad vrcovice"
+    },
+    {
+      "input": "Písek jih",
+      "normalized": "pisek jih",
+      "type": null,
+      "name": "pisek jih"
+    },
+    {
+      "input": "Písek město",
+      "normalized": "pisek mesto",
+      "type": null,
+      "name": "pisek mesto"
+    },
+    {
+      "input": "Obecní úřad Dolní Novosedly",
+      "normalized": "obecni urad dolni novosedly",
+      "type": null,
+      "name": "obecni urad dolni novosedly"
+    },
+    {
+      "input": "Obecní úřad Kestřany",
+      "normalized": "obecni urad kestrany",
+      "type": null,
+      "name": "obecni urad kestrany"
+    },
+    {
+      "input": "Písek zastávka",
+      "normalized": "pisek zastavka",
+      "type": null,
+      "name": "pisek zastavka"
+    },
+    {
+      "input": "Písek-Dobešice",
+      "normalized": "pisek dobesice",
+      "type": null,
+      "name": "pisek dobesice"
+    },
+    {
+      "input": "Heřmaň",
+      "normalized": "herman",
+      "type": null,
+      "name": "herman"
+    },
+    {
+      "input": "Prácheňské muzeum",
+      "normalized": "prachenske muzeum",
+      "type": null,
+      "name": "prachenske muzeum"
+    },
+    {
+      "input": "Alšova",
+      "normalized": "alsova",
+      "type": null,
+      "name": "alsova"
+    },
+    {
+      "input": "Baarova",
+      "normalized": "baarova",
+      "type": null,
+      "name": "baarova"
+    },
+    {
+      "input": "Bakaláře",
+      "normalized": "bakalare",
+      "type": null,
+      "name": "bakalare"
+    },
+    {
+      "input": "Bořivojova",
+      "normalized": "borivojova",
+      "type": null,
+      "name": "borivojova"
+    },
+    {
+      "input": "Brabencovna",
+      "normalized": "brabencovna",
+      "type": null,
+      "name": "brabencovna"
+    },
+    {
+      "input": "Budějovické Předměstí",
+      "normalized": "budejovicke predmesti",
+      "type": null,
+      "name": "budejovicke predmesti"
+    },
+    {
+      "input": "Budovcova",
+      "normalized": "budovcova",
+      "type": null,
+      "name": "budovcova"
+    },
+    {
+      "input": "Čechova",
+      "normalized": "cechova",
+      "type": null,
+      "name": "cechova"
+    },
+    {
+      "input": "Chelčického",
+      "normalized": "chelcickeho",
+      "type": null,
+      "name": "chelcickeho"
+    },
+    {
+      "input": "Denisova",
+      "normalized": "denisova",
+      "type": null,
+      "name": "denisova"
+    },
+    {
+      "input": "Dobrovského",
+      "normalized": "dobrovskeho",
+      "type": null,
+      "name": "dobrovskeho"
+    },
+    {
+      "input": "Dolní",
+      "normalized": "dolni",
+      "type": null,
+      "name": "dolni"
+    },
+    {
+      "input": "Družstevní",
+      "normalized": "druzstevni",
+      "type": null,
+      "name": "druzstevni"
+    },
+    {
+      "input": "Dvořákova",
+      "normalized": "dvorakova",
+      "type": null,
+      "name": "dvorakova"
+    },
+    {
+      "input": "Flekačky",
+      "normalized": "flekacky",
+      "type": null,
+      "name": "flekacky"
+    },
+    {
+      "input": "Fráni Šrámka",
+      "normalized": "frani sramka",
+      "type": null,
+      "name": "frani sramka"
+    },
+    {
+      "input": "Gregorova",
+      "normalized": "gregorova",
+      "type": null,
+      "name": "gregorova"
+    },
+    {
+      "input": "Havelkova",
+      "normalized": "havelkova",
+      "type": null,
+      "name": "havelkova"
+    },
+    {
+      "input": "Heritesova",
+      "normalized": "heritesova",
+      "type": null,
+      "name": "heritesova"
+    },
+    {
+      "input": "Hlavní nádraží",
+      "normalized": "hlavni nadrazi",
+      "type": null,
+      "name": "hlavni nadrazi"
+    },
+    {
+      "input": "Holečkova",
+      "normalized": "holeckova",
+      "type": null,
+      "name": "holeckova"
+    },
+    {
+      "input": "Hradební I",
+      "normalized": "hradebni i",
+      "type": null,
+      "name": "hradebni i"
+    },
+    {
+      "input": "Hradiště",
+      "normalized": "hradiste",
+      "type": null,
+      "name": "hradiste"
+    },
+    {
+      "input": "Hůrka",
+      "normalized": "hurka",
+      "type": null,
+      "name": "hurka"
+    },
+    {
+      "input": "Jablonského",
+      "normalized": "jablonskeho",
+      "type": null,
+      "name": "jablonskeho"
+    },
+    {
+      "input": "Jana Cimbury",
+      "normalized": "jana cimbury",
+      "type": null,
+      "name": "jana cimbury"
+    },
+    {
+      "input": "Janotova",
+      "normalized": "janotova",
+      "type": null,
+      "name": "janotova"
+    },
+    {
+      "input": "Jeronýmova",
+      "normalized": "jeronymova",
+      "type": null,
+      "name": "jeronymova"
+    },
+    {
+      "input": "Jiřího Srnky",
+      "normalized": "jiriho srnky",
+      "type": null,
+      "name": "jiriho srnky"
+    },
+    {
+      "input": "K Háječku",
+      "normalized": "k hajecku",
+      "type": null,
+      "name": "k hajecku"
+    },
+    {
+      "input": "K Lipám",
+      "normalized": "k lipam",
+      "type": null,
+      "name": "k lipam"
+    },
+    {
+      "input": "K Peckám",
+      "normalized": "k peckam",
+      "type": null,
+      "name": "k peckam"
+    },
+    {
+      "input": "K Putimi",
+      "normalized": "k putimi",
+      "type": null,
+      "name": "k putimi"
+    },
+    {
+      "input": "Kamenný most",
+      "normalized": "kamenny most",
+      "type": null,
+      "name": "kamenny most"
+    },
+    {
+      "input": "Karlova",
+      "normalized": "karlova",
+      "type": null,
+      "name": "karlova"
+    },
+    {
+      "input": "Ke Katovně",
+      "normalized": "ke katovne",
+      "type": null,
+      "name": "ke katovne"
+    },
+    {
+      "input": "Ke Statku",
+      "normalized": "ke statku",
+      "type": null,
+      "name": "ke statku"
+    },
+    {
+      "input": "Ke Zbrojnici",
+      "normalized": "ke zbrojnici",
+      "type": null,
+      "name": "ke zbrojnici"
+    },
+    {
+      "input": "Kocínova",
+      "normalized": "kocinova",
+      "type": null,
+      "name": "kocinova"
+    },
+    {
+      "input": "Kollárova",
+      "normalized": "kollarova",
+      "type": null,
+      "name": "kollarova"
+    },
+    {
+      "input": "Krátká",
+      "normalized": "kratka",
+      "type": null,
+      "name": "kratka"
+    },
+    {
+      "input": "Krokova",
+      "normalized": "krokova",
+      "type": null,
+      "name": "krokova"
+    },
+    {
+      "input": "Legionářská",
+      "normalized": "legionarska",
+      "type": null,
+      "name": "legionarska"
+    },
+    {
+      "input": "Lesní",
+      "normalized": "lesni",
+      "type": null,
+      "name": "lesni"
+    },
+    {
+      "input": "Lesnická",
+      "normalized": "lesnicka",
+      "type": null,
+      "name": "lesnicka"
+    },
+    {
+      "input": "Lipová alej",
+      "normalized": "lipova alej",
+      "type": null,
+      "name": "lipova alej"
+    },
+    {
+      "input": "Máchova",
+      "normalized": "machova",
+      "type": null,
+      "name": "machova"
+    },
+    {
+      "input": "Mírové nám.",
+      "normalized": "mirove namesti",
+      "type": null,
+      "name": "mirove namesti"
+    },
+    {
+      "input": "Na Boubín",
+      "normalized": "na boubin",
+      "type": null,
+      "name": "na boubin"
+    },
+    {
+      "input": "Na Houpačkách",
+      "normalized": "na houpackach",
+      "type": null,
+      "name": "na houpackach"
+    },
+    {
+      "input": "Na Křižatkách",
+      "normalized": "na krizatkach",
+      "type": null,
+      "name": "na krizatkach"
+    },
+    {
+      "input": "Na Nové",
+      "normalized": "na nove",
+      "type": null,
+      "name": "na nove"
+    },
+    {
+      "input": "Na Pahorku",
+      "normalized": "na pahorku",
+      "type": null,
+      "name": "na pahorku"
+    },
+    {
+      "input": "Na Pěníku",
+      "normalized": "na peniku",
+      "type": null,
+      "name": "na peniku"
+    },
+    {
+      "input": "Na Rozhledně",
+      "normalized": "na rozhledne",
+      "type": null,
+      "name": "na rozhledne"
+    },
+    {
+      "input": "Na Ryšavce",
+      "normalized": "na rysavce",
+      "type": null,
+      "name": "na rysavce"
+    },
+    {
+      "input": "Na Staré silnici",
+      "normalized": "na stare silnici",
+      "type": null,
+      "name": "na stare silnici"
+    },
+    {
+      "input": "Na Stráni",
+      "normalized": "na strani",
+      "type": null,
+      "name": "na strani"
+    },
+    {
+      "input": "Na Vinici",
+      "normalized": "na vinici",
+      "type": null,
+      "name": "na vinici"
+    },
+    {
+      "input": "nábřeží 1. máje",
+      "normalized": "nabrezi 1 maje",
+      "type": "nabrezi",
+      "name": "1 maje"
+    },
+    {
+      "input": "Neklanova",
+      "normalized": "neklanova",
+      "type": null,
+      "name": "neklanova"
+    },
+    {
+      "input": "Ningrova",
+      "normalized": "ningrova",
+      "type": null,
+      "name": "ningrova"
+    },
+    {
+      "input": "Novodvorská",
+      "normalized": "novodvorska",
+      "type": null,
+      "name": "novodvorska"
+    },
+    {
+      "input": "Obchodní",
+      "normalized": "obchodni",
+      "type": null,
+      "name": "obchodni"
+    },
+    {
+      "input": "Okružní",
+      "normalized": "okruzni",
+      "type": null,
+      "name": "okruzni"
+    },
+    {
+      "input": "Ostrý vrch",
+      "normalized": "ostry vrch",
+      "type": null,
+      "name": "ostry vrch"
+    },
+    {
+      "input": "Otakara Ševčíka",
+      "normalized": "otakara sevcika",
+      "type": null,
+      "name": "otakara sevcika"
+    },
+    {
+      "input": "Ouzká",
+      "normalized": "ouzka",
+      "type": null,
+      "name": "ouzka"
+    },
+    {
+      "input": "Pažoutova",
+      "normalized": "pazoutova",
+      "type": null,
+      "name": "pazoutova"
+    },
+    {
+      "input": "Pivovarská",
+      "normalized": "pivovarska",
+      "type": null,
+      "name": "pivovarska"
+    },
+    {
+      "input": "Pod Horami",
+      "normalized": "pod horami",
+      "type": null,
+      "name": "pod horami"
+    },
+    {
+      "input": "Pod Portyčskými skalami",
+      "normalized": "pod portycskymi skalami",
+      "type": null,
+      "name": "pod portycskymi skalami"
+    },
+    {
+      "input": "Pod Šobrovnou",
+      "normalized": "pod sobrovnou",
+      "type": null,
+      "name": "pod sobrovnou"
+    },
+    {
+      "input": "Polní",
+      "normalized": "polni",
+      "type": null,
+      "name": "polni"
+    },
+    {
+      "input": "Pražské Předměstí",
+      "normalized": "prazske predmesti",
+      "type": null,
+      "name": "prazske predmesti"
+    },
+    {
+      "input": "Preslova",
+      "normalized": "preslova",
+      "type": null,
+      "name": "preslova"
+    },
+    {
+      "input": "Prokopova",
+      "normalized": "prokopova",
+      "type": null,
+      "name": "prokopova"
+    },
+    {
+      "input": "Purkyňova",
+      "normalized": "purkynova",
+      "type": null,
+      "name": "purkynova"
+    },
+    {
+      "input": "Putimská Vysoká",
+      "normalized": "putimska vysoka",
+      "type": null,
+      "name": "putimska vysoka"
+    },
+    {
+      "input": "Rašínova",
+      "normalized": "rasinova",
+      "type": null,
+      "name": "rasinova"
+    },
+    {
+      "input": "Robinson",
+      "normalized": "robinson",
+      "type": null,
+      "name": "robinson"
+    },
+    {
+      "input": "Rokycanova",
+      "normalized": "rokycanova",
+      "type": null,
+      "name": "rokycanova"
+    },
+    {
+      "input": "Šafaříkova",
+      "normalized": "safarikova",
+      "type": null,
+      "name": "safarikova"
+    },
+    {
+      "input": "Samoty",
+      "normalized": "samoty",
+      "type": null,
+      "name": "samoty"
+    },
+    {
+      "input": "Semice",
+      "normalized": "semice",
+      "type": null,
+      "name": "semice"
+    },
+    {
+      "input": "Šibánky",
+      "normalized": "sibanky",
+      "type": null,
+      "name": "sibanky"
+    },
+    {
+      "input": "Smeták",
+      "normalized": "smetak",
+      "type": null,
+      "name": "smetak"
+    }
+  ]
+}

@@ -1,0 +1,809 @@
+{
+  "language": "es",
+  "cases": [
+    {
+      "input": "Calle Mayor",
+      "normalized": "calle mayor",
+      "type": "calle",
+      "name": "mayor"
+    },
+    {
+      "input": "Avenida de la Constitución",
+      "normalized": "avenida de la constitucion",
+      "type": "avenida",
+      "name": "de la constitucion"
+    },
+    {
+      "input": "Plaza del Sol",
+      "normalized": "plaza del sol",
+      "type": "plaza",
+      "name": "del sol"
+    },
+    {
+      "input": "Paseo de Gracia",
+      "normalized": "paseo de gracia",
+      "type": "paseo",
+      "name": "de gracia"
+    },
+    {
+      "input": "C/ Alcalá",
+      "normalized": "calle alcala",
+      "type": "calle",
+      "name": "alcala"
+    },
+    {
+      "input": "Avda. de América",
+      "normalized": "avenida de america",
+      "type": "avenida",
+      "name": "de america"
+    },
+    {
+      "input": "Gran Vía",
+      "normalized": "gran via",
+      "type": null,
+      "name": "gran via"
+    },
+    {
+      "input": "Camino Viejo del Puerto",
+      "normalized": "camino viejo del puerto",
+      "type": "camino",
+      "name": "viejo del puerto"
+    },
+    {
+      "input": "Callejón de la Cruz",
+      "normalized": "callejon de la cruz",
+      "type": "callejon",
+      "name": "de la cruz"
+    },
+    {
+      "input": "Ronda de Toledo",
+      "normalized": "ronda de toledo",
+      "type": "ronda",
+      "name": "de toledo"
+    },
+    {
+      "input": "Calzada de Tlalpan",
+      "normalized": "calzada de tlalpan",
+      "type": "calzada",
+      "name": "de tlalpan"
+    },
+    {
+      "input": "Pasaje Peatonal Norte",
+      "normalized": "pasaje peatonal norte",
+      "type": "pasaje",
+      "name": "peatonal norte"
+    },
+    {
+      "input": "Travesía de Santa Ana",
+      "normalized": "travesia de santa ana",
+      "type": "travesia",
+      "name": "de santa ana"
+    },
+    {
+      "input": "Cañada Real",
+      "normalized": "canada real",
+      "type": null,
+      "name": "canada real"
+    },
+    {
+      "input": "Avenida de Justo Colongues",
+      "normalized": "avenida de justo colongues",
+      "type": "avenida",
+      "name": "de justo colongues"
+    },
+    {
+      "input": "Barrio Barreda",
+      "normalized": "barrio barreda",
+      "type": null,
+      "name": "barrio barreda"
+    },
+    {
+      "input": "Urbanización La Colina",
+      "normalized": "urbanizacion la colina",
+      "type": null,
+      "name": "urbanizacion la colina"
+    },
+    {
+      "input": "Grupo Miramar",
+      "normalized": "grupo miramar",
+      "type": null,
+      "name": "grupo miramar"
+    },
+    {
+      "input": "Barrio Otero",
+      "normalized": "barrio otero",
+      "type": null,
+      "name": "barrio otero"
+    },
+    {
+      "input": "Urbanización Parque II",
+      "normalized": "urbanizacion parque ii",
+      "type": null,
+      "name": "urbanizacion parque ii"
+    },
+    {
+      "input": "Calle de Cajo",
+      "normalized": "calle de cajo",
+      "type": "calle",
+      "name": "de cajo"
+    },
+    {
+      "input": "Calle Miramar",
+      "normalized": "calle miramar",
+      "type": "calle",
+      "name": "miramar"
+    },
+    {
+      "input": "Calle de Tomás Soto Pidal",
+      "normalized": "calle de tomas soto pidal",
+      "type": "calle",
+      "name": "de tomas soto pidal"
+    },
+    {
+      "input": "Calle de los Alféreces Provisionales",
+      "normalized": "calle de los alfereces provisionales",
+      "type": "calle",
+      "name": "de los alfereces provisionales"
+    },
+    {
+      "input": "Muelle de Raos 2",
+      "normalized": "muelle de raos 2",
+      "type": "muelle",
+      "name": "de raos 2"
+    },
+    {
+      "input": "Puerto de Santander",
+      "normalized": "puerto de santander",
+      "type": null,
+      "name": "puerto de santander"
+    },
+    {
+      "input": "Calle de la Salud",
+      "normalized": "calle de la salud",
+      "type": "calle",
+      "name": "de la salud"
+    },
+    {
+      "input": "Residencial Los Molinucos",
+      "normalized": "residencial los molinucos",
+      "type": null,
+      "name": "residencial los molinucos"
+    },
+    {
+      "input": "Calle de San Emeterio",
+      "normalized": "calle de san emeterio",
+      "type": "calle",
+      "name": "de san emeterio"
+    },
+    {
+      "input": "Calle de Santa Fe",
+      "normalized": "calle de santa fe",
+      "type": "calle",
+      "name": "de santa fe"
+    },
+    {
+      "input": "Urbanización Virgen del Mar",
+      "normalized": "urbanizacion virgen del mar",
+      "type": null,
+      "name": "urbanizacion virgen del mar"
+    },
+    {
+      "input": "Barrio La Raba",
+      "normalized": "barrio la raba",
+      "type": null,
+      "name": "barrio la raba"
+    },
+    {
+      "input": "Calle Bolado",
+      "normalized": "calle bolado",
+      "type": "calle",
+      "name": "bolado"
+    },
+    {
+      "input": "Polígono industrial de La Verde",
+      "normalized": "poligono industrial de la verde",
+      "type": null,
+      "name": "poligono industrial de la verde"
+    },
+    {
+      "input": "Barrio La Iglesia",
+      "normalized": "barrio la iglesia",
+      "type": null,
+      "name": "barrio la iglesia"
+    },
+    {
+      "input": "Calle de Aurora Gutiérrez Galante",
+      "normalized": "calle de aurora gutierrez galante",
+      "type": "calle",
+      "name": "de aurora gutierrez galante"
+    },
+    {
+      "input": "Urbanización Nuevo Corbán",
+      "normalized": "urbanizacion nuevo corban",
+      "type": null,
+      "name": "urbanizacion nuevo corban"
+    },
+    {
+      "input": "Calle Rualmar",
+      "normalized": "calle rualmar",
+      "type": "calle",
+      "name": "rualmar"
+    },
+    {
+      "input": "Avenida de Parayas",
+      "normalized": "avenida de parayas",
+      "type": "avenida",
+      "name": "de parayas"
+    },
+    {
+      "input": "Calle de José María de Pereda",
+      "normalized": "calle de jose maria de pereda",
+      "type": "calle",
+      "name": "de jose maria de pereda"
+    },
+    {
+      "input": "Calle de Romea",
+      "normalized": "calle de romea",
+      "type": "calle",
+      "name": "de romea"
+    },
+    {
+      "input": "Carretera del Aeropuerto",
+      "normalized": "carretera del aeropuerto",
+      "type": "carretera",
+      "name": "del aeropuerto"
+    },
+    {
+      "input": "Chelsea Residencial",
+      "normalized": "chelsea residencial",
+      "type": null,
+      "name": "chelsea residencial"
+    },
+    {
+      "input": "Calle José Barros",
+      "normalized": "calle jose barros",
+      "type": "calle",
+      "name": "jose barros"
+    },
+    {
+      "input": "Calle Cliper",
+      "normalized": "calle cliper",
+      "type": "calle",
+      "name": "cliper"
+    },
+    {
+      "input": "Vial norte del Espigón Central de Raos",
+      "normalized": "vial norte del espigon central de raos",
+      "type": null,
+      "name": "vial norte del espigon central de raos"
+    },
+    {
+      "input": "Teatro La Salle",
+      "normalized": "teatro la salle",
+      "type": null,
+      "name": "teatro la salle"
+    },
+    {
+      "input": "Maliaño - La Vidriera",
+      "normalized": "maliano la vidriera",
+      "type": null,
+      "name": "maliano la vidriera"
+    },
+    {
+      "input": "Puerta 4",
+      "normalized": "puerta 4",
+      "type": null,
+      "name": "puerta 4"
+    },
+    {
+      "input": "Café de las Artes Teatro",
+      "normalized": "cafe de las artes teatro",
+      "type": null,
+      "name": "cafe de las artes teatro"
+    },
+    {
+      "input": "Tribuna Principal",
+      "normalized": "tribuna principal",
+      "type": null,
+      "name": "tribuna principal"
+    },
+    {
+      "input": "Palabra Santander",
+      "normalized": "palabra santander",
+      "type": null,
+      "name": "palabra santander"
+    },
+    {
+      "input": "Valdecilla",
+      "normalized": "valdecilla",
+      "type": null,
+      "name": "valdecilla"
+    },
+    {
+      "input": "Barrio El Monte",
+      "normalized": "barrio el monte",
+      "type": null,
+      "name": "barrio el monte"
+    },
+    {
+      "input": "Barrio Venecia",
+      "normalized": "barrio venecia",
+      "type": null,
+      "name": "barrio venecia"
+    },
+    {
+      "input": "Calle de Leopoldo Alas",
+      "normalized": "calle de leopoldo alas",
+      "type": "calle",
+      "name": "de leopoldo alas"
+    },
+    {
+      "input": "Calle de Juan de Piasca",
+      "normalized": "calle de juan de piasca",
+      "type": "calle",
+      "name": "de juan de piasca"
+    },
+    {
+      "input": "Puerto de Santander",
+      "normalized": "puerto de santander",
+      "type": null,
+      "name": "puerto de santander"
+    },
+    {
+      "input": "Glorieta de Emilio Díaz Caneja",
+      "normalized": "glorieta de emilio diaz caneja",
+      "type": "glorieta",
+      "name": "de emilio diaz caneja"
+    },
+    {
+      "input": "Barrio La Gándara",
+      "normalized": "barrio la gandara",
+      "type": null,
+      "name": "barrio la gandara"
+    },
+    {
+      "input": "Calle Nazarín",
+      "normalized": "calle nazarin",
+      "type": "calle",
+      "name": "nazarin"
+    },
+    {
+      "input": "Calle de Elena Quiroga",
+      "normalized": "calle de elena quiroga",
+      "type": "calle",
+      "name": "de elena quiroga"
+    },
+    {
+      "input": "Urbanización La Castellana",
+      "normalized": "urbanizacion la castellana",
+      "type": null,
+      "name": "urbanizacion la castellana"
+    },
+    {
+      "input": "Urbanización El Padrón",
+      "normalized": "urbanizacion el padron",
+      "type": null,
+      "name": "urbanizacion el padron"
+    },
+    {
+      "input": "Calle del Monte",
+      "normalized": "calle del monte",
+      "type": "calle",
+      "name": "del monte"
+    },
+    {
+      "input": "Avenida de Albert Einstein",
+      "normalized": "avenida de albert einstein",
+      "type": "avenida",
+      "name": "de albert einstein"
+    },
+    {
+      "input": "Avenida de José Ortega y Gasset",
+      "normalized": "avenida de jose ortega y gasset",
+      "type": "avenida",
+      "name": "de jose ortega y gasset"
+    },
+    {
+      "input": "Avenida de Parayas",
+      "normalized": "avenida de parayas",
+      "type": "avenida",
+      "name": "de parayas"
+    },
+    {
+      "input": "Avenida del Doctor Diego Madrazo",
+      "normalized": "avenida del doctor diego madrazo",
+      "type": "avenida",
+      "name": "del doctor diego madrazo"
+    },
+    {
+      "input": "Bajada del Caleruco",
+      "normalized": "bajada del caleruco",
+      "type": "bajada",
+      "name": "del caleruco"
+    },
+    {
+      "input": "Barrio El Pilón",
+      "normalized": "barrio el pilon",
+      "type": null,
+      "name": "barrio el pilon"
+    },
+    {
+      "input": "Calle Alta",
+      "normalized": "calle alta",
+      "type": "calle",
+      "name": "alta"
+    },
+    {
+      "input": "Calle Cardenal Cisneros",
+      "normalized": "calle cardenal cisneros",
+      "type": "calle",
+      "name": "cardenal cisneros"
+    },
+    {
+      "input": "Calle de Adarzo",
+      "normalized": "calle de adarzo",
+      "type": "calle",
+      "name": "de adarzo"
+    },
+    {
+      "input": "Calle de Alonso Ercilla",
+      "normalized": "calle de alonso ercilla",
+      "type": "calle",
+      "name": "de alonso ercilla"
+    },
+    {
+      "input": "Calle de Antonio López",
+      "normalized": "calle de antonio lopez",
+      "type": "calle",
+      "name": "de antonio lopez"
+    },
+    {
+      "input": "Calle de Aurora Saez González",
+      "normalized": "calle de aurora saez gonzalez",
+      "type": "calle",
+      "name": "de aurora saez gonzalez"
+    },
+    {
+      "input": "Calle de Bratislava",
+      "normalized": "calle de bratislava",
+      "type": "calle",
+      "name": "de bratislava"
+    },
+    {
+      "input": "Calle de Casimiro Sainz",
+      "normalized": "calle de casimiro sainz",
+      "type": "calle",
+      "name": "de casimiro sainz"
+    },
+    {
+      "input": "Calle de Consuelo Berges",
+      "normalized": "calle de consuelo berges",
+      "type": "calle",
+      "name": "de consuelo berges"
+    },
+    {
+      "input": "Calle de Emilia Pardo Bazán",
+      "normalized": "calle de emilia pardo bazan",
+      "type": "calle",
+      "name": "de emilia pardo bazan"
+    },
+    {
+      "input": "Calle de Fernández de Isla",
+      "normalized": "calle de fernandez de isla",
+      "type": "calle",
+      "name": "de fernandez de isla"
+    },
+    {
+      "input": "Calle de Francisco Rivas Moreno",
+      "normalized": "calle de francisco rivas moreno",
+      "type": "calle",
+      "name": "de francisco rivas moreno"
+    },
+    {
+      "input": "Calle de Gregorio Cuesta",
+      "normalized": "calle de gregorio cuesta",
+      "type": "calle",
+      "name": "de gregorio cuesta"
+    },
+    {
+      "input": "Calle de Jean León",
+      "normalized": "calle de jean leon",
+      "type": "calle",
+      "name": "de jean leon"
+    },
+    {
+      "input": "Calle de José de Bustamante y Guerra",
+      "normalized": "calle de jose de bustamante y guerra",
+      "type": "calle",
+      "name": "de jose de bustamante y guerra"
+    },
+    {
+      "input": "Calle de Josefina de la Maza",
+      "normalized": "calle de josefina de la maza",
+      "type": "calle",
+      "name": "de josefina de la maza"
+    },
+    {
+      "input": "Calle de la Armada Española",
+      "normalized": "calle de la armada espanola",
+      "type": "calle",
+      "name": "de la armada espanola"
+    },
+    {
+      "input": "Calle de La Habana",
+      "normalized": "calle de la habana",
+      "type": "calle",
+      "name": "de la habana"
+    },
+    {
+      "input": "Calle de la Mimosa",
+      "normalized": "calle de la mimosa",
+      "type": "calle",
+      "name": "de la mimosa"
+    },
+    {
+      "input": "Calle de La Torre",
+      "normalized": "calle de la torre",
+      "type": "calle",
+      "name": "de la torre"
+    },
+    {
+      "input": "Calle de las Infantas",
+      "normalized": "calle de las infantas",
+      "type": "calle",
+      "name": "de las infantas"
+    },
+    {
+      "input": "Calle de Leonor de la Vega",
+      "normalized": "calle de leonor de la vega",
+      "type": "calle",
+      "name": "de leonor de la vega"
+    },
+    {
+      "input": "Calle de los Canteros de Trasmiera",
+      "normalized": "calle de los canteros de trasmiera",
+      "type": "calle",
+      "name": "de los canteros de trasmiera"
+    },
+    {
+      "input": "Calle de los Santos Mártires",
+      "normalized": "calle de los santos martires",
+      "type": "calle",
+      "name": "de los santos martires"
+    },
+    {
+      "input": "Calle de Málaga",
+      "normalized": "calle de malaga",
+      "type": "calle",
+      "name": "de malaga"
+    },
+    {
+      "input": "Calle de Marianela",
+      "normalized": "calle de marianela",
+      "type": "calle",
+      "name": "de marianela"
+    },
+    {
+      "input": "Calle de Miralmar",
+      "normalized": "calle de miralmar",
+      "type": "calle",
+      "name": "de miralmar"
+    },
+    {
+      "input": "Calle de Pancho Cossío",
+      "normalized": "calle de pancho cossio",
+      "type": "calle",
+      "name": "de pancho cossio"
+    },
+    {
+      "input": "Calle de Peñas Redondas",
+      "normalized": "calle de penas redondas",
+      "type": "calle",
+      "name": "de penas redondas"
+    },
+    {
+      "input": "Calle de Ricardo Fernández de la Reguera",
+      "normalized": "calle de ricardo fernandez de la reguera",
+      "type": "calle",
+      "name": "de ricardo fernandez de la reguera"
+    },
+    {
+      "input": "Calle de Salamanca",
+      "normalized": "calle de salamanca",
+      "type": "calle",
+      "name": "de salamanca"
+    },
+    {
+      "input": "Calle de San Luis",
+      "normalized": "calle de san luis",
+      "type": "calle",
+      "name": "de san luis"
+    },
+    {
+      "input": "Calle de Santa Teresa de Jesús",
+      "normalized": "calle de santa teresa de jesus",
+      "type": "calle",
+      "name": "de santa teresa de jesus"
+    },
+    {
+      "input": "Calle de Tío Michelín",
+      "normalized": "calle de tio michelin",
+      "type": "calle",
+      "name": "de tio michelin"
+    },
+    {
+      "input": "Calle de Vicente Alexandre",
+      "normalized": "calle de vicente alexandre",
+      "type": "calle",
+      "name": "de vicente alexandre"
+    },
+    {
+      "input": "Calle del Capitán Palacios",
+      "normalized": "calle del capitan palacios",
+      "type": "calle",
+      "name": "del capitan palacios"
+    },
+    {
+      "input": "Calle del Jazmín",
+      "normalized": "calle del jazmin",
+      "type": "calle",
+      "name": "del jazmin"
+    },
+    {
+      "input": "Calle del Monte",
+      "normalized": "calle del monte",
+      "type": "calle",
+      "name": "del monte"
+    },
+    {
+      "input": "Calle del Pintor Gutiérrez Solana",
+      "normalized": "calle del pintor gutierrez solana",
+      "type": "calle",
+      "name": "del pintor gutierrez solana"
+    },
+    {
+      "input": "Calle del Río Danubio",
+      "normalized": "calle del rio danubio",
+      "type": "calle",
+      "name": "del rio danubio"
+    },
+    {
+      "input": "Calle del Santuco",
+      "normalized": "calle del santuco",
+      "type": "calle",
+      "name": "del santuco"
+    },
+    {
+      "input": "Calle El Somo",
+      "normalized": "calle el somo",
+      "type": "calle",
+      "name": "el somo"
+    },
+    {
+      "input": "Calle Juan de la Cosa",
+      "normalized": "calle juan de la cosa",
+      "type": "calle",
+      "name": "juan de la cosa"
+    },
+    {
+      "input": "Calle La Pereda",
+      "normalized": "calle la pereda",
+      "type": "calle",
+      "name": "la pereda"
+    },
+    {
+      "input": "Calle Madreselva",
+      "normalized": "calle madreselva",
+      "type": "calle",
+      "name": "madreselva"
+    },
+    {
+      "input": "Calle Río Cubas",
+      "normalized": "calle rio cubas",
+      "type": "calle",
+      "name": "rio cubas"
+    },
+    {
+      "input": "Centro Empresarial Zoco Gran Santander",
+      "normalized": "centro empresarial zoco gran santander",
+      "type": null,
+      "name": "centro empresarial zoco gran santander"
+    },
+    {
+      "input": "Grupo Miralmar",
+      "normalized": "grupo miralmar",
+      "type": null,
+      "name": "grupo miralmar"
+    },
+    {
+      "input": "Muelle de Maura",
+      "normalized": "muelle de maura",
+      "type": "muelle",
+      "name": "de maura"
+    },
+    {
+      "input": "Pasaje de Irene",
+      "normalized": "pasaje de irene",
+      "type": "pasaje",
+      "name": "de irene"
+    },
+    {
+      "input": "Paseo de Pereda",
+      "normalized": "paseo de pereda",
+      "type": "paseo",
+      "name": "de pereda"
+    },
+    {
+      "input": "Plaza de la Esperanza",
+      "normalized": "plaza de la esperanza",
+      "type": "plaza",
+      "name": "de la esperanza"
+    },
+    {
+      "input": "Plaza de Pedro Poveda",
+      "normalized": "plaza de pedro poveda",
+      "type": "plaza",
+      "name": "de pedro poveda"
+    },
+    {
+      "input": "Plaza del Río de la Pila",
+      "normalized": "plaza del rio de la pila",
+      "type": "plaza",
+      "name": "del rio de la pila"
+    },
+    {
+      "input": "Rampa de Sotileza",
+      "normalized": "rampa de sotileza",
+      "type": null,
+      "name": "rampa de sotileza"
+    },
+    {
+      "input": "Travesía Los Caños",
+      "normalized": "travesia los canos",
+      "type": "travesia",
+      "name": "los canos"
+    },
+    {
+      "input": "Calle de Las Presas",
+      "normalized": "calle de las presas",
+      "type": "calle",
+      "name": "de las presas"
+    },
+    {
+      "input": "Calle Cayuso",
+      "normalized": "calle cayuso",
+      "type": "calle",
+      "name": "cayuso"
+    },
+    {
+      "input": "Calle La Cotera",
+      "normalized": "calle la cotera",
+      "type": "calle",
+      "name": "la cotera"
+    },
+    {
+      "input": "Barrio Cotero",
+      "normalized": "barrio cotero",
+      "type": null,
+      "name": "barrio cotero"
+    },
+    {
+      "input": "Calle Murillo",
+      "normalized": "calle murillo",
+      "type": "calle",
+      "name": "murillo"
+    },
+    {
+      "input": "Calle de Fernando Calderón Rueda",
+      "normalized": "calle de fernando calderon rueda",
+      "type": "calle",
+      "name": "de fernando calderon rueda"
+    },
+    {
+      "input": "Calle del Carmen Entrehuertas",
+      "normalized": "calle del carmen entrehuertas",
+      "type": "calle",
+      "name": "del carmen entrehuertas"
+    }
+  ]
+}

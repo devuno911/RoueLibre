@@ -1,0 +1,591 @@
+package io.github.mgdx.rouelibre.ui.journey
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.snackbar.Snackbar
+import io.github.mgdx.rouelibre.R
+import io.github.mgdx.rouelibre.RoueLibreApplication
+import io.github.mgdx.rouelibre.core.data.DatasetKind
+import io.github.mgdx.rouelibre.core.station.WantedBikeKind
+import io.github.mgdx.rouelibre.data.OwnBikeKind
+import io.github.mgdx.rouelibre.databinding.FragmentJourneySearchBinding
+import io.github.mgdx.rouelibre.ui.BikeFleet
+import io.github.mgdx.rouelibre.ui.BikeGlyphs
+import io.github.mgdx.rouelibre.ui.storage.StorageFragment
+import io.github.mgdx.rouelibre.ui.withBikeFleet
+import io.github.mgdx.rouelibre.ui.withFleet
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+
+/**
+ * Journey search: from where to where (SPEC §7.3).
+ *
+ * Two points to designate — by typing an address, or by one of the shortcuts
+ * heading the result list (SPEC §7.3, §7.6) — a button to swap them, and a
+ * switch saying whether the bike is the network's or the user's own.
+ * Nothing is computed here: the screen only gathers what the computation needs,
+ * and that happens on the result screen.
+ *
+ * The switch is the one thing on this screen that outlives it: what somebody
+ * rides is a fact about them, where the two points are a fact about one trip
+ * (SPEC §7.3, §8).
+ *
+ * None of these designations leaves the device, and none is kept: SPEC §8
+ * forbids holding on to a destination.
+ */
+class JourneySearchFragment : Fragment() {
+
+    private var binding: FragmentJourneySearchBinding? = null
+
+    private var origin: JourneyEndpoint? = null
+    private var destination: JourneyEndpoint? = null
+
+    /**
+     * Whether the journey is to be ridden on the user's own bike (SPEC §7.3).
+     *
+     * Held here as well as on the switch, because the sentence and the drawing
+     * under it are laid out from it before the switch has been filled in.
+     */
+    private var usesOwnBike = false
+
+    /**
+     * What the network served lends, so the illustration can be drawn again.
+     *
+     * Two things decide the drawing — the fleet, read from disk a beat after
+     * the screen, and the switch, pressed whenever the user likes — and either
+     * can move after the other. Each keeps what it knows so the drawing can be
+     * laid from both.
+     */
+    private var fleet = BikeFleet.Mechanical
+
+    /**
+     * The kind of bike wanted, or `null` for no kind at all (SPEC §7.3).
+     *
+     * Held here as well as on the buttons, because it is read back when the
+     * journey is asked for, and because the selector may not be on screen: a
+     * choice made in a mixed conurbation stays remembered while a mechanical one
+     * is being served, and is found again on the way back.
+     */
+    private var wantedBikeKind: WantedBikeKind? = null
+
+    /**
+     * What the rider said their **own** bike is, or `null` if they have not
+     * (SPEC §7.6).
+     *
+     * Not [wantedBikeKind] above, and never to be read for it: that one is a
+     * kind asked of the network and narrows the stations §6 may choose, this one
+     * is a fact about the rider and reaches only the drawing under the fields.
+     * It is declared in the settings rather than here, being asked once and not
+     * once a journey, and it is followed rather than read once so a bike
+     * declared while this screen sits on the back stack reaches the drawing.
+     */
+    private var ownBikeKind: OwnBikeKind = OwnBikeKind.Mechanical
+
+    /**
+     * The bike outside the stations this journey sets off from, or `null`
+     * (SPEC §7.2.1, §7.3).
+     *
+     * It comes from the sheet that bike opened and never from this screen: the
+     * origin is then settled, and what is left to ask is where one is going.
+     * Read from the arguments alone, so it survives a rotation with the
+     * fragment rather than with its view.
+     */
+    private var streetBike: StreetBikeHandle? = null
+
+    /**
+     * Whether the network in service really lends both kinds (SPEC §15).
+     *
+     * It decides whether the selector exists at all. Read from a flow, so a
+     * reading landing after the screen — or a change of city — puts it right
+     * without rebuilding anything.
+     */
+    private var lendsBothKinds = false
+
+    private val preferences
+        get() = (requireActivity().application as RoueLibreApplication).container.preferences
+
+    private val picker = JourneyEndpointPicker(
+        fragment = this,
+        onMessage = ::showMessage,
+        onPicked = ::accept,
+        onLocating = ::showLocating,
+    )
+
+    /**
+     * Takes the two points back, before anything can read or rewrite them.
+     *
+     * Here rather than in `onViewCreated`, because a screen left on the back
+     * stack — this one, while the result is being read — has no view rebuilt
+     * when the activity is: only this runs. Read from the view's arrival, the
+     * two points stayed empty through the whole recreation, and the next save
+     * wrote that emptiness over the state that still held them. Coming back
+     * from the result then landed on a blank form.
+     *
+     * A bundle that is null is a screen being created for the first time, and
+     * only then are the arguments read: a point received from another
+     * application (SPEC §7.8) or from a station just consulted (SPEC §7.2),
+     * with the other end left to fill. This runs once for the fragment, so
+     * nothing here can overwrite a point picked since.
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // The bike comes from the arguments in both cases: it is the question
+        // this screen was opened with, and a rotation does not reopen it.
+        streetBike = StreetBikeHandle.readFrom(arguments, ARGUMENT_STREET_BIKE)
+        if (savedInstanceState != null) {
+            origin = JourneyEndpoint.readFrom(savedInstanceState, STATE_ORIGIN)
+            destination = JourneyEndpoint.readFrom(savedInstanceState, STATE_DESTINATION)
+            picker.readFrom(savedInstanceState)
+            return
+        }
+        origin = JourneyEndpoint.readFrom(arguments, ARGUMENT_ORIGIN)
+        destination = JourneyEndpoint.readFrom(arguments, ARGUMENT_DESTINATION)
+        streetBike?.let { origin = originOf(it) }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        val created = FragmentJourneySearchBinding.inflate(inflater, container, false)
+        binding = created
+        return created.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val views = checkNotNull(binding)
+
+        views.toolbar.setNavigationOnClickListener { parentFragmentManager.popBackStack() }
+        views.toolbar.navigationContentDescription = getString(R.string.action_back)
+        views.origin.setOnClickListener { picker.choose(true, destination?.position) }
+        views.destination.setOnClickListener { picker.choose(false, origin?.position) }
+        views.swap.setOnClickListener { swap() }
+        views.compute.setOnClickListener { openResult() }
+        lockTheOriginOnTheBike()
+
+        picker.listen(viewLifecycleOwner)
+        showEndpoints()
+        // The illustration draws the stations of the network served: bearing a
+        // bolt where that network lends pedal-assist bikes (SPEC §15).
+        withBikeFleet { lent ->
+            fleet = lent
+            showShape()
+        }
+        // The selector only exists where both kinds are lent, and that answer
+        // arrives from a flow: a first reading off disk, then the count made on
+        // every refresh (SPEC §4.1). Following it rather than asking once is
+        // what lets the selector appear, or go, without the screen being rebuilt.
+        withFleet { lent ->
+            lendsBothKinds = lent?.isMixed == true
+            showBikeKindSelector()
+        }
+        // And the rider's own bike bears the bolt where they said it does
+        // (SPEC §7.6). A separate reading from the one above, on purpose: what
+        // the network lends and what the rider owns answer different questions.
+        withOwnBikeKind { declared ->
+            ownBikeKind = declared
+            showShape()
+        }
+        setUpOwnBike()
+        setUpBikeKind()
+        views.missingDataAction.setOnClickListener { openStorage() }
+        showInstalledData()
+        openSearchForTheReceivedText()
+    }
+
+    /**
+     * Settles this screen on the bike the journey was asked from (SPEC §7.3).
+     *
+     * Three things go together and for one reason: **the origin row cannot be
+     * edited**, editing it being a way of asking an ordinary journey, which the
+     * ordinary way already offers and which never departs from a street bike
+     * (SPEC §6); **the swap button goes with that editing**, since there is
+     * nothing to exchange when only one of the two ends may move; and **the
+     * own-bike switch and the kind chooser are hidden**, the bike's kind being
+     * known from the feed — there is nothing to declare and nothing to ask for.
+     * The switch and the kind kept for the ordinary journey are neither read
+     * nor written by this journey.
+     *
+     * The row is left readable and unpressable rather than disabled: a screen
+     * reader still meets it, and the sentence it carries says why it does not
+     * answer.
+     *
+     * **The sentence under the fields is this journey's own**: there is no walk
+     * to the bike and the ride ends at a station, which is neither of the two
+     * journeys the other sentences describe.
+     *
+     * **The illustration goes.** It draws walk → bike → walk, and the two
+     * drawings the interface holds beside it — the station journey's and the
+     * one-stroke ride on one's own bike — describe two other journeys just as
+     * wrongly. A picture that says something false is worse than no picture:
+     * this one is decoration, marked as such for a screen reader, and the
+     * sentence above carries the whole of the meaning. Nothing is constrained
+     * to it, so the screen simply closes up.
+     *
+     * Everything else is untouched: the destination is named in the six ways of
+     * SPEC §7.3, and the button at the bottom asks for the journey.
+     */
+    private fun lockTheOriginOnTheBike() {
+        if (streetBike == null) return
+        val views = binding ?: return
+        views.origin.setOnClickListener(null)
+        views.origin.isClickable = false
+        views.origin.contentDescription = getString(
+            R.string.address_detail,
+            getString(R.string.journey_departure_street_bike),
+            getString(R.string.journey_origin_street_bike_locked),
+        )
+        views.swap.isVisible = false
+        views.ownBike.isVisible = false
+        views.hint.setText(R.string.journey_hint_street_bike)
+        views.shape.isVisible = false
+    }
+
+    /**
+     * The bike as one end of a journey, named as both journey screens name it.
+     *
+     * A bike has no name of its own to show: the producer's identifier is
+     * rotated after every rental and says nothing to anybody (SPEC §4.1), so
+     * what the field carries is what kind of point this is.
+     */
+    private fun originOf(bike: StreetBikeHandle) = JourneyEndpoint(
+        label = getString(R.string.journey_departure_street_bike),
+        position = bike.position,
+    )
+
+    /**
+     * Hands the text received from another application to the address search
+     * (SPEC §7.8).
+     *
+     * It reaches this screen because the index placed nothing in it: a sentence
+     * around an address, or an address the city does not hold. Opening the field
+     * with it already written there is what lets it be pruned; the screen used
+     * to be opened empty, and the whole text had to be typed again from a
+     * message the user had left.
+     *
+     * The argument is spent on the way, and that is what keeps the field from
+     * opening again: the round trip back from the search rebuilds this view
+     * with no saved state, and the text would be pushed in front of the user a
+     * second time — over the very point they had just chosen.
+     */
+    private fun openSearchForTheReceivedText() {
+        val text = arguments?.getString(ARGUMENT_DESTINATION_QUERY) ?: return
+        arguments?.remove(ARGUMENT_DESTINATION_QUERY)
+        picker.choose(isOrigin = false, otherEnd = origin?.position, query = text)
+    }
+
+    /**
+     * Says, where nothing is installed, that no journey can be worked out
+     * (SPEC §7.8).
+     *
+     * A place received from another application reaches this screen without
+     * anybody having chosen a city first, and the screen showed the whole form
+     * — the two fields, the drawing, the compute button — with nothing to say
+     * that it had no map to compute anything from. The specification wants that
+     * lack explained and the download offered rather than left to fail, which is
+     * what the address search already does when its index is missing.
+     *
+     * The point received stays in its field throughout: it is the one thing the
+     * user actually sent, and it must survive the trip to the storage screen and
+     * back. Followed rather than read once, so the notice goes of its own accord
+     * when that trip ends with a city installed.
+     */
+    private fun showInstalledData() {
+        val store = (requireActivity().application as RoueLibreApplication).container.datasetStore
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                store.installed
+                    .map { DatasetKind.Routing in it }
+                    // The inventory is re-read whole on every install; only its
+                    // answer about the routing graph changes anything here.
+                    .distinctUntilChanged()
+                    .collect(::showRoutingData)
+            }
+        }
+    }
+
+    /**
+     * Shows the notice, or the illustration, but never the two together.
+     *
+     * The drawing is decoration and the notice is not: where a journey cannot
+     * be worked out at all, the reason takes the decoration's place rather than
+     * being squeezed in beside it.
+     */
+    private fun showRoutingData(isGraphInstalled: Boolean) {
+        val views = binding ?: return
+        views.missingData.isVisible = !isGraphInstalled
+        views.missingDataAction.isVisible = !isGraphInstalled
+        // And the drawing stays away for good on a journey from a bike, which
+        // none of the three illustrations describes — see
+        // [lockTheOriginOnTheBike]. This is a flow, so the answer has to be
+        // repeated here rather than set once.
+        views.shape.isVisible = isGraphInstalled && streetBike == null
+    }
+
+    private fun openStorage() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.content, StorageFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    /**
+     * Sets the switch up on the choice the user made last time (SPEC §7.3).
+     *
+     * The stored value is read once, when the screen is built: it is written
+     * from here and nowhere else, so nothing can change it behind this screen's
+     * back. The switch is only listened to afterwards, or filling it in would
+     * be taken for a press and write back what was just read. Until the read
+     * lands — a few milliseconds off disk — the screen says the station
+     * journey, which is what the switch says at rest.
+     *
+     * **A journey asked from a bike outside the stations does not read it at
+     * all** (SPEC §7.3): the switch is not on the screen, and the answer kept
+     * for the ordinary journey must not turn this one into a ride from door to
+     * door — the bike is the network's and it goes back to a station.
+     */
+    private fun setUpOwnBike() {
+        if (streetBike != null) return
+        viewLifecycleOwner.lifecycleScope.launch {
+            usesOwnBike = preferences.usesOwnBike.first()
+            val current = binding ?: return@launch
+            current.ownBike.isChecked = usesOwnBike
+            showMode()
+            current.ownBike.setOnCheckedChangeListener { _, isChecked ->
+                usesOwnBike = isChecked
+                showMode()
+                // Kept for the next journey, and for the next launch: owning a
+                // bike is a fact about the person, not about this trip.
+                viewLifecycleOwner.lifecycleScope.launch {
+                    preferences.setUsesOwnBike(isChecked)
+                }
+            }
+        }
+    }
+
+    /**
+     * Sets the selector up on the kind chosen last time (SPEC §7.3).
+     *
+     * Read once when the screen is built, and written from here alone, for the
+     * reasons [setUpOwnBike] gives. The buttons are listened to only after the
+     * stored answer has been put on them, or checking one would be taken for a
+     * press and write back what was just read.
+     *
+     * Not read either on a journey asked from a bike outside the stations, and
+     * for the same reason: that bike's kind is the feed's answer, not a
+     * request (SPEC §7.3).
+     */
+    private fun setUpBikeKind() {
+        if (streetBike != null) return
+        viewLifecycleOwner.lifecycleScope.launch {
+            wantedBikeKind = preferences.wantedBikeKind.first()
+            val current = binding ?: return@launch
+            current.bikeKind.check(buttonOf(wantedBikeKind))
+            showBikeKindSelector()
+            current.bikeKind.addOnButtonCheckedListener { _, checkedId, isChecked ->
+                // Every change fires twice — the button left, then the one
+                // taken — and only the second says what was chosen.
+                if (!isChecked) return@addOnButtonCheckedListener
+                wantedBikeKind = kindOf(checkedId)
+                // Kept for the next journey and the next launch: what somebody
+                // wants to ride is a fact about them, not about this trip.
+                viewLifecycleOwner.lifecycleScope.launch {
+                    preferences.setWantedBikeKind(wantedBikeKind)
+                }
+            }
+        }
+    }
+
+    /**
+     * Shows the selector where it means something, and hides it elsewhere.
+     *
+     * Three things take it away, and none of them greys it out: a network
+     * lending one kind, which could not satisfy the choice (SPEC §7.2); one's
+     * own bike, which looks at no station at all; and a journey asked from a
+     * bike outside the stations, whose kind the feed has already settled
+     * (SPEC §7.3). Offering a choice nobody can collect is a promise the
+     * application must not make.
+     */
+    private fun showBikeKindSelector() {
+        val views = binding ?: return
+        views.bikeKind.isVisible = lendsBothKinds && !usesOwnBike && streetBike == null
+    }
+
+    /** The button standing for a kind, the leftmost one asking for nothing. */
+    private fun buttonOf(kind: WantedBikeKind?): Int = when (kind) {
+        null -> R.id.bike_kind_any
+        WantedBikeKind.Mechanical -> R.id.bike_kind_mechanical
+        WantedBikeKind.Electric -> R.id.bike_kind_electric
+    }
+
+    /** What a checked button asks for, `null` being a choice that asks nothing. */
+    private fun kindOf(buttonId: Int): WantedBikeKind? = when (buttonId) {
+        R.id.bike_kind_mechanical -> WantedBikeKind.Mechanical
+        R.id.bike_kind_electric -> WantedBikeKind.Electric
+        else -> null
+    }
+
+    /** Says, in words and in the drawing, what kind of journey is being asked for. */
+    private fun showMode() {
+        val views = binding ?: return
+        views.hint.setText(
+            if (usesOwnBike) R.string.journey_hint_own_bike else R.string.journey_hint,
+        )
+        showBikeKindSelector()
+        showShape()
+    }
+
+    /**
+     * The illustration of the journey being asked for.
+     *
+     * On one's own bike it holds no station, so what the network lends says
+     * nothing about it — but what the rider said they own says everything, and
+     * the bolt comes from there instead (SPEC §7.6).
+     */
+    private fun showShape() {
+        val views = binding ?: return
+        views.shape.setImageResource(
+            if (usesOwnBike) {
+                OwnBikeGlyphs.journeyShape(ownBikeKind)
+            } else {
+                BikeGlyphs.journeyShape(fleet)
+            },
+        )
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        origin?.writeTo(outState, STATE_ORIGIN)
+        destination?.writeTo(outState, STATE_DESTINATION)
+        picker.writeTo(outState)
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
+    }
+
+    private fun accept(endpoint: JourneyEndpoint, isOrigin: Boolean) {
+        if (isOrigin) origin = endpoint else destination = endpoint
+        showEndpoints()
+    }
+
+    /**
+     * Shows, in the field itself, that the position is being looked for.
+     *
+     * The end of the wait restores what the field said: the point found
+     * overwrites it a moment later, and a failed search must not leave the
+     * screen claiming to be still searching.
+     */
+    private fun showLocating(isOrigin: Boolean, searching: Boolean) {
+        val views = binding ?: return
+        if (!searching) {
+            showEndpoints()
+            return
+        }
+        val field = if (isOrigin) views.origin else views.destination
+        field.setText(R.string.journey_locating)
+    }
+
+    private fun swap() {
+        val previousOrigin = origin
+        origin = destination
+        destination = previousOrigin
+        showEndpoints()
+    }
+
+    private fun showEndpoints() {
+        val views = binding ?: return
+        views.origin.text = origin?.label ?: getString(R.string.journey_origin_empty)
+        views.destination.text = destination?.label
+            ?: getString(R.string.journey_destination_empty)
+        views.compute.isEnabled = origin != null && destination != null
+    }
+
+    /**
+     * Opens the result for what has been composed here.
+     *
+     * The kind asked for goes with it only where it can be honoured: on one's
+     * own bike no station is chosen, and a network lending one kind has nothing
+     * to filter — passing it anyway would leave a journey to be refused for a
+     * choice the screen was not even showing.
+     */
+    private fun openResult() {
+        val from = origin ?: return
+        val to = destination ?: return
+        // A journey from a bike outside the stations carries neither the switch
+        // nor the kind: the departure is settled and the ride is traced on that
+        // bike's own kind, so neither was read here in the first place (see
+        // [setUpOwnBike]) and both go on as what they are at rest (SPEC §7.3).
+        val kind = wantedBikeKind.takeIf { lendsBothKinds && !usesOwnBike }
+        parentFragmentManager.beginTransaction()
+            .replace(
+                R.id.content,
+                JourneyResultFragment.newInstance(from, to, usesOwnBike, kind, streetBike),
+            )
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun showMessage(message: String) {
+        val views = binding ?: return
+        Snackbar.make(views.root, message, Snackbar.LENGTH_LONG).show()
+    }
+
+    companion object {
+        private const val STATE_ORIGIN = "origin"
+        private const val STATE_DESTINATION = "destination"
+        private const val ARGUMENT_DESTINATION = "received-destination"
+        private const val ARGUMENT_ORIGIN = "received-origin"
+        private const val ARGUMENT_DESTINATION_QUERY = "received-destination-query"
+        private const val ARGUMENT_STREET_BIKE = "received-street-bike"
+
+        /**
+         * Opens the search, possibly with one end already known.
+         *
+         * @param origin the point one leaves from, if it is already designated.
+         * @param destination the point one goes to, if it is already
+         *   designated. Both null gives a blank screen.
+         * @param destinationQuery a text naming the destination that the index
+         *   could not place — a sentence shared from another application
+         *   (SPEC §7.8). It opens the address search with that text already in
+         *   the field: the screen is reached because nothing was found in it,
+         *   and it is pruned there rather than typed again.
+         * @param streetBike the bike outside the stations the journey sets off
+         *   from (SPEC §7.2.1). It fills the origin itself and locks it: the
+         *   screen then asks where one is going and nothing else.
+         */
+        fun newInstance(
+            origin: JourneyEndpoint? = null,
+            destination: JourneyEndpoint? = null,
+            destinationQuery: String? = null,
+            streetBike: StreetBikeHandle? = null,
+        ): JourneySearchFragment = JourneySearchFragment().apply {
+            if (
+                origin == null &&
+                destination == null &&
+                destinationQuery == null &&
+                streetBike == null
+            ) {
+                return@apply
+            }
+            arguments = Bundle().apply {
+                origin?.writeTo(this, ARGUMENT_ORIGIN)
+                destination?.writeTo(this, ARGUMENT_DESTINATION)
+                destinationQuery?.let { putString(ARGUMENT_DESTINATION_QUERY, it) }
+                streetBike?.writeTo(this, ARGUMENT_STREET_BIKE)
+            }
+        }
+    }
+}

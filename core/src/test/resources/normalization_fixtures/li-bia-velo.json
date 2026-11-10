@@ -1,0 +1,1031 @@
+{
+  "language": "fr",
+  "cases": [
+    {
+      "input": "Rue Gambetta",
+      "normalized": "rue gambetta",
+      "type": "rue",
+      "name": "gambetta"
+    },
+    {
+      "input": "Boulevard de la Liberté",
+      "normalized": "boulevard de la liberte",
+      "type": "boulevard",
+      "name": "de la liberte"
+    },
+    {
+      "input": "Av. des Flandres",
+      "normalized": "avenue des flandres",
+      "type": "avenue",
+      "name": "des flandres"
+    },
+    {
+      "input": "Bd Victor Hugo",
+      "normalized": "boulevard victor hugo",
+      "type": "boulevard",
+      "name": "victor hugo"
+    },
+    {
+      "input": "R. Nationale",
+      "normalized": "rue nationale",
+      "type": "rue",
+      "name": "nationale"
+    },
+    {
+      "input": "St-André",
+      "normalized": "saint andre",
+      "type": null,
+      "name": "saint andre"
+    },
+    {
+      "input": "Rue de l'Hôpital Militaire",
+      "normalized": "rue de l hopital militaire",
+      "type": "rue",
+      "name": "de l hopital militaire"
+    },
+    {
+      "input": "Place du Général de Gaulle",
+      "normalized": "place du general de gaulle",
+      "type": "place",
+      "name": "du general de gaulle"
+    },
+    {
+      "input": "Chemin des Écoliers",
+      "normalized": "chemin des ecoliers",
+      "type": "chemin",
+      "name": "des ecoliers"
+    },
+    {
+      "input": "Grand Place",
+      "normalized": "grand place",
+      "type": null,
+      "name": "grand place"
+    },
+    {
+      "input": "Rond-Point de l'Europe",
+      "normalized": "rond point de l europe",
+      "type": "rond point",
+      "name": "de l europe"
+    },
+    {
+      "input": "Impasse Sainte-Cécile",
+      "normalized": "impasse sainte cecile",
+      "type": "impasse",
+      "name": "sainte cecile"
+    },
+    {
+      "input": "Drève du Château",
+      "normalized": "dreve du chateau",
+      "type": "dreve",
+      "name": "du chateau"
+    },
+    {
+      "input": "rue jean-baptiste lebas",
+      "normalized": "rue jean baptiste lebas",
+      "type": "rue",
+      "name": "jean baptiste lebas"
+    },
+    {
+      "input": "FAUBOURG DE ROUBAIX",
+      "normalized": "faubourg de roubaix",
+      "type": "faubourg",
+      "name": "de roubaix"
+    },
+    {
+      "input": "Allée Père Damien",
+      "normalized": "allee pere damien",
+      "type": "allee",
+      "name": "pere damien"
+    },
+    {
+      "input": "ALL DES TILLEULS",
+      "normalized": "allee des tilleuls",
+      "type": "allee",
+      "name": "des tilleuls"
+    },
+    {
+      "input": "CHE DE LA FONTAINE",
+      "normalized": "chemin de la fontaine",
+      "type": "chemin",
+      "name": "de la fontaine"
+    },
+    {
+      "input": "MTE DU CALVAIRE",
+      "normalized": "montee du calvaire",
+      "type": "montee",
+      "name": "du calvaire"
+    },
+    {
+      "input": "RLE DES QUATRE VENTS",
+      "normalized": "ruelle des quatre vents",
+      "type": "ruelle",
+      "name": "des quatre vents"
+    },
+    {
+      "input": "LD LES GRANDES TERRES",
+      "normalized": "lieu dit les grandes terres",
+      "type": "lieu dit",
+      "name": "les grandes terres"
+    },
+    {
+      "input": "TRA DE LA GARE",
+      "normalized": "traverse de la gare",
+      "type": "traverse",
+      "name": "de la gare"
+    },
+    {
+      "input": "PRV Notre-Dame",
+      "normalized": "parvis notre dame",
+      "type": "parvis",
+      "name": "notre dame"
+    },
+    {
+      "input": "ESP Charles de Gaulle",
+      "normalized": "esplanade charles de gaulle",
+      "type": "esplanade",
+      "name": "charles de gaulle"
+    },
+    {
+      "input": "VLGE DE HAUT",
+      "normalized": "village de haut",
+      "type": "village",
+      "name": "de haut"
+    },
+    {
+      "input": "Rte Départementale 6",
+      "normalized": "route departementale 6",
+      "type": "route departementale",
+      "name": "6"
+    },
+    {
+      "input": "Chemin Rural n°4",
+      "normalized": "chemin rural n 4",
+      "type": "chemin rural",
+      "name": "n 4"
+    },
+    {
+      "input": "Terre-Plein Central",
+      "normalized": "terre plein central",
+      "type": "terre plein",
+      "name": "central"
+    },
+    {
+      "input": "Place du Cœur de Ville",
+      "normalized": "place du coeur de ville",
+      "type": "place",
+      "name": "du coeur de ville"
+    },
+    {
+      "input": "Traverse de la Bonne Mère",
+      "normalized": "traverse de la bonne mere",
+      "type": "traverse",
+      "name": "de la bonne mere"
+    },
+    {
+      "input": "Vallon des Auffes",
+      "normalized": "vallon des auffes",
+      "type": "vallon",
+      "name": "des auffes"
+    },
+    {
+      "input": "Calanque de Sormiou",
+      "normalized": "calanque de sormiou",
+      "type": "calanque",
+      "name": "de sormiou"
+    },
+    {
+      "input": "Montée de la Grande-Côte",
+      "normalized": "montee de la grande cote",
+      "type": "montee",
+      "name": "de la grande cote"
+    },
+    {
+      "input": "Traboule des Voraces",
+      "normalized": "traboule des voraces",
+      "type": "traboule",
+      "name": "des voraces"
+    },
+    {
+      "input": "Quai Saint-Antoine",
+      "normalized": "quai saint antoine",
+      "type": "quai",
+      "name": "saint antoine"
+    },
+    {
+      "input": "Venelle du Puits",
+      "normalized": "venelle du puits",
+      "type": "venelle",
+      "name": "du puits"
+    },
+    {
+      "input": "Hent ar Mor",
+      "normalized": "hent ar mor",
+      "type": "hent",
+      "name": "ar mor"
+    },
+    {
+      "input": "Ru du Moulin",
+      "normalized": "ru du moulin",
+      "type": "ru",
+      "name": "du moulin"
+    },
+    {
+      "input": "Cavée Saint-Gilles",
+      "normalized": "cavee saint gilles",
+      "type": "cavee",
+      "name": "saint gilles"
+    },
+    {
+      "input": "Côte des Deux Amants",
+      "normalized": "cote des deux amants",
+      "type": "cote",
+      "name": "des deux amants"
+    },
+    {
+      "input": "Carriera Nòstra Dama",
+      "normalized": "carriera nostra dama",
+      "type": "carriera",
+      "name": "nostra dama"
+    },
+    {
+      "input": "Cami de la Ribera",
+      "normalized": "cami de la ribera",
+      "type": "cami",
+      "name": "de la ribera"
+    },
+    {
+      "input": "Androne des Frères",
+      "normalized": "androne des freres",
+      "type": "androne",
+      "name": "des freres"
+    },
+    {
+      "input": "Ravine des Cabris",
+      "normalized": "ravine des cabris",
+      "type": "ravine",
+      "name": "des cabris"
+    },
+    {
+      "input": "Morne à l'Eau",
+      "normalized": "morne a l eau",
+      "type": "morne",
+      "name": "a l eau"
+    },
+    {
+      "input": "Habitation Beauséjour",
+      "normalized": "habitation beausejour",
+      "type": "habitation",
+      "name": "beausejour"
+    },
+    {
+      "input": "Îlet à Cochons",
+      "normalized": "ilet a cochons",
+      "type": "ilet",
+      "name": "a cochons"
+    },
+    {
+      "input": "Section Malecon",
+      "normalized": "section malecon",
+      "type": "section",
+      "name": "malecon"
+    },
+    {
+      "input": "Corniche du Pharo",
+      "normalized": "corniche du pharo",
+      "type": "corniche",
+      "name": "du pharo"
+    },
+    {
+      "input": "Digue des Alliés",
+      "normalized": "digue des allies",
+      "type": "digue",
+      "name": "des allies"
+    },
+    {
+      "input": "Front de Mer Sud",
+      "normalized": "front de mer sud",
+      "type": "front de mer",
+      "name": "sud"
+    },
+    {
+      "input": "Au-Vieux-Moulin",
+      "normalized": "au vieux moulin",
+      "type": null,
+      "name": "au vieux moulin"
+    },
+    {
+      "input": "Sentier du Livot",
+      "normalized": "sentier du livot",
+      "type": "sentier",
+      "name": "du livot"
+    },
+    {
+      "input": "Avenue Reine Élisabeth",
+      "normalized": "avenue reine elisabeth",
+      "type": "avenue",
+      "name": "reine elisabeth"
+    },
+    {
+      "input": "Rue de Bèze en Bourgogne",
+      "normalized": "rue de beze en bourgogne",
+      "type": "rue",
+      "name": "de beze en bourgogne"
+    },
+    {
+      "input": "Rue des Pierres Blanches",
+      "normalized": "rue des pierres blanches",
+      "type": "rue",
+      "name": "des pierres blanches"
+    },
+    {
+      "input": "Allée des Glycines",
+      "normalized": "allee des glycines",
+      "type": "allee",
+      "name": "des glycines"
+    },
+    {
+      "input": "Chemin de la Plaine",
+      "normalized": "chemin de la plaine",
+      "type": "chemin",
+      "name": "de la plaine"
+    },
+    {
+      "input": "Rue Antoine Nélis",
+      "normalized": "rue antoine nelis",
+      "type": "rue",
+      "name": "antoine nelis"
+    },
+    {
+      "input": "Rue de la Longue Haie",
+      "normalized": "rue de la longue haie",
+      "type": "rue",
+      "name": "de la longue haie"
+    },
+    {
+      "input": "Rue des Forsythias",
+      "normalized": "rue des forsythias",
+      "type": "rue",
+      "name": "des forsythias"
+    },
+    {
+      "input": "Rue du Danube",
+      "normalized": "rue du danube",
+      "type": "rue",
+      "name": "du danube"
+    },
+    {
+      "input": "Rue Félicien Deneumoustier",
+      "normalized": "rue felicien deneumoustier",
+      "type": "rue",
+      "name": "felicien deneumoustier"
+    },
+    {
+      "input": "Rue La Haie-le-Comte",
+      "normalized": "rue la haie le comte",
+      "type": "rue",
+      "name": "la haie le comte"
+    },
+    {
+      "input": "Sentier des Coteaux",
+      "normalized": "sentier des coteaux",
+      "type": "sentier",
+      "name": "des coteaux"
+    },
+    {
+      "input": "Rue du Long-Sart",
+      "normalized": "rue du long sart",
+      "type": "rue",
+      "name": "du long sart"
+    },
+    {
+      "input": "Chemin i1",
+      "normalized": "chemin i1",
+      "type": "chemin",
+      "name": "i1"
+    },
+    {
+      "input": "Route de Marche les Dames",
+      "normalized": "route de marche les dames",
+      "type": "route",
+      "name": "de marche les dames"
+    },
+    {
+      "input": "Rue de Sardanson",
+      "normalized": "rue de sardanson",
+      "type": "rue",
+      "name": "de sardanson"
+    },
+    {
+      "input": "Rue des Limites",
+      "normalized": "rue des limites",
+      "type": "rue",
+      "name": "des limites"
+    },
+    {
+      "input": "Rue du Vallon",
+      "normalized": "rue du vallon",
+      "type": "rue",
+      "name": "du vallon"
+    },
+    {
+      "input": "Rue Louise Colen",
+      "normalized": "rue louise colen",
+      "type": "rue",
+      "name": "louise colen"
+    },
+    {
+      "input": "Sentier i16",
+      "normalized": "sentier i16",
+      "type": "sentier",
+      "name": "i16"
+    },
+    {
+      "input": "Sentier i59",
+      "normalized": "sentier i59",
+      "type": "sentier",
+      "name": "i59"
+    },
+    {
+      "input": "Rue Alexandre Colin",
+      "normalized": "rue alexandre colin",
+      "type": "rue",
+      "name": "alexandre colin"
+    },
+    {
+      "input": "Rue Gustave Laforge",
+      "normalized": "rue gustave laforge",
+      "type": "rue",
+      "name": "gustave laforge"
+    },
+    {
+      "input": "Sentier vicinal 48",
+      "normalized": "sentier vicinal 48",
+      "type": "sentier",
+      "name": "vicinal 48"
+    },
+    {
+      "input": "Rue Saint-Hubert",
+      "normalized": "rue saint hubert",
+      "type": "rue",
+      "name": "saint hubert"
+    },
+    {
+      "input": "Allée des Rosiers",
+      "normalized": "allee des rosiers",
+      "type": "allee",
+      "name": "des rosiers"
+    },
+    {
+      "input": "Clos des Baies Sauvages",
+      "normalized": "clos des baies sauvages",
+      "type": "clos",
+      "name": "des baies sauvages"
+    },
+    {
+      "input": "pruvate school path",
+      "normalized": "pruvate school path",
+      "type": null,
+      "name": "pruvate school path"
+    },
+    {
+      "input": "Rue des Jonquilles",
+      "normalized": "rue des jonquilles",
+      "type": "rue",
+      "name": "des jonquilles"
+    },
+    {
+      "input": "Rue du Moligna",
+      "normalized": "rue du moligna",
+      "type": "rue",
+      "name": "du moligna"
+    },
+    {
+      "input": "Rue Regnié-Durette",
+      "normalized": "rue regnie durette",
+      "type": "rue",
+      "name": "regnie durette"
+    },
+    {
+      "input": "Sentier i16",
+      "normalized": "sentier i16",
+      "type": "sentier",
+      "name": "i16"
+    },
+    {
+      "input": "Rue Aimable Vigneron-Colin",
+      "normalized": "rue aimable vigneron colin",
+      "type": "rue",
+      "name": "aimable vigneron colin"
+    },
+    {
+      "input": "Rue de l'Aurzie",
+      "normalized": "rue de l aurzie",
+      "type": "rue",
+      "name": "de l aurzie"
+    },
+    {
+      "input": "Rue Fernand Cochard",
+      "normalized": "rue fernand cochard",
+      "type": "rue",
+      "name": "fernand cochard"
+    },
+    {
+      "input": "Rue Joseph Dandoy",
+      "normalized": "rue joseph dandoy",
+      "type": "rue",
+      "name": "joseph dandoy"
+    },
+    {
+      "input": "Rue René Lorent",
+      "normalized": "rue rene lorent",
+      "type": "rue",
+      "name": "rene lorent"
+    },
+    {
+      "input": "Voie du Tram",
+      "normalized": "voie du tram",
+      "type": "voie",
+      "name": "du tram"
+    },
+    {
+      "input": "Avenue de Falichamp",
+      "normalized": "avenue de falichamp",
+      "type": "avenue",
+      "name": "de falichamp"
+    },
+    {
+      "input": "Avenue Gouverneur Bovesse",
+      "normalized": "avenue gouverneur bovesse",
+      "type": "avenue",
+      "name": "gouverneur bovesse"
+    },
+    {
+      "input": "Clos des Sarts",
+      "normalized": "clos des sarts",
+      "type": "clos",
+      "name": "des sarts"
+    },
+    {
+      "input": "Place des Chevaliers avec Glaives",
+      "normalized": "place des chevaliers avec glaives",
+      "type": "place",
+      "name": "des chevaliers avec glaives"
+    },
+    {
+      "input": "Quai Régiment Commando",
+      "normalized": "quai regiment commando",
+      "type": "quai",
+      "name": "regiment commando"
+    },
+    {
+      "input": "Rue Capitaine Jomouton",
+      "normalized": "rue capitaine jomouton",
+      "type": "rue",
+      "name": "capitaine jomouton"
+    },
+    {
+      "input": "Rue de l'Avoine",
+      "normalized": "rue de l avoine",
+      "type": "rue",
+      "name": "de l avoine"
+    },
+    {
+      "input": "Rue de la Luzerne",
+      "normalized": "rue de la luzerne",
+      "type": "rue",
+      "name": "de la luzerne"
+    },
+    {
+      "input": "Rue des Alisiers",
+      "normalized": "rue des alisiers",
+      "type": "rue",
+      "name": "des alisiers"
+    },
+    {
+      "input": "Rue des Fougères",
+      "normalized": "rue des fougeres",
+      "type": "rue",
+      "name": "des fougeres"
+    },
+    {
+      "input": "Rue des Pinsons",
+      "normalized": "rue des pinsons",
+      "type": "rue",
+      "name": "des pinsons"
+    },
+    {
+      "input": "Rue du Corso Fleuri",
+      "normalized": "rue du corso fleuri",
+      "type": "rue",
+      "name": "du corso fleuri"
+    },
+    {
+      "input": "Rue du Trèfle",
+      "normalized": "rue du trefle",
+      "type": "rue",
+      "name": "du trefle"
+    },
+    {
+      "input": "Rue Jean de Dampierre",
+      "normalized": "rue jean de dampierre",
+      "type": "rue",
+      "name": "jean de dampierre"
+    },
+    {
+      "input": "Rue Mottiaux",
+      "normalized": "rue mottiaux",
+      "type": "rue",
+      "name": "mottiaux"
+    },
+    {
+      "input": "Rue Victor Nonet",
+      "normalized": "rue victor nonet",
+      "type": "rue",
+      "name": "victor nonet"
+    },
+    {
+      "input": "Chemin aux Tables",
+      "normalized": "chemin aux tables",
+      "type": "chemin",
+      "name": "aux tables"
+    },
+    {
+      "input": "Allée du Souvenir",
+      "normalized": "allee du souvenir",
+      "type": "allee",
+      "name": "du souvenir"
+    },
+    {
+      "input": "Chemin de la Vieille Sambre",
+      "normalized": "chemin de la vieille sambre",
+      "type": "chemin",
+      "name": "de la vieille sambre"
+    },
+    {
+      "input": "Chemin du Gros-Buisson",
+      "normalized": "chemin du gros buisson",
+      "type": "chemin",
+      "name": "du gros buisson"
+    },
+    {
+      "input": "Place du Malpas",
+      "normalized": "place du malpas",
+      "type": "place",
+      "name": "du malpas"
+    },
+    {
+      "input": "Rue de Curnolô",
+      "normalized": "rue de curnolo",
+      "type": "rue",
+      "name": "de curnolo"
+    },
+    {
+      "input": "Rue du Bransart",
+      "normalized": "rue du bransart",
+      "type": "rue",
+      "name": "du bransart"
+    },
+    {
+      "input": "Rue du Vivier",
+      "normalized": "rue du vivier",
+      "type": "rue",
+      "name": "du vivier"
+    },
+    {
+      "input": "Voie des Forts",
+      "normalized": "voie des forts",
+      "type": "voie",
+      "name": "des forts"
+    },
+    {
+      "input": "Avenue Baron Fallon",
+      "normalized": "avenue baron fallon",
+      "type": "avenue",
+      "name": "baron fallon"
+    },
+    {
+      "input": "Avenue de la Redoute",
+      "normalized": "avenue de la redoute",
+      "type": "avenue",
+      "name": "de la redoute"
+    },
+    {
+      "input": "Avenue du Champeau",
+      "normalized": "avenue du champeau",
+      "type": "avenue",
+      "name": "du champeau"
+    },
+    {
+      "input": "Avenue Vauban",
+      "normalized": "avenue vauban",
+      "type": "avenue",
+      "name": "vauban"
+    },
+    {
+      "input": "Chaussée de Louvain",
+      "normalized": "chaussee de louvain",
+      "type": "chaussee",
+      "name": "de louvain"
+    },
+    {
+      "input": "Chemin des Vignobles",
+      "normalized": "chemin des vignobles",
+      "type": "chemin",
+      "name": "des vignobles"
+    },
+    {
+      "input": "Marché au Chanvre",
+      "normalized": "marche au chanvre",
+      "type": "marche",
+      "name": "au chanvre"
+    },
+    {
+      "input": "Place d'Armes",
+      "normalized": "place d armes",
+      "type": "place",
+      "name": "d armes"
+    },
+    {
+      "input": "Place du Huit Mai",
+      "normalized": "place du huit mai",
+      "type": "place",
+      "name": "du huit mai"
+    },
+    {
+      "input": "Place Saint-Aubain",
+      "normalized": "place saint aubain",
+      "type": "place",
+      "name": "saint aubain"
+    },
+    {
+      "input": "Rond-Point de Bomel",
+      "normalized": "rond point de bomel",
+      "type": "rond point",
+      "name": "de bomel"
+    },
+    {
+      "input": "Rue Auguste Maquet",
+      "normalized": "rue auguste maquet",
+      "type": "rue",
+      "name": "auguste maquet"
+    },
+    {
+      "input": "Rue Catherine de Savoie",
+      "normalized": "rue catherine de savoie",
+      "type": "rue",
+      "name": "catherine de savoie"
+    },
+    {
+      "input": "Rue de Coquelet",
+      "normalized": "rue de coquelet",
+      "type": "rue",
+      "name": "de coquelet"
+    },
+    {
+      "input": "Rue de l'Etoile",
+      "normalized": "rue de l etoile",
+      "type": "rue",
+      "name": "de l etoile"
+    },
+    {
+      "input": "Rue de la Halle",
+      "normalized": "rue de la halle",
+      "type": "rue",
+      "name": "de la halle"
+    },
+    {
+      "input": "Rue des Bas Prés",
+      "normalized": "rue des bas pres",
+      "type": "rue",
+      "name": "des bas pres"
+    },
+    {
+      "input": "Rue des Fossés Fleuris",
+      "normalized": "rue des fosses fleuris",
+      "type": "rue",
+      "name": "des fosses fleuris"
+    },
+    {
+      "input": "Rue des Verriers",
+      "normalized": "rue des verriers",
+      "type": "rue",
+      "name": "des verriers"
+    },
+    {
+      "input": "Rue du Lombard",
+      "normalized": "rue du lombard",
+      "type": "rue",
+      "name": "du lombard"
+    },
+    {
+      "input": "Rue du Séminaire",
+      "normalized": "rue du seminaire",
+      "type": "rue",
+      "name": "du seminaire"
+    },
+    {
+      "input": "Rue Fond d'Arquet",
+      "normalized": "rue fond d arquet",
+      "type": "rue",
+      "name": "fond d arquet"
+    },
+    {
+      "input": "Rue Gustave Defnet",
+      "normalized": "rue gustave defnet",
+      "type": "rue",
+      "name": "gustave defnet"
+    },
+    {
+      "input": "Rue Julie Billiart",
+      "normalized": "rue julie billiart",
+      "type": "rue",
+      "name": "julie billiart"
+    },
+    {
+      "input": "Rue Moncrabeau",
+      "normalized": "rue moncrabeau",
+      "type": "rue",
+      "name": "moncrabeau"
+    },
+    {
+      "input": "Rue Saint-Jacques",
+      "normalized": "rue saint jacques",
+      "type": "rue",
+      "name": "saint jacques"
+    },
+    {
+      "input": "Sentier des Amoureux",
+      "normalized": "sentier des amoureux",
+      "type": "sentier",
+      "name": "des amoureux"
+    },
+    {
+      "input": "Venelle de la Grande Forge",
+      "normalized": "venelle de la grande forge",
+      "type": "venelle",
+      "name": "de la grande forge"
+    },
+    {
+      "input": "Rue des Viaux",
+      "normalized": "rue des viaux",
+      "type": "rue",
+      "name": "des viaux"
+    },
+    {
+      "input": "Clinique du Sport Namur",
+      "normalized": "clinique du sport namur",
+      "type": null,
+      "name": "clinique du sport namur"
+    },
+    {
+      "input": "Square Léopold",
+      "normalized": "square leopold",
+      "type": "square",
+      "name": "leopold"
+    },
+    {
+      "input": "Allée des Tilleuls",
+      "normalized": "allee des tilleuls",
+      "type": "allee",
+      "name": "des tilleuls"
+    },
+    {
+      "input": "Chemin des Mines",
+      "normalized": "chemin des mines",
+      "type": "chemin",
+      "name": "des mines"
+    },
+    {
+      "input": "Rue des Écureuils",
+      "normalized": "rue des ecureuils",
+      "type": "rue",
+      "name": "des ecureuils"
+    },
+    {
+      "input": "Rue du Vieux Chêne",
+      "normalized": "rue du vieux chene",
+      "type": "rue",
+      "name": "du vieux chene"
+    },
+    {
+      "input": "Chemin 3",
+      "normalized": "chemin 3",
+      "type": "chemin",
+      "name": "3"
+    },
+    {
+      "input": "Place Chapelle",
+      "normalized": "place chapelle",
+      "type": "place",
+      "name": "chapelle"
+    },
+    {
+      "input": "Rue de l'Escaille",
+      "normalized": "rue de l escaille",
+      "type": "rue",
+      "name": "de l escaille"
+    },
+    {
+      "input": "Rue des Giroflées",
+      "normalized": "rue des giroflees",
+      "type": "rue",
+      "name": "des giroflees"
+    },
+    {
+      "input": "Rue du Cléchene",
+      "normalized": "rue du clechene",
+      "type": "rue",
+      "name": "du clechene"
+    },
+    {
+      "input": "Rue Florent Dethier",
+      "normalized": "rue florent dethier",
+      "type": "rue",
+      "name": "florent dethier"
+    },
+    {
+      "input": "Rue Raymond Museu",
+      "normalized": "rue raymond museu",
+      "type": "rue",
+      "name": "raymond museu"
+    },
+    {
+      "input": "Sentier i7",
+      "normalized": "sentier i7",
+      "type": "sentier",
+      "name": "i7"
+    },
+    {
+      "input": "Rue de l'Artisanat",
+      "normalized": "rue de l artisanat",
+      "type": "rue",
+      "name": "de l artisanat"
+    },
+    {
+      "input": "Rue du Clair Val",
+      "normalized": "rue du clair val",
+      "type": "rue",
+      "name": "du clair val"
+    },
+    {
+      "input": "Clos des Chouettes",
+      "normalized": "clos des chouettes",
+      "type": "clos",
+      "name": "des chouettes"
+    },
+    {
+      "input": "Fond des Rosiats",
+      "normalized": "fond des rosiats",
+      "type": null,
+      "name": "fond des rosiats"
+    },
+    {
+      "input": "Rue de Gueulette",
+      "normalized": "rue de gueulette",
+      "type": "rue",
+      "name": "de gueulette"
+    },
+    {
+      "input": "Rue des Mimosas",
+      "normalized": "rue des mimosas",
+      "type": "rue",
+      "name": "des mimosas"
+    },
+    {
+      "input": "Rue du Réservoir",
+      "normalized": "rue du reservoir",
+      "type": "rue",
+      "name": "du reservoir"
+    },
+    {
+      "input": "Rue François Lorge",
+      "normalized": "rue francois lorge",
+      "type": "rue",
+      "name": "francois lorge"
+    },
+    {
+      "input": "Rue Louis Haute",
+      "normalized": "rue louis haute",
+      "type": "rue",
+      "name": "louis haute"
+    },
+    {
+      "input": "Try Jaucquet",
+      "normalized": "try jaucquet",
+      "type": null,
+      "name": "try jaucquet"
+    },
+    {
+      "input": "Chemin de Saint Héribert",
+      "normalized": "chemin de saint heribert",
+      "type": "chemin",
+      "name": "de saint heribert"
+    },
+    {
+      "input": "Clos des Cépages",
+      "normalized": "clos des cepages",
+      "type": "clos",
+      "name": "des cepages"
+    }
+  ]
+}

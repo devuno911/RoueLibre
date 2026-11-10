@@ -1,0 +1,34 @@
+Roue Libre mostra en un mapa les estacions de bicis compartides i calcula la millor ruta porta a porta: a peu, en bici, a peu.
+
+Tot passa al telèfon: el mapa, la cerca d’adreces i el càlcul de rutes no necessiten cap connexió. Només la disponibilitat de bicis en temps real passa per la xarxa, i es llegeix directament al servidor de l’operador.
+
+<b>La millor ruta, no l’estació més propera</b>
+
+• Les estacions de sortida i d’arribada es trien juntes, segons la disponibilitat en directe: bicis per agafar en un extrem, espais lliures per tornar-la a l’altre.
+• Una estació gairebé buida compta menys, perquè es pot buidar mentre camines.
+• On la xarxa ofereix bicis mecàniques i elèctriques, tries quina vols, i només compten les estacions que de debò en tenen una.
+• La ruta segueix els carrils bici i té en compte el desnivell.
+
+<b>Un mapa fet per a la bici</b>
+
+Els carrils bici traçats a part dels carrers, els edificis públics i els punts de referència per orientar-se a cop d’ull, i a cada estació el que ofereix la xarxa: bicis mecàniques, elèctriques o totes dues.
+
+<b>Res no et rastreja</b>
+
+• Cap servei de Google: ni Play Services, ni Firebase, ni Maps SDK.
+• Sense telemetria, sense rastrejadors, sense identificador, sense compte.
+• Cap historial: ni ubicacions ni destinacions. El que cerques no surt del telèfon.
+
+<b>Les ciutats servides</b>
+
+Més de 350 xarxes en prop de 40 països, des de Vélib’ a París fins a Citi Bike a Nova York, passant per Mont-real, Praga, Barcelona, Dubai i Buenos Aires. No s’imposa cap ciutat: l’aplicació et proposa la teva segons la teva ubicació, i en pots conservar diverses.
+
+Roue Libre només serveix les xarxes que publiquen les seves estacions en format GBFS, l’estàndard obert de les bicis compartides, en un flux públic i sense clau. Si hi falta la teva ciutat, és que la seva xarxa no publica un flux així: és a la xarxa o a l’autoritat del transport que cal demanar-l’hi.
+
+<b>Convé saber-ho abans d’instal·lar-la</b>
+
+El mapa, el graf de rutes i l’índex d’adreces no són dins de l’aplicació: es baixen una sola vegada, quan tu ho decideixis, i se n’indica el pes abans (una desena de megabytes per a una ciutat mitjana, més per a una capital). Són fitxers de dades i res més, que també pots generar tu mateix amb els scripts del repositori.
+
+Roue Libre és una aplicació independent, sense cap vincle amb les xarxes que serveix ni amb els seus operadors.
+
+Programari lliure sota la llicència GNU GPL v3.

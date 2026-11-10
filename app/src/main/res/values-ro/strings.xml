@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Romanian translation.
+
+    It serves the three Romanian networks of the catalogue — Alba Iulia
+    Velocity, Hunedoara, dej-bikecity, the last of them spelled as
+    `config/catalogue.json` spells it, since its `displayName` is that bare
+    slug and the `displayName` is what the application shows — and any other
+    conurbation a reader installs, so nothing here is written for one city
+    alone. Where Android's own Romanian already has a word, that word is used:
+    an application calling the settings anything but "Setări" reads as a
+    foreign one. The arbiter is the system lexicon extracted from
+    `framework-res.apk` and `Settings.apk`. It says "tu", like the system and
+    like every other translation.
+
+    Rules, the same as everywhere: positional placeholders, <plurals> for
+    anything that agrees, and the `name` attributes left untouched.
+
+    The typography is Romanian:
+      · the letters are ș and ț with a COMMA below (U+0219, U+021B), never the
+        Turkish cedilla forms at U+015F and U+0163 — the two are hard to tell
+        apart at interface size, which is exactly why the wrong one survives,
+        and this file holds not one of them, header included; ă, â and î are
+        written in full;
+      · quotations are „ ” — opening below, closing above;
+      · the apostrophe, where a name carries one, is ’ (U+2019) and never the
+        straight quote, so nothing here needs escaping;
+      · numbers keep the decimal comma and the thousands point — "42,5 MB" —
+        and the size units stay the international symbols.
+
+    Romanian counts in THREE categories and the boundary is not the one other
+    languages draw: `one` takes 1 alone, `few` takes 0 and 2 to 19 (then 101
+    to 119, and so on), `other` takes 20 and above and REQUIRES the
+    preposition "de" — "20 de biciclete". Zero therefore falls in `few`, which
+    is why it reads "0 biciclete" and not "0 de biciclete". Two items leave
+    that "de" out, `counterpart_bikes` and `counterpart_docks`, and the comment
+    above them says why.
+
+    The definite article is a suffix in Romanian, so a sentence built around a
+    placeholder cannot count on the gender or the definiteness of what lands
+    in it. Wherever a city, a network, a street or a dataset name would have
+    forced an article or an agreeing participle, the sentence is written so
+    that none stands beside the placeholder at all.
+
+    See docs/glossary/ro.md for the words this file holds to, and
+    CONTRIBUTING.md to submit a correction.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Roue Libre</string>
+
+    <!-- Main screen: the station list. -->
+    <string name="stations_title">Stații</string>
+
+    <!-- The number of bikes available to borrow at a station. -->
+    <plurals name="bikes_available">
+        <item quantity="one">%1$d bicicletă</item>
+        <item quantity="few">%1$d biciclete</item>
+        <item quantity="other">%1$d de biciclete</item>
+    </plurals>
+
+    <!-- The number of free docks to return a bike to. -->
+    <plurals name="docks_available">
+        <item quantity="one">%1$d loc liber</item>
+        <item quantity="few">%1$d locuri libere</item>
+        <item quantity="other">%1$d de locuri libere</item>
+    </plurals>
+    <string name="docks_available_unlimited">Locuri libere: nelimitate</string>
+
+    <string name="station_content_description">%1$s, %2$s, %3$s</string>
+    <string name="station_content_description_bikes_only">%1$s, %2$s</string>
+    <!-- Not Android's "În afara ariei de acoperire", which is about radio
+         coverage: a station out of service is one that does not work. -->
+    <string name="station_out_of_service">Nefuncțională</string>
+    <string name="station_out_of_service_since">%1$s · ultima raportare %2$s</string>
+    <string name="station_availability_unknown">Disponibilitate necunoscută</string>
+
+    <!-- What a station is called when its feed publishes no name for it and no
+         street to stand in for one. The station itself is kept: it is real and
+         it holds bikes, and dropping it would take it off the map over a
+         mistyped string. -->
+    <string name="station_unnamed">Stație fără nume</string>
+
+    <string name="station_beyond_area_short">în afara hărții</string>
+    <string name="station_beyond_area">Această stație se află în afara zonei acoperite de datele instalate. Bicicletele ei sunt numărate în timp real, dar nicio hartă și nicio rută nu ajung până la ea.</string>
+
+    <string name="search_stations_hint">Caută o stație</string>
+    <string name="search_stations_clear">Șterge căutarea</string>
+    <string name="stations_no_match_title">Nicio stație găsită</string>
+    <string name="stations_no_match_message">Nimic nu se potrivește cu „%1$s”. Verifică scrierea sau șterge căutarea.</string>
+    <string name="action_clear_search">Șterge căutarea</string>
+
+    <string name="mode_bikes">Biciclete</string>
+    <string name="mode_docks">Locuri libere</string>
+
+    <!-- Which bikes the markers count, where the network lends both kinds
+         (SPEC §7.1). Named after what is shown, like the toggle beside it.
+         The three labels are adjectives agreeing with "biciclete". -->
+    <string name="map_bikes_all_kinds">Toate bicicletele</string>
+    <string name="map_bikes_mechanical">Mecanice</string>
+    <string name="map_bikes_electric">Electrice</string>
+    <string name="map_bikes_all_kinds_description">Se numără toate bicicletele. Atinge pentru a le număra doar pe cele mecanice.</string>
+    <string name="map_bikes_mechanical_description">Se numără bicicletele mecanice. Atinge pentru a le număra doar pe cele electrice.</string>
+    <string name="map_bikes_electric_description">Se numără bicicletele electrice. Atinge pentru a le număra pe toate.</string>
+    <!-- The label that names a count, on a station's sheet and on a list row.
+         No item holds a number, and none ever should: the figure stands right
+         beside the word or right above it, so writing it here would say it
+         twice. The word alone agrees, which is why these are plurals resolved
+         with the count and formatted with nothing.
+         `CounterpartAgreementTest` fails the day a placeholder comes back.
+
+         These two are the one place where `other` drops the "de" that 20 and
+         above otherwise take, which leaves `few` and `other` identical. They
+         are not phrases but captions under a number, and the caption is
+         shouted: `TextAppearance.RoueLibre.Label` sets `textAllCaps`, and
+         `item_station.xml` stacks the counterpart figure with its label
+         underneath it — no disc there, the disc carries the other counter — so
+         "de locuri libere" came out as "30" over "DE LOCURI LIBERE", a
+         preposition at the head of a capitalised line that no reader joins
+         back to the figure above it. On the sheet the label sits beside its
+         disc and the "de" would have read; on the list row it does not, and
+         the list row is where both counters show at once. -->
+    <plurals name="counterpart_bikes" tools:ignore="ImpliedQuantity">
+        <item quantity="one">bicicletă</item>
+        <item quantity="few">biciclete</item>
+        <item quantity="other">biciclete</item>
+    </plurals>
+    <plurals name="counterpart_docks" tools:ignore="ImpliedQuantity">
+        <item quantity="one">loc liber</item>
+        <item quantity="few">locuri libere</item>
+        <item quantity="other">locuri libere</item>
+    </plurals>
+    <string name="counterpart_none">—</string>
+
+    <!-- The detail line under a station's name, in the list.
+         %1$s is the distance to the station when the reader's position is
+         known, and its postcode when it is not. %2$d is the number of docking
+         points, which is the station's capacity and not what is free. -->
+    <plurals name="station_detail_with_capacity">
+        <item quantity="one">%1$s · %2$d doc</item>
+        <item quantity="few">%1$s · %2$d docuri</item>
+        <item quantity="other">%1$s · %2$d de docuri</item>
+    </plurals>
+
+    <!-- What a station's bikes are, shown only where the network lends both
+         kinds side by side. %1$s is the mechanical count, %2$s the electric
+         one, each already agreed in number. -->
+    <string name="station_bikes_split">%1$s · %2$s</string>
+    <plurals name="bikes_mechanical">
+        <item quantity="one">%1$d mecanică</item>
+        <item quantity="few">%1$d mecanice</item>
+        <item quantity="other">%1$d de mecanice</item>
+    </plurals>
+    <plurals name="bikes_electric">
+        <item quantity="one">%1$d electrică</item>
+        <item quantity="few">%1$d electrice</item>
+        <item quantity="other">%1$d de electrice</item>
+    </plurals>
+
+    <!-- What the vehicle feed adds under the split, where the setting that
+         reads it is on (SPEC §7.2, §7.6): the charge of each electric bike,
+         fullest first, and the bikes out of service. Up to three parts, joined
+         by the separator; the lists inside a part are joined by the system in
+         the reader's language, so the placeholder receives "92 %, 78 % and
+         40 %" already written. -->
+    <string name="station_bikes_detail_separator">" · "</string>
+    <!-- %1$d is one bike's charge as a whole percentage. The doubled sign is a
+         literal per cent, not a placeholder. -->
+    <string name="station_bike_charge_value">%1$d%%</string>
+    <!-- %1$s is the list of percentages, one per electric bike on offer. -->
+    <string name="station_bikes_battery">Baterie %1$s</string>
+    <!-- Said where the network publishes ranges and no percentage. %1$s is the
+         list of distances, each already written in the reader's units. -->
+    <string name="station_bikes_range">Au mai rămas circa %1$s autonomie</string>
+    <!-- Said instead of the two lists above past four bikes: %1$s is the
+         lowest figure, %2$s the highest, each already written. -->
+    <string name="station_bikes_battery_spread">Baterie între %1$s și %2$s</string>
+    <string name="station_bikes_range_spread">Au mai rămas între %1$s și %2$s autonomie</string>
+    <!-- The row unfolding the bike-by-bike list under the summary. It
+         names no figure: the count already stands in the disc above, and a
+         second one here read as a contradiction wherever the network's two
+         feeds are out of step. -->
+    <string name="station_bikes_list_title">Detalii despre bicicletele din această stație</string>
+    <!-- Said under that row, with the list open, where the count above and
+         the list below cannot both be right. -->
+    <string name="station_bikes_feeds_disagree">Rețeaua publică această listă într-un flux propriu, separat de numărul de mai sus, iar aici cele două se contrazic. Roue Libre le arată pe amândouă așa cum sunt publicate, în loc să aleagă între ele.</string>
+    <!-- The one word a line of the list adds where the feed says the bike
+         is booked; "out of service" reuses the station's own word. -->
+    <string name="station_bike_reserved">Rezervată</string>
+    <plurals name="station_bikes_out_of_service">
+        <item quantity="one">%1$d bicicletă nefuncțională</item>
+        <item quantity="few">%1$d biciclete nefuncționale</item>
+        <item quantity="other">%1$d de biciclete nefuncționale</item>
+    </plurals>
+
+    <!-- All of these are read after "Actualizat", which is why they open with
+         "acum" rather than closing with an "în urmă". -->
+    <string name="freshness_just_now">chiar acum</string>
+    <plurals name="freshness_seconds">
+        <item quantity="one">acum %1$d secundă</item>
+        <item quantity="few">acum %1$d secunde</item>
+        <item quantity="other">acum %1$d de secunde</item>
+    </plurals>
+    <plurals name="freshness_minutes">
+        <item quantity="one">acum %1$d minut</item>
+        <item quantity="few">acum %1$d minute</item>
+        <item quantity="other">acum %1$d de minute</item>
+    </plurals>
+    <plurals name="freshness_hours">
+        <item quantity="one">acum %1$d oră</item>
+        <item quantity="few">acum %1$d ore</item>
+        <item quantity="other">acum %1$d de ore</item>
+    </plurals>
+    <plurals name="freshness_days">
+        <item quantity="one">acum %1$d zi</item>
+        <item quantity="few">acum %1$d zile</item>
+        <item quantity="other">acum %1$d de zile</item>
+    </plurals>
+    <plurals name="freshness_months">
+        <item quantity="one">acum %1$d lună</item>
+        <item quantity="few">acum %1$d luni</item>
+        <item quantity="other">acum %1$d de luni</item>
+    </plurals>
+    <string name="freshness_stale">Date înghețate · %1$s</string>
+    <string name="freshness_fresh">Actualizat %1$s</string>
+    <string name="freshness_never">Nicio actualizare</string>
+    <string name="freshness_loading">Se încarcă stațiile…</string>
+
+    <string name="stations_empty_title">Nicio stație încărcată</string>
+    <string name="stations_empty_message">Trage lista în jos pentru a aduce stațiile rețelei.</string>
+    <string name="action_refresh">Actualizează</string>
+    <string name="action_retry">Încearcă din nou</string>
+
+    <string name="map_open_list">Vezi lista stațiilor</string>
+    <string name="map_description">Hartă. Trage cu două degete pentru a o muta, apropie sau depărtează două degete pentru a mări sau a micșora, rotește două degete pentru a o roti, glisează două degete în sus sau în jos pentru a o înclina.</string>
+    <string name="map_attribution">© colaboratorii OpenStreetMap</string>
+    <string name="map_locate_me">Localizează-mă</string>
+    <string name="map_locating">Se caută poziția ta…</string>
+    <string name="map_location_denied">Fără locație, alege punctul de plecare pe hartă sau după adresă.</string>
+    <string name="map_location_unavailable">Poziție indisponibilă. Verifică dacă locația este activată, apoi încearcă din nou.</string>
+    <string name="map_outside_city_title">Ești în altă parte</string>
+    <!-- %1$s is the network's name, not the city's. -->
+    <string name="map_outside_city_message">Poziția ta se află în afara zonei acoperite de %1$s, așa că harta nu o poate arăta. Alege orașul în care ești ca să-i vezi stațiile.</string>
+    <string name="map_outside_city_brief">Poziția ta se află în afara zonei acoperite de %1$s.</string>
+    <string name="map_needs_tiles_title">Harta are nevoie de fondul ei cartografic</string>
+    <string name="map_needs_tiles_message">Instalează fondul cartografic din ecranul de stocare. Între timp, lista stațiilor rămâne utilizabilă.</string>
+    <string name="map_downloading_title">Se descarcă harta</string>
+    <string name="map_downloading_message">Va apărea aici imediat ce este instalată. Între timp, lista stațiilor rămâne utilizabilă.</string>
+    <string name="map_needs_city_title">Care oraș?</string>
+    <string name="map_needs_city_message">Alege zona urbană pe care vrei să o folosești. Datele ei se descarcă apoi, o dată pentru totdeauna.</string>
+    <string name="map_city_withdrawn_title">Rețea indisponibilă</string>
+    <string name="map_city_withdrawn_message">%1$s nu mai este disponibil, iar stațiile sale nu mai sunt afișate. Alege alt oraș. Datele rămase pe acest dispozitiv pot fi șterse din lista orașelor.</string>
+    <string name="map_city_withdrawn_message_unnamed">Rețeaua pe care ai ales-o nu mai este disponibilă, iar stațiile sale nu mai sunt afișate. Alege alt oraș. Datele rămase pe acest dispozitiv pot fi șterse din lista orașelor.</string>
+    <string name="map_city_newer_version_message">%1$s este disponibil într-o versiune mai nouă a aplicației, iar stațiile sale nu sunt afișate în aceasta. Actualizează aplicația sau alege alt oraș.</string>
+    <string name="city_choose_another">Alege alt oraș</string>
+    <!-- The compass, shown while the map is turned or tilted, and gone once
+         both are back as the screen opened (SPEC §7.1). -->
+    <string name="map_face_north">Orientează spre nord și aplatizează harta</string>
+    <plurals name="map_bearing_description">
+        <item quantity="one">Harta este rotită cu %1$d grad față de nord.</item>
+        <item quantity="few">Harta este rotită cu %1$d grade față de nord.</item>
+        <item quantity="other">Harta este rotită cu %1$d de grade față de nord.</item>
+    </plurals>
+    <string name="map_tilted_description">Harta este înclinată.</string>
+    <plurals name="map_bearing_tilted_description">
+        <item quantity="one">Harta este rotită cu %1$d grad față de nord și înclinată.</item>
+        <item quantity="few">Harta este rotită cu %1$d grade față de nord și înclinată.</item>
+        <item quantity="other">Harta este rotită cu %1$d de grade față de nord și înclinată.</item>
+    </plurals>
+
+    <string name="welcome_hello_title">Roue Libre</string>
+    <string name="welcome_hello_body">Aplicația arată bicicletele partajate pe o hartă și calculează un traseu de la ușă la ușă: mergi pe jos până la o stație, pedalezi, apoi mergi pe jos restul drumului.\n\nEste gratuită și cu sursă deschisă. Fără cont, fără reclame, fără trackere.</string>
+    <string name="welcome_privacy_title">Nimic nu pleacă de pe acest telefon</string>
+    <string name="welcome_privacy_body">Traseele se calculează pe acest telefon. Adresele căutate nu sunt trimise nimănui, nici măcar în timp ce le scrii.\n\nNu se păstrează niciun istoric: nici traseele, nici pozițiile, nici destinațiile.\n\nSingura cerere care iese în rețea la folosirea obișnuită întreabă câte biciclete sunt disponibile.</string>
+    <string name="welcome_fleet_title">Ce spune bicicleta</string>
+    <string name="welcome_fleet_body">Bicicleta desenată arată ce împrumută orașul tău.\n\nEste citită din fluxul rețelei, niciodată ghicită.</string>
+    <string name="welcome_fleet_mechanical_only">Rețeaua împrumută doar biciclete mecanice.</string>
+    <string name="welcome_fleet_electric_only">Rețeaua împrumută doar biciclete electrice.</string>
+    <string name="welcome_fleet_mixed">Rețeaua împrumută ambele tipuri.</string>
+
+    <string name="welcome_data_title">Un oraș, o descărcare</string>
+    <string name="welcome_data_body">Harta, străzile și calculul traseelor stau pe dispozitiv. De asta funcționează fără rețea — și de asta datele orașului tău se descarcă o dată.\n\nAșa că începe prin a-l alege. Așteaptă-te la vreo patruzeci de megaocteți pentru o zonă urbană mijlocie, mai mult pentru o capitală; dimensiunea este anunțată înainte de descărcare.\n\nO poți face și mai târziu: până atunci, lista stațiilor și disponibilitatea lor rămân utilizabile.</string>
+    <string name="welcome_step" tools:ignore="PluralsCandidate">%1$d din %2$d</string>
+    <string name="welcome_continue">Continuă</string>
+    <string name="welcome_skip">Omite</string>
+    <string name="welcome_choose_city">Alege orașul meu</string>
+    <string name="welcome_later">Mai târziu</string>
+    <string name="welcome_open">Citește din nou introducerea</string>
+
+    <string name="whats_new_title">Noutăți</string>
+    <string name="whats_new_done">Continuă</string>
+    <string name="whats_new_nothing">Această versiune nu are note de lansare.</string>
+    <string name="whats_new_open">Vezi noutățile</string>
+
+    <string name="incoming_place_default_label">Loc primit</string>
+    <string name="incoming_show_me">Afișează</string>
+    <string name="incoming_needs_index">Această adresă trebuie căutată în indexul offline, care nu este instalat.</string>
+    <string name="incoming_address_not_found">„%1$s” nu se potrivește cu nicio adresă din zona acoperită.</string>
+    <string name="incoming_address_choices_title">Te refereai la una dintre aceste adrese?</string>
+    <string name="incoming_address_choice">%1$s\n%2$s</string>
+    <string name="incoming_outside_coverage">Acest loc se află în afara zonei acoperite de datele instalate: niciun traseu nu ajunge până acolo.</string>
+    <string name="incoming_unreadable_link">Acest link nu spune unde să mergi: locul din el nu a putut fi citit.</string>
+
+    <string name="favourites_title">Favorite</string>
+    <string name="stations_all_title">Toate stațiile</string>
+    <string name="stations_favourites_reorder">Reordonează</string>
+    <string name="stations_favourites_fold">Ascunde favoritele</string>
+    <string name="stations_favourites_unfold">Afișează favoritele</string>
+    <string name="favourites_reorder_hint">Ține apăsat un rând ca să îl muți.</string>
+
+    <string name="settings_title">Setări</string>
+    <string name="settings_open">Setări</string>
+    <!-- The section titles of the settings screen (SPEC §7.6), in the order
+         the screen lays them out. A section holding nothing is not shown, so a
+         title arrives with the first setting placed under it. -->
+    <string name="settings_section_city">Oraș</string>
+    <string name="settings_section_journey">Traseu</string>
+    <string name="settings_section_display">Afișaj</string>
+    <string name="settings_section_data">Date offline</string>
+
+    <!-- The walking pace (SPEC §6, §7.6). Named in words and never in km/h: a
+         pace is something one knows about oneself, where a speed is a figure
+         nobody has measured about themselves — and a speed written on a button
+         would be read as a promise about the minutes to come. "Ritm" is not a
+         "viteză", and the "de mers" is what keeps it from being read as a
+         pedalling pace in a bicycle application. -->
+    <string name="settings_walking_pace_title">Ritm de mers</string>
+    <string name="settings_walking_pace_slow">Lent</string>
+    <string name="settings_walking_pace_normal">Normal</string>
+    <string name="settings_walking_pace_brisk">Alert</string>
+    <string name="settings_walking_pace_description">Ritmul cu care se calculează porțiunile pe jos ale unui traseu</string>
+
+    <string name="settings_theme_title">Temă</string>
+    <string name="settings_theme_system">Sistem</string>
+    <string name="settings_theme_light">Luminoasă</string>
+    <string name="settings_theme_dark">Întunecată</string>
+
+    <!-- Units (SPEC 7.6). The buttons name the units rather than the
+         countries: what one gets is what is shown, and no system belongs to a
+         nation. -->
+    <string name="settings_units_title">Unități</string>
+    <string name="settings_units_system">Sistem</string>
+    <string name="settings_units_metric">m · km</string>
+    <string name="settings_units_us">ft · mi</string>
+    <string name="settings_units_uk">yd · mi</string>
+    <string name="settings_units_description">Unitățile folosite pentru distanțe</string>
+    <string name="settings_units_system_description">Urmează regiunea setată pe dispozitiv</string>
+    <string name="settings_units_metric_description">Metri și kilometri</string>
+    <string name="settings_units_us_description">Picioare și mile</string>
+    <string name="settings_units_uk_description">Iarzi și mile</string>
+
+    <string name="about_title">Despre</string>
+    <string name="about_open">Despre</string>
+    <string name="about_version">Versiunea %1$s</string>
+    <string name="about_privacy_title">Confidențialitate</string>
+    <string name="about_privacy_body">Fără cont, fără reclame, fără trackere, fără identificator unic. Nimic din ce cauți sau calculezi nu pleacă de pe acest telefon: adresele, traseele și poziția ta rămân aici și nu sunt păstrate. Singura cerere care iese în rețea la folosirea obișnuită aduce disponibilitatea bicicletelor. Seturile de date se descarcă numai când le ceri.</string>
+    <string name="about_attributions_title">Surse de date</string>
+    <string name="about_attribution_gbfs">Disponibilitatea bicicletelor: datele deschise ale rețelei servite, publicate în formatul GBFS. În Franța sunt indexate pe transport.data.gouv.fr.</string>
+    <string name="about_attribution_osm">Hartă, calculul traseelor și puncte de reper: © colaboratorii OpenStreetMap, licența ODbL.</string>
+    <string name="about_attribution_ban">Adrese și numere poștale: Base Adresse Nationale, licența ODbL.</string>
+    <string name="about_attribution_geonames">Numele localităților: GeoNames, licența CC BY 4.0.</string>
+    <string name="about_attribution_brouter">Calculul traseelor: BRouter, licența MIT, pe date OpenStreetMap.</string>
+    <string name="about_attribution_maplibre">Randarea hărții: MapLibre Native, licența BSD cu două clauze.</string>
+    <string name="about_links_title">Deschiderea unui loc dintr-o altă aplicație</string>
+    <!-- The Settings path is quoted word for word from Android's own Romanian:
+         `settings:settings_label`, `settings:apps_dashboard_title`,
+         `settings:launch_by_default`, `settings:app_launch_add_link`. -->
+    <string name="about_links_body">Linkurile „geo:” și adresele trimise ca text simplu ajung direct aici: alege Roue Libre în selectorul Android. Linkurile de pe site-urile de hărți au nevoie de permisiune: Setări → Aplicații → Roue Libre → Deschide în mod prestabilit → Adaugă un link.</string>
+    <string name="about_licence_title">Licență</string>
+    <string name="about_licence_body">Roue Libre este software liber, publicat sub licența GNU GPL versiunea 3. Îl poți folosi, studia, modifica și transmite mai departe.</string>
+    <string name="about_open_repository">Vezi codul sursă</string>
+    <string name="about_open_sources">Sursele, oraș cu oraș</string>
+    <string name="about_open_licences">Licențele componentelor</string>
+    <string name="donate_open">Donează pe Liberapay</string>
+
+    <string name="sources_title">Surse de date</string>
+    <string name="sources_intro">Disponibilitatea vine de la rețeaua fiecărui oraș, ca date deschise. Iată cine le produce, inclusiv pentru orașele pe care nu le-ai instalat.</string>
+    <string name="sources_open">Deschide sursa</string>
+    <string name="about_licences_title">Licențe</string>
+    <string name="about_no_browser">Pe acest dispozitiv nu este instalat niciun browser.</string>
+
+    <string name="journey_title">Traseu</string>
+    <string name="journey_open">Planifică un traseu</string>
+    <string name="journey_origin_empty">De unde pleci?</string>
+    <string name="journey_destination_empty">Unde mergi?</string>
+    <string name="journey_choose_origin">De unde pleci?</string>
+    <string name="journey_choose_destination">Unde mergi?</string>
+    <string name="journey_swap">Inversează plecarea și destinația</string>
+    <string name="journey_hint">Traseul se calculează pe dispozitiv: mergi pe jos până la o stație, pedalezi, apoi mergi pe jos restul drumului.</string>
+    <!-- The switch that leaves the network out of the journey, and the sentence
+         that replaces the one above it when it is on (SPEC §7.3). -->
+    <string name="journey_own_bike">Merg cu propria mea bicicletă</string>
+    <string name="journey_hint_own_bike">Traseul se calculează pe dispozitiv: o singură pedalare de la ușă la ușă, fără nicio stație pe drum.</string>
+
+    <!-- A journey asked for from a bike the network reports outside its
+         stations (SPEC §7.2.1, §7.3, §7.4). The first names that departure in
+         the origin field of the two journey screens: the producer rotates a
+         bike's identifier after every rental, so there is no name to show and
+         what the reader needs is what kind of point it is. The second says why
+         that field cannot be pressed — editing it would be asking an ordinary
+         journey, which the ordinary way already offers. -->
+    <string name="journey_departure_street_bike">Bicicletă în afara stațiilor</string>
+    <string name="journey_origin_street_bike_locked">Traseul pornește de la bicicleta pe care ai ales-o.</string>
+    <!-- And the sentence that replaces the two above it on that journey: there
+         is no walk to the bike, one is standing beside it, and the ride ends at
+         a station because that is where a bike goes back (SPEC §6). -->
+    <string name="journey_hint_street_bike">Traseul se calculează pe dispozitiv: pedalezi de aici, lași bicicleta într-o stație, apoi mergi pe jos restul drumului.</string>
+
+    <!-- Which bike one wants to ride (SPEC §7.3). The first asks for nothing,
+         which is what the application does at rest. -->
+    <string name="journey_bike_kind_any">Orice bicicletă</string>
+    <string name="journey_bike_kind_mechanical">Mecanică</string>
+    <string name="journey_bike_kind_electric">Electrică</string>
+    <string name="journey_bike_kind_any_description">Orice bicicletă, indiferent de tip</string>
+    <string name="journey_bike_kind_mechanical_description">O bicicletă pe care o pedalez fără ajutor</string>
+    <string name="journey_bike_kind_electric_description">O bicicletă cu asistență la pedalare</string>
+    <string name="journey_compute">Calculează traseul</string>
+    <string name="journey_computing">Se calculează cel mai bun traseu…</string>
+    <!-- Nothing is being chosen here — there is one route to trace, not a pair
+         of stations to weigh — so the wait does not claim to be looking for the
+         best of anything. -->
+    <string name="journey_computing_own_bike">Se calculează drumul cu bicicleta…</string>
+    <string name="journey_source_home">Acasă</string>
+    <string name="journey_source_work">Serviciu</string>
+    <string name="journey_source_my_position">Poziția mea</string>
+    <string name="journey_locating">Se caută poziția ta…</string>
+    <string name="journey_source_favourite">O stație favorită</string>
+    <string name="journey_source_on_map">Un punct pe hartă</string>
+    <string name="journey_no_favourite">Încă nicio stație favorită. Deschide o stație și atinge steaua ca să o adaugi.</string>
+    <string name="journey_pick_crosshair">Punct vizat</string>
+    <string name="journey_pick_confirm">Alege acest punct</string>
+    <string name="journey_picked_point">Punct pe hartă</string>
+    <string name="journey_frame">Arată tot traseul</string>
+
+    <string name="journey_summary">din care %1$s pe jos și %2$s cu bicicleta · %3$s</string>
+    <!-- Metres climbed over a leg or over the whole journey. Shown only where
+         there is relief worth naming; a flat city never reads this. Written
+         "urcare de %1$s" and not "%1$s de urcare": the "de" of Romanian's
+         `other` category belongs to a count, and this placeholder is a
+         formatted distance, not a number. -->
+    <string name="journey_climb">urcare de %1$s</string>
+    <!-- What waits at the station one sets off from, hung at the end of the
+         journey summary, in a conurbation lending both kinds of bike
+         (SPEC §7.4). %1$s is the two counts, mechanical and electric, each
+         already agreed in number. -->
+    <string name="journey_bikes_at_departure">%1$s la stația de plecare</string>
+    <!-- The block holding the total time, the summary and the drawing opens
+         the journey in full: this is what the press does, announced to a screen
+         reader that would otherwise say only "activate". -->
+    <string name="journey_detail_open">Arată traseul în detaliu</string>
+    <string name="journey_detail_title">Traseul în detaliu</string>
+    <string name="journey_detail_departure_station">Stația de plecare</string>
+    <string name="journey_detail_arrival_station">Stația de sosire</string>
+    <!-- The counts shown are the ones the journey was worked out on: a station
+         empties while one walks to it (SPEC §6). -->
+    <!-- The drawing of the ground the bike leg runs over. -->
+    <string name="journey_detail_profile">Etapa cu bicicleta, la deal și la vale</string>
+    <!-- Read out in place of the drawing. %1$s is the climb of the ride, %2$s
+         its lowest point above sea level and %3$s its highest. -->
+    <string name="journey_detail_profile_description">Etapa cu bicicleta urcă %1$s, între %2$s și %3$s deasupra nivelului mării.</string>
+    <!-- The same sentence where the climb is too small, or the ride too short,
+         for the elevation samples to name one (SPEC §7.4): the drawing is worth
+         showing, the figure is not, and the sentence says only what is read off
+         the drawing. %1$s is the lowest point above sea level and %2$s the
+         highest. -->
+    <string name="journey_detail_profile_description_no_climb">Etapa cu bicicleta se desfășoară între %1$s și %2$s deasupra nivelului mării.</string>
+    <string name="journey_detail_availability_note">Bicicletele și locurile libere, așa cum erau când s-a calculat traseul.</string>
+    <string name="journey_detail_availability_note_bikes">Bicicletele, așa cum erau când s-a calculat traseul.</string>
+    <!-- Hands one leg of the journey to another application: this one computes
+         journeys, it does not guide along them. -->
+    <string name="journey_navigate">Deschide într-o aplicație de navigație</string>
+    <string name="journey_navigate_which">Ce parte a traseului?</string>
+    <!-- The five journey steps. The verb takes the placeholder through "până
+         la", which meets a station name of any language without an article. -->
+    <string name="journey_step_to_station">Mergi pe jos până la %1$s</string>
+    <string name="journey_step_ride">Pedalează până la %1$s</string>
+    <string name="journey_step_ride_electric_description">Pedalează până la %1$s pe o bicicletă electrică</string>
+    <string name="journey_step_ride_mechanical_description">Pedalează până la %1$s pe o bicicletă mecanică</string>
+    <string name="journey_step_to_destination">Mergi pe jos până la destinație</string>
+    <string name="journey_step_walk_all">Mergi pe jos până la destinație</string>
+    <string name="journey_step_ride_all">Pedalează până la destinație</string>
+    <!-- The summary of a journey ridden on one's own bike: it sits under the
+         total time, where the walk's own summary sits, and says the same two
+         things — how far, and how much of it goes up. -->
+    <string name="journey_own_bike_only">cu propria ta bicicletă, pe o distanță de %1$s.</string>
+    <string name="journey_own_bike_only_climb">cu propria ta bicicletă, pe o distanță de %1$s și cu o urcare de %2$s.</string>
+    <string name="journey_walk_only">pe jos, pe o distanță de %1$s — aici niciun traseu cu bicicleta nu este posibil.</string>
+    <string name="journey_walk_only_climb">pe jos, pe o distanță de %1$s și cu o urcare de %2$s — aici niciun traseu cu bicicleta nu este posibil.</string>
+    <string name="journey_walk_is_quicker">pe jos, pe o distanță de %1$s — mai repede decât să mergi după o bicicletă.</string>
+    <string name="journey_walk_is_quicker_climb">pe jos, pe o distanță de %1$s și cu o urcare de %2$s — mai repede decât să mergi după o bicicletă.</string>
+    <string name="journey_none_title">Niciun traseu</string>
+    <string name="journey_no_bike_nearby">Nicio stație cu bicicletă lângă punctul de plecare. Încearcă mai târziu sau pleacă din altă parte.</string>
+
+    <string name="journey_no_mechanical_nearby">Nicio stație din apropiere nu are acum o bicicletă mecanică. Cere orice bicicletă sau încearcă mai târziu.</string>
+    <string name="journey_no_electric_nearby">Nicio stație din apropiere nu are acum o bicicletă electrică. Cere orice bicicletă sau încearcă mai târziu.</string>
+    <string name="journey_no_dock_nearby">Nicio stație cu loc liber lângă destinație. Încearcă mai târziu sau alege altă destinație.</string>
+    <string name="journey_no_return_nearby">Nicio stație de lângă destinație nu primește biciclete acum. Încearcă mai târziu sau alege altă destinație.</string>
+    <string name="journey_no_route">Nicio rută practicabilă între aceste două puncte.</string>
+    <string name="journey_graph_missing">Graful de trasee nu este instalat. Adaugă-l din ecranul de stocare.</string>
+    <string name="journey_outside_coverage">Acest punct se află în afara zonei acoperite de datele instalate.</string>
+    <string name="journey_outside_coverage_start">Punctul de plecare se află în afara zonei acoperite de datele instalate. Pleacă dintr-un punct aflat în interiorul ei.</string>
+    <string name="journey_outside_coverage_destination">Destinația se află în afara zonei acoperite de datele instalate. Alege o destinație în interiorul ei.</string>
+    <string name="journey_outside_coverage_both">Niciunul dintre cele două capete nu se află în zona acoperită de datele instalate. Instalează datele orașului prin care călătorești.</string>
+    <string name="journey_no_stations">Nicio stație cunoscută. Actualizează lista stațiilor, apoi încearcă din nou.</string>
+
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$02d</string>
+
+    <!-- A station's capacity: every docking point it holds, free or not. -->
+    <plurals name="docks_total">
+        <item quantity="one">%1$d doc</item>
+        <item quantity="few">%1$d docuri</item>
+        <item quantity="other">%1$d de docuri</item>
+    </plurals>
+    <string name="station_capacity_and_age">%1$s · %2$s</string>
+    <string name="station_address_nearby">Lângă %1$s</string>
+    <string name="station_favourite_add">Adaugă la favorite</string>
+    <string name="station_favourite_remove">Elimină din favorite</string>
+    <string name="station_as_origin">Pleacă de aici</string>
+    <string name="station_as_destination">Mergi aici</string>
+    <string name="station_open_in_navigation">Deschide într-o aplicație de navigație</string>
+    <string name="station_no_navigation_app">Pe acest dispozitiv nu este instalată nicio aplicație de hărți.</string>
+
+    <string name="address_search_title">Caută o adresă</string>
+    <!-- Written in the order Romanian writes an address, not in English's:
+         the street first, then the doorway, then the town — "Bulevardul
+         Ferdinand 12 Alba Iulia". `AddressQuery.parseQuery` reads a number
+         standing between the street and the town (SPEC §4.3), which is what
+         lets this hint say so. No postcode is invited: Romania writes it as
+         six digits, and a second number in the query makes the first one be
+         given up. -->
+    <string name="address_search_hint">Stradă, număr, localitate</string>
+    <string name="address_search_clear">Șterge căutarea</string>
+    <string name="address_search_privacy">Totul se caută pe dispozitiv. Nu se trimite nimic, nici măcar în timp ce scrii.</string>
+    <string name="address_locality">%1$s %2$s</string>
+    <string name="address_detail">%1$s · %2$s</string>
+    <string name="address_detail_approximate">%1$s · poziție aproximativă</string>
+    <string name="address_content_description">%1$s, %2$s</string>
+    <string name="address_search_prompt_title">Unde mergi?</string>
+    <!-- "Stations" here means railway stations, which Romanian calls "gări" —
+         a bike-share station is a "stație" and the two cannot be confused. -->
+    <string name="address_search_prompt_message">Scrie numele unei străzi, cu sau fără număr. Se pot căuta și gări, universități sau piețe importante.</string>
+    <!-- Shown while a search runs and the screen has nothing else to show. It
+         says nothing about the outcome, which is the whole point: on a large
+         index the answer can be seconds away. -->
+    <string name="address_searching_title">Se caută…</string>
+    <string name="address_searching_message">Se caută printre adresele instalate pe acest dispozitiv.</string>
+    <string name="address_no_match_title">Nicio adresă găsită</string>
+    <string name="address_no_match_message">Nimic nu se potrivește cu „%1$s”. Încearcă doar numele străzii sau adaugă localitatea.</string>
+    <string name="address_needs_index_title">Căutarea are nevoie de indexul de adrese</string>
+    <string name="address_needs_index_message">Instalează indexul de adrese din ecranul de stocare. Rămâne pe dispozitiv și nu iese niciodată în rețea.</string>
+    <string name="address_unreadable_title">Index de adrese ilizibil</string>
+    <string name="map_picked_place_description">%1$s. Atinge pentru a vedea ce poți face cu acest loc.</string>
+
+    <string name="place_sheet_title">Acest loc</string>
+    <string name="place_clear">Șterge acest punct</string>
+
+    <!-- Distances, formatted through the localisation APIs (SPEC §9). In all
+         five, %1$s is a figure already rounded and already written in the
+         interface's language: the translation places the symbol, never the
+         number. Which of the five applies is the reader's unit system. -->
+    <string name="distance_metres">%1$s m</string>
+    <string name="distance_kilometres">%1$s km</string>
+    <!-- Unit symbols. Written the same way in most languages; the string
+         exists in every one all the same, so a language that writes them
+         otherwise has somewhere to say so. -->
+    <string name="distance_feet">%1$s ft</string>
+    <string name="distance_yards">%1$s yd</string>
+    <string name="distance_miles">%1$s mi</string>
+    <string name="action_back">Înapoi</string>
+
+    <!-- City screen: which conurbation the application serves. -->
+    <string name="city_title">Oraș</string>
+    <!-- Read aloud in place of the row that opens the city list: what is
+         written on it is the network in service, which says nothing on its
+         own about what pressing it settles. %1$s is a city label. -->
+    <string name="settings_city_description">Rețeaua afișată: %1$s</string>
+    <string name="city_choose">Alege orașul meu</string>
+    <string name="city_intro">Alege zona urbană pe care vrei să o folosești. Datele ei se instalează apoi, o dată pentru totdeauna.</string>
+    <string name="city_locate_me">Găsește orașul meu</string>
+    <string name="city_active">În uz</string>
+    <plurals name="city_detail">
+        <item quantity="one">%1$d stație · %2$s de descărcat</item>
+        <item quantity="few">%1$d stații · %2$s de descărcat</item>
+        <item quantity="other">%1$d de stații · %2$s de descărcat</item>
+    </plurals>
+    <plurals name="city_stations">
+        <item quantity="one">%1$d stație</item>
+        <item quantity="few">%1$d stații</item>
+        <item quantity="other">%1$d de stații</item>
+    </plurals>
+    <string name="city_detail_size_only">%1$s de descărcat</string>
+    <plurals name="city_detail_size_unknown">
+        <item quantity="one">%1$d stație · dimensiune anunțată înainte de descărcare</item>
+        <item quantity="few">%1$d stații · dimensiune anunțată înainte de descărcare</item>
+        <item quantity="other">%1$d de stații · dimensiune anunțată înainte de descărcare</item>
+    </plurals>
+    <string name="city_size_unknown">Dimensiune anunțată înainte de descărcare</string>
+    <string name="city_needs_newer_version">Indisponibil în această versiune a aplicației</string>
+    <!-- %1$s is a size, "143 MB" for instance: no participle stands beside it,
+         which would have had to agree with a figure nobody can predict. -->
+    <string name="city_installed">%1$s pe dispozitiv</string>
+    <string name="city_label">%1$s — %2$s</string>
+    <string name="city_delete">Șterge</string>
+    <!-- In these three, %1$s is the NETWORK's name and not the city's: 328 of
+         the 331 catalogue entries publish a display name different from their
+         main city. Nothing here calls it a city. -->
+    <string name="city_delete_description">Șterge datele pentru %1$s</string>
+    <string name="city_delete_title">Ștergi aceste date?</string>
+    <string name="city_delete_body">Toate datele offline pentru %1$s vor fi șterse. Va trebui să le descarci din nou ca să le poți folosi.</string>
+    <string name="city_withdrawn">Nu mai este disponibil</string>
+    <string name="city_withdrawn_delete_body">Toate datele offline pentru %1$s vor fi șterse. Rețeaua nu mai este disponibilă, așa că aceste date nu mai folosesc la nimic.</string>
+    <string name="city_delete_confirm">Șterge</string>
+    <string name="city_deleted">Datele pentru %1$s au fost șterse</string>
+    <string name="city_search_hint">Caută un oraș</string>
+    <string name="city_search_clear">Șterge căutarea</string>
+    <string name="city_country_filter">Țară</string>
+    <string name="city_country_all">Toate țările</string>
+    <string name="city_no_match_title">Niciun oraș găsit</string>
+    <string name="city_no_match_message">Nimic nu se potrivește cu „%1$s”. Verifică scrierea sau șterge căutarea.</string>
+    <string name="city_no_match_in_country">Niciun oraș din țara aleasă, %2$s, nu se potrivește cu „%1$s”. Există în alte țări.</string>
+    <string name="city_proposal_title">Orașul tău</string>
+    <!-- Shown when the position says one is in another served conurbation than the one installed. -->
+    <string name="city_here_title">Ești în alt oraș</string>
+    <!-- The dative clitic "-i" carries "its" without naming a gender, which is
+         what lets a network of any name land in %1$s. -->
+    <string name="city_here_body">%1$s acoperă zona în care ești. Instalează-i datele ca să-i vezi stațiile și să calculezi trasee aici.</string>
+    <string name="city_here_installed_body">%1$s acoperă zona în care ești, iar datele sunt deja pe dispozitiv.</string>
+    <string name="city_here_install">Instalează-i datele</string>
+    <string name="city_here_use">Folosește acest oraș</string>
+    <string name="city_proposal_body">Se pare că ești în zona acoperită de %1$s. Alegem această zonă?</string>
+    <string name="city_proposal_accept">Da</string>
+    <string name="city_none_nearby">Nicio rețea cunoscută prin apropiere. Alege un oraș din listă.</string>
+    <string name="city_location_denied">Fără locație, alege-ți orașul din listă sau caută-l după nume.</string>
+    <string name="action_cancel">Anulează</string>
+
+    <string name="size_bytes">%1$s B</string>
+    <string name="size_kilobytes">%1$s kB</string>
+    <string name="size_megabytes">%1$s MB</string>
+    <string name="size_gigabytes">%1$s GB</string>
+
+    <string name="storage_title">Stocare</string>
+    <string name="storage_open">Gestionează datele offline</string>
+    <string name="storage_intro">Harta, calculul traseelor și căutarea de adrese funcționează fără rețea. Au nevoie de trei seturi de date, instalate o singură dată.</string>
+    <!-- The verb keeps the sentence impersonal, where "%1$s ocupați" would
+         have agreed a participle with a size of unknown shape. -->
+    <string name="storage_total">Ocupă %1$s pe acest dispozitiv</string>
+    <string name="storage_nothing_installed">Niciun set de date instalat</string>
+    <string name="storage_no_city">Niciun oraș ales</string>
+    <string name="city_withdrawn_label">%1$s · nu mai este disponibil</string>
+    <string name="city_newer_version_label">%1$s · necesită actualizare</string>
+
+    <!-- The three dataset names. All three are masculine singular, which is
+         what lets `dataset_imported` and `dataset_deleted` be one string each
+         for all of them. -->
+    <string name="dataset_tiles">Fond cartografic</string>
+    <string name="dataset_tiles_purpose">Desenează harta fără rețea</string>
+    <string name="dataset_routing">Graf de trasee</string>
+    <string name="dataset_routing_purpose">Calculează traseele pe dispozitiv</string>
+    <string name="dataset_addresses">Index de adrese</string>
+    <string name="dataset_addresses_purpose">Caută străzi fără să trimită nimic</string>
+
+    <string name="storage_check_updates">Caută actualizări</string>
+    <string name="storage_checking">Se citește manifestul…</string>
+    <string name="storage_up_to_date">Totul este la zi.</string>
+    <string name="storage_download_pending">Descarcă %1$s</string>
+    <string name="storage_download_starting">Se pornește descărcarea…</string>
+    <string name="storage_downloading">%1$s · %2$s din %3$s</string>
+    <string name="storage_download_failed">%1$s: %2$s</string>
+    <string name="storage_manifest_other_network">Datele publicate sunt cele ale %1$s, nu ale %2$s. Nu s-a descărcat nimic: ai fi primit harta și adresele altui oraș.</string>
+    <string name="storage_wifi_warning">Nu ești pe Wi-Fi. Această descărcare poate consuma mult dintr-un abonament de date mobile.</string>
+    <string name="dataset_update_available">Actualizare disponibilă</string>
+    <string name="dataset_download_failed">Descărcarea a eșuat. %1$s</string>
+
+    <string name="dataset_absent">Neinstalat</string>
+    <string name="dataset_installed">%1$s · %2$s</string>
+    <string name="dataset_import">Importă un fișier</string>
+    <string name="dataset_replace">Înlocuiește cu un fișier</string>
+    <string name="dataset_delete">Șterge</string>
+    <string name="dataset_delete_description">Șterge %1$s</string>
+    <string name="dataset_delete_title">Ștergi aceste date?</string>
+    <!-- %1$s is the dataset's name, %2$s the space it frees. -->
+    <string name="dataset_delete_body">Datele „%1$s” vor fi șterse, eliberând %2$s. Va trebui să le descarci din nou ca să lucrezi offline.</string>
+    <string name="dataset_imported">%1$s instalat</string>
+    <string name="dataset_deleted">%1$s șters</string>
+
+    <string name="dataset_rejected_empty">Fișierul ales este gol.</string>
+    <string name="dataset_rejected_format">Acest fișier nu este cel așteptat. Alege fișierul „%1$s” produs de scripturile de generare.</string>
+    <!-- %1$s is the dataset’s name, %2$s the file expected for it. -->
+    <string name="dataset_rejected_not_data">Acest fișier nu este „%1$s” și nici alte date pe care aplicația le citește. Alege fișierul „%2$s” produs de scripturile de generare.</string>
+    <!-- %1$s is what the file really is, %2$s the dataset it was offered as. -->
+    <string name="dataset_rejected_other_dataset">Acest fișier este „%1$s”, nu „%2$s”. Importă-l pe linia lui.</string>
+    <string name="dataset_rejected_version">Acest fișier este în versiunea de format %1$d, iar această versiune a aplicației citește versiunea %2$d. Actualizează aplicația.</string>
+    <string name="dataset_rejected_checksum">Fișierul nu se potrivește cu suma lui de control: este incomplet sau deteriorat. Descarcă-l din nou.</string>
+    <string name="dataset_rejected_transfer">Copierea fișierului a eșuat. Verifică spațiul liber și încearcă din nou.</string>
+
+    <string name="error_offline">Fără conexiune. Ultima disponibilitate cunoscută rămâne pe ecran.</string>
+    <string name="error_offline_no_availability">Fără conexiune. Nu a fost primită încă nicio disponibilitate, așa că nu este nimic de afișat.</string>
+    <!-- The same failures read on the storage screen, where a dataset
+         transfer failed rather than an availability refresh. The server
+         is the one hosting the files, not the bike network's, and those
+         files come down resumably (SPEC §4.4) — which is what each of
+         these says will happen next. -->
+    <string name="error_offline_download">Fără conexiune. Când revii online, atinge „Descarcă” pentru a relua de unde a rămas.</string>
+    <string name="error_timeout_download">Serverul nu răspunde. Atinge „Descarcă” mai târziu pentru a relua de unde a rămas.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_download">Eroare de server (%1$d). Atinge „Descarcă” mai târziu pentru a relua de unde a rămas.</string>
+    <string name="error_untrusted_server_download">Certificat de securitate nevalid. După înnoirea lui, atinge „Descarcă” pentru a relua.</string>
+    <string name="error_malformed_download">S-a primit un fișier ilizibil. Atinge „Descarcă” mai târziu pentru a relua de unde a rămas.</string>
+    <string name="error_local_storage_download">Fișierul nu a putut fi salvat. Eliberează spațiu și atinge „Descarcă” pentru a relua.</string>
+    <!-- The same failures again, read after a press on "Check for updates",
+         which is a third gesture: it reads the published manifest and
+         transfers nothing, so there is no download to pick up where it
+         stopped, and the whole check has to be made again. -->
+    <string name="error_offline_check">Fără conexiune. Nu s-a verificat nimic; încearcă din nou când revii online.</string>
+    <string name="error_timeout_check">Serverul nu răspunde. Nu s-a verificat nimic; încearcă din nou peste puțin timp.</string>
+    <!-- %1$d is the HTTP code the server returned. -->
+    <string name="error_server_refused_check">Eroare de server (%1$d). Nu s-a verificat nimic; încearcă din nou mai târziu.</string>
+    <string name="error_untrusted_server_check">Certificat de securitate nevalid. Nu se poate verifica nimic până la înnoirea lui.</string>
+    <string name="error_malformed_check">Lista publicată de date este ilizibilă. Nu s-a verificat nimic; încearcă din nou mai târziu.</string>
+    <string name="error_local_storage_check">Nu se pot citi datele stocate pe dispozitiv. Nu a fost nimic de comparat.</string>
+    <string name="error_timeout">Serverul rețelei răspunde prea greu. Încearcă din nou peste puțin timp.</string>
+    <string name="error_server_refused">Serverul rețelei a returnat o eroare (%1$d). Încearcă din nou mai târziu.</string>
+    <string name="error_untrusted_server">Serverul rețelei a prezentat un certificat de securitate nevalid. Datele lui nu pot fi aduse în siguranță până când operatorul nu îl înnoiește.</string>
+    <string name="error_malformed">Datele primite sunt ilizibile. De vină este fluxul rețelei; încearcă din nou mai târziu.</string>
+    <string name="error_feed_unavailable">Rețeaua nu publică fluxul „%1$s”.</string>
+    <string name="error_unsupported_version">Această rețea își publică datele în versiunea %1$s, pe care această versiune a aplicației nu o poate citi. Actualizează aplicația.</string>
+    <string name="error_local_storage">Nu se pot citi datele stocate pe dispozitiv.</string>
+    <string name="error_no_city_chosen">Niciun oraș nu este ales. Alege unul.</string>
+
+    <!-- Wi-Fi-only downloads -->
+    <!-- The setting names Wi-Fi, which is the word everybody has, while what is
+         read stays the billing (SPEC §4.4): a phone's shared connection is
+         Wi-Fi and is a mobile plan, and a capped hotspot declares itself
+         billed. The line under the switch names those two cases in ordinary
+         words. Android's own "contorizată" (`settings:wifi_metered_label`)
+         still names a metered network, and so belongs to those explaining
+         lines rather than to the switch. -->
+    <string name="download_unmetered_only">Descarcă doar pe Wi-Fi</string>
+    <string name="download_unmetered_only_description">O conexiune partajată de la un telefon sau un Wi-Fi cu limită de date poate fi taxată la megaoctet și contează ca rețea mobilă.</string>
+    <string name="download_held_back_title">Descărcare pe rețea mobilă</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_held_back_body">Această conexiune poate fi taxată la megaoctet. Conectează-te la Wi-Fi ca să descarci %1$s sau descarcă oricum acum.</string>
+    <string name="download_stopped_title">Descărcare oprită</string>
+    <!-- %1$s is a size, "340 MB" for instance. What has already arrived is kept
+         on the device and the transfer picks up from there. -->
+    <string name="download_stopped_body">Această conexiune poate fi taxată la megaoctet, așa că descărcarea s-a oprit. Ce a ajuns se păstrează. Conectează-te la Wi-Fi ca să termini de descărcat %1$s sau continuă oricum acum.</string>
+    <string name="download_anyway">Descarcă oricum</string>
+    <!-- %1$s is a size, "340 MB" for instance. -->
+    <string name="download_waiting_for_unmetered">Se așteaptă Wi-Fi pentru a descărca %1$s.</string>
+    <string name="download_can_resume">Această conexiune nu mai este o rețea mobilă. Pornește din nou descărcarea: continuă de unde a rămas.</string>
+    <string name="download_connection_back">Conexiunea a revenit. Atinge „Descarcă” pentru a relua descărcarea de unde a rămas.</string>
+    <!-- Opening screen, large numbers, own bike kind -->
+
+    <string name="settings_opening_title">La pornire, aplicația se deschide pe</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_opening_description">Ecranul cu care pornește aplicația</string>
+    <string name="settings_opening_map">Hartă</string>
+    <string name="settings_opening_list">Lista stațiilor</string>
+    <!-- The way to the map from a station list opened on. -->
+    <string name="stations_open_map">Vezi harta</string>
+    <!-- The button that puts the nearest station at the top of the list
+         (SPEC 7.2), read aloud in place of its reticle, and what is said
+         when the position is refused to it. -->
+    <string name="stations_order_by_distance">Cea mai apropiată stație prima</string>
+    <string name="stations_location_denied">Fără locație, stațiile rămân în ordine alfabetică.</string>
+
+    <!-- Which stations the map draws at all. Set in the settings and nowhere
+         else: the map itself carries no control and no badge (SPEC 7.1). -->
+    <string name="settings_map_filters_title">Ce stații arată harta</string>
+    <string name="settings_map_filters_hide_out_of_service">Ascunde stațiile nefuncționale</string>
+    <!-- One wording for both modes: this screen knows nothing of the map's
+         Bikes / Free docks button, so it may name neither. -->
+    <string name="settings_map_filters_hide_empty">Ascunde stațiile care nu au nimic de oferit</string>
+    <!-- Under the switch, saying what "nothing" is read against. -->
+    <string name="settings_map_filters_hide_empty_hint">„Nimic” urmează ce numără harta: nicio bicicletă cât timp numără biciclete, niciun loc liber cât timp numără locuri libere.</string>
+    <string name="settings_map_filters_hide_empty_hint_bikes">„Nimic” înseamnă nicio bicicletă: în această rețea harta numără doar bicicletele.</string>
+    <string name="settings_bikes_past_capacity">Stațiile pline primesc biciclete</string>
+    <string name="settings_bikes_past_capacity_automatic">Automat</string>
+    <string name="settings_bikes_past_capacity_always">Mereu</string>
+    <string name="settings_bikes_past_capacity_never">Niciodată</string>
+    <string name="settings_bikes_past_capacity_hint_detected">Automat: această rețea lasă biciclete lângă stațiile sale pline, așa că o stație plină contează ca una unde îți poți preda bicicleta.</string>
+    <string name="settings_bikes_past_capacity_hint_not_detected">Automat: nimic din datele acestei rețele nu arată biciclete lăsate lângă stații pline, așa că o stație plină contează ca plină.</string>
+    <string name="settings_bikes_past_capacity_hint_takes_bikes">Automat: conform datelor acestei rețele, stațiile sale primesc biciclete chiar și fără niciun loc liber.</string>
+    <string name="settings_bikes_past_capacity_hint_not_read">Automat: se decide din datele acestei rețele imediat ce stațiile sale sunt încărcate.</string>
+    <string name="settings_bikes_past_capacity_hint_always">O stație plină contează ca una unde îți poți preda bicicleta. Dacă această rețea nu permite asta, un traseu se poate încheia la o stație care o refuză.</string>
+    <string name="settings_bikes_past_capacity_hint_never">O stație plină contează ca plină, orice ar arăta datele acestei rețele.</string>
+    <string name="settings_bikes_past_capacity_hint_never_takes_bikes">O stație fără niciun loc liber contează ca plină. În această rețea aproape nicio stație nu arată locuri libere, așa că rămân puține trasee posibile.</string>
+    <!-- Under both switches. The most important rule of the two filters, and
+         the only place it is now written. -->
+    <string name="settings_map_filters_keeps_unknown">Stațiile despre care rețeaua nu spune nimic rămân pe hartă: un număr pe care nimeni nu l-a putut citi nu este un număr egal cu zero.</string>
+
+    <!-- The bikes a network reports outside its stations (SPEC §4.1, §7.1,
+         §7.6), and everything said about them. Off by default: the setting is
+         opt-in twice over, for the markers it draws — whether one may take
+         such a bike where it stands is the network's rule, and the feed does
+         not carry it — and for the feed it reads, twenty times the weight of
+         the station feed.
+
+         The sentence under the switch is the whole of what the row says about
+         a network: one that publishes no such feed shows nothing at all, and
+         the map says that by drawing nothing. -->
+    <string name="settings_street_bikes">Arată bateria bicicletelor din stații și bicicletele din afara stațiilor</string>
+    <string name="settings_street_bikes_description">Dacă poți împrumuta o bicicletă din afara stațiilor acolo unde se află depinde de rețea. Aceasta citește un flux mult mai voluminos decât cel al stațiilor, iar doar rețelele care îl publică arată ceva.</string>
+
+    <!-- Shown once, the first time the switch above is turned on, and readable
+         again from the sheet of any such bike. It informs and does not
+         confirm: the switch is already on when it opens, and one button closes
+         it. Three short paragraphs, kept short because a modal window is no
+         place for dense text (SPEC §7.9) — what they are, what the application
+         cannot vouch for, and where a journey from one ends. -->
+    <string name="street_bike_intro_title">Biciclete în afara stațiilor</string>
+    <string name="street_bike_intro_body">Rețeaua semnalează aceste biciclete departe de stațiile sale. Unele au fost lăsate acolo de un utilizator, altele așteaptă în depoul operatorului.\n\nRoue Libre nu știe dacă ai voie să iei una de acolo unde se află: regulile rețelei o spun, iar unele rețele percep o penalizare pentru o bicicletă predată în afara unei stații.\n\nTraseul propus de la o bicicletă se termină întotdeauna la o stație.</string>
+    <string name="street_bike_intro_dismiss">Am înțeles</string>
+
+    <string name="bikes_past_capacity_title">%1$s primește biciclete și la stațiile pline</string>
+    <string name="bikes_past_capacity_body">La multe stații ale acestei rețele stau mai multe biciclete decât docuri: utilizatorii o lasă pe a lor lângă o stație plină, iar rețeaua o preia.\n\nDe aceea, Roue Libre consideră o stație plină drept una unde încă îți poți preda bicicleta și nu mai afișează locuri libere pentru această rețea.\n\nDacă o stație plină îți refuză bicicleta, dezactivează această opțiune. O poți schimba oricând din setări.</string>
+    <string name="bikes_past_capacity_keep">Păstrează</string>
+    <string name="bikes_past_capacity_turn_off">Dezactivează</string>
+
+    <!-- The sheet a bike outside stations opens (SPEC §7.2.1), in the station
+         sheet's shape and with less to say: a bike is one bike, and nothing is
+         counted on it. The row below reopens the explanation above, so its
+         words are readable again without switching the setting off and on. -->
+    <string name="street_bike_intro_reopen">Ce sunt aceste biciclete</string>
+    <string name="street_bike_title">Bicicletă în afara stațiilor</string>
+    <string name="street_bike_kind_mechanical">Bicicletă mecanică</string>
+    <string name="street_bike_kind_electric">Bicicletă electrică</string>
+    <string name="street_bike_kind_cargo">Bicicletă cargo</string>
+    <!-- %1$d is the charge as a whole percentage, read from the feed's own
+         figure. The doubled sign is a literal per cent, not a placeholder. -->
+    <string name="street_bike_charge">Baterie %1$d%%</string>
+    <!-- Said in place of the line above where the network publishes no
+         percentage. %1$s is a distance, already rounded and written in the
+         reader's units. -->
+    <string name="street_bike_range">Au mai rămas circa %1$s autonomie</string>
+    <!-- The bike has left the feed while its sheet was open. It is said rather
+         than the sheet closing under the reader's finger. -->
+    <string name="street_bike_gone">Această bicicletă nu mai este semnalată aici.</string>
+    <string name="street_bike_journey_from_here">Traseu de la această bicicletă</string>
+    <!-- What such a bike is called wherever it has to be named rather than
+         drawn — the label handed to the navigation application, which shows a
+         place and not a point. The second is for a bike the network's type
+         table reads as electric, which is the one the map marks with a bolt. -->
+    <string name="street_bike_marker_description">Bicicletă în afara stațiilor</string>
+    <string name="street_bike_marker_description_electric">Bicicletă electrică în afara stațiilor</string>
+
+    <!-- The rider's OWN bike, not the network's. Keep the wording clearly
+         about the reader's own equipment: the journey screen carries a
+         separate, similar-looking choice about the bikes the network lends.
+         "Propriu" is what carries the English "own" here; a bare "bicicleta
+         ta" would not tell the two settings apart. -->
+    <string name="settings_own_bike_kind_title">Propria ta bicicletă</string>
+    <!-- Read aloud in place of the two buttons beside it. -->
+    <string name="settings_own_bike_kind_description">Tipul bicicletei pe care o ai</string>
+    <string name="settings_own_bike_kind_mechanical">Mecanică</string>
+    <string name="settings_own_bike_kind_electric">Electrică</string>
+    <!-- Under the two buttons. Says what the declaration changes: an electric
+         bike is routed and timed as one, where a mechanical one is not. -->
+    <string name="settings_own_bike_kind_hint">Declarată electrică, bicicleta ta capătă propria rută și propriile durate.</string>
+
+    <!-- The summary of a ride on one's own bike, where that bike was said to be
+         a pedal-assist one. %1$s is a distance, %2$s a climb. -->
+    <string name="journey_own_bike_electric_only">cu propria ta bicicletă electrică, pe o distanță de %1$s.</string>
+    <string name="journey_own_bike_electric_only_climb">cu propria ta bicicletă electrică, pe o distanță de %1$s și cu o urcare de %2$s.</string>
+    <!-- Application language -->
+    <string name="settings_language_title">Limbă</string>
+    <!-- Heads the list of languages: the interface follows the device's own
+         language, which is what it did before this setting existed. The
+         languages themselves are never translated — each is written in its own
+         language, and comes from Android rather than from this file. -->
+    <string name="settings_language_system">Sistem</string>
+    <!-- Spoken label of the row, read aloud in place of the language alone.
+         %1$s is the language in service: "English", "Română", or the wording
+         above when the device's own is followed. -->
+    <string name="settings_language_description">Limba interfeței: %1$s</string>
+
+    <!-- My places (SPEC §7.6). -->
+    <string name="settings_section_places">Locurile mele</string>
+    <string name="settings_place_home">Acasă</string>
+    <string name="settings_place_work">Serviciu</string>
+    <string name="settings_place_none">Nedefinit</string>
+    <string name="settings_place_outside_city">În afara orașului acoperit</string>
+    <!-- %1$s is the setting, "Acasă" or "Serviciu". -->
+    <string name="settings_place_set">Setează %1$s</string>
+    <string name="settings_place_change">Schimbă %1$s</string>
+    <string name="settings_place_clear">Șterge %1$s</string>
+    <string name="settings_place_cleared">Loc șters: %1$s</string>
+    <!-- %1$s is the setting, %2$s the place named or the wording above. -->
+    <string name="settings_place_description">%1$s: %2$s</string>
+
+    <string name="map_centre_on_home">Arată casa mea pe hartă</string>
+    <string name="map_centre_on_work">Arată locul meu de muncă pe hartă</string>
+    <string name="settings_places_markers">Marchează locurile mele pe hartă</string>
+    <string name="settings_places_buttons">Un buton pe hartă pentru fiecare loc</string>
+</resources>

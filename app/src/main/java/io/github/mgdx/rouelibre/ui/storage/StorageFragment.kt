@@ -1,0 +1,515 @@
+package io.github.mgdx.rouelibre.ui.storage
+
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.Uri
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import io.github.mgdx.rouelibre.R
+import io.github.mgdx.rouelibre.RoueLibreApplication
+import io.github.mgdx.rouelibre.core.config.ActiveCity
+import io.github.mgdx.rouelibre.core.data.DatasetKind
+import io.github.mgdx.rouelibre.data.datasets.DownloadProgress
+import io.github.mgdx.rouelibre.databinding.FragmentStorageBinding
+import io.github.mgdx.rouelibre.ui.ConfirmationDialogFragment
+import io.github.mgdx.rouelibre.ui.cityLabel
+import io.github.mgdx.rouelibre.ui.flaggedSubtitle
+import io.github.mgdx.rouelibre.ui.map.MapFragment
+import io.github.mgdx.rouelibre.ui.noLongerServedLabel
+import kotlinx.coroutines.launch
+
+/**
+ * The storage screen (SPEC §4.4).
+ *
+ * Lists the three offline datasets with their size and their date, and allows
+ * installing or deleting them. The user must always know what the application
+ * occupies and be able to reclaim it.
+ *
+ * Importing goes through the system's document chooser, which requires no
+ * storage permission and leaves the user in charge of the file they designate.
+ */
+class StorageFragment : Fragment() {
+
+    private var binding: FragmentStorageBinding? = null
+
+    private val container
+        get() = (requireActivity().application as RoueLibreApplication).container
+
+    private val viewModel: StorageViewModel by viewModels {
+        StorageViewModel.Factory(
+            store = container.datasetStore,
+            downloader = container.datasetDownloader,
+            transfer = container.datasetTransfer,
+            manifestUrl = { container.dataManifestUrl() },
+            supportedFormatVersion = { container.activeCity()?.dataRelease?.formatVersion },
+            servedNetwork = { container.activeCity()?.network?.id },
+            connectionCost = container.connectionCost,
+            unmeteredOnly = container.preferences.downloadOnUnmeteredOnly,
+        )
+    }
+
+    /**
+     * Whether the welcome sequence opened this screen (SPEC §7.9).
+     *
+     * Read from the arguments, which the system keeps across a rotation and the
+     * death of the process: a sequence interrupted there is still the same
+     * sequence when the screen comes back.
+     */
+    private val openedFromWelcome: Boolean
+        get() = arguments?.getBoolean(ARGUMENT_FROM_WELCOME) == true
+
+    /** The map has been asked for: a second state arriving must not ask again. */
+    private var leftForTheMap = false
+
+    /** The set awaiting a file, between the press and the chooser's return. */
+    private var awaitingImportFor: DatasetKind? = null
+
+    private val pickDocument = registerForActivityResult(
+        ActivityResultContracts.OpenDocument(),
+    ) { uri: Uri? ->
+        val kind = awaitingImportFor
+        awaitingImportFor = null
+        if (uri != null && kind != null) {
+            viewModel.import(kind, uri)
+        }
+    }
+
+    private val adapter = DatasetAdapter(
+        onImport = ::requestImport,
+        onDelete = ::confirmDelete,
+    )
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        val created = FragmentStorageBinding.inflate(inflater, container, false)
+        binding = created
+        return created.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val views = checkNotNull(binding)
+
+        views.toolbar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+        showServedCity(views)
+        views.datasets.layoutManager = LinearLayoutManager(requireContext())
+        views.datasets.adapter = adapter
+        views.datasets.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL),
+        )
+
+        views.checkUpdates.setOnClickListener { onUpdateButtonClicked() }
+
+        // Opened from the welcome screen, this one checks straight away: the
+        // user has just pressed the download button, and asking them to confirm
+        // it again here would be one more door. A city with nothing installed
+        // is checked on opening whatever the way in — the model decides that
+        // on the store's own reading (see `OpeningCheck`).
+        if (savedInstanceState == null && arguments?.getBoolean(ARGUMENT_CHECK_ON_OPEN) == true) {
+            viewModel.checkForUpdates()
+        }
+
+        listenForAnswers()
+        observeState()
+        observeMessages()
+    }
+
+    /**
+     * Collects the answers to the two questions this screen asks.
+     *
+     * Registered as the screen is built, and not where each question is put:
+     * a question the phone turned over on is already back up by then, and its
+     * answer would arrive with nobody listening for it.
+     */
+    private fun listenForAnswers() {
+        ConfirmationDialogFragment.onAnswer(
+            childFragmentManager,
+            viewLifecycleOwner,
+            DELETION_ANSWER,
+        ) { confirmed, payload ->
+            val kind = payload.getString(DATASET_KIND) ?: return@onAnswer
+            if (confirmed) viewModel.delete(DatasetKind.valueOf(kind))
+        }
+        ConfirmationDialogFragment.onAnswer(
+            childFragmentManager,
+            viewLifecycleOwner,
+            METERING_ANSWER,
+        ) { confirmed, _ ->
+            if (confirmed) viewModel.downloadAnyway()
+        }
+    }
+
+    /**
+     * The same button checks, then downloads.
+     *
+     * Two separate buttons would force the user to understand the difference
+     * before acting. Here the first press asks what is published, and the
+     * second — whose label then announces the size — fetches it.
+     */
+    private fun onUpdateButtonClicked() {
+        val state = viewModel.state.value
+        if (state.manifest != null && state.outdated.isNotEmpty()) {
+            // The old warning belongs to the setting being off: with it on, the
+            // model refuses the transfer and offers it anyway, and two words
+            // about the same connection would only muddle the screen.
+            if (!state.unmeteredOnly) warnIfNotOnWifi()
+            viewModel.downloadPending()
+        } else {
+            viewModel.checkForUpdates()
+        }
+    }
+
+    /**
+     * Warns if we are not on Wi-Fi (SPEC §4.4).
+     *
+     * A warning, not an obstacle: somebody on a generous data plan does not
+     * have to ask their application for permission. Shown only when the setting
+     * of §7.6 is off, which is exactly the case it was written for — with the
+     * setting on, a billed connection is answered by a question rather than by
+     * a remark in passing.
+     */
+    private fun warnIfNotOnWifi() {
+        val manager = requireContext().getSystemService(ConnectivityManager::class.java) ?: return
+        val capabilities = manager.getNetworkCapabilities(manager.activeNetwork)
+        val onWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
+        if (onWifi) return
+        showMessage(getString(R.string.storage_wifi_warning))
+    }
+
+    /**
+     * Says what has just happened, above the button rather than over it.
+     *
+     * The screen ends on a button pinned to the bottom edge, which is exactly
+     * where a snackbar rises: left to itself it covered the label — "Download
+     * 967 kB" read through "Base map deleted" — and neither could be read. The
+     * bar is therefore anchored to the button, which pushes it up by its
+     * height.
+     *
+     * **This screen's messages need more than the two lines a snackbar gives.**
+     * They are the only ones carrying a dataset's name in front of them —
+     * "Routing data: …" — and what follows has to say both what failed and what
+     * happens next, which measured 188 px of a full two lines at sixty-four
+     * characters on a 1080-wide screen. A third line was therefore missing
+     * before the sentence was, and a fourth is the margin somebody reading at
+     * twice the text size needs. Not more: past four a snackbar stops being a
+     * remark in passing and becomes a wall over the screen it comments on.
+     */
+    private fun showMessage(message: CharSequence) {
+        val views = binding ?: return
+        // At the foot of the screen, unanchored: the download button it once
+        // stood above has moved to the top (issue #13), and anchored there the
+        // message would have covered the header it comments on.
+        val bar = Snackbar.make(views.root, message, Snackbar.LENGTH_LONG)
+        bar.view
+            .findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+            .maxLines = MESSAGE_LINES
+        bar.show()
+    }
+
+    override fun onDestroyView() {
+        binding?.datasets?.adapter = null
+        binding = null
+        super.onDestroyView()
+    }
+
+    /**
+     * Asks for confirmation before erasing an installed set (SPEC §4.4).
+     *
+     * The same question the city screen asks before erasing a whole city, for
+     * the same reason: up to a hundred megabytes that only the network can put
+     * back, behind a button that sits one press away in a list one scrolls. The
+     * size is named in the question — what is at stake here is the download it
+     * would take to undo, and that is what the figure says.
+     */
+    private fun confirmDelete(kind: DatasetKind) {
+        val installed = viewModel.state.value.datasets
+            .firstOrNull { it.kind == kind }
+            ?.installed
+            ?: return
+        ConfirmationDialogFragment.ask(
+            manager = childFragmentManager,
+            requestKey = DELETION_ANSWER,
+            title = R.string.dataset_delete_title,
+            message = getString(
+                R.string.dataset_delete_body,
+                getString(kind.nameResource()),
+                formatBytes(requireContext(), installed.sizeBytes),
+            ),
+            confirm = R.string.dataset_delete,
+            payload = Bundle().apply { putString(DATASET_KIND, kind.name) },
+        )
+    }
+
+    /**
+     * Says why nothing is coming down, and offers to download anyway
+     * (SPEC §4.4).
+     *
+     * **Never a dead end**: somebody in a hotel with no Wi-Fi must be able to
+     * install their city. The question is headed by the situation — a download
+     * on a mobile network — rather than by what the application is doing about
+     * it, names what the transfer weighs, which is what is at stake where the
+     * megabyte may be billed, and tells what to do about it rather than stating
+     * a fact. Answering yes covers this transfer only: the setting is not
+     * touched, and the next download asks again.
+     */
+    private fun offerToDownloadAnyway(held: StorageMessage.HeldBackByMetering) {
+        ConfirmationDialogFragment.ask(
+            manager = childFragmentManager,
+            requestKey = METERING_ANSWER,
+            title = if (held.wasUnderWay) {
+                R.string.download_stopped_title
+            } else {
+                R.string.download_held_back_title
+            },
+            message = getString(
+                if (held.wasUnderWay) {
+                    R.string.download_stopped_body
+                } else {
+                    R.string.download_held_back_body
+                },
+                formatBytes(requireContext(), held.pendingBytes),
+            ),
+            confirm = R.string.download_anyway,
+        )
+    }
+
+    /**
+     * Opens the document chooser.
+     *
+     * The MIME type stays generic: neither MBTiles, nor rd5, nor SQLite has a
+     * recognised one, and filtering on the extension would hide legitimate
+     * files instead of helping. Validation happens on import.
+     */
+    private fun requestImport(kind: DatasetKind) {
+        awaitingImportFor = kind
+        pickDocument.launch(arrayOf("*/*"))
+    }
+
+    companion object {
+        private const val ARGUMENT_CHECK_ON_OPEN = "check-on-open"
+        private const val ARGUMENT_FROM_WELCOME = "from-welcome"
+
+        /** The keys the two questions of this screen answer under. */
+        private const val DELETION_ANSWER = "dataset-deletion"
+        private const val METERING_ANSWER = "download-anyway"
+
+        /** Which set a deletion was asked about, across a rebuild. */
+        private const val DATASET_KIND = "dataset-kind"
+
+        /** What [showMessage] lets a snackbar grow to, and no further. */
+        private const val MESSAGE_LINES = 4
+
+        /**
+         * Opens the screen and checks the manifest immediately (SPEC §7.9).
+         *
+         * Reserved for the sequence coming from the welcome screen: elsewhere,
+         * the check stays triggered by a press — unless the city has nothing
+         * installed, in which case opening the screen checks on its own,
+         * whatever the way in (see `OpeningCheck`).
+         *
+         * @param fromWelcome the welcome sequence is opening it: once every set
+         *   is installed, the screen hands over to the map on its own (see
+         *   [handsOverToTheMap]).
+         */
+        fun checkingForUpdates(fromWelcome: Boolean = false): StorageFragment =
+            StorageFragment().apply {
+                arguments = Bundle().apply {
+                    putBoolean(ARGUMENT_CHECK_ON_OPEN, true)
+                    putBoolean(ARGUMENT_FROM_WELCOME, fromWelcome)
+                }
+            }
+    }
+
+    private fun observeState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { state ->
+                    val views = binding ?: return@collect
+                    adapter.submitList(state.datasets)
+                    views.importing.isVisible = state.isImporting || state.isChecking
+                    showDownload(state)
+                    views.checkUpdates.setText(
+                        if (state.manifest != null && state.outdated.isNotEmpty()) {
+                            R.string.storage_download_pending
+                        } else {
+                            R.string.storage_check_updates
+                        },
+                    )
+                    if (state.manifest != null && state.outdated.isNotEmpty()) {
+                        views.checkUpdates.text = getString(
+                            R.string.storage_download_pending,
+                            formatBytes(requireContext(), state.pendingBytes),
+                        )
+                    }
+                    // For the whole of a transfer, and not only from its first
+                    // byte: a second press would find the job already running
+                    // and do nothing at all, which is what a dead button looks
+                    // like.
+                    views.checkUpdates.isEnabled = !state.isChecking && !state.isDownloading
+                    views.storageTotal.text = state.totalBytes
+                        ?.let {
+                            getString(
+                                R.string.storage_total,
+                                formatBytes(requireContext(), it),
+                            )
+                        }
+                        ?: getString(R.string.storage_nothing_installed)
+                    if (state.handsOverToTheMap(openedFromWelcome)) openTheMap()
+                }
+            }
+        }
+    }
+
+    /**
+     * Ends the welcome sequence on the map (SPEC §7.9).
+     *
+     * The screens of the sequence are dropped, as the welcome screen drops its
+     * own on the way out: Back from the map leaves the application rather than
+     * bringing the city list up again. A new map rather than the one left
+     * underneath: the map loads its city's style once and keeps it, and that
+     * one was put there before any city was chosen.
+     *
+     * Not while the state is saved: on the older versions of Android that save it
+     * before stopping, the collection still runs for that instant and a
+     * transaction would be refused. The state is replayed when the screen comes
+     * back to the front, and the map is opened then.
+     */
+    private fun openTheMap() {
+        val manager = parentFragmentManager
+        if (leftForTheMap || manager.isStateSaved) return
+        leftForTheMap = true
+        manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        manager.beginTransaction()
+            .setReorderingAllowed(true)
+            .replace(R.id.content, MapFragment())
+            .commit()
+    }
+
+    /**
+     * Names the city whose data this screen manages.
+     *
+     * The sets are stored per city: without this subtitle, "42.5 MB occupied"
+     * would suggest that is all the application occupies, when other cities may
+     * occupy as much beside it (SPEC §11.9).
+     */
+    private fun showServedCity(views: FragmentStorageBinding) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val context = requireContext()
+            val city = container.activeCityState()
+            // A network withdrawn publishes nothing more to check for: the
+            // button could only answer that no city is selected, which is
+            // false. Its sets stay listed, and deletable, below.
+            views.checkUpdates.isVisible = city !is ActiveCity.NoLongerServed
+            views.toolbar.flaggedSubtitle = when (city) {
+                is ActiveCity.Served -> city.configuration.network.let {
+                    context.cityLabel(it.displayName, it.city, city.configuration.country)
+                }
+                // The sets listed below are that network's, still on the device
+                // and still deletable from here: "No city selected" above them
+                // contradicted the list it headed (SPEC §15.1).
+                is ActiveCity.NoLongerServed -> context.noLongerServedLabel(city)
+                ActiveCity.None -> getString(R.string.storage_no_city)
+            }
+        }
+    }
+
+    /**
+     * Shows where the transfer stands, from the press onwards.
+     *
+     * **From the press, and not from the first byte.** A download asked for
+     * with no network showed nothing at all until the request gave up: no line,
+     * no bar, no button that had moved, for the ten seconds a connection takes
+     * to fail. The screen now says a transfer has begun as soon as one has, and
+     * an indeterminate bar carries the wait until the first byte turns it into
+     * a real proportion.
+     */
+    private fun showDownload(state: StorageUiState) {
+        val views = binding ?: return
+        val progress = state.downloading
+        val line = state.transferLine()
+
+        // Settled before the bar is shown: Material refuses to switch a visible
+        // indicator between its two modes.
+        val indeterminate = progress == null || progress.totalBytes <= 0
+        if (views.downloadProgress.isIndeterminate != indeterminate) {
+            views.downloadProgress.isVisible = false
+            views.downloadProgress.isIndeterminate = indeterminate
+        }
+        views.downloadState.isVisible = line != TransferLine.None
+        views.downloadProgress.isVisible =
+            line == TransferLine.Starting ||
+            line == TransferLine.UnderWay
+
+        when (line) {
+            TransferLine.None -> Unit
+
+            // A check lasts only a moment, but it goes over the network:
+            // saying so avoids the impression that the press was lost.
+            TransferLine.Checking -> views.downloadState.setText(R.string.storage_checking)
+
+            TransferLine.Starting ->
+                views.downloadState.setText(R.string.storage_download_starting)
+
+            // The line stays for as long as the wait does: a bar that has gone
+            // away leaves a screen that looks idle for no stated reason.
+            TransferLine.WaitingForUnmetered -> views.downloadState.text = getString(
+                R.string.download_waiting_for_unmetered,
+                formatBytes(requireContext(), state.pendingBytes),
+            )
+
+            TransferLine.UnderWay -> progress?.let { showProgress(views, it) }
+        }
+    }
+
+    /** Names the file coming down and how much of it has arrived. */
+    private fun showProgress(views: FragmentStorageBinding, progress: DownloadProgress) {
+        views.downloadState.text = getString(
+            R.string.storage_downloading,
+            progress.fileName,
+            formatBytes(requireContext(), progress.downloadedBytes),
+            formatBytes(requireContext(), progress.totalBytes),
+        )
+        if (progress.totalBytes > 0) {
+            views.downloadProgress.setProgressCompat(
+                ((progress.downloadedBytes * 100) / progress.totalBytes).toInt(),
+                true,
+            )
+        }
+    }
+
+    private fun observeMessages() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.messages.collect { message ->
+                    // A refusal asks a question — it is the one message here
+                    // that expects an answer, and a bar that goes away by
+                    // itself would take the way out with it.
+                    if (message is StorageMessage.HeldBackByMetering) {
+                        offerToDownloadAnyway(message)
+                    } else {
+                        showMessage(message.toText(requireContext()))
+                    }
+                }
+            }
+        }
+    }
+}

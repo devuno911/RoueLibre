@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The dark theme. The colours themselves are redefined in
+    values-night/colors.xml; what remains here is only what a plain colour
+    resource cannot express.
+-->
+<resources>
+
+    <style name="Theme.RoueLibre" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/signal</item>
+        <item name="colorOnPrimary">@color/paper</item>
+        <item name="colorSecondary">@color/ink_soft</item>
+        <item name="colorOnSecondary">@color/paper</item>
+        <item name="colorError">@color/alert</item>
+        <item name="colorOnError">@color/paper</item>
+
+        <item name="android:colorBackground">@color/paper</item>
+        <item name="colorOnBackground">@color/ink</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorSurfaceVariant">@color/surface</item>
+        <item name="colorOnSurfaceVariant">@color/ink_soft</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline</item>
+        <!-- The same mapping as the light theme, and for the same reason:
+             unset, these roles bring the library's mauve-tinted greys back. -->
+        <item name="colorSurfaceContainerLowest">@color/surface</item>
+        <item name="colorSurfaceContainerLow">@color/surface</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerHigh">@color/surface</item>
+        <item name="colorSurfaceContainerHighest">@color/surface</item>
+        <item name="colorSurfaceDim">@color/paper</item>
+        <item name="colorSurfaceBright">@color/surface</item>
+        <item name="elevationOverlayColor">@color/surface</item>
+        <item name="colorPrimaryContainer">@color/availability_low</item>
+        <item name="colorOnPrimaryContainer">@color/ink</item>
+        <item name="colorSecondaryContainer">@color/paper</item>
+        <item name="colorOnSecondaryContainer">@color/ink</item>
+        <item name="colorTertiary">@color/signal</item>
+        <item name="colorOnTertiary">@color/paper</item>
+        <item name="colorTertiaryContainer">@color/availability_low</item>
+        <item name="colorOnTertiaryContainer">@color/ink</item>
+        <item name="colorErrorContainer">@color/paper</item>
+        <item name="colorOnErrorContainer">@color/alert</item>
+        <!-- Inverted surfaces: the alert banner sits on a background
+             opposite to the screen's. Without these three roles, Material
+             would bring its default purple back to it. -->
+        <item name="colorSurfaceInverse">@color/surface_inverse</item>
+        <item name="colorOnSurfaceInverse">@color/ink_inverse</item>
+        <item name="colorPrimaryInverse">@color/signal_inverse</item>
+
+        <!-- Transparent: the content runs under the bars (see
+             MainActivity.layOutEdgeToEdge), and the view drawn there gives
+             them their colour. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/navigation_bar_scrim</item>
+        <!-- Status bar icons in light on a dark background. -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="android:textAppearance">@style/TextAppearance.RoueLibre.Body</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.RoueLibre.Title</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.RoueLibre.Body</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.RoueLibre.Secondary</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.RoueLibre.Label</item>
+
+        <item name="materialButtonStyle">@style/Widget.RoueLibre.Button</item>
+        <!-- Running text is justified, application-wide (SPEC §7). -->
+        <item name="android:textViewStyle">@style/Widget.RoueLibre.Text</item>
+
+        <!-- Repeated here because this theme redeclares rather than inherits:
+             without it the sheets keep their labels cut off after dark. -->
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.RoueLibre.BottomSheetDialog</item>
+
+        <item name="shapeAppearanceCornerExtraSmall">@style/ShapeAppearance.RoueLibre</item>
+        <item name="shapeAppearanceCornerSmall">@style/ShapeAppearance.RoueLibre</item>
+        <item name="shapeAppearanceCornerMedium">@style/ShapeAppearance.RoueLibre</item>
+        <item name="shapeAppearanceCornerLarge">@style/ShapeAppearance.RoueLibre</item>
+        <item name="shapeAppearanceCornerExtraLarge">@style/ShapeAppearance.RoueLibre</item>
+    </style>
+
+</resources>

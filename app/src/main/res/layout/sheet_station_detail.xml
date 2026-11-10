@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    A station's detail (SPEC §7.2), in a sheet sliding up from the bottom.
+
+    Both counts are shown side by side, each with its indicator: leaving needs a
+    bike, arriving needs a dock, and whoever opens this sheet may be after
+    either. It is the application's only view that gives both at one glance.
+
+    The root is a scroll view because the sheet opens expanded, and in
+    landscape that means a sheet as tall as the screen: at the largest system
+    text sizes the detail is then taller than the room there is, and what does
+    not fit must be reachable rather than cut off. Why it opens expanded at all
+    is in StationDetailSheet.
+-->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/space_l"
+        android:paddingTop="@dimen/space_m"
+        android:paddingEnd="@dimen/space_l"
+        android:paddingBottom="@dimen/space_l">
+
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Title"
+            app:layout_constraintEnd_toStartOf="@id/favourite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Gare Lille Flandres" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/favourite"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            app:icon="@drawable/ic_favourite"
+            app:iconTint="@color/signal"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/name" />
+
+        <!-- The address derived from the offline index: the network's feed
+             publishes none. Hidden when the index is absent or knows nothing near
+             enough — better to say nothing than to name the wrong street. -->
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="12 Rue Nationale · 59800 Lille"
+            tools:visibility="visible" />
+
+        <!-- A state banner, shown only when the station does not provide its
+             service: a station that works has no need to announce itself.
+
+             `Widget.RoueLibre.Name` for the reason type.xml gives: this is a
+             label, not a paragraph, and once the closure names its age the
+             line wraps at the larger text sizes. Justified, its first line
+             came out spread bank to bank with the separator adrift in the
+             middle of it. -->
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/service_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_m"
+            android:background="@drawable/pill_surface"
+            android:paddingStart="@dimen/space_m"
+            android:paddingTop="@dimen/space_s"
+            android:paddingEnd="@dimen/space_m"
+            android:paddingBottom="@dimen/space_s"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Body"
+            android:textColor="@color/alert"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address"
+            tools:text="Hors service"
+            tools:visibility="visible" />
+
+        <!--
+            The two counts, each a disc and the word naming it.
+
+            The root is a `StackingRow` and not a plain row: the discs are sized in
+            `sp` and grow with the system's text size, the words beside them grow
+            too, and past a certain size the two pairs no longer fit across. They
+            then go one under the other rather than the second one running off the
+            edge of the screen, which is what "PLACES LIBRES" did at ×1.8. Why that
+            is decided by measuring rather than by a font scale is in that class.
+
+            Each pair is a block of its own, so a word never leaves its disc: what
+            is read is a figure and the word naming it, and a label that had stepped
+            below its own disc would be saying something else.
+
+            **A screen reader is given the row and not the pairs.** The discs paint
+            their figures onto a canvas, so the tree held "BIKES" and "FREE DOCKS"
+            and neither count. The sentence carrying both is set on this row by
+            StationDetailSheet, and the two pairs below are taken out of the tree so
+            that a label is not read a second time out of its figure's company. The
+            words themselves are not lost: they are in that sentence, agreeing with
+            the counts through the same plurals.
+        -->
+        <io.github.mgdx.rouelibre.ui.StackingRow
+            android:id="@+id/counts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/service_state">
+
+            <!-- Both indicators ask for their own size rather than being given one:
+                 they hold a figure, and that figure follows the system's font size
+                 (SPEC §7). -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:importantForAccessibility="noHideDescendants"
+                android:orientation="horizontal">
+
+                <io.github.mgdx.rouelibre.ui.stations.AvailabilityIndicatorView
+                    android:id="@+id/bikes_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/Widget.RoueLibre.Name"
+                    android:id="@+id/bikes_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Label"
+                    tools:text="bikes" />
+            </LinearLayout>
+
+            <!-- Gone in a network whose free docks are not worth showing
+                 (SPEC §7.1). -->
+            <LinearLayout
+                android:id="@+id/docks_pair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_xl"
+                android:gravity="center_vertical"
+                android:importantForAccessibility="noHideDescendants"
+                android:orientation="horizontal">
+
+                <io.github.mgdx.rouelibre.ui.stations.AvailabilityIndicatorView
+                    android:id="@+id/docks_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/Widget.RoueLibre.Name"
+                    android:id="@+id/docks_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_m"
+                    android:textAppearance="@style/TextAppearance.RoueLibre.Label"
+                    tools:text="free docks" />
+            </LinearLayout>
+        </io.github.mgdx.rouelibre.ui.StackingRow>
+
+        <!-- What those bikes are, where the network lends both kinds (SPEC §7.2).
+             Hidden everywhere else, and hidden as soon as the feed's breakdown
+             cannot be trusted: the figure above is then the only one shown, and it
+             is always true. -->
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/bikes_split"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/counts"
+            tools:text="3 mécaniques · 1 électrique"
+            tools:visibility="visible" />
+
+        <!-- What the vehicle feed adds, where the setting of SPEC §7.6 asks
+             for it: the charge of each electric bike, fullest first, and the
+             bikes out of service. Under the split because it refines it — the
+             split says how many are electric, this line says which one to
+             walk to — and hidden on the same rule: the line disappears rather
+             than lie. -->
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/bikes_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bikes_split"
+            app:layout_goneMarginTop="@dimen/space_s"
+            tools:text="Batterie 92 %, 78 % et 40 % · 1 vélo hors service"
+            tools:visibility="visible" />
+
+        <!-- The bike-by-bike list, folded by default (SPEC §7.2): a row naming
+             how many bikes stand there, wearing no outline since it settles
+             nothing, and under it one line per bike. The summary above is the
+             answer most readers came for; this is for the one choosing a
+             bike, and it outlives a rotation because the model holds it. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bikes_list_toggle"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:minHeight="@dimen/touch_target_min"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Body"
+            android:textColor="@color/signal"
+            android:visibility="gone"
+            app:icon="@drawable/ic_unfold"
+            app:iconGravity="end"
+            app:iconTint="@color/signal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bikes_detail"
+            app:layout_goneMarginTop="@dimen/space_s"
+            tools:text="Détails des vélos à cette station"
+            tools:visibility="visible" />
+
+        <!-- Said only with the list open, and only where the count in the disc
+             above cannot be reconciled with the bikes listed under it
+             (SPEC §7.2): the reader has just unfolded a contradiction, and it
+             is the network's, not the application's. In the alert hue, on no
+             pill: it explains a line already on the screen, it does not stop
+             anybody from walking to the station. -->
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/bikes_list_warning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            android:textColor="@color/alert"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bikes_list_toggle"
+            tools:text="Le réseau publie cette liste dans un flux distinct de celui du compte ci-dessus, et ici les deux se contredisent."
+            tools:visibility="visible" />
+
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/bikes_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bikes_list_warning"
+            app:layout_goneMarginTop="@dimen/space_xs"
+            tools:text="nextbike_bb_20911 · Vélo électrique · 99 %\nnextbike_bb_11875 · Vélo mécanique"
+            tools:visibility="visible" />
+
+        <TextView
+            style="@style/Widget.RoueLibre.Name"
+            android:id="@+id/capacity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_m"
+            android:textAppearance="@style/TextAppearance.RoueLibre.Secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bikes_list"
+            app:layout_goneMarginTop="@dimen/space_m"
+            tools:text="40 points d'attache · mis à jour il y a 12 secondes" />
+
+        <!--
+            Origin and destination side by side: they are two faces of one
+            gesture, and separating them would send the user looking for the second
+            elsewhere (SPEC §7.2).
+
+            A row of their own rather than two buttons holding each other: the
+            second used to hang by its top and its bottom on the first, which
+            centres it in the first's height instead of giving it that height. At
+            ×2.0 "Partir d'ici" takes two lines where "Aller ici" takes one, and
+            the two buttons then ended at different depths. A `LinearLayout`
+            measures its row once and hands every child asking for `match_parent`
+            the height of the tallest, so whichever of the two labels wraps —
+            and which one it is changes with the language — both buttons follow
+            it. Nothing is frozen: the height is still the one the text asks for
+            at the size the system is set to.
+
+            The alternative within the constraints, hanging the shorter button on
+            the taller one with a height of `0dp`, was refused for being
+            one-directional: it repairs the pair only while it is the first label
+            that wraps.
+
+            `baselineAligned="false"` because a row of buttons has no baseline to
+            share: left on, the row would line up the two labels' first lines and
+            push the one-line button down by the height of the other's second.
+        -->
+        <LinearLayout
+            android:id="@+id/journey_actions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/capacity">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/set_as_origin"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/space_s"
+                android:layout_weight="1"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/station_as_origin" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/set_as_destination"
+                style="@style/Widget.RoueLibre.Toggle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_s"
+                android:layout_weight="1"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/station_as_destination" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/open_in_navigation"
+            style="@style/Widget.RoueLibre.Toggle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/touch_target_min"
+            android:layout_marginTop="@dimen/space_s"
+            android:text="@string/station_open_in_navigation"
+            app:icon="@drawable/ic_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/journey_actions" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

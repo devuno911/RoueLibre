@@ -1,0 +1,797 @@
+{
+  "language": "en",
+  "cases": [
+    {
+      "input": "Abbey Rd",
+      "normalized": "abbey road",
+      "type": null,
+      "name": "abbey road"
+    },
+    {
+      "input": "Baker Street",
+      "normalized": "baker street",
+      "type": null,
+      "name": "baker street"
+    },
+    {
+      "input": "St James's Park",
+      "normalized": "saint james south park",
+      "type": null,
+      "name": "saint james south park"
+    },
+    {
+      "input": "Queen's Crescent",
+      "normalized": "queen south crescent",
+      "type": null,
+      "name": "queen south crescent"
+    },
+    {
+      "input": "Kensington High St",
+      "normalized": "kensington high st",
+      "type": null,
+      "name": "kensington high st"
+    },
+    {
+      "input": "Dr Martin Luther King Jr Blvd",
+      "normalized": "doctor martin luther king jr boulevard",
+      "type": null,
+      "name": "doctor martin luther king jr boulevard"
+    },
+    {
+      "input": "N Michigan Ave",
+      "normalized": "north michigan avenue",
+      "type": null,
+      "name": "north michigan avenue"
+    },
+    {
+      "input": "The Mall",
+      "normalized": "the mall",
+      "type": null,
+      "name": "the mall"
+    },
+    {
+      "input": "Hyde Park Corner",
+      "normalized": "hyde park corner",
+      "type": null,
+      "name": "hyde park corner"
+    },
+    {
+      "input": "Cherry Ln",
+      "normalized": "cherry lane",
+      "type": null,
+      "name": "cherry lane"
+    },
+    {
+      "input": "Mt Pleasant Ter",
+      "normalized": "mount pleasant terrace",
+      "type": null,
+      "name": "mount pleasant terrace"
+    },
+    {
+      "input": "Fifth Avenue",
+      "normalized": "fifth avenue",
+      "type": null,
+      "name": "fifth avenue"
+    },
+    {
+      "input": "Badswell Lane",
+      "normalized": "badswell lane",
+      "type": null,
+      "name": "badswell lane"
+    },
+    {
+      "input": "Green Road Roundabout",
+      "normalized": "green road roundabout",
+      "type": null,
+      "name": "green road roundabout"
+    },
+    {
+      "input": "Hall Farm Paddocks",
+      "normalized": "hall farm paddocks",
+      "type": null,
+      "name": "hall farm paddocks"
+    },
+    {
+      "input": "Brook View",
+      "normalized": "brook view",
+      "type": null,
+      "name": "brook view"
+    },
+    {
+      "input": "Longlands Road",
+      "normalized": "longlands road",
+      "type": null,
+      "name": "longlands road"
+    },
+    {
+      "input": "Strawberry Path",
+      "normalized": "strawberry path",
+      "type": null,
+      "name": "strawberry path"
+    },
+    {
+      "input": "Grove Road",
+      "normalized": "grove road",
+      "type": null,
+      "name": "grove road"
+    },
+    {
+      "input": "Islip Road",
+      "normalized": "islip road",
+      "type": null,
+      "name": "islip road"
+    },
+    {
+      "input": "Hamels Lane",
+      "normalized": "hamels lane",
+      "type": null,
+      "name": "hamels lane"
+    },
+    {
+      "input": "Raleigh Park Road",
+      "normalized": "raleigh park road",
+      "type": null,
+      "name": "raleigh park road"
+    },
+    {
+      "input": "Manor Close",
+      "normalized": "manor close",
+      "type": null,
+      "name": "manor close"
+    },
+    {
+      "input": "Lower Road",
+      "normalized": "lower road",
+      "type": null,
+      "name": "lower road"
+    },
+    {
+      "input": "Little Lane",
+      "normalized": "little lane",
+      "type": null,
+      "name": "little lane"
+    },
+    {
+      "input": "Hopkins Court",
+      "normalized": "hopkins court",
+      "type": null,
+      "name": "hopkins court"
+    },
+    {
+      "input": "The Cedars",
+      "normalized": "the cedars",
+      "type": null,
+      "name": "the cedars"
+    },
+    {
+      "input": "Miller's Acre",
+      "normalized": "miller south acre",
+      "type": null,
+      "name": "miller south acre"
+    },
+    {
+      "input": "Denton Lane",
+      "normalized": "denton lane",
+      "type": null,
+      "name": "denton lane"
+    },
+    {
+      "input": "Lime Tree Avenue",
+      "normalized": "lime tree avenue",
+      "type": null,
+      "name": "lime tree avenue"
+    },
+    {
+      "input": "Back Lane",
+      "normalized": "back lane",
+      "type": null,
+      "name": "back lane"
+    },
+    {
+      "input": "Fruitlands",
+      "normalized": "fruitlands",
+      "type": null,
+      "name": "fruitlands"
+    },
+    {
+      "input": "Pug Lane",
+      "normalized": "pug lane",
+      "type": null,
+      "name": "pug lane"
+    },
+    {
+      "input": "Cumnor Road",
+      "normalized": "cumnor road",
+      "type": null,
+      "name": "cumnor road"
+    },
+    {
+      "input": "Stanton Road",
+      "normalized": "stanton road",
+      "type": null,
+      "name": "stanton road"
+    },
+    {
+      "input": "Churchill Road",
+      "normalized": "churchill road",
+      "type": null,
+      "name": "churchill road"
+    },
+    {
+      "input": "South Avenue",
+      "normalized": "south avenue",
+      "type": null,
+      "name": "south avenue"
+    },
+    {
+      "input": "Poplar Close",
+      "normalized": "poplar close",
+      "type": null,
+      "name": "poplar close"
+    },
+    {
+      "input": "Kingsway Drive",
+      "normalized": "kingsway drive",
+      "type": null,
+      "name": "kingsway drive"
+    },
+    {
+      "input": "Acacia Avenue",
+      "normalized": "acacia avenue",
+      "type": null,
+      "name": "acacia avenue"
+    },
+    {
+      "input": "Coriander Way",
+      "normalized": "coriander way",
+      "type": null,
+      "name": "coriander way"
+    },
+    {
+      "input": "Marigold Close",
+      "normalized": "marigold close",
+      "type": null,
+      "name": "marigold close"
+    },
+    {
+      "input": "Spruce Gardens",
+      "normalized": "spruce gardens",
+      "type": null,
+      "name": "spruce gardens"
+    },
+    {
+      "input": "North Place",
+      "normalized": "north place",
+      "type": null,
+      "name": "north place"
+    },
+    {
+      "input": "Love Lane",
+      "normalized": "love lane",
+      "type": null,
+      "name": "love lane"
+    },
+    {
+      "input": "Hill Rise",
+      "normalized": "hill rise",
+      "type": null,
+      "name": "hill rise"
+    },
+    {
+      "input": "Conyger Close",
+      "normalized": "conyger close",
+      "type": null,
+      "name": "conyger close"
+    },
+    {
+      "input": "Provost's Lane",
+      "normalized": "provost south lane",
+      "type": null,
+      "name": "provost south lane"
+    },
+    {
+      "input": "Meadow View Road",
+      "normalized": "meadow view road",
+      "type": null,
+      "name": "meadow view road"
+    },
+    {
+      "input": "Bellenger Way",
+      "normalized": "bellenger way",
+      "type": null,
+      "name": "bellenger way"
+    },
+    {
+      "input": "Dukes Road",
+      "normalized": "dukes road",
+      "type": null,
+      "name": "dukes road"
+    },
+    {
+      "input": "Lambs Close",
+      "normalized": "lambs close",
+      "type": null,
+      "name": "lambs close"
+    },
+    {
+      "input": "Poppy Close",
+      "normalized": "poppy close",
+      "type": null,
+      "name": "poppy close"
+    },
+    {
+      "input": "Vicarage Road",
+      "normalized": "vicarage road",
+      "type": null,
+      "name": "vicarage road"
+    },
+    {
+      "input": "Lawn Upton Close",
+      "normalized": "lawn upton close",
+      "type": null,
+      "name": "lawn upton close"
+    },
+    {
+      "input": "Howe Close",
+      "normalized": "howe close",
+      "type": null,
+      "name": "howe close"
+    },
+    {
+      "input": "Glyme Way",
+      "normalized": "glyme way",
+      "type": null,
+      "name": "glyme way"
+    },
+    {
+      "input": "Slatters Court",
+      "normalized": "slatters court",
+      "type": null,
+      "name": "slatters court"
+    },
+    {
+      "input": "Lambton Close",
+      "normalized": "lambton close",
+      "type": null,
+      "name": "lambton close"
+    },
+    {
+      "input": "Fisher's Vale Close",
+      "normalized": "fisher south vale close",
+      "type": null,
+      "name": "fisher south vale close"
+    },
+    {
+      "input": "Falcon Close",
+      "normalized": "falcon close",
+      "type": null,
+      "name": "falcon close"
+    },
+    {
+      "input": "Riverside Walk",
+      "normalized": "riverside walk",
+      "type": null,
+      "name": "riverside walk"
+    },
+    {
+      "input": "Fire Brigade Access",
+      "normalized": "fire brigade access",
+      "type": null,
+      "name": "fire brigade access"
+    },
+    {
+      "input": "Willow Walk",
+      "normalized": "willow walk",
+      "type": null,
+      "name": "willow walk"
+    },
+    {
+      "input": "Christ Church Picture Gallery",
+      "normalized": "christ church picture gallery",
+      "type": null,
+      "name": "christ church picture gallery"
+    },
+    {
+      "input": "Balfour Library",
+      "normalized": "balfour library",
+      "type": null,
+      "name": "balfour library"
+    },
+    {
+      "input": "Botley Library",
+      "normalized": "botley library",
+      "type": null,
+      "name": "botley library"
+    },
+    {
+      "input": "Access to parking via Oxford Health Living Partnership",
+      "normalized": "access to parking via oxford health living partnership",
+      "type": null,
+      "name": "access to parking via oxford health living partnership"
+    },
+    {
+      "input": "Radcliffe Science Library",
+      "normalized": "radcliffe science library",
+      "type": null,
+      "name": "radcliffe science library"
+    },
+    {
+      "input": "Wycliffe Hall Library",
+      "normalized": "wycliffe hall library",
+      "type": null,
+      "name": "wycliffe hall library"
+    },
+    {
+      "input": "Adelaide Street",
+      "normalized": "adelaide street",
+      "type": null,
+      "name": "adelaide street"
+    },
+    {
+      "input": "Arnold's Way",
+      "normalized": "arnold south way",
+      "type": null,
+      "name": "arnold south way"
+    },
+    {
+      "input": "Bailey Road",
+      "normalized": "bailey road",
+      "type": null,
+      "name": "bailey road"
+    },
+    {
+      "input": "Bateman Street",
+      "normalized": "bateman street",
+      "type": null,
+      "name": "bateman street"
+    },
+    {
+      "input": "Beaumont Place",
+      "normalized": "beaumont place",
+      "type": null,
+      "name": "beaumont place"
+    },
+    {
+      "input": "Blackthorn Close",
+      "normalized": "blackthorn close",
+      "type": null,
+      "name": "blackthorn close"
+    },
+    {
+      "input": "Broad Close",
+      "normalized": "broad close",
+      "type": null,
+      "name": "broad close"
+    },
+    {
+      "input": "Bushy Close",
+      "normalized": "bushy close",
+      "type": null,
+      "name": "bushy close"
+    },
+    {
+      "input": "Chapel Lane",
+      "normalized": "chapel lane",
+      "type": null,
+      "name": "chapel lane"
+    },
+    {
+      "input": "Claymond Road",
+      "normalized": "claymond road",
+      "type": null,
+      "name": "claymond road"
+    },
+    {
+      "input": "Cornmarket",
+      "normalized": "cornmarket",
+      "type": null,
+      "name": "cornmarket"
+    },
+    {
+      "input": "Cricket Road",
+      "normalized": "cricket road",
+      "type": null,
+      "name": "cricket road"
+    },
+    {
+      "input": "Delbush Avenue",
+      "normalized": "delbush avenue",
+      "type": null,
+      "name": "delbush avenue"
+    },
+    {
+      "input": "Dudley Gardens",
+      "normalized": "dudley gardens",
+      "type": null,
+      "name": "dudley gardens"
+    },
+    {
+      "input": "Elsfield Way",
+      "normalized": "elsfield way",
+      "type": null,
+      "name": "elsfield way"
+    },
+    {
+      "input": "First Turn",
+      "normalized": "first turn",
+      "type": null,
+      "name": "first turn"
+    },
+    {
+      "input": "Gardiner Street",
+      "normalized": "gardiner street",
+      "type": null,
+      "name": "gardiner street"
+    },
+    {
+      "input": "Goodson Walk",
+      "normalized": "goodson walk",
+      "type": null,
+      "name": "goodson walk"
+    },
+    {
+      "input": "Hanson Drive",
+      "normalized": "hanson drive",
+      "type": null,
+      "name": "hanson drive"
+    },
+    {
+      "input": "Henley Avenue",
+      "normalized": "henley avenue",
+      "type": null,
+      "name": "henley avenue"
+    },
+    {
+      "input": "Hollybush Row",
+      "normalized": "hollybush row",
+      "type": null,
+      "name": "hollybush row"
+    },
+    {
+      "input": "Iffley Road",
+      "normalized": "iffley road",
+      "type": null,
+      "name": "iffley road"
+    },
+    {
+      "input": "Justice Walk",
+      "normalized": "justice walk",
+      "type": null,
+      "name": "justice walk"
+    },
+    {
+      "input": "Krebs Gardens",
+      "normalized": "krebs gardens",
+      "type": null,
+      "name": "krebs gardens"
+    },
+    {
+      "input": "Leys Road",
+      "normalized": "leys road",
+      "type": null,
+      "name": "leys road"
+    },
+    {
+      "input": "Longwall Street",
+      "normalized": "longwall street",
+      "type": null,
+      "name": "longwall street"
+    },
+    {
+      "input": "Market Street",
+      "normalized": "market street",
+      "type": null,
+      "name": "market street"
+    },
+    {
+      "input": "Mill Lane",
+      "normalized": "mill lane",
+      "type": null,
+      "name": "mill lane"
+    },
+    {
+      "input": "New Road",
+      "normalized": "new road",
+      "type": null,
+      "name": "new road"
+    },
+    {
+      "input": "Northmoor Road",
+      "normalized": "northmoor road",
+      "type": null,
+      "name": "northmoor road"
+    },
+    {
+      "input": "Oxford Roadm",
+      "normalized": "oxford roadm",
+      "type": null,
+      "name": "oxford roadm"
+    },
+    {
+      "input": "Pike Terrace",
+      "normalized": "pike terrace",
+      "type": null,
+      "name": "pike terrace"
+    },
+    {
+      "input": "Pullens Field",
+      "normalized": "pullens field",
+      "type": null,
+      "name": "pullens field"
+    },
+    {
+      "input": "Reliance Way",
+      "normalized": "reliance way",
+      "type": null,
+      "name": "reliance way"
+    },
+    {
+      "input": "Rose Lane",
+      "normalized": "rose lane",
+      "type": null,
+      "name": "rose lane"
+    },
+    {
+      "input": "St Ebbes Street",
+      "normalized": "saint ebbes street",
+      "type": null,
+      "name": "saint ebbes street"
+    },
+    {
+      "input": "School Place",
+      "normalized": "school place",
+      "type": null,
+      "name": "school place"
+    },
+    {
+      "input": "Snowdon Mede",
+      "normalized": "snowdon mede",
+      "type": null,
+      "name": "snowdon mede"
+    },
+    {
+      "input": "Stephen Road",
+      "normalized": "stephen road",
+      "type": null,
+      "name": "stephen road"
+    },
+    {
+      "input": "Tackeray Close",
+      "normalized": "tackeray close",
+      "type": null,
+      "name": "tackeray close"
+    },
+    {
+      "input": "The Parade",
+      "normalized": "the parade",
+      "type": null,
+      "name": "the parade"
+    },
+    {
+      "input": "Turn Again Lane",
+      "normalized": "turn again lane",
+      "type": null,
+      "name": "turn again lane"
+    },
+    {
+      "input": "Walton Manor Court",
+      "normalized": "walton manor court",
+      "type": null,
+      "name": "walton manor court"
+    },
+    {
+      "input": "Wharton Road",
+      "normalized": "wharton road",
+      "type": null,
+      "name": "wharton road"
+    },
+    {
+      "input": "Woodlands Road",
+      "normalized": "woodlands road",
+      "type": null,
+      "name": "woodlands road"
+    },
+    {
+      "input": "Scrutton Close",
+      "normalized": "scrutton close",
+      "type": null,
+      "name": "scrutton close"
+    },
+    {
+      "input": "Broad Walk",
+      "normalized": "broad walk",
+      "type": null,
+      "name": "broad walk"
+    },
+    {
+      "input": "Batten Place",
+      "normalized": "batten place",
+      "type": null,
+      "name": "batten place"
+    },
+    {
+      "input": "Neill Place",
+      "normalized": "neill place",
+      "type": null,
+      "name": "neill place"
+    },
+    {
+      "input": "Badger Lane",
+      "normalized": "badger lane",
+      "type": null,
+      "name": "badger lane"
+    },
+    {
+      "input": "Lancaster Drive",
+      "normalized": "lancaster drive",
+      "type": null,
+      "name": "lancaster drive"
+    },
+    {
+      "input": "Bishop Kirk Place",
+      "normalized": "bishop kirk place",
+      "type": null,
+      "name": "bishop kirk place"
+    },
+    {
+      "input": "Summerfield Road",
+      "normalized": "summerfield road",
+      "type": null,
+      "name": "summerfield road"
+    },
+    {
+      "input": "The Paddox",
+      "normalized": "the paddox",
+      "type": null,
+      "name": "the paddox"
+    },
+    {
+      "input": "The Boulevard",
+      "normalized": "the boulevard",
+      "type": null,
+      "name": "the boulevard"
+    },
+    {
+      "input": "Oatlands Road",
+      "normalized": "oatlands road",
+      "type": null,
+      "name": "oatlands road"
+    },
+    {
+      "input": "Burr Close",
+      "normalized": "burr close",
+      "type": null,
+      "name": "burr close"
+    },
+    {
+      "input": "Mill Road",
+      "normalized": "mill road",
+      "type": null,
+      "name": "mill road"
+    },
+    {
+      "input": "Godfrey Close",
+      "normalized": "godfrey close",
+      "type": null,
+      "name": "godfrey close"
+    },
+    {
+      "input": "Church Lane",
+      "normalized": "church lane",
+      "type": null,
+      "name": "church lane"
+    },
+    {
+      "input": "Campbells Close",
+      "normalized": "campbells close",
+      "type": null,
+      "name": "campbells close"
+    },
+    {
+      "input": "Hill Rise",
+      "normalized": "hill rise",
+      "type": null,
+      "name": "hill rise"
+    }
+  ]
+}

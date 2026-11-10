@@ -1,0 +1,472 @@
+package io.github.mgdx.rouelibre.ui.stations
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import io.github.mgdx.rouelibre.core.DataError
+import io.github.mgdx.rouelibre.core.Outcome
+import io.github.mgdx.rouelibre.core.geo.Coordinates
+import io.github.mgdx.rouelibre.core.station.StationWithAvailability
+import io.github.mgdx.rouelibre.core.station.filterStations
+import io.github.mgdx.rouelibre.core.station.orderStations
+import io.github.mgdx.rouelibre.data.NEVER_LAUNCHED
+import io.github.mgdx.rouelibre.data.StationRepository
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import java.text.Collator
+import java.time.Instant
+
+/**
+ * The state of the screens that show stations.
+ *
+ * @property stations the stations the search kept, ready to be displayed.
+ * @property query what the user typed into the search field.
+ * @property isRefreshing a fetch is under way. Besides the list's pull ring,
+ *   it lets the age line say "loading" while a network's first availability
+ *   is on its way (SPEC §4.1).
+ * @property fetchedAt when the last successful fetch happened, or `null`. The
+ *   age that follows from it is recomputed by the view on every tick, otherwise
+ *   a state ageing on screen would stay marked as fresh.
+ * @property hasLoadedOnce true as soon as the cache has been read, which tells
+ *   "still loading" apart from "genuinely empty".
+ * @property orderingOrigin where the distances are measured from when the list
+ *   is ordered by proximity, `null` when it is alphabetical. The rows show it,
+ *   so that an order that is not alphabetical says what it rests on.
+ * @property favourites the stations marked as favourites, in the order the
+ *   user gave them, that head the list (SPEC §7.6) — none while a search is
+ *   typed, see [favouritesHeadingTheList].
+ */
+data class StationsUiState(
+    val stations: List<StationWithAvailability> = emptyList(),
+    val query: String = "",
+    val isRefreshing: Boolean = false,
+    val fetchedAt: Instant? = null,
+    val hasLoadedOnce: Boolean = false,
+    val orderingOrigin: Coordinates? = null,
+    val favourites: List<StationWithAvailability> = emptyList(),
+) {
+    /**
+     * Why the list is empty, if it is.
+     *
+     * The two cases call for different words and different gestures: an empty
+     * cache invites a refresh, a fruitless search invites clearing it.
+     * Conflating them would amount to telling the user the network has no
+     * stations because they made a typo.
+     */
+    val emptiness: Emptiness
+        get() = when {
+            !hasLoadedOnce || isRefreshing || stations.isNotEmpty() -> Emptiness.None
+            query.isNotBlank() -> Emptiness.NoMatch
+            else -> Emptiness.NothingLoaded
+        }
+
+    /**
+     * Whether searching for [newQuery] hands the reader another set of
+     * stations.
+     *
+     * The one question the screen has to ask before typing changes anything,
+     * and the model's own before it rebuilds the list. A search that keeps
+     * different stations is a **different list**, shown from its first row —
+     * the nearest of the stations it kept is what the reader came for, and it
+     * is at the top. A query that is not a new one keeps the list exactly as
+     * it stands, scrolled where the reader left it: the field is written to
+     * again when the screen turns over, and a list jumping back to the top for
+     * that would take them off what they were reading.
+     *
+     * It says nothing of the availability refreshed every minute, which never
+     * changes the query: those refreshes hand back the same list with fresher
+     * counts, and must leave the reader where they are.
+     */
+    fun searchWouldChangeTheList(newQuery: String): Boolean = newQuery != query
+}
+
+/**
+ * Whether the station list is to say [error] at all, on a launch whose last
+ * seen version code is [lastSeenVersionCode].
+ *
+ * One error is held back, and only while one thing is true of the launch.
+ * Without a base map installed one lands on this list whatever screen was
+ * chosen (see `landingScreen`), so on a first launch the list is built, asks
+ * for the stations of a city nobody has chosen yet, and is covered a frame
+ * later by the welcome sequence. Its "no city is selected · choose one" then
+ * stood over that sequence and hid the button that carries it forward, with an
+ * action that could do nothing: the chooser it offers is the very thing the
+ * sequence is about to offer properly.
+ *
+ * [NEVER_LAUNCHED] is what says the welcome is still due — it is written down
+ * when the sequence is **finished**, so that leaving in the middle of it brings
+ * it back, and that is exactly the span during which this list must stay quiet.
+ * A launch that has seen it says everything: somebody who has deleted their
+ * city's data is told there is none, and "choose my city" works, which is the
+ * whole point of the message.
+ *
+ * Nothing else is ever held back. A feed that fails says so and offers another
+ * go, welcome or no welcome.
+ */
+fun worthSaying(error: DataError, lastSeenVersionCode: Int): Boolean =
+    error != DataError.NoCityChosen || lastSeenVersionCode != NEVER_LAUNCHED
+
+/** What the screen must say when the list shows nothing. */
+enum class Emptiness {
+    /** There are stations on screen. */
+    None,
+
+    /** The cache is empty: no station has ever been fetched. */
+    NothingLoaded,
+
+    /** Stations exist, but none answers the search. */
+    NoMatch,
+}
+
+/** The gesture an empty list has to offer, if any. */
+enum class EmptyListOffer {
+    /** There are stations on screen: nothing is offered. */
+    None,
+
+    /** No conurbation is in service, so there is no network to fetch from. */
+    ChooseCity,
+
+    /**
+     * The city chosen is one this build serves no more (SPEC §15.1): there is
+     * nothing to fetch, and nothing to search either.
+     */
+    ChooseAnotherCity,
+
+    /** A city is in service and its availability has still to be fetched. */
+    Refresh,
+
+    /** The search kept nothing: the field is what stands in the way. */
+    ClearSearch,
+}
+
+/**
+ * What an empty list is to offer, given [emptiness] and whether a conurbation
+ * is in service.
+ *
+ * "Pull the list down to fetch the network's stations" is written for somebody
+ * who has a network: with no city chosen the gesture asks nothing of anybody
+ * and can only come back to the same empty screen, which is what it did. That
+ * one case is offered the city chooser instead, in the map's own words — the
+ * map already tells the two apart at the same instant, and the two screens must
+ * not diagnose the same phone differently.
+ *
+ * The refresh invitation stays exactly where it belongs: a city is chosen, and
+ * its availability has not been fetched yet.
+ *
+ * A city chosen and since withdrawn outranks both the refresh and the search:
+ * no press can bring its stations back, so the list says what happened and
+ * offers another city, whatever is typed in the field.
+ */
+fun offerForEmptyList(
+    emptiness: Emptiness,
+    cityChosen: Boolean,
+    cityWithdrawn: Boolean = false,
+): EmptyListOffer = when {
+    emptiness == Emptiness.None -> EmptyListOffer.None
+    cityWithdrawn -> EmptyListOffer.ChooseAnotherCity
+    else -> offerForEmptyListOfAServedCity(emptiness, cityChosen)
+}
+
+private fun offerForEmptyListOfAServedCity(
+    emptiness: Emptiness,
+    cityChosen: Boolean,
+): EmptyListOffer = when (emptiness) {
+    Emptiness.None -> EmptyListOffer.None
+    Emptiness.NoMatch -> EmptyListOffer.ClearSearch
+    Emptiness.NothingLoaded ->
+        if (cityChosen) EmptyListOffer.Refresh else EmptyListOffer.ChooseCity
+}
+
+/**
+ * The favourites that head the station list, in the order the user gave them
+ * (SPEC §7.5, §7.6).
+ *
+ * **None while a search is typed.** A search asks the list for the stations
+ * whose name matches, and the favourites among them are already in the
+ * answer: kept above it as well, they would be the same station twice on a
+ * list of three, and the one that matches no letter typed would sit at the
+ * top of what was asked for.
+ *
+ * A favourite the network no longer lists is left out rather than shown
+ * empty: the favourites' own screen is where it can still be seen and
+ * dropped, this heading is for choosing a station to walk to.
+ */
+internal fun favouritesHeadingTheList(
+    stations: List<StationWithAvailability>,
+    favouriteIds: List<String>,
+    query: String,
+): List<StationWithAvailability> {
+    if (query.isNotBlank() || favouriteIds.isEmpty()) return emptyList()
+    val known = stations.associateBy { it.station.id }
+    return favouriteIds.mapNotNull(known::get)
+}
+
+/**
+ * Presents the stations and drives their refreshing.
+ *
+ * Shared by the map and the list: both screens show the same stations, with the
+ * same freshness policy. Only the list uses the search field.
+ *
+ * The model knows neither view nor resource: it exposes a state and events, and
+ * the view chooses how to show them.
+ *
+ * @param nameOrder how station names are compared when the list is
+ *   alphabetical. A [Collator] and not the plain order of the characters, which
+ *   would file "ÉPINETTES" after "TINQUEUX". It defaults to the process's
+ *   locale, which is the language the interface speaks wherever the system
+ *   carries the choice; a screen that knows better hands its own over.
+ * @param favouriteIds the favourites' identifiers in the order the user gave
+ *   them, followed for the heading of the list.
+ */
+class StationsViewModel(
+    private val repository: StationRepository,
+    private val positionAlreadyKnown: suspend () -> Coordinates? = { null },
+    private val positionForOrdering: suspend () -> Coordinates? = { null },
+    private val readLetterFolds: suspend () -> Map<Char, String> = { emptyMap() },
+    private val nameOrder: Collator = Collator.getInstance(),
+    private val favouriteIds: Flow<List<String>> = emptyFlow(),
+) : ViewModel() {
+
+    private val mutableState = MutableStateFlow(StationsUiState())
+
+    /** The screen's current state. */
+    val state: StateFlow<StationsUiState> = mutableState.asStateFlow()
+
+    /**
+     * The failures to report, once each, to the screen on display.
+     *
+     * An event and not a state field: kept as state, the same failure would
+     * come back on every rotation of the screen. Nothing is kept for an absent
+     * reader either — no replay, and a buffer that only serves a screen already
+     * listening: a failure that arrives while the screen is gone describes a
+     * state that will have changed by the time it comes back. That is how the
+     * very first launch used to end on "no city is selected" over the map of
+     * the city that had just been downloaded — the failure was raised by the
+     * map built under the welcome sequence, before a city was chosen, and
+     * delivered on the way back from the download.
+     */
+    private val failures = MutableSharedFlow<DataError>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+
+    /** The stream of failures to present to the user. */
+    val errors: Flow<DataError> = failures.asSharedFlow()
+
+    /**
+     * The stations as the repository supplies them, before filtering.
+     *
+     * Kept apart so that changing the search does not require re-reading the
+     * cache, and so that clearing the field brings the whole list back.
+     */
+    private var allStations: List<StationWithAvailability> = emptyList()
+
+    /**
+     * Where the user is, when that orders the list (SPEC §7.2).
+     *
+     * Read once, when the screen asks for it, and not on every refresh: a list
+     * that reorders itself while being read is worse than one ordered a little
+     * late.
+     */
+    private var orderingPosition: Coordinates? = null
+
+    /**
+     * The letters accent removal cannot reach, for the search field.
+     *
+     * A network names its stops in its own language — "Ludwigsstraße",
+     * "Białostocka" — and its rider types on whatever keyboard they have
+     * (SPEC §4.3). Read off the main thread, because the rules sit in files and
+     * this field filters on every keystroke; until they arrive the fold is the
+     * plain one, and the list is filtered again as soon as they do.
+     */
+    private var letterFolds: Map<Char, String> = emptyMap()
+
+    /** The favourites' identifiers, in the order the user gave them. */
+    private var favouriteIdList: List<String> = emptyList()
+
+    init {
+        viewModelScope.launch {
+            letterFolds = readLetterFolds()
+            mutableState.update { it.copy(stations = visibleStations(it.query)) }
+        }
+    }
+
+    init {
+        viewModelScope.launch {
+            repository.observeStations().collect { snapshot ->
+                allStations = snapshot.stations
+                mutableState.update { current ->
+                    current.copy(
+                        stations = visibleStations(current.query),
+                        fetchedAt = snapshot.fetchedAt,
+                        hasLoadedOnce = true,
+                        favourites = favouritesHeadingTheList(
+                            allStations,
+                            favouriteIdList,
+                            current.query,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+
+    init {
+        viewModelScope.launch {
+            favouriteIds.collect { identifiers ->
+                favouriteIdList = identifiers
+                mutableState.update { current ->
+                    current.copy(
+                        favourites = favouritesHeadingTheList(
+                            allStations,
+                            identifiers,
+                            current.query,
+                        ),
+                    )
+                }
+            }
+        }
+    }
+
+    /**
+     * Orders the list by proximity, if the position allows it.
+     *
+     * Called by the screen when it appears, and it orders **twice**, which is
+     * one step more than it looks. What the system already holds comes first
+     * and costs nothing: arriving from the map, that is the very point the map
+     * was drawing, and the list is in order before the eye has settled on it.
+     * Then a fix is asked for, because on a phone where nothing has asked for
+     * a position in a while the first step answers nothing at all — and that
+     * one can take a few seconds, so the list is read as it stands meanwhile
+     * and settles when the fix arrives.
+     *
+     * Without a usable position — refused, switched off, not obtained, or
+     * outside the served city — the alphabetical order stays, and nothing at
+     * all is asked of the user: no permission prompt, no message.
+     *
+     * **An order already settled is left alone.** This model outlives the
+     * screen, so a rotation calls this again over a position the user waited
+     * for at the button, and what the system holds is not always as good as
+     * what was fetched — a two-minute-old network fix would take the place of
+     * a satellite one and reshuffle the list under the eye.
+     */
+    fun orderByProximity() {
+        if (orderingPosition != null) return
+        viewModelScope.launch {
+            positionAlreadyKnown()?.let { orderFrom(it) }
+            // Kept where the fix comes to nothing: an order already given is
+            // better than the alphabet it would fall back to.
+            positionForOrdering()?.let { orderFrom(it) }
+        }
+    }
+
+    /**
+     * Orders the list from a position the user has just asked for.
+     *
+     * The other way in, and the one that answers a button rather than the
+     * screen appearing. The two differ in what they may ask of the user:
+     * [orderByProximity] takes what it can get in silence, whereas a press
+     * may put the permission dialog up and must answer a refusal in words.
+     * The screen fetches that fix itself and hands it over here, so the wait,
+     * the permission and the refusal stay its business and this model goes on
+     * knowing nothing of Android (SPEC §14).
+     *
+     * @param position where the user stands, or `null` to go back to the
+     *   alphabet.
+     */
+    fun orderFrom(position: Coordinates?) {
+        orderingPosition = position
+        mutableState.update { current ->
+            current.copy(
+                stations = visibleStations(current.query),
+                orderingOrigin = position,
+            )
+        }
+    }
+
+    /** The stations to show: those the search keeps, in the order that suits. */
+    private fun visibleStations(query: String): List<StationWithAvailability> = orderStations(
+        filterStations(allStations, query, letterFolds),
+        orderingPosition,
+        nameOrder,
+    )
+
+    /**
+     * Takes a new search query into account.
+     *
+     * Filtering happens on every keystroke, without debouncing: it walks a few
+     * hundred entries already in memory. It is the address search of SPEC §4.3,
+     * over hundreds of thousands of house numbers, that will need one.
+     */
+    fun onQueryChanged(query: String) {
+        mutableState.update { current ->
+            if (!current.searchWouldChangeTheList(query)) {
+                current
+            } else {
+                current.copy(
+                    query = query,
+                    stations = visibleStations(query),
+                    favourites = favouritesHeadingTheList(allStations, favouriteIdList, query),
+                )
+            }
+        }
+    }
+
+    /**
+     * Asks for the availability to be updated.
+     *
+     * @param force ignores the minimum delay between two calls. Reserved for
+     *   the pull-to-refresh gesture: an explicit request must never be answered
+     *   with a cache.
+     */
+    fun refresh(force: Boolean = false) {
+        if (mutableState.value.isRefreshing) return
+        viewModelScope.launch {
+            mutableState.update { it.copy(isRefreshing = true) }
+            // Lowered whatever the end, cancellation included: the age line
+            // says "loading" while this is up and no data exists, and a flag
+            // left raised would keep saying so over a refresh long given up.
+            val outcome = try {
+                repository.refresh(force = force)
+            } finally {
+                mutableState.update { it.copy(isRefreshing = false) }
+            }
+            if (outcome is Outcome.Failure) {
+                failures.tryEmit(outcome.error)
+            }
+        }
+    }
+
+    /** Builds the model with its dependencies, without an injection framework. */
+    class Factory(
+        private val repository: StationRepository,
+        private val positionAlreadyKnown: suspend () -> Coordinates? = { null },
+        private val positionForOrdering: suspend () -> Coordinates? = { null },
+        private val readLetterFolds: suspend () -> Map<Char, String> = { emptyMap() },
+        private val nameOrder: Collator = Collator.getInstance(),
+        private val favouriteIds: Flow<List<String>> = emptyFlow(),
+    ) : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            require(modelClass.isAssignableFrom(StationsViewModel::class.java)) {
+                "unexpected model: ${modelClass.name}"
+            }
+            return StationsViewModel(
+                repository,
+                positionAlreadyKnown,
+                positionForOrdering,
+                readLetterFolds,
+                nameOrder,
+                favouriteIds,
+            ) as T
+        }
+    }
+}

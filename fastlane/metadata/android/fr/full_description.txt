@@ -1,0 +1,34 @@
+Roue Libre affiche les stations de vélos en libre-service sur une carte et calcule le meilleur trajet porte-à-porte : marche, vélo, marche.
+
+Tout se passe sur le téléphone : la carte, la recherche d’adresses et le calcul d’itinéraire n’ont besoin d’aucune connexion. Seule la disponibilité des vélos en temps réel passe par le réseau, lue directement sur le serveur de l’exploitant.
+
+<b>Le meilleur trajet, pas la station la plus proche</b>
+
+• Les stations de départ et d’arrivée sont choisies ensemble, d’après la disponibilité en direct : des vélos à prendre d’un côté, des places libres pour le rendre de l’autre.
+• Une station presque vide pèse moins lourd, car elle peut se vider pendant que tu marches.
+• Là où le réseau prête des vélos mécaniques et électriques, tu choisis lequel tu veux, et seules les stations qui en ont vraiment un comptent.
+• L’itinéraire suit les pistes cyclables et compte le dénivelé.
+
+<b>Une carte faite pour le vélo</b>
+
+Les pistes cyclables tracées à part des rues, les bâtiments publics et les repères pour s’orienter à vue, et sur chaque station ce que le réseau prête : vélos mécaniques, électriques, ou les deux.
+
+<b>Rien ne te suit</b>
+
+• Aucun service Google : ni Play Services, ni Firebase, ni Maps SDK.
+• Aucune télémétrie, aucun mouchard, aucun identifiant, aucun compte.
+• Aucun historique : ni positions, ni destinations. Ce que tu cherches ne quitte pas le téléphone.
+
+<b>Les villes servies</b>
+
+Plus de 350 réseaux dans près de 40 pays, de Vélib’ à Paris à Citi Bike à New York, en passant par Montréal, Prague, Barcelone, Dubaï et Buenos Aires. Aucune ville n’est imposée : l’application te propose la tienne d’après ta position, et tu peux en garder plusieurs.
+
+Roue Libre ne sert que les réseaux qui publient leurs stations au format GBFS, le standard ouvert des vélos en libre-service, dans un flux public et sans clé. Si ta ville manque, c’est que son réseau ne publie pas un tel flux : c’est à lui ou à l’autorité des transports qu’il faut le demander.
+
+<b>À savoir avant d’installer</b>
+
+La carte, le graphe de routage et l’index d’adresses ne sont pas dans l’application : ils se téléchargent une seule fois, quand tu le décides, et leur poids est annoncé avant (une dizaine de mégaoctets pour une ville moyenne, davantage pour une capitale). Ce sont des fichiers de données et rien d’autre, que tu peux aussi produire toi-même avec les scripts du dépôt.
+
+Roue Libre est une application indépendante, sans lien avec les réseaux qu’elle dessert ni avec leurs exploitants.
+
+Logiciel libre sous licence GNU GPL v3.
